@@ -1,86 +1,40 @@
-\chapter{Introdução}%
+\chapter{Introduction}%
 \label{chapter:introduction}
 
 \begin{introduction}
 A short description of the chapter.
 
-A memorable quote can also be used.
-\end{introduction}
+A memorable quote can also be used. asas
+\end{introduction} 
 
 
+\section{Motivation}
 
-\section{Acrónimos}
-
-Primeira e seguintes referências: \ac{h2o}, \ac{h2o}
-
-Plural, acrónimo expandido e curto: \acp{h2o}, \acl{h2o}, \acs{h2o}
-
-Com citação\footnote{Necessária entrada na bibliografia}: \ac{adsl}, \ac{adsl}
+In the past few years, the vehicle sharing market has seen a significant growth, due to the global interest in sustainability and environmental issues. [1]
+The bike-sharing market, in particular, has gained popularity from the governments worldwide [2] [3] [4] [5], which are investing in cycling infrastructure such as cycling lanes, secure parking facilities, bicycle production and repair industries [3][4][5].
+This attention to this sector raise the need for efficient vehicle maintenance solutions.
 
 
-\section{Fontes}
+    
+The fast progress of tecnology can prove to be a valuable ally in this matter. 
+From the use of IoT devices with machine learning algorithms to monitor the vehicles health [22], 
+to the use of task management software to manage the maintenance tasks [23], 
+there are a large range of solutions that can be implemented to improve the efficiency of the maintenance process.
+The creation of a software that facilitates and organizes the work at the garages and dealerships is more oriented to the subject of this dissertation. 
 
-\begin{itemize}
-\item{\tiny Tiny}
-\item{\scriptsize Scriptsize}
-\item{\footnotesize Footnotes}
-\item{\small Small}
-\item{\normalsize Normal}
-\item{\large large}
-\item{\Large Large}
-\item{\LARGE LARGE}
-\item{\huge huge}
-\item{\Huge Huge}
-\end{itemize}
+\section{Objectives and problems}
 
-\section{Unidades}
+The work in a vehicle maintenance service provider may be organize by manual input wtih applications like Visual Basic, Escel, Word and paper documents. [23] 
+This may introduce accidental human erros, which in turn lead to the managers' intuintion to make a decision based on the data. [23]
+This type of apporach may not be very prejudice in a small business, but the continuous growth of the company requires a more modern method to handle the huge amount of work and achieve continuous success. [23]
 
-Utilizando o pacote \verb|siunitx| é possível utilizar unidades do Sistema Internacional. Exemplo: a aceleração da gravidade é de \SI{9.8}{\metre\per\second\squared} e um ficheiro ocupa \SI{1}{\mebi\byte}. 
+This dissertation will focus on the development of a web aplication that facilitates and increase the performence of the work at the dealership.
+To accomplish this, the aplication will allow, simultaneously, to share information, manage and control a shared vehicle dealership network.
+It will also interact with a factory data warehouse to gather information and to store data generated from the maintenance process. 
 
-\section{Code Blocks}
-%\lipsum[5]
-Uma listagem pode ser apresentada com o ambiente \texttt{listing}, que é um float (objeto flutuante, tal como uma figura ou uma tabela).
+This presents a significant challenge related to the users that work at the dealerships and garages. 
+This users may be already acustumated to their own systems or there manual labor of work.  
+The introduction of a new system may be a challenge to the users, so the system must be user-friendly, easy to use and provide a significant value in their work.
 
-A listagem em Código~\ref{lbl:snippet-test} mostra um exemplo em C.
+\section{Structure of the Thesis}
 
-\begin{listing}[h]
-\begin{minted}{c}
-
-#include <stdio.h>
-#define N 10
-/* Block
- * comment */
- 
-int main()
-{
-    int i;
- 
-    // Line comment.
-    puts("Hello world!");
- 
-    for (i = 0; i < N; i++)
-    {
-        puts("LaTeX is also great for programmers!");
-    }
- 
-    return 0;
-}
-\end{minted}
-\caption{This caption appears below the code.}
-\label{lbl:snippet-test}
-\end{listing}
-
-%\lipsum[5]
-
-\section{Citações}
-
-Algumas formas distintas de citar:
-
-\begin{itemize}
-    \item \textbf{Apenas referência}:~\cite{rfc44}
-    \item \textbf{Apenas data}:~\citedate{rfc44}
-    \item \textbf{Apenas ano}:~\citeyear{rfc44}
-    \item \textbf{Apenas autor}:~\citeauthor{rfc44}
-    \item \textbf{Apenas editor}:\citelist{rfc44}{organization}
-    \item \textbf{Autor e referência}:\citet{rfc44}
-\end{itemize}

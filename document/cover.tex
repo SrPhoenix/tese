@@ -72,13 +72,13 @@
 
 %%% Edit thesis year
 %% Thesis Year
-\ThesisYear{\the\year}
+\ThesisYear{2025}
 
 
 %%% Uncomment one of the following options:
-%\DocumentTypeThesis
-%\DocumentTypeThesisProposal
-\DocumentTypeDissertation
+\DocumentTypeThesis
+% \DocumentTypeThesisProposal
+% \DocumentTypeDissertation
 
 %%% Uncomment if you are a student of a MAP Doctoral program 
 %%% http://www.map.edu.pt/
@@ -92,18 +92,18 @@
 
 %%% Edit author's name
 %% Author's full name
-\Author{FIRST NAME\\LAST NAME}
+\Author{Vicente\\Costa}
 
 %%% Edit thesis title in Portuguese
 %% Thesis Mandatory Title in Portuguese
-\TitlePT{TÍTULO DA TESE (MÁXIMO 130 CARACTERES)}
+\TitlePT{Aplicação para Partilha de Informação, Gestão e Controlo de uma rede de concessionários de veículos partilhados}
 
 %%% OPTIONAL: you can write your thesis title in
 %%%  other languages. You can repeat the following
 %%%  line as many times as you want, or remove it
 %%%  if you only want the portuguese title.
 %% Optional Titles in additional languages.
-\TitleEN{THESIS TITLE (MAX 130 CHARACTERS)}
+\TitleEN{Aplication for Information Sharing, Management and Control of a network of shared vehicle dealers}
 
 %%% Edit your supervisor's information.
 %%%
@@ -126,7 +126,7 @@
 %%% | auxiliar convidado        |
 %%% -----------------------------
 %% Supervisor information
-\Supervisor{(nome do orientador)}{associado}
+\Supervisor{Joaquim Manuel Henriques de Sousa Pinto}{associado}
 
 %%% OPTIONAL: you can add a second supervisor.
 %%%
@@ -150,13 +150,13 @@
 %%%             for the last enumerated Supervisor; Or
 %%%             nothing {} for all other supervisors 
 %% Optional SecondSupervisor information
-\SupervisorMember{(co-orientador)}{auxiliar convidado}{do Departamento de Matemática}{da Universidade de Aveiro}{}
+\SupervisorMember{(co-orientador)}{Tiago Oliveira}{do Departamento de Informatica}{da empresa Lightenjin}{}
 
 %%% Repeat the above declaration for additional
 %%%  Supervisor members as many times as necessary.
 %% Additional Supervisor members
-\SupervisoraMember{(co-orientadora)}{associada c/ agregação}{do Departamento de Biologia}{da Universidade de Aveiro}{}
-\SupervisorMember{(co-orientador)}{auxiliar convidado}{do Departamento de Física}{da Universidade de Aveiro}{e }
+% \SupervisoraMember{(co-orientadora)}{associada c/ agregação}{do Departamento de Biologia}{da Universidade de Aveiro}{}
+% \SupervisorMember{(co-orientador)}{auxiliar convidado}{do Departamento de Física}{da Universidade de Aveiro}{e }
 
 %%% Edit your degree information.
 %%%
@@ -165,7 +165,7 @@
 %%% title: Degree title (Mestre or Doutor)
 %%% name : Degree name
 %% Degree title and name
-\Degree{Mestre}{Engenharia de Computadores e Telemática}
+\Degree{Mestre}{Engenharia de Computadores e Informática}
 
 %%% OPTIONAL: edit grant support texts where
 %%%  appropriate. Maximum two.
@@ -181,7 +181,7 @@
 
 %%% Edit the Jury President information.
 %% First Member will be the President of the Jury
-\JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+% \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
 
 %%% Repeat the above declaration for additional
 %%%  members of the jury as many times as necessary.
@@ -196,14 +196,19 @@
 
 %%% OPTIONAL: Add an acknowledgement text
 %% Optional Acknowledgement text
-\Acknowledgements{Agradeço toda a ajuda a todos os meus colegas e companheiros.}
+\Acknowledgements{Agradeço toda a ajuda e apoio da minha família que me apoiou não só neste trabalho, mas ao longo da minha vida. 
+aos meus colegas de trabalho que me sempre ajudaram quando precisava. 
+Agradeço também à minha família que me apoiou desde o ínicio a seguir estudos e a tomar decisões. 
+Agradeço também aos meus amigos de longa data, que tiveram sempre presentes e me ajudaram a crescer. 
+Agradeço também à empresa pela oportunidade de trabalho, apoio e motivação que deram. 
+Agradeço também ao meu orientador que me deu esta oportunidade e ajudou a perceber o que é necessário para fazer um bom trabalho.}
 
 %%% Edit the keywords and abstract in Portuguese
 %%% Don't forget to remove the \blindtext[3]
 %%%  declaration.
 %%% Don't remove the \selectlanguage statement or you will end with incorrect hyphenation
 %% Mandatory Keywords and Abstract in Portuguese
-\Abstract{palavras-chave}{texto livro, arquitetura, história, construção, materiais de construção, saber tradicional.}
+\Abstract{palavras-chave}{veículos partilhados, concessionários, veículos elétricos, manutenção, aplicação web.}
          {resumo}{\selectlanguage{portuguese}Um resumo é um pequeno apanhado de um trabalho mais longo (como uma tese, dissertação ou trabalho de pesquisa). O resumo relata de forma concisa os objetivos e resultados da sua pesquisa, para que os leitores saibam exatamente o que se aborda no seu documento.\\Embora a estrutura possa variar um pouco dependendo da sua área de estudo, o seu resumo deve descrever o propósito do seu trabalho, os métodos que você usou e as conclusões a que chegou.\\Uma maneira comum de estruturar um resumo é usar a estrutura IMRaD. Isso significa: \begin{itemize} \item Introdução \item Métodos \item Resultados \item Discussão \end{itemize} Veja mais pormenores aqui:\\\texttt{https://www.scribbr.com/dissertation/abstract/}}
 
 %%% OPTIONAL: you can write the keywords and
@@ -213,19 +218,14 @@
 %%% Don't remove the \selectlanguage statement or you will end with incorrect hyphenation.
 %%% You can modify the language to any other supported by Latex
 %% Optional Keywords and Abstract in additional languages.
-\Abstract{keywords}{textbook, architecture, history, construction, construction materials, traditional knowledge.}
+\Abstract{keywords}{shared vehicles, dealerships, eletric vehicles, maintenance, web aplication.}
          {abstract}{\selectlanguage{english}An abstract is a short summary of a longer work (such as a thesis, dissertation or research paper).\\The abstract concisely reports the aims and outcomes of your research, so that readers know exactly what your paper is about.\\Although the structure may vary slightly depending on your discipline, your abstract should describe the purpose of your work, the methods you’ve used, and the conclusions you’ve drawn.\\One common way to structure your abstract is to use the IMRaD structure. This stands for: \begin{itemize} \item Introduction \item Methods \item Results \item Discussion \end{itemize} Check for more details here:\\\texttt{https://www.scribbr.com/dissertation/abstract/}}
 
 
 %%% OPTIONAL: Acknowledge the use of AI Tools
-\AIUse{I acknowledge the use of [insert AI system(s) and link] to [specific use of generative artificial intelligence or other tasks].
-I acknowledge the use of [software, codes or platforms] to [specific use software, codes or platforms or to other tasks].
-\newline\newline
-{Example 1: I acknowledge the use of ChatGPT 3.5 (Open AI, https://chat.openai.com) to summarise the initial notes and to proofread the final draft and the use of 
-Office365 (Microsoft, https://www.office.com) for text writing and productivity.}
-\newline\newline
-{Example 2: No content generated by AI technologies has been used in this Thesis.}
-}
+\AIUse{Reconheço a utilização do ChatGPT 3.5 e 4.0 (Open AI, https://chat.openai.com), Perplexity AI (https://www.perplexity.ai/) e You Learn (https://app.youlearn.ai/) para refaser a gramática usada, resumir as notas iniciais e para rever o rascunho final. O resultado final foi alterado por mim para manter a coesão e dar o toque pessoal. Reconheço a utilização do Google Docs (Google, https://docs.google.com/) e Visual Studio Code (https://code.visualstudio.com/) com Copilot (Microsoft,https://copilot.microsoft.com/) para a escrita do texto.}
+
+\AIUse{I Recognize the use of ChatGPT 3.5 and 4.0 (Open AI, https://chat.openai.com), Perplexity AI (https://www.perplexity.ai/) and You Learn (https://app.youlearn.ai/) to rephrase the grammar used, summarize the initial notes and review the final draft. The final result was changed by me to maintain cohesion and give the personal touch. I recognize the use of Google Docs (Google, https://docs.google.com/) and Visual Studio Code (https://code.visualstudio.com/) with Copilot (Microsoft,https://copilot.microsoft.com/) for writing the text.}
 %Reconheço o uso de [inserir sistema(s) de IA e respetiva hiperligação] para [indicar utilização específica de IA ou outras tarefas]. Reconheço a utilização de [indicar software, código ou plataforma] para [indicar utilização específica de software, código ou platafoma ou para outras tarefas].
 %Exemplo 1: Reconheço a utilização do ChatGPT 3.5 (Open AI, https://chat.openai.com) para resumir as notas iniciais e para rever o rascunho final, a utilização do Office365 (Microsoft, https://www.office.com) para a escrita do texto.
 %Exemplo 2: Não foram utilizados no presente trabalho quaisquer conteúdos gerados por tecnologias de IA.
@@ -245,7 +245,7 @@ Office365 (Microsoft, https://www.office.com) for text writing and productivity.
 %%%  declaration). If you're writing your thesis
 %%%  in english uncomment the following line.
 %%% Set the proper language or you will end with incorrect hyphenation!
-%\selectlanguage{english}
+\selectlanguage{english}
 
 
 \MakeCover
