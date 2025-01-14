@@ -10,15 +10,30 @@ A memorable quote can also be used. asas
 
 \section{Arquitecture}
 
-The architecture of the system will have a MVC pattern. 
-The choice of this patter is substantiated by it's simple modificability [25], which is advantages in this situation since project is still not fully stablished and may receive some suggestion from the company along the way;
-it's easier way to debug and test the aplication; it's efficient development process; and my own familiaryty with the pattern. [25]
+The architecture of the application will have a \ac{MVC} pattern. 
+The \ac{MVC} pattern is a software design pattern that separates the application into three main components: Model, View, and Controller.[25] [26]
+The Model is responsable for the storage of data and the logic of the application.  [25] [26]
+It provides an abstraction layer of the database that allows data operation without the direct contact from the user interface. [26]
+It also controls the business logic of the application, such as calculations, data validation and data manipulation. [26]
 
-The choice of the tecnology to build the application will be the asp net core mvc. 
+The View represents the \ac{UI} of the application and is used to present the information from the Model component. [25] [26]
+This component is also responsable for the user's interactions. 
+It does not contain any logic of the application, only limits itself to the communication betwee the Controller and the user. [26]
+
+The Controller acts as an intermediary between the Model and View.
+It receives the user's input and it is responsable to process the data and update the Model based on the user's actions and update the view to give feedback of the changes maded. [25] [26]
+
+The \ac{MVC} pattern is a popular pattern for designing applications because it provides a clean separation of concerns, making it easier to maintain and test the application.
+The choice of this patter is substantiated by it's simple modificability [25], which is advantages in this situation since project is still not fully stablished and may receive some suggestion from the company along the way;
+it's easier way to debug and test the application; it's efficient development process; and my own familiaryty with the pattern. [25]
+
+The choice of the tecnology to build the application will be the asp net core \ac{MVC}. 
 I chose this tecnology because it's facility to integrate with the mysql database with the package Entity Framework Core. 
 This package provides a \ac{ORM} system that allows the developer to work with the database without writing SQL queries. 
 
-\section{Service Quality}
+\section{Management System}
+
+\section{Aplication Use Cases}
 The concept of service quality is well-documented, with the GAP model and SERVQUAL model being among the most recognized frameworks. SERVQUAL, in particular, provides a multidimensional approach for comparing consumers’ perceptions of service quality against their expectations. It emphasizes five core dimensions [12]:
 
 \begin{itemize}
@@ -31,4 +46,4 @@ The concept of service quality is well-documented, with the GAP model and SERVQU
 
 The GAP model, precedent from the SERVQUAL, also measures service quality by identifying the difference between customer expectations and actual perceptions. These gaps include discrepancies between customer expectations and management's understanding, management’s perceptions and service specifications, service specifications and actual delivery, actual delivery and communicated services, and expected and delivered service. [13]
 
-\section{Service Management for MAS Motors LLC}
+\section{Aplication Work flow}
