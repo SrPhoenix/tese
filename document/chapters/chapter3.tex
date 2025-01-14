@@ -17,24 +17,36 @@ It provides an abstraction layer of the database that allows data operation with
 It also controls the business logic of the application, such as calculations, data validation and data manipulation. [26]
 
 The View represents the \ac{UI} of the application and is used to present the information from the Model component. [25] [26]
-This component is also responsable for the user's interactions. 
-It does not contain any logic of the application, only limits itself to the communication betwee the Controller and the user. [26]
+This component is also responsable for the user's interactions and it does not contain any logic of the application, only limits itself to the communication between the Controller and the user. [26]
 
 The Controller acts as an intermediary between the Model and View.
 It receives the user's input and it is responsable to process the data and update the Model based on the user's actions and update the view to give feedback of the changes maded. [25] [26]
 
-The \ac{MVC} pattern is a popular pattern for designing applications because it provides a clean separation of concerns, making it easier to maintain and test the application.
-The choice of this patter is substantiated by it's simple modificability [25], which is advantages in this situation since project is still not fully stablished and may receive some suggestion from the company along the way;
-it's easier way to debug and test the application; it's efficient development process; and my own familiaryty with the pattern. [25]
+This pattern is popular for designing designing applications because it provides a clean separation of concerns. This separation, increases the maintainability and reusability of the code, facilitates the creation of the test and turns the application more scalable. [25] [26]
+The \ac{MVC} pattern is a popular pattern for designing applications because it provides a clean separation of concerns, making it easier to maintain and test the application. [25] [26]
+This requirements are advantageous, since the functional requirements of the project are not fully stablished and may receive some suggestion from the company along the way. 
+The scalability is also important since the aim market of this application are the company's dealerships that may be scattered across the country or even Europe.
 
-The choice of the tecnology to build the application will be the asp net core \ac{MVC}. 
-I chose this tecnology because it's facility to integrate with the mysql database with the package Entity Framework Core. 
-This package provides a \ac{ORM} system that allows the developer to work with the database without writing SQL queries. 
+The framework the application will be built with is the Asp Net Core MVC. 
+I believe this approach will be better than following the successful application from the authors ... from the paper [....] for multiple reasons.
+The integration with the microsoft framework MYSQL database is more simple when using ASP.NET Core due to the package Entity Framework [https://learn.microsoft.com/en-us/aspnet/entity-framework]. 
+Laravel also supports this database interaction, but Asp Net Core MVC is more suitable for this environment. [18]
+Additionally, Laravel loses in performance with the Compiled Language ASP.NET since it is a Interpreted language. 
+In security, larabel offers some security features like hashing or secure input validation, but requires deeper PHP knowledge and proactive vulnerability management. 
+Microsoft offers greater security tools that provides a major abstraction to this concept and allows the develop to focus on the application functionalities. [18]
 
-\section{Management System}
+Despite all of this advantages, the main reason to use this framework and pattern is to integrate with the Fleet Management System that has the same approach. 
+Since i was involved in the project i am familiar with this tecnology, so, even though ASP.NET can have a greater learning curve for unfamiliar developers [18], I am not in that category.
+
+
+\section{Fleet Management System}
+The Fleet Management System is a platform design for owners of a vehicle sharing system to manage their equipment. 
+This platform shows the equipment information and interactions, alerts, statistics and user trips. 
+It has a functionality to assign permissions and a role to a user, which it'll be beneficious in a use case that i will mention in the next chapter.   
 
 \section{Aplication Use Cases}
-The concept of service quality is well-documented, with the GAP model and SERVQUAL model being among the most recognized frameworks. SERVQUAL, in particular, provides a multidimensional approach for comparing consumers’ perceptions of service quality against their expectations. It emphasizes five core dimensions [12]:
+Based on the work done by the author... in the paper .... i divided the application into 4 main users: recepcionist, mecanic, warehouse, operator and administrator.
+The recepcionist will be responsable to interact with the client 
 
 \begin{itemize}
     \item Reliability – Consistently delivering services as promised.
@@ -43,7 +55,5 @@ The concept of service quality is well-documented, with the GAP model and SERVQU
     \item Empathy – Providing personalized service and treating customers as individuals.
     \item Tangible Elements – Highlighting the physical aspects and material representation of the service.
   \end{itemize}
-
-The GAP model, precedent from the SERVQUAL, also measures service quality by identifying the difference between customer expectations and actual perceptions. These gaps include discrepancies between customer expectations and management's understanding, management’s perceptions and service specifications, service specifications and actual delivery, actual delivery and communicated services, and expected and delivered service. [13]
 
 \section{Aplication Work flow}
