@@ -102,7 +102,7 @@ The Use cases of the recepcionist are:
     \begin{itemize}
       \item Scenario – A new vehicle needs to be analyzed.
       \item Objective – Confirm the inicial analysis of the receptionist and search for additional problems.
-      \item System – The mechanic enters the problems he finds in the vehicle into the system, as well as tasks that need to be done. 
+      \item System – The mechanic enters the problems he finds in the vehicle into the system. 
     \end{itemize}
     \item Use Case 2.3 – Prepare a list of necessary parts
     \begin{itemize}
@@ -110,18 +110,18 @@ The Use cases of the recepcionist are:
       \item Objective – Elaborate a request of vehicle parts for the warehouse.
       \item System – The mecanic selects the parts of the vehicle that need to be replaced and sends a request with the new parts to the warehouse.
     \end{itemize}
-    \item Use Case 2.4 – Deliver damaged parts to the Warehouse
+    \item Use Case 2.4 – Collect the requested parts in the Warehouse
+    \begin{itemize}
+      \item Scenario – The mechanic goes to the warehouse to collect new parts for the vehicle.
+      \item Objective – Collect parts to replace the damaged parts in the vehicle.
+      \item System – The mecanic add the new parts to the vehicle in the system.
+    \end{itemize}
+    \item Use Case 2.5 – Deliver damaged parts to the Warehouse
     \begin{itemize}
       \item Scenario – The mecanic goes to the warehouse to deliver the damaged parts.
       \item Objective – Register the parts as being damaged.
       \item System – The mecanic removes the damaged parts from the vehicle and change the status to damaged.
     \end{itemize}
-  \item Use Case 2.5 – Collect the requested parts in the Warehouse
-  \begin{itemize}
-    \item Scenario – The mechanic goes to the warehouse to collect new parts for the vehicle.
-    \item Objective – Collect parts to replace the damaged parts in the vehicle.
-    \item System – The mecanic add the new parts to the vehicle in the system.
-  \end{itemize}
 \item Use Case 2.6 – Vehicle maintenance
 \begin{itemize}
   \item Scenario – A new vehicle is ready for a maintenance.
@@ -235,5 +235,45 @@ After the development of the use cases i designed a flow chart to understand the
   \label{fig:figure2}
 \end{figure}
 
-The system main flow starts with the Use Case 1.1 when a Client arrives at the dealership for a vehicle maintenance. 
-The recepcionist does a inicial a evaluation of the vehicle (if its the case) and get some inputs from the client 
+The system main flow starts when a Client arrives at the dealership for a vehicle maintenance. 
+The recepcionist does a inicial a evaluation of the vehicle (in some cases) and get some inputs from the client. 
+From that information he decides a inicial budget and check-out date agreed with the Client and insert the information in the system (Use Case 1.1).
+After that, the admin will receive a notification of the new created maintenance and will assign the tasks to each worker (Use Case 4.5).
+
+When the worker responsable for do the analysis of the vehicle terminates, he will add to the system all the problem he finds and the necessary parts that need to be replaced (Use Case 2.2 and 2.3).
+If the budget to complete the work or the expected time changes, an alert is sent to the receptionist to inform the Client (Use Case 1.4). 
+The result of this interaction must be authorize the changes and continue the work; not authorize the changes but continue as inicially agreed; and 
+In the case of the Client not authorizing the changes and wanting to check out the vehicle, the vehicle is delivery and the app will request the client to rate the service (Use Case 1.2 and 5.3). 
+If the client does not authorize the changes but wants the maintenance to continue as inicially agreed, the maintenance process continues as if the client authorizing the changes. 
+The maintenance process information would only be alterated.
+
+From there on, the maintenance process can or can not require the need to a vehicle part to be replaced. 
+In the negative case the vehicle goes to the responsable mecanic to do the oil change, tire change, wash, etc (Use Case 2.6). 
+In the affirmative case, the mecanic removes the damaged parts from the vehicle and delivers it to the warehouse (Use Case 2.4).
+There the Warehouse Operator will check if the parts the mecanic request are available in stock. 
+If it does, the operator accepts the request and delivers the parts to the mecanic, which will replace the parts of the vehicle, add it to the system and do the maintenance (Use Case 2.5 and 2.6). 
+If it doesn't, the operator need to buy new parts from the supplier, so he iniciates a new requesting purchase that can be authorized by the admin. 
+In the optimal case, the admin accepts the purchase, the operator buy the new parts, register them in the system and delivers them to the mecanic. 
+In the worst scenario, the admin reject the purchase and the mecanic needs to request new parts and restart the process (Use Case 2.3).    
+
+Finally, when the vehicle maintenance is finished, the mecanic inserts into the system all operations and tests carried out as well as their results (Use Case 2.7). 
+The system notifies the customer that the vehicle is ready for the check out and, when the recepcionist delivers the vehicle to the Customer, the client application ask for the client to rate the system (Use Case 5.2, 1.2 and 5.3).
+
+There are also afew secondary flows visible in the figure \ref{fig:figure2}. 
+This flows are listed below:
+\begin{itemize}
+  \item The client enters the aplication to check the status of the maintenance (Use case 5.1);
+  \item The mecanic enters the application to view the task he has to do (Use Case 2.1); 
+  \item The Warehouse Operator enters the aplication to visualize the diverse parts and components in the warehouse (Use case 3.1); 
+  \item The Admin enters the application to assign roles and/or permission to the employees (Use Case 4.4); 
+  \item The Admin enters the application to gather information about a maintenance performed and see statistics about tha information (Use Case 4.2 and 4.3); 
+\end{itemize}
+
+
+
+
+
+
+
+
+
