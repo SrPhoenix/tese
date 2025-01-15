@@ -45,15 +45,112 @@ This platform shows the equipment information and interactions, alerts, statisti
 It has a functionality to assign permissions and a role to a user, which it'll be beneficious in a use case that i will mention in the next chapter.   
 
 \section{Aplication Use Cases}
-Based on the work done by the author... in the paper .... i divided the application into 4 main users: recepcionist, mecanic, warehouse, operator and administrator.
-The recepcionist will be responsable to interact with the client 
+Based on the work done by the author... in the paper .... i divided the application into 4 main users: recepcionist, mecanic, warehouse operator and administrator.
+
+The recepcionist will be responsable to interact with the client, this includes the vehicle check-in and check-out and user comunication in the case of changes in the inicial stablished price and vehicle actions. 
+The Use cases of the recepcionist are:
 
 \begin{itemize}
-    \item Reliability – Consistently delivering services as promised.
-    \item Responsibility – Ensuring accuracy, a willingness to assist, and timely service.
-    \item Assurance – Demonstrating employee knowledge, politeness, and trustworthiness.
-    \item Empathy – Providing personalized service and treating customers as individuals.
-    \item Tangible Elements – Highlighting the physical aspects and material representation of the service.
+    \item Use Case 1.1 – Vehicle Reception
+    \begin{itemize}
+      \item Scenario – Client arrives at the dealership with a vehicle to be repaired.
+      \item Objective – Create a new maintenance request in the system.
+      \item System – The receptionist insert in the a form all the information about the initial maintenance request from the client as well as some superficial problem he can find and creates a new maintenance request with the date and budget agreed with the client. 
+    \end{itemize}
+    \item Use Case 1.2 – Vehicle Delivery 
+    \begin{itemize}
+      \item Scenario – The Recepcionist delivered the vehicle to the Client.
+      \item Objective – Complete the vehicle maintenance process.
+      \item System – Sends a report in a pdf format to the client with the information of the maintenance request and alters the maintenance request status in the system to concluded. 
+    \end{itemize}
+    \item Use Case 1.3 – Collect information about a maintenance request
+    \begin{itemize}
+      \item Scenario – A Client call the dealership to ask about the maintenance of his vehicle.
+      \item Objective – Visualize the maintenance information.
+      \item System –  The Receptionist searches a list of maintenance requests by vehicle/customer name/maintenance ID and, by clicking on the element details button, he can view the maintenance details.
+    \end{itemize}
+    \item Use Case 1.4 – Asking for customer permission
+    \begin{itemize}
+      \item Scenario – O problem in a vehicle maintenance has occurred and the inicial agreement with client may be broken.
+      \item Objective – Inform the client of the problem and achieve an agreement.
+      \item System – The Receptionist receives an alert that there has been a change in the initial maintenance budget for a vehicle and/or a change in the maintenance completion deadline, so he needs to contact the customer to inform him. Depending on customer feedback, the receptionist accepts the request, declines the request or terminates the maintenance.
+    \end{itemize}
+  \end{itemize}  
+  \hfill \break
+
+
+  The mecanic will be responsable to do the maintenance in the vehicle, like oil change, tire change, trade vehicle parts, etc. 
+  It will previously evaluate the vehicle, to assure the inicial evaluation of the recepcionist isn't lacking, and after the maintenance is done, it will write a report of the operations done. 
+  The mecanic Use cases are:
+
+  \begin{itemize}
+    \item Use Case 2.1 – View to-do list
+    \begin{itemize}
+      \item Scenario – The mecanic arrives at dealership and wants to see what tasks he has to do today.
+      \item Objective – See the day's work organization.
+      \item System – The mecanic watches a list of tasks that were assign from the administrator, as soon as he enters the system. Each task is accompany by a description, a priority, the vehicle identification, a set of actions to be performed and comments from other users. 
+    \end{itemize}
+    \item Use Case 2.2 – Carry out a vehicle analysis 
+    \begin{itemize}
+      \item Scenario – A new vehicle needs to be analyzed.
+      \item Objective – Confirm the inicial analysis of the receptionist and search for additional problems.
+      \item System – The mechanic enters the problems he finds in the vehicle into the system, as well as tasks that need to be done. 
+    \end{itemize}
+    \item Use Case 2.3 – Prepare a list of necessary parts
+    \begin{itemize}
+      \item Scenario – After vehicle analysis.
+      \item Objective – Elaborate a request of vehicle parts for the warehouse.
+      \item System – The mecanic selects the parts of the vehicle that need to be replaced and sends a request with the new parts to the warehouse.
+    \end{itemize}
+    \item Use Case 2.4 – Deliver damaged parts to the Warehouse
+    \begin{itemize}
+      \item Scenario – The mecanic goes to the warehouse to deliver the damaged parts.
+      \item Objective – Register the parts as being damaged.
+      \item System – The mecanic removes the damaged parts from the vehicle and change the status to damaged.
+    \end{itemize}
+  \item Use Case 2.5 – Collect the requested parts in the Warehouse
+  \begin{itemize}
+    \item Scenario – The mechanic goes to the warehouse to collect new parts for the vehicle.
+    \item Objective – Collect parts to replace the damaged parts in the vehicle.
+    \item System – The mecanic add the new parts to the vehicle in the system.
   \end{itemize}
+\item Use Case 2.6 – Vehicle maintenance
+\begin{itemize}
+  \item Scenario – A new vehicle is ready for a maintenance.
+  \item Objective – The mechanic will do the vehicle maintenance (oil change, tire change, vehicle wash…).
+  \item System – The mechanic sees a set of tasks that he needs to do to complete the vehicle maintenance and whenever he finishes a task, he marks it as completed.
+\end{itemize}
+\item Use Case 2.7 – Making the repair report
+\begin{itemize}
+  \item Scenario – After vehicle maintenance.
+  \item Objective – Conclude the maintenance of a vehicle.
+  \item System – The Mechanic enters into the system all operations and tests carried out on the system as well as their results.
+\end{itemize}
+\end{itemize}
+\hfill \break
+
+The warehouse operator is responsable to manage the dealer's stock and ask for suplies, so i write the following use cases:
+
+\begin{itemize}
+  \item Use Case 3.1 – View the different parts that the warehouse possess
+  \begin{itemize}
+    \item Scenario – The warehouse worker wants to view the quantity of a certain parts that the warehouse possess.
+    \item Objective – Show quantitative warehouse information.
+    \item System – List of all parts and their quantities that the warehouse possess. 
+  \end{itemize}
+  \item Use Case 3.2 – Requesting purchasing service 
+  \begin{itemize}
+    \item Scenario – The warehouse worker discovers that he has an insufficient number of parts for maintenance or anticipates that this part will be missing soon.
+    \item Objective – Request permission to purchase parts from the supplier.
+    \item System – The Warehouse Worker will place a purchase order for parts. The system notifies the administrator via the platform and by email requesting authorization to do the purchase. 
+  \end{itemize}
+  \item Use Case 3.3 – Registration of new parts in the System
+  \begin{itemize}
+    \item Scenario – The warehouse purchased several parts from a supplier.
+    \item Objective – Register new parts in the system.
+    \item System – Warehouse operator adds a specific type of part to the system with its appropriate description and identification.
+  \end{itemize}
+\end{itemize}
+\hfill \break
 
 \section{Aplication Work flow}
