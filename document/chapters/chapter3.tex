@@ -38,14 +38,22 @@ Microsoft offers greater security tools that provides a major abstraction to thi
 Despite all of this advantages, the main reason to use this framework and pattern is to integrate with the Fleet Management System that has the same approach. 
 Since i was involved in the project i am familiar with this tecnology, so, even though ASP.NET can have a greater learning curve for unfamiliar developers [18], I am not in that category.
 
+Based on the feedback from the users in the study ... [23], where the authors refer a integration of a SMS notification system to remind customers of scheduled visits, i decided to integrate to this platform another application for the customers. 
+This application functionality is to notify the user about the progress of the maintenance and get feedback for the service provided at the dealership.
+It has the purpose of increasing the user satisfaction by keeping the client inform and gather information about future improvements.
+This application will be built as a \ac{PWA} in ASP.NET Core mvc, for convinience purpose and simplicity.
+
+To summarize, I will develop 2 application in this dissertation in ASP.NET Core to be integrated in the developed system at Lightmobie, one for the workers at the dealership and another for their clients.
+
 
 \section{Fleet Management System}
-The Fleet Management System is a platform design for owners of a vehicle sharing system to manage their equipment. 
+The Fleet Management System is a platform for owners of a vehicle sharing system to manage their equipment. 
 This platform shows the equipment information and interactions, alerts, statistics and user trips. 
 It has a functionality to assign permissions and a role to a user, which it'll be beneficious in a use case that i will mention in the next chapter.   
 
-\section{Aplication Use Cases}
-Based on the work done by the author... in the paper .... i divided the application into 4 main users: recepcionist, mecanic, warehouse operator and administrator.
+\section{Aplications Use Cases}
+
+The structure of the dealership application was based on the work of the author in the paper ... [11] and is separated into 4 key user roles: recepcionist, mecanic, warehouse operator and administrator.
 
 The recepcionist will be responsable to interact with the client, this includes the vehicle check-in and check-out and user comunication in the case of changes in the inicial stablished price and vehicle actions. 
 The Use cases of the recepcionist are:
@@ -153,4 +161,79 @@ The warehouse operator is responsable to manage the dealer's stock and ask for s
 \end{itemize}
 \hfill \break
 
-\section{Aplication Work flow}
+The last user of the application is the administrator or Workshop Manager. This user is in charge of managing the platform and the dealership. So the main use cases i encountered are:
+
+\begin{itemize}
+  \item Use Case 4.1 – Authorizing purchases
+  \begin{itemize}
+    \item Scenario –  The administrator received a purchase request.
+    \item Objective – Authorize or reject a purchase authorization request.
+    \item System – List of all purchase authorization requests, as well as their details. The administrator can change the status of this request, rejecting or authorizing. 
+  \end{itemize}
+  \item Use Case 4.2 – View history of maintenance performed
+  \begin{itemize}
+    \item Scenario – The administrator wants to gather information from recently performed maintenance.
+    \item Objective – View information about a specific maintenance that occurred.
+    \item System – List of all maintenance that occurred as well as its details (who carried it out, which parts were removed, the name of the customer, tests carried out and their results…). 
+  \end{itemize}
+  \item Use Case 4.3 – Develop statistics
+  \begin{itemize}
+    \item Scenario – The administrator wants to gather statistics on maintenance that was carried out in the last month.
+    \item Objective – View information about maintenance over a given period of time.
+    \item System – Presentation of the number of parts replaced, number of purchases, total price spent on new parts, remuneration for maintenance, average customer’s rating, etc.
+  \end{itemize}
+  \item Use Case 4.4 – Assign roles to employees
+  \begin{itemize}
+    \item Scenario – A new employee has been hired.
+    \item Objective –  Assign roles to new employee.
+    \item System – The administrator assigns the new employee a certain role and set of permissions.
+  \end{itemize}
+  \item Use Case 4.5 – Assign tasks to the employees
+  \begin{itemize}
+    \item Scenario – A new maintenance request has been requested.
+    \item Objective – Assign and organize tasks to different employees.
+    \item System – The administrator assigns the various stages of vehicle maintenance to the various workshop employees.
+  \end{itemize}
+\end{itemize}
+\hfill \break
+
+The client application will only be interacted by a role of users, the client.
+The use cases are listed below:
+
+\begin{itemize}
+  \item Use Case 5.1 – View current maintenance status
+  \begin{itemize}
+    \item Scenario – The Customer wants to find information regarding the vehicle maintenance procedure.
+    \item Objective – Display current maintenance status.
+    \item System – The system will illustrate all the maintenance steps that the vehicle has already undergone, as well as those that remain to be completed. 
+  \end{itemize}
+  \item Use Case 5.2 – Notify the customer of the end of maintenance 
+  \begin{itemize}
+    \item Scenario – Vehicle maintenance has been completed and the customer can now collect the vehicle.
+    \item Objective – Notify the user of the end of maintenance.
+    \item System – The system will show a native notification on the customer's cell phone informing that the vehicle is ready to be picked up. 
+  \end{itemize}
+  \item Use Case 5.3 – Rating of the service provided
+  \begin{itemize}
+    \item Scenario – The client receives the vehicle and the receptionist completes the maintenance process.
+    \item Objective – Get feedback from the client.
+    \item System – The system will show a form to the client asking about service provided. The crucial points are time of the service, service quality, user interaction and price.
+  \end{itemize}
+\end{itemize}
+\hfill \break
+
+With all of this use cases, both application should increase the efficiency of the work at the dealership and improve client loyalty to ensure profit.
+
+\section{Aplications Work flow}
+
+After the development of the use cases i designed a flow chart to understand the users' interaction with the system and each other. The chart is visible in figure \ref{fig:figure2}.
+
+\begin{figure}[h]
+  \caption{Use Case Flow Chart of the Client, Recepcionist, Mecanic, Warehouse Operator and administrator.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/UseCaseDiagram}
+  \label{fig:figure2}
+\end{figure}
+
+The system main flow starts with the Use Case 1.1 when a Client arrives at the dealership for a vehicle maintenance. 
+The recepcionist does a inicial a evaluation of the vehicle (if its the case) and get some inputs from the client 
