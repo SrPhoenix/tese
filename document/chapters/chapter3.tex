@@ -8,51 +8,23 @@ A memorable quote can also be used. asas
 \end{introduction} 
 
 
-\section{Arquitecture}
-
-The architecture of the application will have a \ac{MVC} pattern. 
-The \ac{MVC} pattern is a software design pattern that separates the application into three main components: Model, View, and Controller.[25] [26]
-The Model is responsable for the storage of data and the logic of the application.  [25] [26]
-It provides an abstraction layer of the database that allows data operation without the direct contact from the user interface. [26]
-It also controls the business logic of the application, such as calculations, data validation and data manipulation. [26]
-
-The View represents the \ac{UI} of the application and is used to present the information from the Model component. [25] [26]
-This component is also responsable for the user's interactions and it does not contain any logic of the application, only limits itself to the communication between the Controller and the user. [26]
-
-The Controller acts as an intermediary between the Model and View.
-It receives the user's input and it is responsable to process the data and update the Model based on the user's actions and update the view to give feedback of the changes maded. [25] [26]
-
-This pattern is popular for designing designing applications because it provides a clean separation of concerns. This separation, increases the maintainability and reusability of the code, facilitates the creation of the test and turns the application more scalable. [25] [26]
-The \ac{MVC} pattern is a popular pattern for designing applications because it provides a clean separation of concerns, making it easier to maintain and test the application. [25] [26]
-This requirements are advantageous, since the functional requirements of the project are not fully stablished and may receive some suggestion from the company along the way. 
-The scalability is also important since the aim market of this application are the company's dealerships that may be scattered across the country or even Europe.
-
-The framework the application will be built with is the Asp Net Core MVC. 
-I believe this approach will be better than following the successful application from the authors ... from the paper [....] for multiple reasons.
-The integration with the microsoft framework MYSQL database is more simple when using ASP.NET Core due to the package Entity Framework [https://learn.microsoft.com/en-us/aspnet/entity-framework]. 
-Laravel also supports this database interaction, but Asp Net Core MVC is more suitable for this environment. [18]
-Additionally, Laravel loses in performance with the Compiled Language ASP.NET since it is a Interpreted language. 
-In security, larabel offers some security features like hashing or secure input validation, but requires deeper PHP knowledge and proactive vulnerability management. 
-Microsoft offers greater security tools that provides a major abstraction to this concept and allows the develop to focus on the application functionalities. [18]
-
-Despite all of this advantages, the main reason to use this framework and pattern is to integrate with the Fleet Management System that has the same approach. 
-Since i was involved in the project i am familiar with this tecnology, so, even though ASP.NET can have a greater learning curve for unfamiliar developers [18], I am not in that category.
-
-Based on the feedback from the users in the study ... [23], where the authors refer a integration of a SMS notification system to remind customers of scheduled visits, i decided to integrate to this platform another application for the customers. 
-This application functionality is to notify the user about the progress of the maintenance and get feedback for the service provided at the dealership.
-It has the purpose of increasing the user satisfaction by keeping the client inform and gather information about future improvements.
-This application will be built as a \ac{PWA} in ASP.NET Core mvc, for convinience purpose and simplicity.
-
-To summarize, I will develop 2 application in this dissertation in ASP.NET Core to be integrated in the developed system at Lightmobie, one for the workers at the dealership and another for their clients.
 
 
-\section{Fleet Management System}
-The Fleet Management System is a platform for owners of a vehicle sharing system to manage their equipment. 
-This platform shows the equipment information and interactions, alerts, statistics and user trips. 
-It has a functionality to assign permissions and a role to a user, which it'll be beneficious in a use case that i will mention in the next chapter.   
+\section{Aplications Requirements}
 
-\section{Aplications Use Cases}
 
+To identify the requirements of the application, i used the FURPS model. 
+The non functional requirements are listed below:
+
+\begin{itemize}
+  \item Scalability – The system should be able to handle 500 users simultaneously without degradading the performance.
+  \item Reliability – The system should have a high availability of 99\% and the system also should not take longer then 4 hours to recover from a failure.
+  \item Performance – The system should not take longer then 2 seconds to respond.
+  \item Usability – The train of a new user should not take longer then 8 hours.
+  \item Suportability – The system should be suported on the web browsers Chrome, Firefox, Microsoft Edge and Safari.
+\end{itemize}
+
+For the functional requirements of the applications, i developed a set of use cases for each user.
 The structure of the dealership application was based on the work of the author in the paper ... [11] and is separated into 4 key user roles: recepcionist, mecanic, warehouse operator and administrator.
 
 The recepcionist will be responsable to interact with the client, this includes the vehicle check-in and check-out and user comunication in the case of changes in the inicial stablished price and vehicle actions. 
@@ -222,7 +194,8 @@ The use cases are listed below:
 \end{itemize}
 \hfill \break
 
-With all of this use cases, both application should increase the efficiency of the work at the dealership and improve client loyalty to ensure profit.
+With this requirements, both application should increase the efficiency of the work at the dealership and improve client loyalty to ensure profit.
+
 
 \section{Aplications Work flow}
 
