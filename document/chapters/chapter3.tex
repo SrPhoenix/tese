@@ -2,13 +2,13 @@
 \label{chapter:methodology}
 
 \begin{introduction}
-In this chapter, i will present the non functional requirements of both of the applications . 
+In this chapter, i will present the non functional requirements of the applications, as well as the use cases of the user that will interact with them. 
 \end{introduction} 
 
 
 
 
-\section{Aplications Requirements}
+\section{Aplications Requirements} 
 
 
 To identify the requirements of the application, i used the FURPS model. 
@@ -23,7 +23,7 @@ The non functional requirements are listed below:
 \end{itemize}
 
 For the functional requirements of the applications, i developed a set of use cases for each user.
-The structure of the dealership application was based on the work of the author in the paper ... [11] and is separated into 4 key user roles: recepcionist, mecanic, warehouse operator and administrator.
+The structure of the dealership application was based on the work of the author in the paper ... \cite{Setting_the_after_sale_process} and is separated into 4 key user roles: recepcionist, mecanic, warehouse operator and administrator.
 
 The recepcionist will be responsable to interact with the client, this includes the vehicle check-in and check-out and user comunication in the case of changes in the inicial stablished price and vehicle actions. 
 The Use cases of the recepcionist are:
@@ -58,7 +58,7 @@ The Use cases of the recepcionist are:
 
 
   The mecanic will be responsable to do the maintenance in the vehicle, like oil change, tire change, trade vehicle parts, etc. 
-  It will previously evaluate the vehicle, to assure the inicial evaluation of the recepcionist isn't lacking, and after the maintenance is done, it will write a report of the operations done. 
+  It will previously evaluate the vehicle, to assure the inicial evaluation of the recepcionist is not lacking, and after the maintenance is done, it will write a report of the operations done. 
   The mecanic Use cases are:
 
   \begin{itemize}
@@ -150,7 +150,7 @@ The last user of the application is the administrator or Workshop Manager. This 
   \begin{itemize}
     \item Scenario – The administrator wants to gather statistics on maintenance that was carried out in the last month.
     \item Objective – View information about maintenance over a given period of time.
-    \item System – Presentation of the number of parts replaced, number of purchases, total price spent on new parts, remuneration for maintenance, average customer’s rating, etc.
+    \item System – Presentation of the number of parts replaced, number of purchases, total price spent on new parts, remuneration for maintenance, average customer's rating, etc.
   \end{itemize}
   \item Use Case 4.4 – Assign roles to employees
   \begin{itemize}
@@ -223,7 +223,7 @@ From there on, the maintenance process can or can not require the need to a vehi
 In the negative case the vehicle goes to the responsable mecanic to do the oil change, tire change, wash, etc (Use Case 2.6). 
 In the affirmative case, the Warehouse Operator will check if the parts the mecanic request are available in stock. 
 If it does, the operator accepts the request and delivers the parts to the mecanic, which will replace the parts of the vehicle, add it to the system, deliver the damaged parts to the warehouse and do the maintenance (Use Case 2.4, 2.5 and 2.6). 
-If it doesn't, the operator need to buy new parts from the supplier, so he iniciates a new requesting purchase that can be authorized by the admin. 
+If it does not, the operator need to buy new parts from the supplier, so he iniciates a new requesting purchase that can be authorized by the admin. 
 In the optimal case, the admin accepts the purchase, the operator buy the new parts, register them in the system and delivers them to the mecanic. 
 In the worst scenario, the admin reject the purchase and the mecanic needs to request new parts and restart the process (Use Case 2.3).    
 
@@ -239,7 +239,7 @@ This flows are listed below:
   \item The Admin enters the application to assign roles and/or permission to the employees (Use Case 4.4); 
   \item The Admin enters the application to gather information about a maintenance performed and see statistics about tha information (Use Case 4.2 and 4.3); 
 \end{itemize}
-
+ 
 
 
 
