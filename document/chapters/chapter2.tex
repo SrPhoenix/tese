@@ -14,13 +14,13 @@ This paper talks about the impact of the electric vehicle in china.
 They are important because if we can understand this market in another country has a turning point of interest, the LightMobie can expand its business (the bike sharing) to that country, which in turn will surge the need for dealerships to arise.  
 
 
-\section{Background}
+% \section{Background}
 
-The LightMobie is a company stablished in Águeda that provides a diverse set of products in the shared mobility sector. 
-The company also provides a software system to integrate with their bicycles and stations and vehicle maintenance.
-Currently, the company is in step of renewal of the system to a new solution of the bicycles and stations and is building a platform to interact and manage that system.
-This platform is able to visualize current and past information of the vehicle, stations and users and there interaction with each other.
-Addicionally, alerts triggered by the equipment are also visible in the dashboard and the user can elaborate statistics on this data.
+% The LightMobie is a company stablished in Águeda that provides a diverse set of products in the shared mobility sector. 
+% The company also provides a software system to integrate with their bicycles and stations and vehicle maintenance.
+% Currently, the company is in step of renewal of the system to a new solution of the bicycles and stations and is building a platform to interact and manage that system.
+% This platform is able to visualize current and past information of the vehicle, stations and users and there interaction with each other.
+% Additionally, alerts triggered by the equipment are also visible in the dashboard and the user can elaborate statistics on this data.
 
 \section{Vehicle Maintenance}
 
@@ -29,7 +29,18 @@ Any deviation from these activities can negatively impact quality, leading to di
 The dissatisfaction of a client reduces their loyalty to company, wich can lead to a decrease in the number of clients and a decrease in revenue. ~\cite{Setting_the_after_sale_process}
 To mitigate this Quality Control must supervise every stage of the process—from scheduling appointments to repairs and final vehicle delivery. ~\cite{Setting_the_after_sale_process}
 
-The macro-level flow of a vehicle maintenance or repair service is illustrated in the figure BELOW. 
+The macro-level flow of a vehicle maintenance or repair service is illustrated in the figure \ref{fig:Vehicle_maintenace_macro}. 
+
+
+
+
+\begin{figure}[h]
+  \caption{Macro-level Flow of a vehicle maintenance or repair service. This figure was inspired by figure 6: After Sales process from ~\citet{Setting_the_after_sale_process}.}
+  \centering
+  \includegraphics[width=0.50\textwidth]{figs/Vehicle_maintenace_macro}
+  \label{fig:Vehicle_maintenace_macro}
+\end{figure}
+
 
 The first step of the process starts with a client interacting with the garage to schedule a maintenance or repair. 
 After that, the client goes to the garage and the receptionist receives the client and the vehicle.
@@ -38,9 +49,9 @@ And, Finally, the client will receive the vehicle back from the garage.
 
 To ensure quality in the first step the receptionist must understand the fill capacity of the garage and the time to complete the job. 
 This step is very important because a mistake can lead to a break of promisses for the organization. ~\cite{Setting_the_after_sale_process}
-The second step the recepcionist and service advisor, when receiving the vehicle, must do a visual confirmation of the vehicle condition. ~\cite{Setting_the_after_sale_process}
+The second step the receptionist and service advisor, when receiving the vehicle, must do a visual confirmation of the vehicle condition. ~\cite{Setting_the_after_sale_process}
 Explain to the client the services of the garage and their prices. Agree with the client the services to be performed and the time to complete the job. 
-Then recepcionist insert into the system this information. ~\cite{Setting_the_after_sale_process}
+Then receptionist insert into the system this information. ~\cite{Setting_the_after_sale_process}
 
 Following beguins the third step and most important fase, the mechanic will perform the maintenance or repair on the vehicle. 
 In this process, the quality control must supervise all the proccess to ensure that the job is done correctly. ~\cite{Setting_the_after_sale_process}
@@ -80,7 +91,7 @@ With this answers the authors measured the service quality by calculating the di
 \begin{figure}[h]
   \caption{SERVQUAL statements used by the authors in the study to measure the quality of the service at a CMV SA dealership in South Africa (~\cite{Measuring_After_sales_Service_Quality}).}
   \centering
-  \includegraphics[width=\textwidth]{figs/SERVQUAL_statements}
+  \includegraphics[width=0.50\textwidth]{figs/SERVQUAL_statements}
   \label{fig:SERVQUAL_statements}
 \end{figure}
 
@@ -96,7 +107,7 @@ The authors also recommend that the dealer should conduct regular SERVQUAL asses
 \begin{figure}[h]
   \caption{SERVQUAL results of the study to measure the quality of the service at a CMV SA dealership in South Africa. In the table the header \"Exp\" means the expectation, \"Per\" means the perception, \"Zc\" means the Service quality score from the customers and the \"Zc-ms\" means Service quality score measure by the difference of the expectations of the customer and the expectation of the dealers. (~\cite{Measuring_After_sales_Service_Quality})}
   \centering
-  \includegraphics[width=\textwidth]{figs/SERVQUAL_results}
+  \includegraphics[width=0.75\textwidth]{figs/SERVQUAL_results}
   \label{fig:SERVQUAL_results}
 \end{figure}
 
@@ -121,9 +132,9 @@ The authors also recommend that the dealer should conduct regular SERVQUAL asses
 MAS Motors LLC is a Toyota dealership that provides vehicle maintenance services in Libya.
 This company handles the daily work manually using basic applications, word documents and paper documents.
 This causes accidental human errors, which in turn lead to the managers' intuition to make a decision based on the data.
-This old approach is inefficent with the expand of the business and the company needs a more modern method to handle the huge amount of work and achieve continuous success. ~\cite{MARS_MOTORS}
+This old approach is inefficent with the expand of the business and the company needs a more modern method to handle the huge amount of work and achieve continuous success. ~\cite{MAS_MOTORS}
 So the author of the paper developed a web application that facilitates and increase the performance of the work at the dealership.
-The system targets multiple user groups, such as service advisers, technicians, and customers, and offers a centralized platform to manage tasks like job card management, inventory updates, and customer service. ~\cite{MARS_MOTORS}
+The system targets multiple user groups, such as service advisers, technicians, and customers, and offers a centralized platform to manage tasks like job card management, inventory updates, and customer service. ~\cite{MAS_MOTORS}
 The authors' application was developed using the Laravel, which is a PHP web application framework, with MariaDB as the database management system, which is a popular open source relational database.
 
 They applied \ac{RAD} methodology as a software development tool to develop the application.
@@ -151,12 +162,12 @@ The acronym stands for:
 \end{itemize}
 
 The results of the application were positive, the survey response from employees and customers classified the system according to the \ac{FURPS} model with the scores 4.27 for functionality, 4.30 for usability, 4.27 for reliability, 4.46 for performance, and 3.36 for supportability.
-Supportability was the lowest score, due to limited configuration options ~\cite{MARS_MOTORS}, however, the overall system imporved significantly the service efficiency and customer satisfaction. ~\cite{MARS_MOTORS}
+Supportability was the lowest score, due to limited configuration options ~\cite{MAS_MOTORS}, however, the overall system imporved significantly the service efficiency and customer satisfaction. ~\cite{MAS_MOTORS}
 
 The authors included some employee recommendations for future enhancements, such as SMS notifications for service reminders, integrating social media, and expanding customer configuration options.
 
 
-\section{Arquitecture}
+\section{Architecture}
 
 The architecture of the application will have a \ac{MVC} pattern. 
 The \ac{MVC} pattern is a software design pattern that separates the application into three main components: Model, View, and Controller.~\cite{mvc_geeksforgeeks} ~\cite{MVC_StartupHouse}
@@ -176,7 +187,7 @@ This requirements are advantageous, since the functional requirements of the pro
 The scalability is also important since the aim market of this application are the company's dealerships that may be scattered across the country or even Europe.
 
 The framework the application will be built with is the Asp Net Core MVC. 
-I believe this approach will be better than following the successful application from the authors ... from the paper [....] for multiple reasons.
+I believe this approach will be better than following the successful application from \citet{MAS_MOTORS} for multiple reasons.
 The integration with the microsoft framework MYSQL database is more simple when using ASP.NET Core due to the package Entity Framework [https://learn.microsoft.com/en-us/aspnet/entity-framework]. 
 Laravel also supports this database interaction, but Asp Net Core MVC is more suitable for this environment. ~\cite{asp_net_vs_laravel}
 Additionally, Laravel loses in performance with the Compiled Language ASP.NET since it is a Interpreted language. 
@@ -184,12 +195,12 @@ In security, larabel offers some security features like hashing or secure input 
 Microsoft offers greater security tools that provides a major abstraction to this concept and allows the develop to focus on the application functionalities. ~\cite{asp_net_vs_laravel}
 
 Despite all of this advantages, the main reason to use this framework and pattern is to integrate with the Fleet Management System that has the same approach. 
-Since i was involved in the project i am familiar with this tecnology, so, even though ASP.NET can have a greater learning curve for unfamiliar developers ~\cite{asp_net_vs_laravel}, I am not in that category.
+Since i was involved in the project i am familiar with this technology, so, even though ASP.NET can have a greater learning curve for unfamiliar developers ~\cite{asp_net_vs_laravel}, I am not in that category.
 
-Based on the feedback from the users in the study ... ~\cite{MARS_MOTORS}, where the authors refer a integration of a SMS notification system to remind customers of scheduled visits, i decided to integrate to this platform another application for the customers. 
+Based on the feedback from the users in the study from ~\citet{MAS_MOTORS}, where the authors refer a integration of a SMS notification system to remind customers of scheduled visits, i decided to integrate to this platform another application for the customers. 
 This application functionality is to notify the user about the progress of the maintenance and get feedback for the service provided at the dealership.
 It has the purpose of increasing the user satisfaction by keeping the client inform and gather information about future improvements.
-This application will be built as a \ac{PWA} in ASP.NET Core mvc, for convinience purpose and simplicity.
+This application will be built as a \ac{PWA} in ASP.NET Core mvc, for convenience purpose and simplicity.
 
 To summarize, I will develop 2 application in this dissertation in ASP.NET Core to be integrated in the developed system at Lightmobie, one for the workers at the dealership and another for their clients.
 
