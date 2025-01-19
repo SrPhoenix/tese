@@ -15,10 +15,12 @@ Most of the papers I discarded were because of the use of the words " Vehicle" a
 These words made the search return the papers that envisioned the dealerships as a reselling unit of the main company, which is not the focus of this dissertation.
 Another reason was the use of machine learning to solve a specific problem, like predictive maintenance. 
 While being a relevant approach, I decided to focus on Web Applications and vehicle maintenance concepts.
+
 In Google Scholar, I found 3 papers about the electric vehicle in China. 
 They may be important to understand the market in another country, however, I chose to not include them in this dissertation.  
 The three papers I wrote in this dissertation were chosen because two of them were research studies about the process of vehicle maintenance and explained the importance of a quality of service in this industry.
 The other paper described a solution implementation similar to the use case of this dissertation.
+
 With these three papers, I could give a definition of the context and acquire some problems and solutions to focus on in the development phase.  
 
 % \section{Background}
@@ -54,9 +56,10 @@ Here, the mechanic will perform the maintenance of the vehicle and, when is done
 
 To ensure quality in the first step the receptionist must understand the fill capacity of the garage and the time to complete the job. 
 This step is very important because a mistake can lead to a break of promises for the organization. ~\cite{Setting_the_after_sale_process}
+
 In the second step, the receptionist and service advisor, when receiving the vehicle, must do a visual confirmation of the vehicle's condition. ~\cite{Setting_the_after_sale_process}
 In this step, the receptionist explains to the client the services of the garage and they both agree with the services to be performed at a determined date. 
-Then receptionist inserts into the system this information. ~\cite{Setting_the_after_sale_process}
+Then, the receptionist inserts into the system this information. ~\cite{Setting_the_after_sale_process}
 
 Following begins the third step and most important phase, the mechanic will perform the maintenance or repair on the vehicle. 
 All of this process must be supervised by quality control to ensure that the job is done correctly. ~\cite{Setting_the_after_sale_process}
@@ -90,13 +93,14 @@ Each question must be divided into two answers, the first one is a score of the 
 The difference between the two answers is the quality of the service. ~\cite{servqual_blog_da_qualidade} ~\cite{Measuring_After_sales_Service_Quality} ~\cite{SERVQUAL_OLD}
 
 % In some cases is recommended to do two interviews with the same client, one before the service to aquire the expectations and another after the service to aquire the perception. ~\cite{servqual_blog_da_qualidade}
-In the paper ~\citet{Measuring_After_sales_Service_Quality} the authors used the SERVQUAL model to measure the quality of the service at a CMV SA dealership in South Africa.
+The authors ~\citet{Measuring_After_sales_Service_Quality} used the SERVQUAL model to measure the quality of the service at a CMV SA dealership in South Africa.
 The authors ~\citet{Measuring_After_sales_Service_Quality} collected the data from a semi-structured questionnaire and interviews with customers, managers, and staff.
 The questionnaire was composed of 22 statements, which can be seen in the figure \ref{fig:SERVQUAL_results}, where the respondent used the Likert's point scale to rate the expectation and perception of each individual item.
 
 The results seen in figure \ref{fig:SERVQUAL_results} revealed a negative score in all five dimensions. 
 Even comparing the expectations of the customers with the expectations of the dealers the average score was negative (-0.10).
 This shows that the services provided by the CMV SA dealer are not meeting the expectations of the customers and further improvements are needed. ~\cite{Measuring_After_sales_Service_Quality}
+
 The customer's recommendations included opening more workshops, to reduce travel inconvenience, and availability of parts, due to the long wait for the arrival from China.
 The authors ~\citet{Measuring_After_sales_Service_Quality} emphasize the importance of service quality to the success of the business and recommend that the dealer should conduct regular SERVQUAL assessments to monitor and address service quality gaps. ~\cite{Measuring_After_sales_Service_Quality}
 
@@ -122,7 +126,7 @@ This application will allow the users to evaluate the service done in this deale
 \section{Existing solution}
 
 
-\section{Service Management for MAS Motors LLC}
+\subsection{Service Management for MAS Motors LLC}
 MAS Motors LLC is a Toyota dealership that provides vehicle maintenance services in Libya.
 This company handles the daily work manually using basic applications and paper documents.
 This approach has proven to be ineffective with the expansion of the business and the company needs a more modern method. ~\cite{MAS_MOTORS}
@@ -134,14 +138,18 @@ The authors' application was developed using Laravel, which is a PHP web applica
 The authors ~\citet{MAS_MOTORS} applied \ac{RAD} methodology as a software development tool to develop the application, due to its feedback, flexibility, and quickness.
 \ac{RAD} is an agile software development approach that focuses on rapid prototyping and quick feedback from users over costly planning. ~\cite{rapid_app_development}
 This approach ideology is an ongoing testing and refinement of the project instead of following a detailed planning and design, such as traditional models.
-It is composed of four phases: Define requirements, prototype, feedback, and final product. ~\cite{rapid_app_development}
+
+It is composed of four phases: requirements definition, prototype, feedback, and final product. ~\cite{rapid_app_development}
 The requirement phase is defined by the definition of an unrestricted set of requirements, that can be changed during any point in the cycle. 
+
 In the prototype phase, the developers create a prototype of the system to Demonstrate to the client. 
 This prototype may be rushed since in the finalization stage, the developers will refine the final product. ~\cite{rapid_app_development}
+
 In the next phase, the feedback, developers present their work to the client and end-users.
 Depending on the feedback, the client may want to change the requirements or add something new. In this case, the developers will go back to the second stage and repeat the process. ~\cite{rapid_app_development}
 On positive feedback, the client is satisfied with the prototype and the developers will move to the final product phase.
-In this final phase, the developers will refine the prototype by optimizing their implementation. ~\cite{rapid_app_development}
+
+In the final phase, the developers will refine the prototype by optimizing their implementation. ~\cite{rapid_app_development}
 
 For the first phase, the authors write the requirements of the system following the Hewlett-Packard \ac{FURPS} model that categorizes the software requirements into functional and non-functional aspects.
 The acronym stands for:
@@ -161,7 +169,7 @@ The employees also recommended future enhancements, such as SMS notifications fo
 This SMS notifications functionality will be planned in this dissertation Client application to inform the end of the maintenance and the availability for vehicle delivery.  
 
 
-\section{Architecture Comparison}
+\subsection{Architecture Comparison}
 
 % The architecture of the application will have a \ac{MVC} pattern. 
 % The \ac{MVC} pattern separates the application into three main components: Model, View, and Controller.~\cite{mvc_geeksforgeeks} ~\cite{MVC_StartupHouse}
@@ -177,8 +185,10 @@ This SMS notifications functionality will be planned in this dissertation Client
 
 The framework the application will be built with is the Asp Net Core MVC. 
 I believe this approach will be better than following the successful application from \citet{MAS_MOTORS} due to a variety of reasons shown in \ref{table:architetcture_comparison}.
+
 Firstly, the integration with the Microsoft framework MYSQL database is more simple when using ASP.NET Core due to the package Entity Framework. % [https://learn.microsoft.com/en-us/aspnet/entity-framework]
 Laravel also supports this database interaction, but Asp Net Core MVC is more suitable for this environment. ~\cite{asp_net_vs_laravel}
+
 Additionally, Laravel loses in performance with the compiled language ASP.NET since it is an interpreted language. 
 Finally, in security, Laravel offers some security features like hashing or secure input validation but requires deeper PHP knowledge and proactive vulnerability management. 
 Microsoft offers greater security tools in ASP.NET Core mvc with role-based authentication and login management with Identity framework.
