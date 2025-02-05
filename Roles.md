@@ -1,6 +1,6 @@
 ## Ver aplicações
-AppDealershipAppView
-AppClientAppView
+App Dealership App View
+App Client App View
 
 ## Receptionist
 Receptionist
@@ -9,6 +9,10 @@ Roles User Edit Group Receptionist
 Roles User Edit Role Receptionist
 Roles Group View Receptionist
 Roles Group Edit Receptionist
+
+### User
+vicente.costa+recepcionist@ua.pt
+
 
 ## Mechanic
 Mechanic
