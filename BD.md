@@ -1,172 +1,193 @@
-// Use DBML to define your database structure
-// Docs: https://dbml.dbdiagram.io/docs
-
-Table Maintenance {
-  clientId guid 
-  Id Guid [primary key]
-  entityId guid
-  vehicleId guid 
-  createdDate timestamp 
-  evalDate datetime
-  clientNotes varchar
-  conclusionDateExpected date
-  conclusionDate date
-  DeliverDate datetime
-  BudgetExpected double
-  Budget double
-  clientScoreExpected float
-  clientScore float
-  workHoursExpected int
-  workHours int
-}
+use master
 
 
+CREATE TABLE [Maintenance] (
+  [Id] uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
+  [ClientId] uniqueidentifier,
+  [DealershipId] uniqueidentifier,
+  [EntityId] uniqueidentifier,
+  [VehicleId] uniqueidentifier,
+  [CreatedDate] timestamp,
+  [EvalDate] datetime,
+  [ClientNotes] nvarchar(255),
+  [ConclusionDateExpected] date,
+  [ConclusionDate] date,
+  [DeliverDate] datetime,
+  [BudgetExpected] float,
+  [Budget] float,
+  [ClientScoreExpected] float,
+  [ClientScore] float,
+  [WorkHoursExpected] int,
+  [WorkHours] int
+)
+GO
 
-Table maintenanceTask {
-  id integer  [primary key]
-  maintenanceId guid 
-  maintenanceTaskTypeId integer
-  status varchar
-}
+CREATE TABLE [Dealership] (
+  [Id] int PRIMARY KEY,
+  [Name] nvarchar(255),
+  [Address] nvarchar(255)
+)
+GO
 
-Table MaintenanceTasksType {
-  id integer [primary key]
-  evalTaskId integer 
-  vehiclePartTypeId int
-  name varchar
-  price double
-  hours int
-  type varchar
-}
+CREATE TABLE [MaintenanceTask] (
+  [Id] integer PRIMARY KEY,
+  [MaintenanceId] uniqueidentifier,
+  [MaintenanceTaskTypeId] integer,
+  [Status] nvarchar(255)
+)
+GO
 
-Table EvalTasks {
-  id integer [primary key]
-  needChangePart bool
-  name varchar
-  description varchar
-}
+CREATE TABLE [MaintenanceTasksType] (
+  [Id] integer PRIMARY KEY,
+  [EvalTaskId] integer,
+  [VehiclePartTypeId] int,
+  [Name] nvarchar(255),
+  [Price] float,
+  [Hours] int,
+  [Type] nvarchar(255)
+)
+GO
 
-Table MechanicTasks {
-  MechanicId Guid [primary key]
-  TasksId integer [primary key]
-  StartDateExpected Datetime [primary key]
-  StartDate Datetime
-  EndDateExpected Datetime
-  EndDate Datetime
-}
+CREATE TABLE [EvalTasks] (
+  [Id] integer PRIMARY KEY,
+  [NeedChangePart] bit,
+  [Name] nvarchar(255),
+  [Description] nvarchar(255)
+)
+GO
 
-Table AspNetUsers {
-  id Guid [primary key]
-  Role varchar
-}
+CREATE TABLE [MechanicTasks] (
+  [MechanicId] uniqueidentifier,
+  [TasksId] integer,
+  [StartDateExpected] Datetime,
+  [StartDate] Datetime,
+  [EndDateExpected] Datetime,
+  [EndDate] Datetime,
+  PRIMARY KEY ([MechanicId], [TasksId], [StartDateExpected])
+)
+GO
 
-Table vehicle {
-  id Guid [primary key]
-  vehiclePartId int
-}
+CREATE TABLE [AspNetUsers] (
+  [Id] uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
+  [DealershipId] uniqueidentifier,
+  [Role] nvarchar(255)
+)
+GO
 
-Table vehiclePart {
-  part int [primary key]
-  vehiclePartType guid [primary key]
-  vehicleId Guid [primary key]
-  DateIn Datetime
-  DateOut Datetime
-}
+CREATE TABLE [Vehicle] (
+  [Id] uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
+  [vehiclePartId] int
+)
+GO
 
-Table ImportantParts {
-  vehiclePartPurchaseId guid
-  Id Guid [primary key]
-  DateIn datetime
-  Status varchar
-}
+CREATE TABLE [VehiclePart] (
+  [VehiclePartType] uniqueidentifier,
+  [VehicleId] uniqueidentifier,
+  [DateIn] Datetime,
+  [DateOut] Datetime,
+  PRIMARY KEY ([VehiclePartType], [VehicleId])
+)
+GO
 
-Table disposableParts {
-  vehiclePartType guid
-  count int
-}
+CREATE TABLE [Parts] (
+  [DealershipId] uniqueidentifier,
+  [VehiclePartType] uniqueidentifier,
+  [count] int
+)
+GO
 
+CREATE TABLE [PurchaseVehiclePart] (
+  [OperatorId] uniqueidentifier,
+  [Id] int PRIMARY KEY,
+  [DealershipId] uniqueidentifier,
+  [VehiclePartType] uniqueidentifier,
+  [Status] nvarchar(255),
+  [Price] float,
+  [DateIn] date,
+  [Count] int
+)
+GO
 
-Table PurchaseVehiclePart {
-  operatorId guid
-  id int [primary key]
-  vehiclePartType guid
-  status varchar
-  price double
-  dateIn date
-  count int
-}
+CREATE TABLE [MaintenanceChange] (
+  [MaintenanceId] uniqueidentifier,
+  [CreateDate] datetime,
+  [PurchaseVehiclePartId] uniqueidentifier,
+  [NewBudget] float,
+  [NewDate] date,
+  [Status] nvarchar(255),
+  PRIMARY KEY ([MaintenanceId], [PurchaseVehiclePartId])
+)
+GO
 
-Table MaintenanceChange {
-  maintenanceId guid [primary key]
-  createDate datetime
-  PurchaseVehiclePartId guid [primary key]
-  tipo varchar 
-  newBudget double
-  newDate date
-  status varchar
-}
+CREATE TABLE [VehiclePartType] (
+  [Id] int PRIMARY KEY,
+  [Nome] nvarchar(255),
+  [Price] nvarchar(255)
+)
+GO
 
+CREATE TABLE [Entity] (
+  [Id] int PRIMARY KEY,
+  [Nome] nvarchar(255)
+)
+GO
 
-Table vehiclePartType {
-  Id int [primary key]
-  Nome varchar
-}
+ALTER TABLE [AspNetUsers] ADD FOREIGN KEY ([Id]) REFERENCES [MechanicTasks] ([MechanicId])
+GO
 
-Table Entity {
-  Id int [primary key]
-  Nome varchar
-}
+ALTER TABLE [MaintenanceTask] ADD FOREIGN KEY ([Id]) REFERENCES [MechanicTasks] ([TasksId])
+GO
 
-// Table posts {
-//   id integer [primary key]
-//   title varchar
-//   body text [note: 'Content of the post']
-//   user_id integer
-//   status varchar
-//   created_at timestamp
-// }
+ALTER TABLE [MaintenanceTasksType] ADD FOREIGN KEY ([Id]) REFERENCES [MaintenanceTask] ([MaintenanceTaskTypeId])
+GO
 
-// Ref: posts.user_id > users.id // many-to-one
+ALTER TABLE [Maintenance] ADD FOREIGN KEY ([ClientId]) REFERENCES [AspNetUsers] ([Id])
+GO
 
-// Ref: users.id < follows.following_user_id
+ALTER TABLE [Maintenance] ADD FOREIGN KEY ([VehicleId]) REFERENCES [Vehicle] ([Id])
+GO
 
-// Ref: users.id < follows.followed_user_id
+ALTER TABLE [VehiclePart] ADD FOREIGN KEY ([VehicleId]) REFERENCES [Vehicle] ([Id])
+GO
 
+ALTER TABLE [Maintenance] ADD FOREIGN KEY ([EntityId]) REFERENCES [Entity] ([Id])
+GO
 
+ALTER TABLE [MaintenanceTask] ADD FOREIGN KEY ([MaintenanceId]) REFERENCES [Maintenance] ([Id])
+GO
 
-Ref: "MechanicTasks"."MechanicId" - "AspNetUsers"."id"
+ALTER TABLE [AspNetUsers] ADD FOREIGN KEY ([Id]) REFERENCES [PurchaseVehiclePart] ([OperatorId])
+GO
 
-Ref: "MechanicTasks"."TasksId" - "maintenanceTask"."id"
+ALTER TABLE [PurchaseVehiclePart] ADD FOREIGN KEY ([VehiclePartType]) REFERENCES [VehiclePartType] ([Id])
+GO
 
-Ref: "maintenanceTask"."maintenanceTaskTypeId" - "MaintenanceTasksType"."id"
+ALTER TABLE [PurchaseVehiclePart] ADD FOREIGN KEY ([Id]) REFERENCES [MaintenanceChange] ([PurchaseVehiclePartId])
+GO
 
-Ref: "AspNetUsers"."id" - "Maintenance"."clientId"
+ALTER TABLE [Maintenance] ADD FOREIGN KEY ([Id]) REFERENCES [MaintenanceChange] ([MaintenanceId])
+GO
 
-Ref: "vehicle"."id" - "Maintenance"."vehicleId"
+ALTER TABLE [VehiclePartType] ADD FOREIGN KEY ([Id]) REFERENCES [Parts] ([VehiclePartType])
+GO
 
-Ref: "vehiclePart"."vehicleId" > "vehicle"."id"
+ALTER TABLE [VehiclePartType] ADD FOREIGN KEY ([Id]) REFERENCES [VehiclePart] ([VehiclePartType])
+GO
 
-Ref: "ImportantParts"."Id" - "vehiclePart"."part"
+ALTER TABLE [MaintenanceTasksType] ADD FOREIGN KEY ([evalTaskId]) REFERENCES [EvalTasks] ([Id])
+GO
 
+ALTER TABLE [Maintenance] ADD FOREIGN KEY ([DealershipId]) REFERENCES [Dealership] ([Id])
+GO
 
-Ref: "Entity"."Id" - "Maintenance"."entityId"
+ALTER TABLE [Dealership] ADD FOREIGN KEY ([Id]) REFERENCES [AspNetUsers] ([DealershipId])
+GO
 
-Ref: "maintenanceTask"."maintenanceId" > "Maintenance"."Id"
+ALTER TABLE [Dealership] ADD FOREIGN KEY ([Id]) REFERENCES [Parts] ([DealershipId])
+GO
 
+ALTER TABLE [PurchaseVehiclePart] ADD FOREIGN KEY ([DealershipId]) REFERENCES [Dealership] ([Id])
+GO
 
-Ref: "PurchaseVehiclePart"."id" - "ImportantParts"."vehiclePartPurchaseId"
-
-Ref: "PurchaseVehiclePart"."operatorId" - "AspNetUsers"."id"
-
-Ref: "vehiclePartType"."Id" - "PurchaseVehiclePart"."vehiclePartType"
-
-Ref: "MaintenanceChange"."PurchaseVehiclePartId" - "PurchaseVehiclePart"."id"
-
-Ref: "MaintenanceChange"."maintenanceId" - "Maintenance"."Id"
-
-Ref: "disposableParts"."vehiclePartType" - "vehiclePartType"."Id"
-
-Ref: "vehiclePart"."vehiclePartType" - "vehiclePartType"."Id"
-
-
-Ref: "EvalTasks"."id" < "MaintenanceTasksType"."evalTaskId"
+ALTER TABLE [VehiclePartType] ADD FOREIGN KEY ([Id]) REFERENCES [MaintenanceTasksType] ([vehiclePartTypeId])
+GO
