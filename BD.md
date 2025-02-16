@@ -1,103 +1,172 @@
-# Tarefas
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
 
-## Avaliação 
-
-Tarefas para concluir -> Histórico do veículo + Notas do Cliente -> Indicar ações para fazer sobre o veículo -> Peças que precisam de ser substituidas (indicar razão)  -> Peças Necessárias 
-
-## Mudar Peças
-
-Tarefas para concluir 
-    -> Peças Necessárias
-    -> Peças para ser substituidas
-
-## Manutenção + Controlo de qualidade
- 
-Tarefas para concluir 
-
-
-# Histórico do Veículo
-
-## Ficha técnica
-Motor
-quadro
-...
-
-## Outros Dados
-Data da última manutenção
-kilómetros percorridos desde a ultima manutenção
-
-
-# Tabelas
-
-## Manutenção
-
-ID do Cliente (FK)  (PK)
-ID da Entidade (FK) (PK) 
-Matrícula do Veículo (FK) (PK)
-Data de Criação
-Data da avaliação
-Data de Conclusão Esperada
-Data de Conclusão
-Data de Entrega
-Orçamento Esperado
-Orçamento
-Lista de Tarefas da Avaliação
-Lista de Tarefas a Realizar
-Lista de Tarefas Realizadas
-Notas do Cliente
-Avaliação esperada do Cliente
-Avaliação do Serviço do Cliente
-Número de Horas Esperado
-Número de Horas do Serviço
+Table Maintenance {
+  clientId guid 
+  Id Guid [primary key]
+  entityId guid
+  vehicleId guid 
+  createdDate timestamp 
+  evalDate datetime
+  clientNotes varchar
+  conclusionDateExpected date
+  conclusionDate date
+  DeliverDate datetime
+  BudgetExpected double
+  Budget double
+  clientScoreExpected float
+  clientScore float
+  workHoursExpected int
+  workHours int
+}
 
 
 
-## Tarefas da Avaliação
-Id
-Nome
-Descrição
+Table maintenanceTask {
+  id integer  [primary key]
+  maintenanceId guid 
+  maintenanceTaskTypeId integer
+  status varchar
+}
 
-### Nome
-Verificar Apertos
-Verificar níveis dos pneus
-Verificar o óleo
-...
+Table MaintenanceTasksType {
+  id integer [primary key]
+  evalTaskId integer 
+  vehiclePartTypeId int
+  name varchar
+  price double
+  hours int
+  type varchar
+}
+
+Table EvalTasks {
+  id integer [primary key]
+  needChangePart bool
+  name varchar
+  description varchar
+}
+
+Table MechanicTasks {
+  MechanicId Guid [primary key]
+  TasksId integer [primary key]
+  StartDateExpected Datetime [primary key]
+  StartDate Datetime
+  EndDateExpected Datetime
+  EndDate Datetime
+}
+
+Table AspNetUsers {
+  id Guid [primary key]
+  Role varchar
+}
+
+Table vehicle {
+  id Guid [primary key]
+  vehiclePartId int
+}
+
+Table vehiclePart {
+  part int [primary key]
+  vehiclePartType guid [primary key]
+  vehicleId Guid [primary key]
+  DateIn Datetime
+  DateOut Datetime
+}
+
+Table ImportantParts {
+  vehiclePartPurchaseId guid
+  Id Guid [primary key]
+  DateIn datetime
+  Status varchar
+}
+
+Table disposableParts {
+  vehiclePartType guid
+  count int
+}
+
+
+Table PurchaseVehiclePart {
+  operatorId guid
+  id int [primary key]
+  vehiclePartType guid
+  status varchar
+  price double
+  dateIn date
+  count int
+}
+
+Table MaintenanceChange {
+  maintenanceId guid [primary key]
+  createDate datetime
+  PurchaseVehiclePartId guid [primary key]
+  tipo varchar 
+  newBudget double
+  newDate date
+  status varchar
+}
+
+
+Table vehiclePartType {
+  Id int [primary key]
+  Nome varchar
+}
+
+Table Entity {
+  Id int [primary key]
+  Nome varchar
+}
+
+// Table posts {
+//   id integer [primary key]
+//   title varchar
+//   body text [note: 'Content of the post']
+//   user_id integer
+//   status varchar
+//   created_at timestamp
+// }
+
+// Ref: posts.user_id > users.id // many-to-one
+
+// Ref: users.id < follows.following_user_id
+
+// Ref: users.id < follows.followed_user_id
 
 
 
-## Tarefas da Manutenção
-Id
-Nome 
-Preço 
-Horas
+Ref: "MechanicTasks"."MechanicId" - "AspNetUsers"."id"
 
-### Nome                                             
-Mudança de óleo                 
-Apertar os parafusos            
-Encher pneus                    
-...
+Ref: "MechanicTasks"."TasksId" - "maintenanceTask"."id"
 
-## Tarefas do mecânico
-Id do mecânico
-Id do tipo de tarefa
-Id da manutenção
-Datetime do trabalho
+Ref: "maintenanceTask"."maintenanceTaskTypeId" - "MaintenanceTasksType"."id"
+
+Ref: "AspNetUsers"."id" - "Maintenance"."clientId"
+
+Ref: "vehicle"."id" - "Maintenance"."vehicleId"
+
+Ref: "vehiclePart"."vehicleId" > "vehicle"."id"
+
+Ref: "ImportantParts"."Id" - "vehiclePart"."part"
 
 
-## Peças
-Id
-Nome
-Data de aquisição
-...
+Ref: "Entity"."Id" - "Maintenance"."entityId"
 
-## Pedido de Compras
-Id
-Nome do funcionário
-Estado (Pending, Aproved, Disapproved)
+Ref: "maintenanceTask"."maintenanceId" > "Maintenance"."Id"
 
-## Alteração na manutenção
-id da manutenção
-Data de Criação
-tipo (orçamento, data de conclusão)
-novo orçamento
-nova data de conclusão
+
+Ref: "PurchaseVehiclePart"."id" - "ImportantParts"."vehiclePartPurchaseId"
+
+Ref: "PurchaseVehiclePart"."operatorId" - "AspNetUsers"."id"
+
+Ref: "vehiclePartType"."Id" - "PurchaseVehiclePart"."vehiclePartType"
+
+Ref: "MaintenanceChange"."PurchaseVehiclePartId" - "PurchaseVehiclePart"."id"
+
+Ref: "MaintenanceChange"."maintenanceId" - "Maintenance"."Id"
+
+Ref: "disposableParts"."vehiclePartType" - "vehiclePartType"."Id"
+
+Ref: "vehiclePart"."vehiclePartType" - "vehiclePartType"."Id"
+
+
+Ref: "EvalTasks"."id" < "MaintenanceTasksType"."evalTaskId"
