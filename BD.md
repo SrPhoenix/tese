@@ -132,62 +132,62 @@ CREATE TABLE [Entity] (
 )
 GO
 
-ALTER TABLE [AspNetUsers] ADD FOREIGN KEY ([Id]) REFERENCES [MechanicTasks] ([MechanicId])
+ALTER TABLE [MechanicTasks] ADD FOREIGN KEY ([MechanicId]) REFERENCES [AspNetUsers] ([id])
 GO
 
-ALTER TABLE [MaintenanceTask] ADD FOREIGN KEY ([Id]) REFERENCES [MechanicTasks] ([TasksId])
+ALTER TABLE [MechanicTasks] ADD FOREIGN KEY ([TasksId]) REFERENCES [maintenanceTask] ([id])
 GO
 
-ALTER TABLE [MaintenanceTasksType] ADD FOREIGN KEY ([Id]) REFERENCES [MaintenanceTask] ([MaintenanceTaskTypeId])
+ALTER TABLE [maintenanceTask] ADD FOREIGN KEY ([maintenanceTaskTypeId]) REFERENCES [MaintenanceTasksType] ([id])
 GO
 
-ALTER TABLE [Maintenance] ADD FOREIGN KEY ([ClientId]) REFERENCES [AspNetUsers] ([Id])
+ALTER TABLE [Maintenance] ADD FOREIGN KEY ([clientId]) REFERENCES [AspNetUsers] ([id])
 GO
 
-ALTER TABLE [Maintenance] ADD FOREIGN KEY ([VehicleId]) REFERENCES [Vehicle] ([Id])
+ALTER TABLE [Maintenance] ADD FOREIGN KEY ([vehicleId]) REFERENCES [vehicle] ([id])
 GO
 
-ALTER TABLE [VehiclePart] ADD FOREIGN KEY ([VehicleId]) REFERENCES [Vehicle] ([Id])
+ALTER TABLE [vehiclePart] ADD FOREIGN KEY ([vehicleId]) REFERENCES [vehicle] ([id])
 GO
 
-ALTER TABLE [Maintenance] ADD FOREIGN KEY ([EntityId]) REFERENCES [Entity] ([Id])
+ALTER TABLE [Maintenance] ADD FOREIGN KEY ([entityId]) REFERENCES [Entity] ([Id])
 GO
 
-ALTER TABLE [MaintenanceTask] ADD FOREIGN KEY ([MaintenanceId]) REFERENCES [Maintenance] ([Id])
+ALTER TABLE [maintenanceTask] ADD FOREIGN KEY ([maintenanceId]) REFERENCES [Maintenance] ([Id])
 GO
 
-ALTER TABLE [AspNetUsers] ADD FOREIGN KEY ([Id]) REFERENCES [PurchaseVehiclePart] ([OperatorId])
+ALTER TABLE [PurchaseVehiclePart] ADD FOREIGN KEY ([operatorId]) REFERENCES [AspNetUsers] ([id])
 GO
 
-ALTER TABLE [PurchaseVehiclePart] ADD FOREIGN KEY ([VehiclePartType]) REFERENCES [VehiclePartType] ([Id])
+ALTER TABLE [PurchaseVehiclePart] ADD FOREIGN KEY ([vehiclePartType]) REFERENCES [vehiclePartType] ([Id])
 GO
 
-ALTER TABLE [PurchaseVehiclePart] ADD FOREIGN KEY ([Id]) REFERENCES [MaintenanceChange] ([PurchaseVehiclePartId])
+ALTER TABLE [MaintenanceChange] ADD FOREIGN KEY ([PurchaseVehiclePartId]) REFERENCES [PurchaseVehiclePart] ([id])
 GO
 
-ALTER TABLE [Maintenance] ADD FOREIGN KEY ([Id]) REFERENCES [MaintenanceChange] ([MaintenanceId])
+ALTER TABLE [MaintenanceChange] ADD FOREIGN KEY ([maintenanceId]) REFERENCES [Maintenance] ([Id])
 GO
 
-ALTER TABLE [VehiclePartType] ADD FOREIGN KEY ([Id]) REFERENCES [Parts] ([VehiclePartType])
+ALTER TABLE [Parts] ADD FOREIGN KEY ([vehiclePartType]) REFERENCES [vehiclePartType] ([Id])
 GO
 
-ALTER TABLE [VehiclePartType] ADD FOREIGN KEY ([Id]) REFERENCES [VehiclePart] ([VehiclePartType])
+ALTER TABLE [vehiclePart] ADD FOREIGN KEY ([vehiclePartType]) REFERENCES [vehiclePartType] ([Id])
 GO
 
-ALTER TABLE [MaintenanceTasksType] ADD FOREIGN KEY ([evalTaskId]) REFERENCES [EvalTasks] ([Id])
+ALTER TABLE [MaintenanceTasksType] ADD FOREIGN KEY ([evalTaskId]) REFERENCES [EvalTasks] ([id])
 GO
 
 ALTER TABLE [Maintenance] ADD FOREIGN KEY ([DealershipId]) REFERENCES [Dealership] ([Id])
 GO
 
-ALTER TABLE [Dealership] ADD FOREIGN KEY ([Id]) REFERENCES [AspNetUsers] ([DealershipId])
+ALTER TABLE [AspNetUsers] ADD FOREIGN KEY ([DealershipId]) REFERENCES [Dealership] ([Id])
 GO
 
-ALTER TABLE [Dealership] ADD FOREIGN KEY ([Id]) REFERENCES [Parts] ([DealershipId])
+ALTER TABLE [Parts] ADD FOREIGN KEY ([DealershipId]) REFERENCES [Dealership] ([Id])
 GO
 
 ALTER TABLE [PurchaseVehiclePart] ADD FOREIGN KEY ([DealershipId]) REFERENCES [Dealership] ([Id])
 GO
 
-ALTER TABLE [VehiclePartType] ADD FOREIGN KEY ([Id]) REFERENCES [MaintenanceTasksType] ([vehiclePartTypeId])
+ALTER TABLE [MaintenanceTasksType] ADD FOREIGN KEY ([vehiclePartTypeId]) REFERENCES [vehiclePartType] ([Id])
 GO
