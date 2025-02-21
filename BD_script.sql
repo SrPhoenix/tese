@@ -97,11 +97,11 @@ CREATE TABLE `DealershipInventory` (
 
 CREATE TABLE `Order` (
   `Id` int PRIMARY KEY,
-  `DealershipId` guid,
-  `Status` varchar(255),
   `OperatorId` guid,
+  `DealershipId` guid,
   `CreatedDate` date,
-  `TotalPrice` double
+  `TotalPrice` double,
+  `Status` varchar(255)
 );
 
 CREATE TABLE `OrderDetail` (
