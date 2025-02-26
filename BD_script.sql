@@ -20,7 +20,7 @@ ROLLBACK;
 BEGIN TRAN T1;
 
 CREATE TABLE Dealership (
-  Id uniqueidentifier PRIMARY KEY,
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   Name varchar(255) not null,
   [Address] varchar(255) not null,
   Address2 varchar(255),
@@ -34,12 +34,12 @@ CREATE TABLE Dealership (
 );
 
 CREATE TABLE Maintenance (
-  Id uniqueidentifier PRIMARY KEY,
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   ClientId varchar(36) not null,
   DealershipId uniqueidentifier not null,
   EntityId uniqueidentifier,
   VehicleId uniqueidentifier not null,
-  CreatedDate timestamp not null,
+  CreatedDate datetime not null,
   EvalDate datetime not null,
   ClientNotes varchar(255),
   ConclusionDateExpected date,
@@ -60,7 +60,7 @@ ALTER TABLE Maintenance ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id
 
 
 CREATE TABLE DealershipVehiclePartType (
-  Id uniqueidentifier PRIMARY KEY,
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   Code varchar(255) not null,
   [Name] varchar(255) not null,
   [Description] varchar(255) not null,
@@ -81,14 +81,14 @@ ALTER TABLE DealershipVehiclePart ADD FOREIGN KEY (VehicleId) REFERENCES vehicle
 ALTER TABLE DealershipVehiclePart ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 
 CREATE TABLE EvalTasks (
-  Id integer PRIMARY KEY,
+  Id integer PRIMARY KEY IDENTITY(1,1),
   NeedChangePart bit not null,
   Name varchar(255) not null,
   Description varchar(255)  not null
 ); 
 
 CREATE TABLE MaintenanceTasksType (
-  Id integer PRIMARY KEY,
+  Id integer PRIMARY KEY IDENTITY(1,1),
   EvalTaskId integer not null,
   VehiclePartTypeId uniqueidentifier not null,
   [Name] varchar(255) not null,
@@ -102,7 +102,7 @@ ALTER TABLE MaintenanceTasksType ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES 
 
 
 CREATE TABLE MaintenanceTask (
-  Id integer PRIMARY KEY,
+  Id integer PRIMARY KEY IDENTITY(1,1),
   MaintenanceId uniqueidentifier not null,
   MaintenanceTaskTypeId integer not null,
   [Status] varchar(255) not null
@@ -119,7 +119,7 @@ CREATE TABLE MechanicTasks (
   StartDate Datetime,
   EndDateExpected Datetime not null,
   EndDate Datetime,
-  PRIMARY KEY (MechanicId, MaintenanceTaskId, StartDateExpected)
+  PRIMARY KEY (MaintenanceTaskId)
 );
 
 ALTER TABLE MechanicTasks ADD FOREIGN KEY (MechanicId) REFERENCES AspNetUsers (Id);
@@ -127,7 +127,7 @@ ALTER TABLE MechanicTasks ADD FOREIGN KEY (MaintenanceTaskId) REFERENCES Mainten
 
 
 CREATE TABLE DealershipInventory (
-  InventoryId uniqueidentifier PRIMARY KEY,
+  InventoryId uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   VehiclePartType uniqueidentifier not null,
   DealershipId uniqueidentifier not null,
   QuantityAvailable int not null,
@@ -141,7 +141,7 @@ ALTER TABLE DealershipInventory ADD FOREIGN KEY (DealershipId) REFERENCES Dealer
 
 
 CREATE TABLE Purchase  (
-  Id uniqueidentifier PRIMARY KEY,
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   OperatorId varchar(36) not null,
   DealershipId uniqueidentifier not null,
   CreatedDate date not null,
@@ -154,7 +154,7 @@ ALTER TABLE Purchase  ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 
 
 CREATE TABLE PurchaseDetail (
-  Id uniqueidentifier PRIMARY KEY,
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   PurchaseId uniqueidentifier not null,
   Count int not null,
   ExpectedDate date not null,
@@ -182,7 +182,7 @@ ALTER TABLE MaintenanceChange ADD FOREIGN KEY (PurchaseVehiclePartId) REFERENCES
 
 
 CREATE TABLE Delivery (
-  Id uniqueidentifier PRIMARY KEY,
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   DealershipId uniqueidentifier not null,
   [status] varchar(255) not null,
   CreatedDate date not null
@@ -191,7 +191,7 @@ ALTER TABLE Delivery ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 
 
 CREATE TABLE DeliveryDetail (
-  Id uniqueidentifier PRIMARY KEY,
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   DeliveryId uniqueidentifier not null,
   Count int not null,
   ExpectedDate uniqueidentifier not null,
@@ -204,3 +204,49 @@ ALTER TABLE DeliveryDetail ADD FOREIGN KEY (VehiclePartType) REFERENCES Dealersh
 
 
 ROLLBACK;
+
+
+
+
+--CREATE TABLE AspNetUsers (
+--  Id uniqueidentifier PRIMARY KEY,
+--  DealershipId uniqueidentifier,
+--  Role varchar(255)
+--);
+
+--CREATE TABLE vehicle (
+--  Id uniqueidentifier PRIMARY KEY,
+--  VehiclePartId int
+--);
+
+--CREATE TABLE vehiclePart (
+--  VehiclePartType uniqueidentifier,
+--  VehicleId uniqueidentifier,
+--  DateIn Datetime,
+--  DateOut Datetime,
+--  PRIMARY KEY (VehiclePartType, VehicleId, DateIn)
+--);
+
+
+--ALTER TABLE vehiclePart ADD FOREIGN KEY (VehicleId) REFERENCES vehicle (Id);
+--ALTER TABLE vehiclePart ADD FOREIGN KEY (VehiclePartType) REFERENCES vehiclePartType (Id);
+
+
+--CREATE TABLE vehiclePartType (
+--  Id int PRIMARY KEY,
+--  Code varchar(255),
+--  Name varchar(255),
+--  Description varchar(255),
+--  Price varchar(255),
+--  Category varchar(255),
+--  ReorderQuantity int
+--);
+
+--CREATE TABLE Entity (
+--  Id int PRIMARY KEY,
+--  Nome varchar(255)
+--);
+
+--ALTER TABLE AspNetUsers ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
+
+--ROLLBACK;
