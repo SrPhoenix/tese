@@ -1,23 +1,3 @@
-use MobiCycle
-BEGIN TRAN T1;
-
-DROP TABLE DeliveryDetail
-DROP TABLE Delivery
-DROP TABLE MaintenanceChange
-DROP TABLE PurchaseDetail
-DROP TABLE Purchase
-DROP TABLE DealershipInventory
-DROP TABLE MechanicTasks
-DROP TABLE MaintenanceTask
-DROP TABLE MaintenanceTasksType
-DROP TABLE EvalTasks
-DROP TABLE DealershipVehiclePart
-DROP TABLE DealershipVehiclePartType
-DROP TABLE Maintenance
-DROP TABLE Dealership
-ROLLBACK;
-
-BEGIN TRAN T1;
 
 CREATE TABLE Dealership (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
@@ -50,8 +30,11 @@ CREATE TABLE Maintenance (
   ClientScoreExpected float,
   ClientScore float,
   WorkHoursExpected int,
-  WorkHours int
+  WorkHours int,
+  StatusId int not null
 );
+
+
 
 ALTER TABLE Maintenance ADD FOREIGN KEY (ClientId) REFERENCES AspNetUsers (Id);
 ALTER TABLE Maintenance ADD FOREIGN KEY (VehicleId) REFERENCES vehicle (Id);
@@ -101,12 +84,15 @@ ALTER TABLE MaintenanceTasksType ADD FOREIGN KEY (EvalTaskId) REFERENCES EvalTas
 ALTER TABLE MaintenanceTasksType ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 
 
+
 CREATE TABLE MaintenanceTask (
   Id integer PRIMARY KEY IDENTITY(1,1),
   MaintenanceId uniqueidentifier not null,
   MaintenanceTaskTypeId integer not null,
-  [Status] varchar(255) not null
+  [Status] int not null
 );
+
+
 
 ALTER TABLE MaintenanceTask ADD FOREIGN KEY (MaintenanceId) REFERENCES Maintenance (Id);
 ALTER TABLE MaintenanceTask ADD FOREIGN KEY (MaintenanceTaskTypeId) REFERENCES MaintenanceTasksType (Id);
@@ -140,13 +126,14 @@ ALTER TABLE DealershipInventory ADD FOREIGN KEY (VehiclePartType) REFERENCES Dea
 ALTER TABLE DealershipInventory ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 
 
+
 CREATE TABLE Purchase  (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   OperatorId varchar(36) not null,
   DealershipId uniqueidentifier not null,
   CreatedDate date not null,
   TotalPrice float not null,
-  [Status] varchar(255) not null
+  [Status] int not null
 );
 
 ALTER TABLE Purchase  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
@@ -173,7 +160,7 @@ CREATE TABLE MaintenanceChange (
   PurchaseVehiclePartId uniqueidentifier not null,
   NewBudget float not null,
   NewDate date not null,
-  Status varchar(255) not null,
+  Status int not null,
   PRIMARY KEY (MaintenanceId, PurchaseVehiclePartId)
 );
 
@@ -184,9 +171,11 @@ ALTER TABLE MaintenanceChange ADD FOREIGN KEY (PurchaseVehiclePartId) REFERENCES
 CREATE TABLE Delivery (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   DealershipId uniqueidentifier not null,
-  [status] varchar(255) not null,
+  [status] int not null,
   CreatedDate date not null
 );
+
+
 ALTER TABLE Delivery ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 
 
@@ -198,55 +187,8 @@ CREATE TABLE DeliveryDetail (
   ActualDate uniqueidentifier,
   VehiclePartType uniqueidentifier not null
 );
+
 ALTER TABLE DeliveryDetail ADD FOREIGN KEY (DeliveryId) REFERENCES Delivery (Id);
 ALTER TABLE DeliveryDetail ADD FOREIGN KEY (VehiclePartType) REFERENCES DealershipVehiclePartType (Id);
 
 
-
-ROLLBACK;
-
-
-
-
---CREATE TABLE AspNetUsers (
---  Id uniqueidentifier PRIMARY KEY,
---  DealershipId uniqueidentifier,
---  Role varchar(255)
---);
-
---CREATE TABLE vehicle (
---  Id uniqueidentifier PRIMARY KEY,
---  VehiclePartId int
---);
-
---CREATE TABLE vehiclePart (
---  VehiclePartType uniqueidentifier,
---  VehicleId uniqueidentifier,
---  DateIn Datetime,
---  DateOut Datetime,
---  PRIMARY KEY (VehiclePartType, VehicleId, DateIn)
---);
-
-
---ALTER TABLE vehiclePart ADD FOREIGN KEY (VehicleId) REFERENCES vehicle (Id);
---ALTER TABLE vehiclePart ADD FOREIGN KEY (VehiclePartType) REFERENCES vehiclePartType (Id);
-
-
---CREATE TABLE vehiclePartType (
---  Id int PRIMARY KEY,
---  Code varchar(255),
---  Name varchar(255),
---  Description varchar(255),
---  Price varchar(255),
---  Category varchar(255),
---  ReorderQuantity int
---);
-
---CREATE TABLE Entity (
---  Id int PRIMARY KEY,
---  Nome varchar(255)
---);
-
---ALTER TABLE AspNetUsers ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
-
---ROLLBACK;
