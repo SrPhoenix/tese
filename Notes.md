@@ -43,8 +43,9 @@ criar maintenance:
 - Vehicle Id
 - Created Date
 - Eval Date
+- Notas do Cliente (Se aplicável)
 - StatusId : 1  (aguardar avaliação)
-- Adicionar Maintenance Task
+- Adicionar uma Maintenance Task
     - MaintenanceTaskTypeId : Type -> Avaliação
     - Status : 2 (Aguardar Atribuição)
 
@@ -58,7 +59,7 @@ Chefe de oficina é notificado que existe uma Maintenance Task no estado 1 e cri
 
 ## Step 3 - Avaliação
 O Mecânico responsável pela avaliação vê uma tarefa do tipo avaliação para fazer. Esta tarefa consiste:
-- Num conjunto de passos, em que cada passo é uma eval task especifica para aquele tipo de veiculo com um conjunto de tipos de tarefas associados. Alguns exemplos de passos: Troca de peças, Limpeza, Controlo de Qualidade
+- Num conjunto de passos, em que cada passo é uma eval task especifica para aquele tipo de veiculo com um conjunto de tipos de tarefas associadas. Alguns exemplos de passos: Troca de peças, Limpeza, Controlo de Qualidade
 - Tendo acesso às notas do cliente e ao ver o estado do veículo, o mecânico adiciona as tarefas que acha pertinentes à manutenção com as partes dos veículos necessárias (se aplicável) e com o estado 1 (Aguardar Aprovação)
 - Ao terminar a tarefa o estado da manutenção muda para 2 (aguardar aprovação)
 
@@ -83,14 +84,14 @@ Chefe de oficina é notificado que existe uma ou várias tarefas no estado 1 e c
 
 ## Step 6 - (Optional) Comprar Peças
 Condições:
-- Existem tarefas para substituir pelas para fazer e Não existem peças em stock ou o número de peças ultrapassou o threshold
-- Ou a ultima compra não foi válida e é necesssário comprar mais peças
+- Existem tarefas para substituir peças que não existem em stock ou o número de peças ultrapassou o threshold
 
 É automaticamente gerado um alerta para o operador de armazém que existem peças em falta. O operador cria uma nova Purchase com:
-- uma data de criação
-- o seu Id (Id do operador)
-- o estado 1 (Aguardar Aprovação)
-- razão (Por a peça não existir em stock, por exemplo)
+- Uma data de criação
+- O seu Id (Id do operador)
+- O estado 1 (Aguardar Aprovação)
+- o dealership Id
+- Razão (Por a peça não existir em stock, por exemplo)
 - Um conjunto de Purchase Details por cada tipo de parte de veículo com:
     - um número de peças
     - O preço do conjunto
@@ -109,14 +110,16 @@ O chefe da oficina foi notificado que existe uma nova compra por validar e valid
 Se a purchase tiver uma manutenção associada, vai para o passo 8
 
 
-
 ## Step 8 - (Optional) Pedir Autorização ao cliente
 Condições:
 - Nova maintenance change com as seguintes causas possiveis:
-- Nova tarefa adicionada (Novo budget com possivel nova data de conlusão)
-- Alterar peça para a conclusão da tarefa (possivelmente novo budget, com validação de inventário que implica possivel nova data de conclusão)
+    - Nova tarefa adicionada (Novo budget com possivel nova data de conlusão)
+    - Data que a peça chega é superior à data de realizar a tarefa 
 
-## Step 9 - (Optional) Comprar peças
+- Nova maintenance task change com as seguintes causas possiveis:
+    - Alteração de uma parte de uma tarefa (Novo budget com possivel nova data de conlusão)
+
+## Step 9 - (Optional) Comprar peças parte 2
 O operador regista em cada purchase details:
 - A data da compra das peças
 
@@ -125,12 +128,13 @@ O operador também cria uma nova delivery com :
 - Com uma lista de tipo de peças recebidas
     - Número de peças recebidas
     - Data de chegada esperada
-    - o tipo da da peça recebida
+    - o tipo da peça recebida
 
 
 ## Step 10 - (Optional) Registar novas peças
 Á medida que as peças vão chegando o operador regista na delivery:
 - A data de chegada do tipo da peça que chegou
+- o número de peças que chegaram
 
 
 ## Step 11 - Concluir uma tarefa
@@ -153,11 +157,11 @@ O chefe da oficina foi notificado que existe uma alteração de uma tarefa por v
 
 Ao validar a tarefa é
 - alterada o estado da tarefa para o estado 5 (alterada)
-- criado uma nova tarefa com os detalhes da alteração
+- criado uma nova tarefa com os detalhes da alteração e o estado 1 (Aguardar Aprovação)
 
 É criado uma maintenance change e passamos para o passo 8
 
-Depois de validada a tarefa é atribuida ao funcionário de novo
+Depois de aprovada a tarefa é atribuida ao funcionário de novo
 
 ## Step 14 - Chefe de oficina adiciona uma tarefa
 O chefe de oficina decide adicionar uma nova tarefa à manutenção
