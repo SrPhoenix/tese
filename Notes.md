@@ -44,10 +44,10 @@ criar maintenance:
 - Created Date
 - Eval Date
 - Notas do Cliente (Se aplicável)
-- StatusId : 1  (aguardar avaliação)
+- StatusId : 0  (aguardar avaliação)
 - Adicionar uma Maintenance Task
     - MaintenanceTaskTypeId : Type -> Avaliação
-    - Status : 2 (Aguardar Atribuição)
+    - Status : 1 (Aguardar Atribuição)
 
 
 ## Step 2 - Atribuir tarefa de avaliação
@@ -60,22 +60,22 @@ Chefe de oficina é notificado que existe uma Maintenance Task no estado 1 e cri
 ## Step 3 - Avaliação
 O Mecânico responsável pela avaliação vê uma tarefa do tipo avaliação para fazer. Esta tarefa consiste:
 - Num conjunto de passos, em que cada passo é uma eval task especifica para aquele tipo de veiculo com um conjunto de tipos de tarefas associadas. Alguns exemplos de passos: Troca de peças, Limpeza, Controlo de Qualidade
-- Tendo acesso às notas do cliente e ao ver o estado do veículo, o mecânico adiciona as tarefas que acha pertinentes à manutenção com as partes dos veículos necessárias (se aplicável) e com o estado 1 (Aguardar Aprovação)
-- Ao terminar a tarefa o estado da manutenção muda para 2 (aguardar aprovação)
+- Tendo acesso às notas do cliente e ao ver o estado do veículo, o mecânico adiciona as tarefas que acha pertinentes à manutenção com as partes dos veículos necessárias (se aplicável) e com o estado 0 (Aguardar Aprovação)
+- Ao terminar a tarefa o estado da manutenção muda para 1 (aguardar aprovação)
 
 ## Step 4 - Aprovação
 O recepcionista recebe notificação que a avaliação acabou e:
 - Define Data De conclusão esperada
-- Invalida tarefas (muda para o estado 3) que o cliente não quer (Se aplicável) 
+- Invalida tarefas (muda para o estado 2) que o cliente não quer (Se aplicável) 
 - Define um orçamento esperado (Pré Calculado pela soma do preço das tarefas [Preço das tarefas Preço * Horas + Preço do vehiclePartType])
 - Define Número de Horas Esperadas
 - Define o resultado do teste de qualidade esperada pelo cliente
-- Altera o estado da manutenção para 3 (Aguardar manutenção)
+- Altera o estado da manutenção para 2 (Aguardar manutenção)
 - Altera as tarefas da manutenção no estado 1 (Aguardar Aprovação) para o estado 2 (Aguardar Atribuição)
 
 
 ## Step 5 - Atribuir tarefas de manutenção
-Chefe de oficina é notificado que existe uma ou várias tarefas no estado 1 e cria uma nova MechanicTask:
+Chefe de oficina é notificado que existe uma ou várias tarefas no estado 1 e cria uma nova MechanicTask, alterando a tarefa para o estado 3 (Atribuída):
 - Maintenance Task ID
 - Mechanic ID
 - Start Date Expected
@@ -89,7 +89,7 @@ Condições:
 É automaticamente gerado um alerta para o operador de armazém que existem peças em falta. O operador cria uma nova Purchase com:
 - Uma data de criação
 - O seu Id (Id do operador)
-- O estado 1 (Aguardar Aprovação)
+- O estado 0 (Aguardar Aprovação)
 - o dealership Id
 - Razão (Por a peça não existir em stock, por exemplo)
 - Um conjunto de Purchase Details por cada tipo de parte de veículo com:
@@ -104,8 +104,9 @@ Condições:
 - Ocorreu o passo 6
 
 O chefe da oficina foi notificado que existe uma nova compra por validar e valida:
-- Alterando o estado da compra para o estado 2 (válido)
-- Alterando o estado da compra para o estado 3 (inválido)
+
+- Alterando o estado da compra para o estado 1 (válido)
+- Alterando o estado da compra para o estado 2 (inválido)
 
 Se a purchase tiver uma manutenção associada, vai para o passo 8
 
@@ -115,16 +116,20 @@ Condições:
 - Nova maintenance change com as seguintes causas possiveis:
     - Nova tarefa adicionada (Novo budget com possivel nova data de conlusão)
     - Data que a peça chega é superior à data de realizar a tarefa 
+    Passos:
+        - O recepcionista altera a maintenance change status para 3 (Aprovada) ou 2 (Inválida)
 
 - Nova maintenance task change com as seguintes causas possiveis:
     - Alteração de uma parte de uma tarefa (Novo budget com possivel nova data de conlusão)
+    Passos:
+        - O recepcionista altera a maintenance task change status para 3 (Aprovada) ou 2 (Inválida)
 
 ## Step 9 - (Optional) Comprar peças parte 2
 O operador regista em cada purchase details:
 - A data da compra das peças
 
 O operador também cria uma nova delivery com :
-- o estado 1 (espera da chegada)
+- o estado 0 (espera da chegada)
 - Com uma lista de tipo de peças recebidas
     - Número de peças recebidas
     - Data de chegada esperada
@@ -135,6 +140,7 @@ O operador também cria uma nova delivery com :
 Á medida que as peças vão chegando o operador regista na delivery:
 - A data de chegada do tipo da peça que chegou
 - o número de peças que chegaram
+Quando todas as peças chegarem a delivery passa para o estado 1 (concluida) 
 
 
 ## Step 11 - Concluir uma tarefa
@@ -147,7 +153,7 @@ O mecânico atualiza o mechanic task:
 O mecânico cria uma solicitação para alterar uma peça de uma tarefa com:
 - uma data de inicio
 - o tipo de peça a ser trocado
-- estado 1 (Aguardar aprovação)
+- estado 0 (Aguardar aprovação)
 - o id da tarefa da manutenção
 
 ## Step 13 - (Optional) Chefe de oficina Autoriza
@@ -164,7 +170,7 @@ Ao validar a tarefa é
 Depois de aprovada a tarefa é atribuida ao funcionário de novo
 
 ## Step 14 - Chefe de oficina adiciona uma tarefa
-O chefe de oficina decide adicionar uma nova tarefa à manutenção
+O chefe de oficina decide adicionar uma nova tarefa à manutenção com o estado 0
 
 É criado uma maintenance change e passamos para o passo 8
 
@@ -200,3 +206,60 @@ O rececionista altera a mannutenção:
 
 O cliente altera a manutenção:
 - adicionando o cliente score
+
+
+
+
+
+# Enums
+
+## MaintenanceTaskType
+
+0 - Evaluation
+1 - Normal
+2 - Quality Assurance
+
+## Maintenance
+
+0 - aguardar avaliação
+1 - aguardar aprovação
+2 - Aguardar manutenção
+3 - Manutenção concluída
+4 - Entregue
+
+
+## MaintenanceTask
+
+0 - Aguardar Aprovação 
+1 - Aguardar Atribuição
+2 - Inválida
+3 - Atribuída
+4 - Concluída
+5 - alterada
+
+## Purchase
+
+0 - Aguardar Aprovação
+1 - Aguardar Atribuição
+2 - Inválida
+3 - Atribuída
+
+## Delivery
+
+0 - Espera da Chegada
+1 - Concluida
+
+## TaskChange
+
+0 - Aguardar Aprovação do Chefe de oficina
+1 - Aguardar Aprovação do Cliente
+2 - Inválida
+3 - Aprovada
+
+
+## MaintenanceChange
+
+0 - Aguardar Aprovação do Chefe de oficina
+1 - Aguardar Aprovação do Cliente
+2 - Inválida
+3 - Aprovada

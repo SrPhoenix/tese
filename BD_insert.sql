@@ -18,3 +18,25 @@ INSERT INTO [dbo].[Dealership]
 GO
 
 
+USE [MobiCycle]
+GO
+
+INSERT INTO [dbo].[MaintenanceTasksType]
+           ([EvalTaskId]
+           ,[VehiclePartTypeCategoryId]
+           ,[Name]
+           ,[VehicleType]
+           ,[Description]
+           ,[Price]
+           ,[Hours]
+           ,[Type])
+     VALUES
+           (null
+           ,null
+           ,'Evaluations'
+           ,null
+           ,'Do Vehicle Evaluation'
+           ,5
+           ,5
+           ,0)
+GO
