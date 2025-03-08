@@ -13,18 +13,7 @@ Fazer mais uma tabela para o histórico do preço das peças em inventário de c
 
 # Todo
 
-Adicionar tabela vehicleType dos dealerships DONE
-add step number in eval task DONE
-Add notes to MechanicTasks DONE
-
-Mudar FK das tabelas para ter um nome diferente da tabela DONE
-Mudar Maintenance task id to guid DONE
-
-mudar status para byte em vez de int DONE
-
-Adicionar tabela maitenanceTaskStep
-
-Deixar mudar sidebar
+Adicionar tabela maitenanceTaskStep #Need verificaition
 
 
 # Caso De uso 
