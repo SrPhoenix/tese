@@ -39,7 +39,7 @@ CREATE TABLE [Maintenance] (
   [ClientScore] float,
   [WorkHoursExpected] int,
   [WorkHours] int,
-  [StatusId] int NOT NULL
+  [StatusId] tinyint NOT NULL
 );
 
 
@@ -79,7 +79,8 @@ CREATE TABLE EvalTasks (
   [Id] integer PRIMARY KEY IDENTITY(1, 1),
   [Name] varchar(255) NOT NULL,
   [VehicleType] int,
-  [Description] varchar(255) NOT NULL
+  [Description] varchar(255) NOT NULL,
+  StepNum int NOT NULL
 ); 
 
 ALTER TABLE [EvalTasks] ADD FOREIGN KEY ([VehicleType]) REFERENCES [VehicleType] ([Id])
@@ -103,19 +104,20 @@ ALTER TABLE MaintenanceTasksType ADD FOREIGN KEY (EvalTaskId) REFERENCES EvalTas
 
 
 
+
 CREATE TABLE MaintenanceTask (
-  [Id] integer PRIMARY KEY IDENTITY(1, 1),
+  [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
   [MaintenanceId] uniqueidentifier NOT NULL,
   [MaintenanceTaskTypeId] integer NOT NULL,
-  [VehiclePartType] uniqueidentifier,
-  [Status] int NOT NULL
+  [VehiclePartTypeId] uniqueidentifier,
+  [Status] tinyint NOT NULL
 );
 
 
 
 ALTER TABLE MaintenanceTask ADD FOREIGN KEY (MaintenanceId) REFERENCES Maintenance (Id);
 ALTER TABLE MaintenanceTask ADD FOREIGN KEY (MaintenanceTaskTypeId) REFERENCES MaintenanceTasksType (Id);
-ALTER TABLE [MaintenanceTask] ADD FOREIGN KEY ([VehiclePartType]) REFERENCES [DealershipVehiclePartType] ([Id])
+ALTER TABLE [MaintenanceTask] ADD FOREIGN KEY ([VehiclePartTypeId]) REFERENCES [DealershipVehiclePartType] ([Id])
 
 
 CREATE TABLE MechanicTasks (
@@ -125,6 +127,7 @@ CREATE TABLE MechanicTasks (
   StartDate Datetime,
   EndDateExpected Datetime not null,
   EndDate Datetime,
+  MechanicNotes varchar(255)
   PRIMARY KEY (MaintenanceTaskId)
 );
 
@@ -134,7 +137,7 @@ ALTER TABLE MechanicTasks ADD FOREIGN KEY (MaintenanceTaskId) REFERENCES Mainten
 
 CREATE TABLE DealershipInventory (
   InventoryId uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
-  VehiclePartType uniqueidentifier not null,
+  VehiclePartTypeId uniqueidentifier not null,
   DealershipId uniqueidentifier not null,
   QuantityAvailable int not null,
   MinimumStockLevel int not null,
@@ -142,20 +145,20 @@ CREATE TABLE DealershipInventory (
   ReorderPoint int not null
 );
 
-ALTER TABLE DealershipInventory ADD FOREIGN KEY (VehiclePartType) REFERENCES DealershipVehiclePartType (Id);
+ALTER TABLE DealershipInventory ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 ALTER TABLE DealershipInventory ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 
 
 CREATE TABLE [MaintenanceTaskChange] (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
-  [MaintenanceTaskId] integer NOT NULL,
+  [MaintenanceTaskId] uniqueidentifier NOT NULL,
   [CreateDate] datetime NOT NULL,
-  [VehiclePartType] uniqueidentifier NOT NULL,
-  [Status] int NOT NULL,
+  [VehiclePartTypeId] uniqueidentifier NOT NULL,
+  [Status] tinyint NOT NULL,
 )
 
 ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([MaintenanceTaskId]) REFERENCES [MaintenanceTask] ([Id])
-ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([VehiclePartType]) REFERENCES [DealershipVehiclePartType] ([Id])
+ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([VehiclePartTypeId]) REFERENCES [DealershipVehiclePartType] ([Id])
 
 CREATE TABLE Purchase  (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
@@ -165,7 +168,7 @@ CREATE TABLE Purchase  (
   [CreatedDate] date NOT NULL,
   [TotalPrice] float NOT NULL,
   [Reason] varchar(255) NOT NULL,
-  [Status] int NOT NULL
+  [Status] tinyint NOT NULL
 );
 
 ALTER TABLE Purchase  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
@@ -179,11 +182,11 @@ CREATE TABLE PurchaseDetail (
   [Count] int NOT NULL,
   [ExpectedArrivalDate] date NOT NULL,
   [PurchaseDate] date,
-  [VehiclePartType] uniqueidentifier NOT NULL,
+  [VehiclePartTypeId] uniqueidentifier NOT NULL,
   [Price] float NOT NULL
 );
 
-ALTER TABLE PurchaseDetail ADD FOREIGN KEY (VehiclePartType) REFERENCES DealershipVehiclePartType (Id);
+ALTER TABLE PurchaseDetail ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 ALTER TABLE PurchaseDetail ADD FOREIGN KEY (PurchaseId) REFERENCES Purchase  (Id);
 
 
@@ -192,7 +195,7 @@ CREATE TABLE MaintenanceChange (
   [CreateDate] datetime NOT NULL,
   [NewBudget] float NOT NULL,
   [NewDate] date NOT NULL,
-  [Status] int NOT NULL,
+  [Status] tinyint NOT NULL,
   PRIMARY KEY ([MaintenanceId], [CreateDate])
 );
 ALTER TABLE MaintenanceChange ADD FOREIGN KEY (MaintenanceId) REFERENCES Maintenance (Id);
@@ -202,7 +205,7 @@ CREATE TABLE Delivery (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
   [PurchaseId] uniqueidentifier NOT NULL,
   [DealershipId] uniqueidentifier NOT NULL,
-  [status] int NOT NULL,
+  [status] tinyint NOT NULL,
   [CreatedDate] date NOT NULL
 );
 
@@ -217,11 +220,21 @@ CREATE TABLE DeliveryDetail (
   [Count] int NOT NULL,
   [ExpectedDate] uniqueidentifier NOT NULL,
   [ActualDate] uniqueidentifier,
-  [VehiclePartType] uniqueidentifier NOT NULL
+  [VehiclePartTypeId] uniqueidentifier NOT NULL
 );
 
 ALTER TABLE DeliveryDetail ADD FOREIGN KEY (DeliveryId) REFERENCES Delivery (Id);
-ALTER TABLE DeliveryDetail ADD FOREIGN KEY (VehiclePartType) REFERENCES DealershipVehiclePartType (Id);
+ALTER TABLE DeliveryDetail ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 
 
+CREATE TABLE [DealershipVehicleType] (
+  [DealershipId] uniqueidentifier NOT NULL,
+  [VehicleTypeId] int NOT NULL,
+  PRIMARY KEY ([VehicleTypeId], [DealershipId])
+)
+
+
+ALTER TABLE [DealershipVehicleType] ADD FOREIGN KEY ([DealershipId]) REFERENCES [Dealership] ([Id])
+
+ALTER TABLE [DealershipVehicleType] ADD FOREIGN KEY ([VehicleTypeId]) REFERENCES [VehicleType] ([Id])
 

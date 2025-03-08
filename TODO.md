@@ -13,15 +13,19 @@ Fazer mais uma tabela para o histórico do preço das peças em inventário de c
 
 # Todo
 
+Adicionar tabela vehicleType dos dealerships DONE
+add step number in eval task DONE
+Add notes to MechanicTasks DONE
 
-Adicionar Um novo utilizador o administrador do sistema, irá criar e alterar tipos de tarefas DONE
-Adicionar começo de solicitação de compras por ultrapassar o threshold, após o fim da manutenção
+Mudar FK das tabelas para ter um nome diferente da tabela DONE
+Mudar Maintenance task id to guid DONE
 
-Adicionar tabela vehicleType dos dealerships
-add step number in eval task
-Add notes to MechanicTasks
+mudar status para byte em vez de int DONE
 
-Mudar FK das tabelas para ter um nome diferente da tabela
+Adicionar tabela maitenanceTaskStep
+
+Deixar mudar sidebar
+
 
 # Caso De uso 
 ## Validação de stock
