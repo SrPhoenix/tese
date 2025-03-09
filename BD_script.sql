@@ -103,6 +103,15 @@ ALTER TABLE [MaintenanceTasksType] ADD FOREIGN KEY ([VehiclePartTypeCategoryId])
 ALTER TABLE MaintenanceTasksType ADD FOREIGN KEY (EvalTaskId) REFERENCES EvalTasks (Id); 
 
 
+CREATE TABLE [MaintenanceTaskStep] (
+  [Id] integer PRIMARY KEY IDENTITY(1, 1),
+  [MaintenanceTaskTypeId] integer NOT NULL,
+  [StepNum] integer NOT NULL,
+  [Name] varchar(255) NOT NULL,
+  [Description] varchar(255) NOT NULL
+)
+
+ALTER TABLE [MaintenanceTaskStep] ADD FOREIGN KEY ([MaintenanceTaskTypeId]) REFERENCES [MaintenanceTasksType] ([Id])
 
 
 CREATE TABLE MaintenanceTask (

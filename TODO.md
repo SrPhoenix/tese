@@ -11,9 +11,38 @@ Fazer mais uma tabela para o histórico do preço das peças em inventário de c
 
 ----------------------------------- + ---------------------------------------
 
-# Todo
+# Todo - Semana 10/03-16/03
 
-Adicionar tabela maitenanceTaskStep #Need verificaition
+Adicionar tabela maitenanceTaskStep DONE
+    - MaintenanceTaskType PK
+    - Step Num PK
+    - Nome
+    - Descrição
+
+
+
+Criar Use Case criar utilizadores DONE
+
+Alterar página inicial do chefe de oficina e do rececionista para ser como a criação de horários do paco2
+
+
+Implementar finalização dos detalhes da manutenção
+
+
+# Todo - Semana 17/03-23/03
+
+Compras e visualização do stock do warehouse manager
+
+Autorização de compras no workshop manager
+
+# TDO - semana 24-30
+
+Implementar Criação de clientes
+Implementar Criar utilizadores no Warehouse manager
+
+
+
+
 
 
 # Caso De uso 
