@@ -13,18 +13,8 @@ Fazer mais uma tabela para o histórico do preço das peças em inventário de c
 
 # Todo - Semana 10/03-16/03
 
-Adicionar tabela maitenanceTaskStep DONE
-    - MaintenanceTaskType PK
-    - Step Num PK
-    - Nome
-    - Descrição
-
-
-
-Criar Use Case criar utilizadores DONE
-
 Alterar página inicial do chefe de oficina e do rececionista para ser como a criação de horários do paco2
-
+- Do the same to the recepcionist DONE
 
 Implementar finalização dos detalhes da manutenção
 
@@ -41,7 +31,13 @@ Implementar Criação de clientes
 Implementar Criar utilizadores no Warehouse manager
 
 
+# TODO 
 
+Meter modal full screen sem diminuires
+resolver layout
+resolver log out
+Change maintenance task type hours para float em vez de int
+Eval task vehicle type navigation fix
 
 
 

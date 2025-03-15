@@ -51,7 +51,7 @@ INSERT INTO [dbo].[EvalTasks]
      VALUES
            ( 'Rotina' ,null,'Verificar as condições de rotina das peças',1),
            ( 'Trocar Peças' ,null,'Verificar se é necessário substituir alguma peça',2),
-           ( 'Qualidade' ,null,'Verificações e testes de qualidade',3)
+           ( 'Qualidade' ,null,'Verificações e testes de qualidade',3),
 GO
 
 
@@ -82,3 +82,36 @@ INSERT INTO [dbo].[MaintenanceTasksType]
 GO
 
 
+USE [MobiCycle]
+GO
+
+INSERT INTO [dbo].[MaintenanceTaskStep]
+           ([MaintenanceTaskTypeId]
+           ,[StepNum]
+           ,[Name]
+           ,[Description])
+     VALUES
+           (1,1,'Verificar a pressão dos pneus','Usando a máquina xpto verificar a pressão dos pneus.'),
+           (1,2,'Verificar a calvice dos pneus','Verificar olhar para os pneus e ver o quão careca eles estão.'),
+           (1,3,'Verificar a pintura','Verificar se a pintura precisa de retoque.'),
+           (1,4,'Verificar o selim','Verificar se o selim precisa de ser trocado.'),
+           (1,5,'Verificar os pedais','Verificar se os pedais precisam de ser trocado.'),
+           (1,6,'Verificar os travões','Ver se os travões funcionam bem.')
+GO
+
+
+INSERT INTO [dbo].[EvalTasks]
+           ([Name]
+           ,[VehicleType]
+           ,[Description]
+           ,[StepNum])
+     VALUES
+           ('Verificar a pressão dos pneus',null,'Usando a máquina xpto verificar a pressão dos pneus.',1),
+           ('Verificar a calvice dos pneus',null,'Verificar olhar para os pneus e ver o quão careca eles estão.',1),
+           ('Verificar a pintura',null,'Verificar se a pintura precisa de retoque.',1),
+           ('Verificar o selim',null,'Verificar se o selim precisa de ser trocado.',1),
+           ('Verificar os pedais',null,'Verificar se os pedais precisam de ser trocado.',1),
+           ('Verificar os travões',null,'Ver se os travões funcionam bem.',1),
+           ('Verificar o nivel do óleo',null,'Verificar se o nivel do óleo está correto.',1),
+            ('Verificar apertos',null,'Verificar se os apertos têm a pressão certa.',1)
+GO

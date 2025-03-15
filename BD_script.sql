@@ -78,9 +78,9 @@ ALTER TABLE DealershipVehiclePart ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES
 CREATE TABLE EvalTasks (
   [Id] integer PRIMARY KEY IDENTITY(1, 1),
   [Name] varchar(255) NOT NULL,
-  [VehicleType] int,
+  [VehicleTypeId] int,
   [Description] varchar(255) NOT NULL,
-  StepNum int NOT NULL
+  StepNum tinyint NOT NULL
 ); 
 
 ALTER TABLE [EvalTasks] ADD FOREIGN KEY ([VehicleType]) REFERENCES [VehicleType] ([Id])
@@ -106,7 +106,7 @@ ALTER TABLE MaintenanceTasksType ADD FOREIGN KEY (EvalTaskId) REFERENCES EvalTas
 CREATE TABLE [MaintenanceTaskStep] (
   [Id] integer PRIMARY KEY IDENTITY(1, 1),
   [MaintenanceTaskTypeId] integer NOT NULL,
-  [StepNum] integer NOT NULL,
+  [StepNum] tinyint NOT NULL,
   [Name] varchar(255) NOT NULL,
   [Description] varchar(255) NOT NULL
 )
