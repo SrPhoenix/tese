@@ -56,7 +56,7 @@ CREATE TABLE DealershipVehiclePartType (
   [Code] varchar(255) NOT NULL,
   [Name] varchar(255) NOT NULL,
   [Description] varchar(255) NOT NULL,
-  [Price] varchar(255) NOT NULL,
+  [Price] float NOT NULL,
   [Category] integer NOT NULL,
   [ReorderQuantity] int NOT NULL
 );
@@ -85,6 +85,14 @@ CREATE TABLE EvalTasks (
 
 ALTER TABLE [EvalTasks] ADD FOREIGN KEY ([VehicleType]) REFERENCES [VehicleType] ([Id])
 
+CREATE TABLE [EvalTaskSubStep] (
+  [Id] integer PRIMARY KEY IDENTITY(1, 1),
+  [EvalTaskId] integer NOT NULL,
+  [Name] varchar(255) NOT NULL,
+  [Description] varchar(255) NOT NULL
+)
+
+ALTER TABLE [EvalTaskSubStep] ADD FOREIGN KEY ([EvalTaskId]) REFERENCES [EvalTasks] ([Id])
 
 CREATE TABLE MaintenanceTasksType (
   [Id] integer PRIMARY KEY IDENTITY(1, 1),

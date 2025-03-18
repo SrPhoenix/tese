@@ -10,13 +10,18 @@ Fazer mais uma tabela para o histórico do preço das peças em inventário de c
 
 
 ----------------------------------- + ---------------------------------------
-
+ 
 # Todo - Semana 10/03-16/03
 
-Alterar página inicial do chefe de oficina e do rececionista para ser como a criação de horários do paco2
-- Do the same to the recepcionist DONE
 
 Implementar finalização dos detalhes da manutenção
+
+Fazer avaliação do veículo
+- Adicionar search de partes por categoria DONE
+- Apenas meter vehicle part type select quando a task tem vehicletypepart DONE
+- Enviar tarefas para criar para o backend DONE
+- Adicionar parte à tarefa para o backend DONE
+- Ficha tecnica do veículo dinamica DONE
 
 
 # Todo - Semana 17/03-23/03
@@ -37,8 +42,7 @@ Meter modal full screen sem diminuires
 resolver layout
 resolver log out
 Change maintenance task type hours para float em vez de int
-Eval task vehicle type navigation fix
-
+DealershipVehiclePartTypes naviagtion category
 
 
 # Caso De uso 
