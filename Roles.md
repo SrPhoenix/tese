@@ -2,6 +2,7 @@
 App Dealership App View
 App Client App View
 App Workshop Manager App View
+App Warehouse Manager App View
 
 ## Receptionist
 Receptionist
@@ -26,10 +27,19 @@ Roles Group Edit Mechanic
 User_Create Mechanic
 
 ## Workshop Manager
-Mechanic
+Workshop Manager
 
 Roles User Edit Group Workshop Manager
 Roles User Edit Role Workshop Manager
 Roles Group View Workshop Manager
 Roles Group Edit Workshop Manager
 User_Create Workshop Manager
+
+## Warehouse manager
+Warehouse manager
+
+Roles User Edit Group Warehouse manager
+Roles User Edit Role Warehouse Manager
+Roles Group View Warehouse Manager
+Roles Group Edit Warehouse Manager
+User_Create Warehouse Manager

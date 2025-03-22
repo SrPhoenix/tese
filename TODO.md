@@ -13,22 +13,14 @@ Fazer mais uma tabela para o histórico do preço das peças em inventário de c
  
 # Todo - Semana 10/03-16/03
 
-
-Implementar finalização dos detalhes da manutenção
-
-Fazer avaliação do veículo
-- Adicionar search de partes por categoria DONE
-- Apenas meter vehicle part type select quando a task tem vehicletypepart DONE
-- Enviar tarefas para criar para o backend DONE
-- Adicionar parte à tarefa para o backend DONE
-- Ficha tecnica do veículo dinamica DONE
-
-
 # Todo - Semana 17/03-23/03
 
 Compras e visualização do stock do warehouse manager
 
 Autorização de compras no workshop manager
+
+
+
 
 # TDO - semana 24-30
 
@@ -38,11 +30,19 @@ Implementar Criar utilizadores no Warehouse manager
 
 # TODO 
 
+Checar se vale a pena tirar o delivery e delivery details e juntar a transaction com o purchase details 
+
+Final do Purchase mudar status da tarefa se existir
+
+
+Cagar primeiro caso seja uma tarefa, fazer so para restock normal
+
+
 Meter modal full screen sem diminuires
 resolver layout
 resolver log out
-Change maintenance task type hours para float em vez de int
-DealershipVehiclePartTypes naviagtion category
+
+
 
 
 # Caso De uso 

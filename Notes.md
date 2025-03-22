@@ -211,3 +211,11 @@ O cliente altera a manutenção:
 
 
 
+##
+The system needs to be fast and handle lots of data without slowing down. It should work on different devices like computers, tablets, and phones. Security is key to protecting sensitive info.
+
+The interface should be simple to learn and use. New staff shouldn’t need much training. The system must be reliable and available 24/7.
+
+Backups are necessary to prevent data loss. The software should scale as your business grows. Good tech support is a must for when issues come up.
+
+
