@@ -169,7 +169,8 @@ ALTER TABLE DealershipInventory ADD FOREIGN KEY (DealershipId) REFERENCES Dealer
 CREATE TABLE DealershipInventoryTransaction (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   InventoryId uniqueidentifier not null,
-   DeliveryDetailId uniqueidentifier,
+  -- DeliveryDetailId uniqueidentifier,
+  PurchaseDetailId uniqueidentifier,
   [Type] tinyint not null,
   [OperatorId] varchar(36) not null,
   CreatedDate datetime not null,
@@ -178,7 +179,8 @@ CREATE TABLE DealershipInventoryTransaction (
 
 ALTER TABLE DealershipInventoryTransaction ADD FOREIGN KEY (InventoryId) REFERENCES DealershipInventory (Id);
 ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
-ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (DeliveryDetailId) REFERENCES DeliveryDetail (Id);
+ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (PurchaseDetailId) REFERENCES PurchaseDetail (Id);
+-- ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (DeliveryDetailId) REFERENCES DeliveryDetail (Id);
 
 CREATE TABLE [MaintenanceTaskChange] (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
@@ -213,6 +215,7 @@ CREATE TABLE PurchaseDetail (
   [Count] int NOT NULL,
   [ExpectedArrivalDate] date,
   [PurchaseDate] date,
+  [ArrivalDate] datetime,
   [VehiclePartTypeId] uniqueidentifier NOT NULL,
   [Price] float 
 );
@@ -232,32 +235,32 @@ CREATE TABLE MaintenanceChange (
 ALTER TABLE MaintenanceChange ADD FOREIGN KEY (MaintenanceId) REFERENCES Maintenance (Id);
 
 
-CREATE TABLE Delivery (
-  [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
-  [PurchaseId] uniqueidentifier NOT NULL,
-  [DealershipId] uniqueidentifier NOT NULL,
-  [status] tinyint NOT NULL,
-  [CreatedDate] date NOT NULL
-);
+-- CREATE TABLE Delivery (
+--   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
+--   [PurchaseId] uniqueidentifier NOT NULL,
+--   [DealershipId] uniqueidentifier NOT NULL,
+--   [status] tinyint NOT NULL,
+--   [CreatedDate] date NOT NULL
+-- );
 
 
-ALTER TABLE [Delivery] ADD FOREIGN KEY ([PurchaseId]) REFERENCES [Purchase] ([Id])
-ALTER TABLE Delivery ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
+-- ALTER TABLE [Delivery] ADD FOREIGN KEY ([PurchaseId]) REFERENCES [Purchase] ([Id])
+-- ALTER TABLE Delivery ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 
 
-CREATE TABLE DeliveryDetail (
-  [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
-  [DeliveryId] uniqueidentifier NOT NULL,
-  [OperatorId] varchar(36),
-  [Count] int,
-  [ExpectedDate] datetime,
-  [ActualDate] datetime,
-  [VehiclePartTypeId] uniqueidentifier NOT NULL
-);
+-- CREATE TABLE DeliveryDetail (
+--   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
+--   [DeliveryId] uniqueidentifier NOT NULL,
+--   [OperatorId] varchar(36),
+--   [Count] int,
+--   [ExpectedDate] datetime,
+--   [ActualDate] datetime,
+--   [VehiclePartTypeId] uniqueidentifier NOT NULL
+-- );
 
-ALTER TABLE DeliveryDetail ADD FOREIGN KEY (DeliveryId) REFERENCES Delivery (Id);
-ALTER TABLE DeliveryDetail ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
-ALTER TABLE DeliveryDetail  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
+-- ALTER TABLE DeliveryDetail ADD FOREIGN KEY (DeliveryId) REFERENCES Delivery (Id);
+-- ALTER TABLE DeliveryDetail ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
+-- ALTER TABLE DeliveryDetail  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
 
 
 CREATE TABLE [DealershipVehicleType] (

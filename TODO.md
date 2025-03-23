@@ -1,46 +1,29 @@
-Remover tabelas de estado e fazer enums (remover FK primeiro) Half Done
-
-Recriar o diagrama da db para mostrar ao stor
-
-Alterar tipo das tabelas para byte
-
-Fazer mais uma tabela para o histórico do preço das peças em inventário de cada dealership
-
-
-
-
------------------------------------ + ---------------------------------------
- 
-# Todo - Semana 10/03-16/03
-
-# Todo - Semana 17/03-23/03
-
-Compras e visualização do stock do warehouse manager
-
-Autorização de compras no workshop manager
-
-
-
-
-# TDO - semana 24-30
-
-Implementar Criação de clientes
-Implementar Criar utilizadores no Warehouse manager
-
 
 # TODO 
 
-Checar se vale a pena tirar o delivery e delivery details e juntar a transaction com o purchase details 
-
+tirar o delivery e delivery details e juntar a transaction com o purchase details
 Final do Purchase mudar status da tarefa se existir
 
-
-Cagar primeiro caso seja uma tarefa, fazer so para restock normal
-
-
-Meter modal full screen sem diminuires
+## Criar manutenção sem espinhas e sem partes
 resolver layout
 resolver log out
+Meter modal full screen sem diminuires
+
+Add Some parts to some vehicles
+Permitir mostrar random tasks no mecanico
+recepcionista e chefe de oficina calendário com filtros
+filtro temporal do rececionista até às 24h
+Refazer modal de finalizar manutenção
+Fazer a cena dos input data/time 
+Fazer o drag and drop no calendario
+Quando atribuir uma tarefa (chefe de oficina) dar refresh à info
+Finalizar manutenção adicionar as notas do mecânico
+Fazer o start maitenance task normal
+- Trocar o complete task com o do eval
+- Adicionar step by step por cada task (?)
+- Adicionar coiso do vehicle part type
+
+
 
 
 # TODO
