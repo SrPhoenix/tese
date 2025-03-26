@@ -1,27 +1,20 @@
 
 # TODO 
 
-tirar o delivery e delivery details e juntar a transaction com o purchase details
+tirar o delivery e delivery details e juntar a transaction com o purchase details DONE
 Final do Purchase mudar status da tarefa se existir
 
 ## Criar manutenção sem espinhas e sem partes
-resolver layout
-resolver log out
-Meter modal full screen sem diminuires
 
-Add Some parts to some vehicles
-Permitir mostrar random tasks no mecanico
+assign task no feed back
+
+
 recepcionista e chefe de oficina calendário com filtros
-filtro temporal do rececionista até às 24h
-Refazer modal de finalizar manutenção
-Fazer a cena dos input data/time 
 Fazer o drag and drop no calendario
-Quando atribuir uma tarefa (chefe de oficina) dar refresh à info
-Finalizar manutenção adicionar as notas do mecânico
-Fazer o start maitenance task normal
-- Trocar o complete task com o do eval
-- Adicionar step by step por cada task (?)
-- Adicionar coiso do vehicle part type
+
+
+
+
 
 
 

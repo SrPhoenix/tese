@@ -1,3 +1,26 @@
+
+
+CREATE TABLE AspNetUsers (
+  Id varchar(36) not null,
+  Email varchar(256)
+)
+
+CREATE TABLE Vehicle (
+  Id uniqueidentifier not null,
+  Name varchar(255) not null
+)
+
+CREATE TABLE VehicleType (
+  Id int not null,
+  Name varchar(255) not null
+)
+
+
+CREATE TABLE Owner (
+  Id uniqueidentifier not null,
+  Name varchar(255) not null
+)
+
 CREATE TABLE Dealership (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   Name varchar(255) not null,
@@ -42,7 +65,7 @@ CREATE TABLE [Maintenance] (
 
 
 ALTER TABLE Maintenance ADD FOREIGN KEY (ClientId) REFERENCES AspNetUsers (Id);
-ALTER TABLE Maintenance ADD FOREIGN KEY (VehicleId) REFERENCES vehicle (Id);
+ALTER TABLE Maintenance ADD FOREIGN KEY (VehicleId) REFERENCES Vehicle (Id);
 ALTER TABLE Maintenance ADD FOREIGN KEY (EntityId) REFERENCES Owner (Id);
 ALTER TABLE Maintenance ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 
@@ -70,7 +93,7 @@ CREATE TABLE DealershipVehiclePart (
   PRIMARY KEY (VehiclePartTypeId, VehicleId, DateIn)
 );
 
-ALTER TABLE DealershipVehiclePart ADD FOREIGN KEY (VehicleId) REFERENCES vehicle (Id);
+ALTER TABLE DealershipVehiclePart ADD FOREIGN KEY (VehicleId) REFERENCES Vehicle (Id);
 ALTER TABLE DealershipVehiclePart ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 
 CREATE TABLE EvalTasks (
@@ -114,10 +137,21 @@ CREATE TABLE [MaintenanceTaskStep] (
   [MaintenanceTaskTypeId] integer NOT NULL,
   [StepNum] tinyint NOT NULL,
   [Name] varchar(255) NOT NULL,
+  [ShowVehiclePart] bit NOT NULL,
   [Description] varchar(255) NOT NULL
 )
 
 ALTER TABLE [MaintenanceTaskStep] ADD FOREIGN KEY ([MaintenanceTaskTypeId]) REFERENCES [MaintenanceTasksType] ([Id])
+
+
+CREATE TABLE [MaintenanceTaskSubStep] (
+  [Id] integer PRIMARY KEY IDENTITY(1, 1),
+  [MaintenanceTaskStepId] integer NOT NULL,
+  [Name] varchar(255) NOT NULL,
+  [Description] varchar(255) NOT NULL
+)
+
+ALTER TABLE [MaintenanceTaskSubStep] ADD FOREIGN KEY ([MaintenanceTaskStepId]) REFERENCES [MaintenanceTaskStep] ([Id])
 
 
 CREATE TABLE MaintenanceTask (
