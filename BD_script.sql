@@ -20,6 +20,8 @@ CREATE TABLE Owner (
   Id uniqueidentifier not null,
   Name varchar(255) not null
 )
+begin tran T1;
+use MobiCycle
 
 CREATE TABLE Dealership (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
@@ -171,7 +173,7 @@ ALTER TABLE [MaintenanceTask] ADD FOREIGN KEY ([VehiclePartTypeId]) REFERENCES [
 
 CREATE TABLE MechanicTasks (
   MechanicId varchar(36) not null,
-  MaintenanceTaskId integer not null,
+  MaintenanceTaskId uniqueidentifier not null,
   StartDateExpected Datetime not null,
   StartDate Datetime,
   EndDateExpected Datetime not null,
@@ -200,21 +202,6 @@ CREATE TABLE DealershipInventory (
 ALTER TABLE DealershipInventory ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 ALTER TABLE DealershipInventory ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 
-CREATE TABLE DealershipInventoryTransaction (
-  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
-  InventoryId uniqueidentifier not null,
-  -- DeliveryDetailId uniqueidentifier,
-  PurchaseDetailId uniqueidentifier,
-  [Type] tinyint not null,
-  [OperatorId] varchar(36) not null,
-  CreatedDate datetime not null,
-  Quantity int not null
-);
-
-ALTER TABLE DealershipInventoryTransaction ADD FOREIGN KEY (InventoryId) REFERENCES DealershipInventory (Id);
-ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
-ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (PurchaseDetailId) REFERENCES PurchaseDetail (Id);
--- ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (DeliveryDetailId) REFERENCES DeliveryDetail (Id);
 
 CREATE TABLE [MaintenanceTaskChange] (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
@@ -256,6 +243,23 @@ CREATE TABLE PurchaseDetail (
 
 ALTER TABLE PurchaseDetail ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 ALTER TABLE PurchaseDetail ADD FOREIGN KEY (PurchaseId) REFERENCES Purchase  (Id);
+
+
+CREATE TABLE DealershipInventoryTransaction (
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
+  InventoryId uniqueidentifier not null,
+  -- DeliveryDetailId uniqueidentifier,
+  PurchaseDetailId uniqueidentifier,
+  [Type] tinyint not null,
+  [OperatorId] varchar(36) not null,
+  CreatedDate datetime not null,
+  Quantity int not null
+);
+
+ALTER TABLE DealershipInventoryTransaction ADD FOREIGN KEY (InventoryId) REFERENCES DealershipInventory (Id);
+ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
+ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (PurchaseDetailId) REFERENCES PurchaseDetail (Id);
+-- ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (DeliveryDetailId) REFERENCES DeliveryDetail (Id);
 
 
 CREATE TABLE MaintenanceChange (
@@ -307,3 +311,6 @@ CREATE TABLE [DealershipVehicleType] (
 ALTER TABLE [DealershipVehicleType] ADD FOREIGN KEY ([DealershipId]) REFERENCES [Dealership] ([Id])
 
 ALTER TABLE [DealershipVehicleType] ADD FOREIGN KEY ([VehicleTypeId]) REFERENCES [VehicleType] ([Id])
+
+
+rollback
