@@ -26,7 +26,7 @@ INSERT INTO [dbo].[MaintenanceTasksType]
            ([EvalTaskId]
            ,[VehiclePartTypeCategoryId]
            ,[Name]
-           ,[VehicleType]
+           ,[VehicleTypeId]
            ,[Description]
            ,[Price]
            ,[Hours]
@@ -51,18 +51,34 @@ INSERT INTO [dbo].[EvalTasks]
      VALUES
            ( 'Rotina' ,null,'Verificar as condições de rotina das peças',1),
            ( 'Trocar Peças' ,null,'Verificar se é necessário substituir alguma peça',2),
-           ( 'Qualidade' ,null,'Verificações e testes de qualidade',3),
+           ( 'Qualidade' ,null,'Verificações e testes de qualidade',3)
 GO
 
 
 USE [MobiCycle]
 GO
 
+USE [MobiCycle]
+GO
+
+INSERT INTO [dbo].[VehiclePartTypeCategory]
+           ([Name])
+     VALUES
+           ('Selim'),
+           ('Quadro'),
+           ('Travões'),
+           ('Pedais'),
+           ('Descanso'),
+           ('Guiador'),
+           ('Motor'),
+           ('Pneus')
+GO
+
 INSERT INTO [dbo].[MaintenanceTasksType]
            ([EvalTaskId]
            ,[VehiclePartTypeCategoryId]
            ,[Name]
-           ,[VehicleType]
+           ,[VehicleTypeId]
            ,[Description]
            ,[Price]
            ,[Hours]
@@ -79,24 +95,6 @@ INSERT INTO [dbo].[MaintenanceTasksType]
             (3,null,'Verificar óleo',null,'Verificar o nível de óleo da bicicleta',1.2,2,2),   
             (3,null,'Verificar apertos',null,'Verificar os apertos da bicicleta',1.3,3,2),   
             (3,null,'Lavagem',null,'Lavar a bicicleta',1.4,4,2)
-GO
-
-
-USE [MobiCycle]
-GO
-
-INSERT INTO [dbo].[MaintenanceTaskStep]
-           ([MaintenanceTaskTypeId]
-           ,[StepNum]
-           ,[Name]
-           ,[Description])
-     VALUES
-           (1,1,'Verificar a pressão dos pneus','Usando a máquina xpto verificar a pressão dos pneus.'),
-           (1,2,'Verificar a calvice dos pneus','Verificar olhar para os pneus e ver o quão careca eles estão.'),
-           (1,3,'Verificar a pintura','Verificar se a pintura precisa de retoque.'),
-           (1,4,'Verificar o selim','Verificar se o selim precisa de ser trocado.'),
-           (1,5,'Verificar os pedais','Verificar se os pedais precisam de ser trocado.'),
-           (1,6,'Verificar os travões','Ver se os travões funcionam bem.')
 GO
 
 
@@ -117,21 +115,7 @@ INSERT INTO [dbo].[EvalTaskSubStep]
 GO
 
 
-USE [MobiCycle]
-GO
 
-INSERT INTO [dbo].[VehiclePartTypeCategory]
-           ([Name])
-     VALUES
-           ('Selim'),
-           ('Quadro'),
-           ('Travões'),
-           ('Pedais'),
-           ('Descanso'),
-           ('Guiador'),
-           ('Motor'),
-           ('Pneus')
-GO
 
 USE [MobiCycle]
 GO
@@ -209,32 +193,33 @@ GO
 INSERT INTO [dbo].[MaintenanceTaskStep]
            ([MaintenanceTaskTypeId]
            ,[StepNum]
+		   ,[ShowVehiclePart]
            ,[Name]
            ,[Description])
      VALUES
-		   (2,1,'Preparação','Colocar a bicicleta na máquina porreira'),
-		   (3,1,'Preparação','Colocar a bicicleta na máquina porreira'),
-		   (3,2,'Mudança de óleo','ir buscar o bidão do óleo'),
-		   (3,3,'Finalizar','Tirar a bicicleta na máquina porreira'),
-		   (4,1,'Preparação','Colocar a bicicleta na máquina porreira'),
-           (4,2,'Apertos','Ver a máquina de apertos ligada à bicla'),
-		   (4,3,'Finalizar','Tirar a bicicleta na máquina porreira'),
-		   (5,1,'Preparação','Colocar a bicicleta na máquina porreira'),
-           (5,2,'Trocar Pneus','Tirar muitas coisas a prender os pneus'),
-		   (5,3,'Finalizar','Tirar a bicicleta na máquina porreira'),
-		   (6,1,'Preparação','Colocar a bicicleta na máquina porreira'),
-           (6,2,'Trocar selim','Tirar muitas coisas a prender o Selim'),
-		   (6,3,'Finalizar','Tirar a bicicleta na máquina porreira'),
-		   (7,1,'Preparação','Colocar a bicicleta na máquina porreira'),
-           (7,2,'Trocar motor','Tirar muitas coisas a prender o motor'),
-           (7,3,'Finalizar','Por Bicla à beira das outras'),
-		   (8,1,'Preparação','Colocar a bicicleta na máquina porreira'),
-           (8,2,'Trocar bateria','Tirar muitas coisas a prender a bateria'),
-           (8,3,'Finalizar','Por Bicla à beira das outras'),
-		   (9,1,'Verificar pneus','Verificar a pressão de ar dos pneus'),
-		   (10,1,'Verificar óleo','Verificar o nível de óleo da bicicleta'),
-		   (11,1,'Verificar apertos','Verificar os apertos da bicicleta'),
-		   (12,1,'Lavagem','lavar muito bem')
+		   (7,1,0,'Preparação','Colocar a bicicleta na máquina porreira'),
+		   (8,1,0,'Preparação','Colocar a bicicleta na máquina porreira'),
+		   (8,2,0,'Mudança de óleo','ir buscar o bidão do óleo'),
+		   (8,3,0,'Finalizar','Tirar a bicicleta na máquina porreira'),
+		   (9,1,0,'Preparação','Colocar a bicicleta na máquina porreira'),
+           (9,2,0,'Apertos','Ver a máquina de apertos ligada à bicla'),
+		   (9,3,0,'Finalizar','Tirar a bicicleta na máquina porreira'),
+		   (10,1,0,'Preparação','Colocar a bicicleta na máquina porreira'),
+           (10,2,1,'Trocar Pneus','Tirar muitas coisas a prender os pneus'),
+		   (10,3,0,'Finalizar','Tirar a bicicleta na máquina porreira'),
+		   (11,1,0,'Preparação','Colocar a bicicleta na máquina porreira'),
+           (11,2,1,'Trocar selim','Tirar muitas coisas a prender o Selim'),
+		   (11,3,0,'Finalizar','Tirar a bicicleta na máquina porreira'),
+		   (12,1,0,'Preparação','Colocar a bicicleta na máquina porreira'),
+           (12,2,1,'Trocar motor','Tirar muitas coisas a prender o motor'),
+           (12,3,0,'Finalizar','Por Bicla à beira das outras'),
+		   (13,1,0,'Preparação','Colocar a bicicleta na máquina porreira'),
+           (13,2,1,'Trocar bateria','Tirar muitas coisas a prender a bateria'),
+           (13,3,0,'Finalizar','Por Bicla à beira das outras'),
+		   (14,1,0,'Verificar pneus','Verificar a pressão de ar dos pneus'),
+		   (15,1,0,'Verificar óleo','Verificar o nível de óleo da bicicleta'),
+		   (16,1,0,'Verificar apertos','Verificar os apertos da bicicleta'),
+		   (17,1,0,'Lavagem','lavar muito bem')
 GO
 
 
@@ -246,63 +231,63 @@ INSERT INTO [dbo].[MaintenanceTaskSubStep]
            ,[Name]
            ,[Description])
      VALUES
-		   (1,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-           (1,'Ligar máquina de ar','Ver a máquina de ar ligada à bicla'),
-           (1,'Colocar unidades','Meter na máquina nas medidas certas'),
-           (1,'Verificar valores','Verificar os valores na máquina'),
-           (1,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
-           (1,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
-		   (2,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-		   (2,'Retirar tampa','Retirar a tampa da bicla'),
-		   (3,'bidão óleo','ir buscar o bidão do óleo'),
-		   (3,'Colocar óleo até 30','Colocar óleo até 30'),
-		   (4,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
-           (4,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
-		   (5,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-           (5,'Buscar máquina de apertos','Ter a máquina de apertos'),
-           (6,'Ligar máquina de apertos','Ver a máquina de apertos ligada à bicla'),
-           (6,'Colocar unidades','Meter na máquina nas medidas certas'),
-           (6,'Verificar valores','Verificar os valores na máquina'),
-		   (7,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
-           (7,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
-		   (8,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-           (8,'Buscar Penus','Ter Penus'),
-           (9,'Tirar coisas a prender os pneus','Tirar muitas coisas a prender os pneus'),
-           (9,'Retira pneu velho','Retira pneu velho sem fazer asneiras'),
-           (9,'Por pneu novo','Por pneu novo sem fazer asneiras'),
-		   (10,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
-           (10,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
-		   (11,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-           (11,'Buscar Selim','Ter Selim'),
-           (12,'Tirar coisas a prender o Selim','Tirar muitas coisas a prender o Selim'),
-           (12,'Retira Selim velho','Retira Selim velho sem fazer asneiras'),
-           (12,'Por Selim novo','Por Selim novo sem fazer asneiras'),
-		   (13,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
-           (13,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
-		   (14,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-           (14,'Buscar motor','Ter motor'),
-           (15,'Tirar coisas a prender o motor','Tirar muitas coisas a prender o motor'),
-           (15,'Retira motor velho','Retira motor velho sem fazer asneiras'),
-           (15,'Por motor novo','Por motor novo sem fazer asneiras'),
-		   (16,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
-           (16,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
-		   (17,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-           (17,'Buscar bateria','Ter bateria'),
-           (18,'Tirar coisas a prender a bateria','Tirar muitas coisas a prender a bateria'),
-           (18,'Retira bateria velha','Retira bateria velha sem fazer asneiras'),
-           (18,'Por bateria nova','Por bateria nova sem fazer asneiras'),
-		   (19,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
-           (19,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
-		   (20,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-		   (20,'Fazer teste dos pneus','Fazer teste bue porreiro'),
-		   (20,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
-		   (21,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-		   (21,'Fazer teste do óleo','Fazer teste bue porreiro'),
+		   (3,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
+           (3,'Ligar máquina de ar','Ver a máquina de ar ligada à bicla'),
+           (3,'Colocar unidades','Meter na máquina nas medidas certas'),
+           (3,'Verificar valores','Verificar os valores na máquina'),
+           (3,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
+           (3,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
+		   (4,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
+		   (4,'Retirar tampa','Retirar a tampa da bicla'),
+		   (5,'bidão óleo','ir buscar o bidão do óleo'),
+		   (5,'Colocar óleo até 30','Colocar óleo até 30'),
+		   (6,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
+           (6,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
+		   (7,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
+           (7,'Buscar máquina de apertos','Ter a máquina de apertos'),
+           (8,'Ligar máquina de apertos','Ver a máquina de apertos ligada à bicla'),
+           (8,'Colocar unidades','Meter na máquina nas medidas certas'),
+           (8,'Verificar valores','Verificar os valores na máquina'),
+		   (9,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
+           (9,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
+		   (10,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
+           (10,'Buscar Penus','Ter Penus'),
+           (11,'Tirar coisas a prender os pneus','Tirar muitas coisas a prender os pneus'),
+           (11,'Retira pneu velho','Retira pneu velho sem fazer asneiras'),
+           (11,'Por pneu novo','Por pneu novo sem fazer asneiras'),
+		   (12,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
+           (12,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
+		   (13,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
+           (13,'Buscar Selim','Ter Selim'),
+           (14,'Tirar coisas a prender o Selim','Tirar muitas coisas a prender o Selim'),
+           (14,'Retira Selim velho','Retira Selim velho sem fazer asneiras'),
+           (14,'Por Selim novo','Por Selim novo sem fazer asneiras'),
+		   (15,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
+           (15,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
+		   (16,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
+           (16,'Buscar motor','Ter motor'),
+           (17,'Tirar coisas a prender o motor','Tirar muitas coisas a prender o motor'),
+           (17,'Retira motor velho','Retira motor velho sem fazer asneiras'),
+           (17,'Por motor novo','Por motor novo sem fazer asneiras'),
+		   (18,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
+           (18,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
+		   (19,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
+           (19,'Buscar bateria','Ter bateria'),
+           (20,'Tirar coisas a prender a bateria','Tirar muitas coisas a prender a bateria'),
+           (20,'Retira bateria velha','Retira bateria velha sem fazer asneiras'),
+           (20,'Por bateria nova','Por bateria nova sem fazer asneiras'),
 		   (21,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
+           (21,'Por Bicla à naquele sitio','Por Bicla à beira das outras'),
 		   (22,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
-		   (22,'Fazer teste dos apertos','Fazer teste bue porreiro'),
+		   (22,'Fazer teste dos pneus','Fazer teste bue porreiro'),
 		   (22,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
-		   (23,'lavar','lavar muito bem')
+		   (23,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
+		   (23,'Fazer teste do óleo','Fazer teste bue porreiro'),
+		   (23,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
+		   (24,'Por Bicla ao alto','Colocar a bicicleta na máquina porreira'),
+		   (24,'Fazer teste dos apertos','Fazer teste bue porreiro'),
+		   (24,'Por Bicla em baixo','Tirar a bicicleta na máquina porreira'),
+		   (25,'lavar','lavar muito bem')
 GO
 
 
