@@ -313,4 +313,9 @@ ALTER TABLE [DealershipVehicleType] ADD FOREIGN KEY ([DealershipId]) REFERENCES 
 ALTER TABLE [DealershipVehicleType] ADD FOREIGN KEY ([VehicleTypeId]) REFERENCES [VehicleType] ([Id])
 
 
+ALTER TABLE AspNetUsers
+ADD DealershipId uniqueidentifier;
+
+ALTER TABLE AspNetUsers ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
+
 rollback
