@@ -191,6 +191,7 @@ CREATE TABLE DealershipInventory (
   VehiclePartTypeId uniqueidentifier not null,
   DealershipId uniqueidentifier not null,
   locationWithinWarehouse varchar(36) not null,
+  MeanDeliveryInDays float not null,
   QuantityAvailable int not null,
   MinimumStockLevel int not null,
   MaximumStockLevel int not null,
@@ -220,36 +221,54 @@ CREATE TABLE Purchase  (
   [MaintenanceTaskChangeId] uniqueidentifier,
   [OperatorId] varchar(36),
   [CreatedDate] date NOT NULL,
-  [TotalPrice] float,
+  [Price] float,
   [Reason] varchar(255) NOT NULL,
-  [Status] tinyint NOT NULL
+  [Status] tinyint NOT NULL,
+
+  [Count] int NOT NULL,
+  [ExpectedArrivalDate] date,
+  [ArrivalDate] datetime,
+  [VehiclePartTypeId] uniqueidentifier NOT NULL,
+  [PurchaseDate] date
 );
 
 ALTER TABLE Purchase  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
 ALTER TABLE Purchase  ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 ALTER TABLE [Purchase] ADD FOREIGN KEY ([MaintenanceTaskChangeId]) REFERENCES [MaintenanceTaskChange] ([Id])
+ALTER TABLE Purchase ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 
-
-CREATE TABLE PurchaseDetail (
+CREATE TABLE PurchaseDelay  (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
   [PurchaseId] uniqueidentifier NOT NULL,
-  [Count] int NOT NULL,
-  [ExpectedArrivalDate] date,
-  [PurchaseDate] date,
-  [ArrivalDate] datetime,
-  [VehiclePartTypeId] uniqueidentifier NOT NULL,
-  [Price] float 
+  [CreatedDate] date NOT NULL,
+  [Status] tinyint NOT NULL,
+  [ExpectedArrivalDate] date
+);
+ALTER TABLE PurchaseDelay  ADD FOREIGN KEY (PurchaseId) REFERENCES Purchase (Id);
+
+
+CREATE TABLE Contacts (
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
+  [Name] varchar(36) not null,
+  PhoenNumber varchar(36),
+  Email varchar(36),
+  [Address] varchar(36)
 );
 
-ALTER TABLE PurchaseDetail ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
-ALTER TABLE PurchaseDetail ADD FOREIGN KEY (PurchaseId) REFERENCES Purchase  (Id);
+
+-- CREATE TABLE PurchaseDetail (
+--   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
+--   [PurchaseId] uniqueidentifier NOT NULL,
+-- );
+
+-- ALTER TABLE PurchaseDetail ADD FOREIGN KEY (PurchaseId) REFERENCES Purchase  (Id);
 
 
 CREATE TABLE DealershipInventoryTransaction (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   InventoryId uniqueidentifier not null,
   -- DeliveryDetailId uniqueidentifier,
-  PurchaseDetailId uniqueidentifier,
+  PurchaseId uniqueidentifier,
   [Type] tinyint not null,
   [OperatorId] varchar(36) not null,
   CreatedDate datetime not null,
@@ -258,7 +277,7 @@ CREATE TABLE DealershipInventoryTransaction (
 
 ALTER TABLE DealershipInventoryTransaction ADD FOREIGN KEY (InventoryId) REFERENCES DealershipInventory (Id);
 ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
-ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (PurchaseDetailId) REFERENCES PurchaseDetail (Id);
+ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (PurchaseId) REFERENCES Purchase (Id);
 -- ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (DeliveryDetailId) REFERENCES DeliveryDetail (Id);
 
 

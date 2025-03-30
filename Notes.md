@@ -276,18 +276,6 @@ Backups are necessary to prevent data loss. The software should scale as your bu
         - cria uma maintenance change com uma task change com um tipo de parte diferente e escreve uma razão, uma data de previsão (nullable) e um budget (nullable)
 
 
-Adicionar tabela de contactos
-Tarefas com peças em falta não podem ser atribuidas
-adicionar tempo médio de entrega por tipo de peça
-Adicionar quantidade em stock do tipo de peça no processo de avaliação
-No processo de avaliação dizer se existe alguma compra à espera de entrega para essas peças e a data prevista de chegar
-Adicionar previsão das peças caso n haja em stock na finalização da manutenção
-No processo de avaliação dizer se existe alguma compra à espera de entrega para essas peças e a data prevista de chegar
-Adicionar tabela de atraso de compra
-
-
-O que fazer se o veículo não passa no controlo de qualidade?
-
-
 ## maintenance and task change
+
 

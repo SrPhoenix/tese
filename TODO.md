@@ -1,36 +1,45 @@
 
 # TODO 
 
-tirar o delivery e delivery details e juntar a transaction com o purchase details DONE
+## Warehouse manager
+
+merge purchase com purchase details DONE
+Adicionar tabela de contactos DONE
 Final do Purchase mudar status da tarefa se existir
+scroll da página ser só no conteudo e n na página inteira (prov scroll no container) 
+
+## mechanic
+Adicionar quantidade em stock do tipo de peça no processo de avaliação
+No processo de avaliação dizer se existe alguma compra à espera de entrega para essas peças e a data prevista de chegar
+scroll da página ser só no conteudo e n na página inteira (prov scroll no container) 
+
+
+## rececionista
+Adicionar previsão das peças caso n haja em stock na finalização da manutenção
+scroll da página ser só no conteudo e n na página inteira (prov scroll no container) 
+calendário com filtros
+Reduzir o calendario 
+
+## chefe de oficina 
+adicionar hora de chegada às tarefas para serem assigned
+scroll da página ser só no conteudo e n na página inteira (prov scroll no container) 
+assign task no feed back
+calendário com filtros
+Fazer o drag and drop no calendario
+Reduzir o calendario 
+
+## Sistema 
+Tarefas com peças em falta não podem ser atribuidas
+adicionar tempo médio de entrega por tipo de peça   DONE
+Adicionar tabela de atraso de compra                DONE   
+
+
+## Outros
 
 relatório de entrada do veículo na manutenção (?)
 Faturação
 botão na bancada para n ter de clicar 
-
 Momento de inicio de budget ?? esta no finalizar manutenção
-adicionar hora de chegada às tarefas para serem assigned
-scroll da página ser só no conteudo e n na página inteira (prov scroll no container) 
-Reduzir o calendario do rececionista e do chefe de oficina
-
-## Criar manutenção sem espinhas e sem partes
-
-assign task no feed back
-
-
-recepcionista e chefe de oficina calendário com filtros
-Fazer o drag and drop no calendario
-
-
-## Warehouse manager
-
-merge purchase com purchase details
-
-
-
-
-
-
 
 
 
@@ -79,7 +88,7 @@ User case 6.1 – Criar Tipos de Tarefas
 
 
 ## Fluxos completos
-Criar manutenção sem espinhas e sem partes
+Criar manutenção sem espinhas e sem partes DONE
 Criar manutenção Sem Stock
 Criar manutenção com Stock
 Criar manutenção Faltam tarefas
@@ -118,3 +127,4 @@ Acontece:
 
 # Dúvidas
 Pergunta, durante a manutenção um mecânico descobre um problema?
+O que fazer se o veículo não passa no controlo de qualidade?
