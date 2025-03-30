@@ -4,6 +4,15 @@
 tirar o delivery e delivery details e juntar a transaction com o purchase details DONE
 Final do Purchase mudar status da tarefa se existir
 
+relatório de entrada do veículo na manutenção (?)
+Faturação
+botão na bancada para n ter de clicar 
+
+Momento de inicio de budget ?? esta no finalizar manutenção
+adicionar hora de chegada às tarefas para serem assigned
+scroll da página ser só no conteudo e n na página inteira (prov scroll no container) 
+Reduzir o calendario do rececionista e do chefe de oficina
+
 ## Criar manutenção sem espinhas e sem partes
 
 assign task no feed back
@@ -11,6 +20,12 @@ assign task no feed back
 
 recepcionista e chefe de oficina calendário com filtros
 Fazer o drag and drop no calendario
+
+
+## Warehouse manager
+
+merge purchase com purchase details
+
 
 
 

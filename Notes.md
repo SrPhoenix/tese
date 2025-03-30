@@ -219,3 +219,75 @@ The interface should be simple to learn and use. New staff shouldn’t need much
 Backups are necessary to prevent data loss. The software should scale as your business grows. Good tech support is a must for when issues come up.
 
 
+
+# workflows
+
+## purchase
+
+### parts quantity is below reorder point
+- Iniciar processo de começo de compra (fazer configuração para este step ser automático)
+    - operador de armazém vê peças embaixo do reorder point
+    - operador cria um nova compra com a peça em questão e a quantidade necessária
+
+- Validação da compra
+    - chefe vê os detalhes da compra (tipo da peça, quantidade, preço e previsão de chegada)
+    - chefe autoriza ou invalida a tarefa
+    - se a compra não tiver operador associado, associar a alguém
+
+- Compra invalidada
+    - operador vê que a compra que criou foi invalidada
+    - chefe de oficina vê histórico de compras 
+
+- Compra validada
+    - operador contacta a fábrica e regista o preço, a data prevista de entrega da peça e a data da compra
+
+- A encomenda chega
+    - operador conclui compra dizendo a data de chegada na compra e
+    - regista as peças no sistema criando uma transação do tipo restock com a data, a quantidade e o tipo da peça
+
+### dealership doesn't have necessary part for a task
+
+- Iniciar processo de começo de compra automaticamente na finalização do começo na manutenção
+    - sistema cria uma nova compra com um tipo de peça e quantidade 1
+
+- Validação da compra
+    - chefe vê os detalhes da compra (tipo da peça, quantidade, preço, previsão de chegada e tarefa e manutenção associada)
+    - chefe autoriza ou invalida a tarefa
+    - chefe associa a compra a alguém caso esta seja autorizada
+
+- Compra invalidada
+    - chefe de oficina vê histórico de compras 
+    - aconselha criar uma alteração na manutenção ou tarefa
+
+- Compra validada
+    - operador contacta a fábrica e regista o preço, a data prevista de entrega da peça e a data da compra
+
+- A encomenda chega
+    - operador conclui compra dizendo a data de chegada na compra e
+    - regista as peças no sistema criando uma transação do tipo restock com a data, a quantidade e o tipo da peça
+
+- Atribuição da tarefa
+    - Chefe de oficina atribui a tarefa a alguém
+
+- Encomenda atrasada
+    - Operador regista um novo atraso da encomenda com data prevista (pode ser null)
+    - Chefe de oficina vê o novo atraso de encomenda e
+        - muda o estado para nenhuma ação necessária
+        - cria uma maintenance change com uma task change com um tipo de parte diferente e escreve uma razão, uma data de previsão (nullable) e um budget (nullable)
+
+
+Adicionar tabela de contactos
+Tarefas com peças em falta não podem ser atribuidas
+adicionar tempo médio de entrega por tipo de peça
+Adicionar quantidade em stock do tipo de peça no processo de avaliação
+No processo de avaliação dizer se existe alguma compra à espera de entrega para essas peças e a data prevista de chegar
+Adicionar previsão das peças caso n haja em stock na finalização da manutenção
+No processo de avaliação dizer se existe alguma compra à espera de entrega para essas peças e a data prevista de chegar
+Adicionar tabela de atraso de compra
+
+
+O que fazer se o veículo não passa no controlo de qualidade?
+
+
+## maintenance and task change
+
