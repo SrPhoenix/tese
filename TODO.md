@@ -5,10 +5,13 @@
 
 
 ### Warehouse manager
-Final do Purchase mudar status da tarefa se existir
-Fazer form criar purchase
-fazer form finalizar compra
-fazer form registar entrega
+Final do Purchase mudar status da tarefa se existir                     DONE
+Fazer form criar purchase                                               DONE
+fazer form finalizar compra                                             DONE
+fazer form registar entrega                                             DONE
+
+Como criar inventário   
+
 
 ### mechanic
 Adicionar quantidade em stock do tipo de peça no processo de avaliação
@@ -19,18 +22,16 @@ No processo de avaliação dizer se existe alguma compra à espera de entrega pa
 Adicionar previsão das peças caso n haja em stock na finalização da manutenção
 
 ### chefe de oficina 
-Meter lista de compras por validar (como no warehouse manager) Random   DONE
-Meter lista de compras por validar (como no warehouse manager)          DONE
 
-Detalhes da compra
-- Mostar Quantidade em stock                                    DONE
-- Mostrar quem fez a compra                                     DONE    
-- Mostrar detalhes da manutenção e da tarefa se for o caso      DONE
-- Adicionar unidade ao preço                                    DONE
 
 
 ### Sistema 
 Tarefas com peças em falta não podem ser atribuidas
+
+MeanDeliveryInDays in DealershipInventory nullable
+MinimumStockLevel in DealershipInventory nullable
+MaximumStockLevel in DealershipInventory nullable
+ReorderPoint in DealershipInventory nullable
 
 
 
