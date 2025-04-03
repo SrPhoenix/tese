@@ -19,8 +19,15 @@ No processo de avaliação dizer se existe alguma compra à espera de entrega pa
 Adicionar previsão das peças caso n haja em stock na finalização da manutenção
 
 ### chefe de oficina 
-adicionar hora de chegada às tarefas para serem assigned            Done
-assign task no feed back                                            DONE               
+Meter lista de compras por validar (como no warehouse manager) Random   DONE
+Meter lista de compras por validar (como no warehouse manager)          DONE
+
+Detalhes da compra
+- Mostar Quantidade em stock                                    DONE
+- Mostrar quem fez a compra                                     DONE    
+- Mostrar detalhes da manutenção e da tarefa se for o caso      DONE
+- Adicionar unidade ao preço                                    DONE
+
 
 ### Sistema 
 Tarefas com peças em falta não podem ser atribuidas
@@ -112,6 +119,7 @@ Criar manutenção Faltam tarefas
 Criar manutenção Parte errada
 Criar manutenção com atraso
 Criar manutenção com Report
+Fazer uma compra
 
 ## mini fluxos 
 ### Mecanico
