@@ -11,6 +11,8 @@ Que tipo de peças é que existem? Preçário?
 # stock
 Têm um sistema de organização das peças?
 As peças são compradas em conjuntos pré definidos ou variáveis? Ex.: só se pode comprar conjuntos de pneus multiplos de 50 
+Como vocês fazem quando precisam de uma peça que nunca tiveram aqui no armazém?
+Vocês tem geração de compras automáticas? Quem define a altura para fazer essas compras?
 
 # aplicação
 O que acha do sistema atual que usam?

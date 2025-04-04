@@ -191,11 +191,11 @@ CREATE TABLE DealershipInventory (
   VehiclePartTypeId uniqueidentifier not null,
   DealershipId uniqueidentifier not null,
   locationWithinWarehouse varchar(36) not null,
-  MeanDeliveryInDays float not null,
+  MeanDeliveryInDays float,
   QuantityAvailable int not null,
-  MinimumStockLevel int not null,
-  MaximumStockLevel int not null,
-  ReorderPoint int not null
+  MinimumStockLevel int ,
+  MaximumStockLevel int ,
+  ReorderPoint int 
 );
 
 

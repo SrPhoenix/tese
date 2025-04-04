@@ -33,6 +33,8 @@ MinimumStockLevel in DealershipInventory nullable
 MaximumStockLevel in DealershipInventory nullable
 ReorderPoint in DealershipInventory nullable
 
+Criar MeanDeliveryInDays on purchase ou assim
+
 
 
 
