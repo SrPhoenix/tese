@@ -10,7 +10,9 @@ Fazer form criar purchase                                               DONE
 fazer form finalizar compra                                             DONE
 fazer form registar entrega                                             DONE
 
-Como criar inventário   
+Como criar inventário                                                   DONE
+
+Separar compras por ação e compras para os detalhes (tabelas diferentes)
 
 
 ### mechanic
@@ -22,6 +24,7 @@ No processo de avaliação dizer se existe alguma compra à espera de entrega pa
 Adicionar previsão das peças caso n haja em stock na finalização da manutenção
 
 ### chefe de oficina 
+Separar compras por ação e compras para os detalhes (tabelas diferentes)
 
 
 
@@ -115,21 +118,22 @@ User case 6.1 – Criar Tipos de Tarefas
 
 
 ## Fluxos completos
-Criar manutenção sem espinhas e sem partes DONE
 Criar manutenção Sem Stock
 Criar manutenção com Stock
 Criar manutenção Faltam tarefas
 Criar manutenção Parte errada
 Criar manutenção com atraso
 Criar manutenção com Report
-Fazer uma compra
+
+Criar manutenção sem espinhas e sem partes DONE
+Fazer uma compra                           DONE
 
 ## mini fluxos 
 ### Mecanico
 continuar tarefa
 
 ### chefe de oficina
-Ver transições de inventário
+Ver transições de inventário                DONE
 Ver Manutenções ativas e passadas
 Criar funcionários
 Ver relatorios
