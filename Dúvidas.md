@@ -18,5 +18,8 @@ Vocês tem geração de compras automáticas? Quem define a altura para fazer es
 O que acha do sistema atual que usam?
 Têm alguma sugestão de melhoria?
 
+# Compras
+O que voces fazem quando uma compra chega atrasada? são notificados
+
 Que informação tem o relatório de entrega? (tarefas feitas e preço)
 O que fazer se o veículo não passa no controlo de qualidade?

@@ -139,7 +139,6 @@ CREATE TABLE [MaintenanceTaskStep] (
   [MaintenanceTaskTypeId] integer NOT NULL,
   [StepNum] tinyint NOT NULL,
   [Name] varchar(255) NOT NULL,
-  [ShowVehiclePart] bit NOT NULL,
   [Description] varchar(255) NOT NULL
 )
 
@@ -218,7 +217,7 @@ ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([VehiclePartTypeId]) REFERE
 CREATE TABLE Purchase  (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
   [DealershipId] uniqueidentifier NOT NULL,
-  [MaintenanceTaskChangeId] uniqueidentifier,
+  [MaintenanceTaskId] uniqueidentifier,
   [OperatorId] varchar(36),
   [CreatedDate] date NOT NULL,
   [Price] float,
@@ -234,7 +233,7 @@ CREATE TABLE Purchase  (
 
 ALTER TABLE Purchase  ADD FOREIGN KEY (OperatorId) REFERENCES AspNetUsers (Id);
 ALTER TABLE Purchase  ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
-ALTER TABLE [Purchase] ADD FOREIGN KEY ([MaintenanceTaskChangeId]) REFERENCES [MaintenanceTaskChange] ([Id])
+ALTER TABLE [Purchase] ADD FOREIGN KEY ([MaintenanceTaskId]) REFERENCES [MaintenanceTask] ([Id])
 ALTER TABLE Purchase ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES DealershipVehiclePartType (Id);
 
 CREATE TABLE PurchaseDelay  (

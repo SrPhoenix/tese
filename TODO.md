@@ -2,37 +2,47 @@
 # TODO 
 
 ## important
+TESTAR FLUXO  -  Criar manutenção com Stock                     DONE
+TESTAR FLUXO  -  Criar manutenção sem Stock                     DONE
+TESTAR FLUXO  -  Criar manutenção com compra em atraso
 
 
 ### Warehouse manager
-Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue
+Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue           
+Mostrar número de partes necessárias, as manutenções e tasks associadas e as compras feitas relacionadas a essas partes
+
 
 ### mechanic
-Adicionar quantidade em stock do tipo de peça no processo de avaliação
-No processo de avaliação dizer se existe alguma compra à espera de entrega para essas peças e a data prevista de chegar
+
 testar criar fazre varias tasks de uma vez
 
 
 ### rececionista
-Quando finalizar a manutenção alterar o estado das tarefas para wait part caso n haja peças em stock
-Adicionar previsão das peças caso n haja em stock na finalização da manutenção
-Indicar se uma tarefa não tem peças em stock
-indicar o MeanDeliveryInDays nas peças que não estão em stock e que não haja uma compra ativa
-Não consegue dar logout em condições
-Criar compra na finalização da manutenção se não houver parts em stock nem nehuma compra não inválida e não entregue
+
+Não consegue dar logout em condições                                                Done 
 
 
 ### chefe de oficina 
-Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue
+Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue               Done   
 
 
 ### Sistema 
-Tarefas com peças em falta não podem ser atribuidas         
+Tarefas com peças em falta não podem ser atribuidas                                 Done   
 
+Change purchase maintenance change to maintenance task id                           Done                   
+Criar MeanDeliveryInDays on purchase ou assim                                   
+Mudar diagrama de purchase para mudar estado de todas as tarefas com tasks      
+Acrescentar use case editar inventory location                        
 
-Criar MeanDeliveryInDays on purchase ou assim
+If mechanic task is assigned after conclusion date dar aviso tem a certeza e criar maintenace change
 
+organizar controllers                                                               Done               
 
+<!-- Trocar pneus pode requerer remover 2 peças -->
+<!-- Alterar Tasks type para meter quantidade necessária  -->
+
+<!-- Adicionar quantity real ao inventário (é alterada com o registo de compras e finalização de tarefas)
+- a quantidade disponivel é decrescentada na criação de tarefas e na saida de waitPart e é somada na invalidação, registo -->
 
 
 ## it can wait
@@ -129,6 +139,8 @@ Criar manutenção Faltam tarefas
 Criar manutenção Parte errada
 Criar manutenção com atraso
 Criar manutenção com Report
+Criar manutenção com compra em atraso
+Fazer uma compra em atraso                  
 
 Criar manutenção sem espinhas e sem partes DONE
 Fazer uma compra                           DONE
