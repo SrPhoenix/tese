@@ -245,7 +245,6 @@ CREATE TABLE PurchaseDelay  (
 );
 ALTER TABLE PurchaseDelay  ADD FOREIGN KEY (PurchaseId) REFERENCES Purchase (Id);
 
-
 CREATE TABLE Contacts (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   [Name] varchar(36) not null,
@@ -283,8 +282,9 @@ ALTER TABLE DealershipInventoryTransaction  ADD FOREIGN KEY (PurchaseId) REFEREN
 CREATE TABLE MaintenanceChange (
   [MaintenanceId] uniqueidentifier NOT NULL,
   [CreateDate] datetime NOT NULL,
-  [NewBudget] float NOT NULL,
-  [NewDate] date NOT NULL,
+  [NewBudget] float,
+  [MinConclusionDate] date,
+  [NewConclusionDate] date,
   [Status] tinyint NOT NULL,
   PRIMARY KEY ([MaintenanceId], [CreateDate])
 );

@@ -2,8 +2,7 @@
 # TODO 
 
 ## important
-TESTAR FLUXO  -  Criar manutenção com Stock                     DONE
-TESTAR FLUXO  -  Criar manutenção sem Stock                     DONE
+
 TESTAR FLUXO  -  Criar manutenção com compra em atraso
 
 
@@ -19,24 +18,26 @@ testar criar fazre varias tasks de uma vez
 
 ### rececionista
 
-Não consegue dar logout em condições                                                Done 
 
 
 ### chefe de oficina 
-Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue               Done   
 
 
 ### Sistema 
-Tarefas com peças em falta não podem ser atribuidas                                 Done   
 
-Change purchase maintenance change to maintenance task id                           Done                   
 Criar MeanDeliveryInDays on purchase ou assim                                   
 Mudar diagrama de purchase para mudar estado de todas as tarefas com tasks      
 Acrescentar use case editar inventory location                        
 
 If mechanic task is assigned after conclusion date dar aviso tem a certeza e criar maintenace change
 
-organizar controllers                                                               Done               
+
+
+Workshop invalidar compra -> fazer nova compra -> ....   
+
+checkar se purchase é depois do conclusion date se faz se um maintenancechange ou task change
+verificar o fluxo que tinha do delay change
+
 
 <!-- Trocar pneus pode requerer remover 2 peças -->
 <!-- Alterar Tasks type para meter quantidade necessária  -->
@@ -133,8 +134,8 @@ User case 6.5 – Adicionar tipo de veículo ao concessionário
 
 ## Fluxos completos
 
-Criar manutenção com Stock
-Criar manutenção Sem Stock
+Criar manutenção com Stock                  DONE
+Criar manutenção Sem Stock                  DONE
 Criar manutenção Faltam tarefas
 Criar manutenção Parte errada
 Criar manutenção com atraso
@@ -147,7 +148,7 @@ Fazer uma compra                           DONE
 
 ## mini fluxos 
 ### Mecanico
-continuar tarefa
+continuar tarefa                            DONE
 
 ### chefe de oficina
 Ver transições de inventário                DONE
