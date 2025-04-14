@@ -29,15 +29,15 @@ Criar MeanDeliveryInDays on purchase ou assim
 Mudar diagrama de purchase para mudar estado de todas as tarefas com tasks      
 Acrescentar use case editar inventory location                        
 
-If mechanic task is assigned after conclusion date dar aviso tem a certeza e criar maintenace change
+  
+Cancelar uma manutenção invalida as tarefas não começadas, é preciso registar esta ação (temporal e quem fez)           DONE
 
-
-
-Workshop invalidar compra -> fazer nova compra -> ....   
-
-checkar se purchase é depois do conclusion date se faz se um maintenancechange ou task change
-verificar o fluxo que tinha do delay change
-
+checkar preço ao fazer a manutenção
+checar validar maintenance change                                       DONE
+checar invalidar maintenance change
+Adicionar razão ao maintenance change?
+adicionar task selecionada no rececionista
+Colocar nome da peça na compra
 
 <!-- Trocar pneus pode requerer remover 2 peças -->
 <!-- Alterar Tasks type para meter quantidade necessária  -->

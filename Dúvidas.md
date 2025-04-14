@@ -4,6 +4,8 @@ Qual é a granularidade?
 Como calcula o preço de uma tarefa?
 O que acontece se um mecânico descobrir um erro na tarefa?
 O que acontece se se descobrir que existe uma tarefa em falta?
+Como calculam o preço?
+
 
 # peças
 Que tipo de peças é que existem? Preçário?
