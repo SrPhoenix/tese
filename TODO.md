@@ -3,12 +3,33 @@
 
 ## important
 
-TESTAR FLUXO  -  Criar manutenção com compra em atraso
+
+Administrador
+User case 6.1 – Criar Tipos de Tarefas
+User case 6.2 – Criar Concessionários
+User case 6.3 – Criar Partes de veículos
+User case 6.4 – Alterar tabela de preço das partes
+User case 6.5 – Adicionar tipo de veículo ao concessionário
+
+
+Aplicação do Cliente
+Use Case 5.1 – Visualizar o estado atual da manutenção
+Use Case 5.2 – Notificar o cliente do fim da manutenção
+Use Case 5.3 – Avaliação do serviço prestado
+
+User case 4.5 – Atribuir cargos a funcionários
+
+
+Criar manutenção Faltam tarefas
+Criar manutenção Parte errada
+
 
 
 ### Warehouse manager
 Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue           
 Mostrar número de partes necessárias, as manutenções e tasks associadas e as compras feitas relacionadas a essas partes
+Adicionar bola vermelha com o finalizar compra
+Separar tabela de compras entregues das outras
 
 
 ### mechanic
@@ -17,7 +38,11 @@ testar criar fazre varias tasks de uma vez
 
 
 ### rececionista
-
+Adicionar bola vermelha com as alterações das manutenções
+Adicionar bola vermelha com o finalizar manutenção
+Mostrar apenas as manutenções não entregues
+Juntar ações com manutençoes
+Maybe juntar manutenções com a pagina de inicio
 
 
 ### chefe de oficina 
@@ -32,12 +57,7 @@ Acrescentar use case editar inventory location
   
 Cancelar uma manutenção invalida as tarefas não começadas, é preciso registar esta ação (temporal e quem fez)           DONE
 
-checkar preço ao fazer a manutenção
-checar validar maintenance change                                       DONE
-checar invalidar maintenance change
-Adicionar razão ao maintenance change?
-adicionar task selecionada no rececionista
-Colocar nome da peça na compra
+Adicionar razão ao maintenance change?                                  
 
 <!-- Trocar pneus pode requerer remover 2 peças -->
 <!-- Alterar Tasks type para meter quantidade necessária  -->
@@ -87,17 +107,17 @@ Momento de inicio de budget ?? esta no finalizar manutenção
 Receção 
 Use Case 1.1 – Marcar uma manutenção                                DONE                       
 Use Case 1.2 – Definir detalhes da manutenção                       DONE
-Use Case 1.3 – Recolher informação sobre um pedido de manutenção        
+Use Case 1.3 – Recolher informação sobre um pedido de manutenção    DONE   
 Use Case 1.4 – Pedir autorização ao cliente                         DONE
 Use Case 1.5 – Entrega do veículo                                   DONE                           
-Use Case 1.6 – Invalidar Tarefa                                     
+Use Case 1.6 – Invalidar Tarefa                                     DONE
 
 
 Oficina
 Use Case 2.1 – Ver lista de tarefas pendentes                       DONE
 Use Case 2.2 – Fazer a avaliação do veículo                         DONE
 Use Case 2.3 – Elaborar lista de tarefas necessárias                DONE
-Use Case 2.4 – Recolher peças no Armazém                            
+Use Case 2.4 – Recolher peças no Armazém                            DONE
 Use Case 2.6 – Manutenção do veículo                                DONE
 Use Case 2.7 - Fazer o relatório do conserto                        
 Use Case 2.8 – Tarefa Requer Alteração                              DONE
@@ -107,7 +127,7 @@ Use Case 3.1 – Visualizar as várias peças que o armazém possui      DONE
 Use Case 3.2 – Solicitar serviço de compras                         DONE
 Use Case 3.3 – Comprar peças                                        DONE
 Use Case 3.4 – Registar novas peças na base de dados                DONE
-Use Case 3.5 – Alterar estado da tarefa                             
+Use Case 3.5 – Alterar estado da tarefa                             DONE
 
 Chefe de Oficina
 User case 4.1 – Atribuir tarefas a funcionários                     DONE
@@ -136,12 +156,12 @@ User case 6.5 – Adicionar tipo de veículo ao concessionário
 
 Criar manutenção com Stock                  DONE
 Criar manutenção Sem Stock                  DONE
-Criar manutenção Faltam tarefas
-Criar manutenção Parte errada
-Criar manutenção com atraso
-Criar manutenção com Report
-Criar manutenção com compra em atraso
-Fazer uma compra em atraso                  
+Criar manutenção Faltam tarefas             
+Criar manutenção Parte errada               
+Criar manutenção com atraso                 DONE
+Criar manutenção com Report             
+Criar manutenção com compra em atraso       done
+Fazer uma compra em atraso                  done
 
 Criar manutenção sem espinhas e sem partes DONE
 Fazer uma compra                           DONE
