@@ -21,8 +21,42 @@ User case 4.5 – Atribuir cargos a funcionários
 
 
 Criar manutenção Faltam tarefas
-Criar manutenção Parte errada
+- worshop acrescenta -> rececionista valida -> workshop atribui....
 
+Criar manutenção Parte errada
+- Offcanvas ao fazer a tarefa (fazer pausa e retoma da tarefa)
+
+Fazer diagramas dos atrasos
+- Retirar caso de uso 2.3
+- Inventory update
+    - Tarefa associada não implica falar com cliente
+    - Fala com cliente se data de chegada da peça for superior à data esperada do fim da manutenção
+    - o cliente invalida a compra, tarefa é invalidada, mas a compra continua
+    - Adicionar atraso repetitivo após comprar peça
+    - atraso superior à data esperada do fim da manutenção -> contactar o cliente
+    - 3.5 está bem -> é para a tarefa ser atribuida
+- Diagrama da manutenção
+    - Se a tarefa requer alteração então pausa na tarefa e cria um taskChange com vehiclePart novo
+    - Chefe de oficina não autoriza
+    - mecanico retoma a tarefa
+----------------------------------------------------
+    - chefe de oficina autoriza
+    - pedir autorização ao cliente
+    - cliente autoriza a alteração
+    - finalizar tarefa
+----------------------------------------------------
+    - cliente invalida a tarefa
+----------------------------------------------------
+    - cliente não autoriza a alteração
+    - mecanico retoma a tarefa
+----------------------------------------------------
+    - chefe de oficina adicionar
+    - Cliente valida
+    - chefe de oficina atribui a tarefa
+----------------------------------------------------
+    - cliente invalida a tarefa
+
+Quando acabar a manutenção (rever peças que foram removidas) fazer revisão de peças
 
 
 ### Warehouse manager
@@ -35,6 +69,7 @@ Separar tabela de compras entregues das outras
 ### mechanic
 
 testar criar fazre varias tasks de uma vez
+
 
 
 ### rececionista
@@ -57,7 +92,8 @@ Acrescentar use case editar inventory location
   
 Cancelar uma manutenção invalida as tarefas não começadas, é preciso registar esta ação (temporal e quem fez)           DONE
 
-Adicionar razão ao maintenance change?                                  
+Adicionar razão ao maintenance change?   
+VER NOTAS DA REUNIAO COM O TIAGO                               
 
 <!-- Trocar pneus pode requerer remover 2 peças -->
 <!-- Alterar Tasks type para meter quantidade necessária  -->
