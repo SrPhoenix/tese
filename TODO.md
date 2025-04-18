@@ -27,34 +27,34 @@ Criar manutenção Parte errada
 - Offcanvas ao fazer a tarefa (fazer pausa e retoma da tarefa)
 
 Fazer diagramas dos atrasos
-- Retirar caso de uso 2.3
-- Inventory update
-    - Tarefa associada não implica falar com cliente
-    - Fala com cliente se data de chegada da peça for superior à data esperada do fim da manutenção
-    - o cliente invalida a compra, tarefa é invalidada, mas a compra continua
-    - Adicionar atraso repetitivo após comprar peça
-    - atraso superior à data esperada do fim da manutenção -> contactar o cliente
-    - 3.5 está bem -> é para a tarefa ser atribuida
-- Diagrama da manutenção
-    - Se a tarefa requer alteração então pausa na tarefa e cria um taskChange com vehiclePart novo
-    - Chefe de oficina não autoriza
-    - mecanico retoma a tarefa
+- Retirar caso de uso 2.3                                                                               DONE
+- Inventory update                                                                                      DONE
+    - Tarefa associada não implica falar com cliente                                                    DONE
+    - Fala com cliente se data de chegada da peça for superior à data esperada do fim da manutenção     DONE
+    - o cliente invalida a compra, tarefa é invalidada, mas a compra continua                           DONE
+    - Adicionar atraso repetitivo após comprar peça                                                     DONE
+    - atraso superior à data esperada do fim da manutenção -> contactar o cliente                       DONE
+    - 3.5 está bem -> é para a tarefa ser atribuida                                                     DONE
+- Diagrama da manutenção                                                                                DONE
+    - Se a tarefa requer alteração então pausa na tarefa e cria um taskChange com vehiclePart novo      DONE
+    - Chefe de oficina não autoriza                                                                     DONE
+    - mecanico retoma a tarefa                                                                          DONE
 ----------------------------------------------------
-    - chefe de oficina autoriza
-    - pedir autorização ao cliente
-    - cliente autoriza a alteração
-    - finalizar tarefa
+    - chefe de oficina autoriza                                                                         DONE
+    - pedir autorização ao cliente                                                                      DONE
+    - cliente autoriza a alteração                                                                      DONE
+    - finalizar tarefa                                                                                  DONE
 ----------------------------------------------------
-    - cliente invalida a tarefa
+    - cliente invalida a tarefa                                                                         DONE
 ----------------------------------------------------
-    - cliente não autoriza a alteração
-    - mecanico retoma a tarefa
+    - cliente não autoriza a alteração                                                                  DONE
+    - mecanico retoma a tarefa                                                                          DONE
 ----------------------------------------------------
-    - chefe de oficina adicionar
-    - Cliente valida
-    - chefe de oficina atribui a tarefa
+    - chefe de oficina adicionar                                                                        DONE                      
+    - Cliente valida                                                                                    DONE
+    - chefe de oficina atribui a tarefa                                                                 DONE
 ----------------------------------------------------
-    - cliente invalida a tarefa
+    - cliente invalida a tarefa                                                                         DONE
 
 Quando acabar a manutenção (rever peças que foram removidas) fazer revisão de peças
 
