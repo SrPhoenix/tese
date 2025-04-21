@@ -1,9 +1,10 @@
 ## Ver aplicações
-App Dealership App View
+App Receptionist App View
 App Client App View
 App Workshop Manager App View
 App Warehouse Manager App View
 App Mechanic App View
+App Dealership admin App View
 
 ## Receptionist
 Receptionist
@@ -53,3 +54,16 @@ User_Create Warehouse Manager
 
 ### User
 costav689+warehousemanager@gmail.com
+
+
+## Dealership admin
+Dealership admin
+
+Roles User Edit Group Dealership admin
+Roles User Edit Role Dealership admin
+Roles Group View Dealership admin
+Roles Group Edit Dealership admin
+User_Create Dealership admin
+
+### User
+costav689+DealershipAdmin@gmail.com

@@ -34,7 +34,8 @@ CREATE TABLE Dealership (
   Country varchar(255) not null,
   PhoneNumber varchar(255) not null,
   Email varchar(255) not null,
-  Nif varchar(255) not null
+  Nif varchar(255) not null,
+  IsRemoved bit not null
 );
 
 
@@ -81,7 +82,8 @@ CREATE TABLE DealershipVehiclePartType (
   [Description] varchar(255) NOT NULL,
   [Price] float NOT NULL,
   [CategoryId] integer NOT NULL,
-  [ReorderQuantity] int NOT NULL
+  [ReorderQuantity] int NOT NULL,
+  IsRemoved bit not null
 );
 
 ALTER TABLE [DealershipVehiclePartType] ADD FOREIGN KEY ([CategoryId]) REFERENCES [VehiclePartTypeCategory] ([Id])
@@ -103,19 +105,20 @@ CREATE TABLE EvalTasks (
   [Name] varchar(255) NOT NULL,
   [VehicleTypeId] int,
   [Description] varchar(255) NOT NULL,
-  StepNum tinyint NOT NULL
+  StepNum tinyint NOT NULL,
+  IsRemoved bit not null
 ); 
 
 ALTER TABLE [EvalTasks] ADD FOREIGN KEY ([VehicleTypeId]) REFERENCES [VehicleType] ([Id])
 
-CREATE TABLE [EvalTaskSubStep] (
-  [Id] integer PRIMARY KEY IDENTITY(1, 1),
-  [EvalTaskId] integer NOT NULL,
-  [Name] varchar(255) NOT NULL,
-  [Description] varchar(255) NOT NULL
-)
+-- CREATE TABLE [EvalTaskSubStep] (
+--   [Id] integer PRIMARY KEY IDENTITY(1, 1),
+--   [EvalTaskId] integer NOT NULL,
+--   [Name] varchar(255) NOT NULL,
+--   [Description] varchar(255) NOT NULL
+-- )
 
-ALTER TABLE [EvalTaskSubStep] ADD FOREIGN KEY ([EvalTaskId]) REFERENCES [EvalTasks] ([Id])
+-- ALTER TABLE [EvalTaskSubStep] ADD FOREIGN KEY ([EvalTaskId]) REFERENCES [EvalTasks] ([Id])
 
 CREATE TABLE MaintenanceTasksType (
   [Id] integer PRIMARY KEY IDENTITY(1, 1),
@@ -126,7 +129,8 @@ CREATE TABLE MaintenanceTasksType (
   [Description] varchar(255) NOT NULL,
   [Price] float NOT NULL,
   [Hours] float NOT NULL,
-  [Type] tinyint NOT NULL
+  [Type] tinyint NOT NULL,
+  IsRemoved bit not null
 );
 
 ALTER TABLE [MaintenanceTasksType] ADD FOREIGN KEY ([VehicleTypeId]) REFERENCES [VehicleType] ([Id])
@@ -145,14 +149,14 @@ CREATE TABLE [MaintenanceTaskStep] (
 ALTER TABLE [MaintenanceTaskStep] ADD FOREIGN KEY ([MaintenanceTaskTypeId]) REFERENCES [MaintenanceTasksType] ([Id])
 
 
-CREATE TABLE [MaintenanceTaskSubStep] (
-  [Id] integer PRIMARY KEY IDENTITY(1, 1),
-  [MaintenanceTaskStepId] integer NOT NULL,
-  [Name] varchar(255) NOT NULL,
-  [Description] varchar(255) NOT NULL
-)
+-- CREATE TABLE [MaintenanceTaskSubStep] (
+--   [Id] integer PRIMARY KEY IDENTITY(1, 1),
+--   [MaintenanceTaskStepId] integer NOT NULL,
+--   [Name] varchar(255) NOT NULL,
+--   [Description] varchar(255) NOT NULL
+-- )
 
-ALTER TABLE [MaintenanceTaskSubStep] ADD FOREIGN KEY ([MaintenanceTaskStepId]) REFERENCES [MaintenanceTaskStep] ([Id])
+-- ALTER TABLE [MaintenanceTaskSubStep] ADD FOREIGN KEY ([MaintenanceTaskStepId]) REFERENCES [MaintenanceTaskStep] ([Id])
 
 
 CREATE TABLE MaintenanceTask (

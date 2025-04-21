@@ -5,11 +5,12 @@
 
 
 Administrador
-User case 6.1 – Criar Tipos de Tarefas
-User case 6.2 – Criar Concessionários
-User case 6.3 – Criar Partes de veículos
-User case 6.4 – Alterar tabela de preço das partes
-User case 6.5 – Adicionar tipo de veículo ao concessionário
+User case 6.1 – Criar Tipos de Tarefas                          DONE
+User case 6.2 – Criar Concessionários                           DONE
+User case 6.3 – Criar Partes de veículos                        DONE
+User case 6.4 – Alterar tabela de preço das partes              DONE
+User case 6.5 – Adicionar tipo de veículo ao concessionário     DONE
+User case 6.6 – Adicionar tarefas de Avaliação                  DONE
 
 
 Aplicação do Cliente
@@ -26,35 +27,6 @@ Criar manutenção Faltam tarefas
 Criar manutenção Parte errada
 - Offcanvas ao fazer a tarefa (fazer pausa e retoma da tarefa)
 
-Fazer diagramas dos atrasos
-- Retirar caso de uso 2.3                                                                               DONE
-- Inventory update                                                                                      DONE
-    - Tarefa associada não implica falar com cliente                                                    DONE
-    - Fala com cliente se data de chegada da peça for superior à data esperada do fim da manutenção     DONE
-    - o cliente invalida a compra, tarefa é invalidada, mas a compra continua                           DONE
-    - Adicionar atraso repetitivo após comprar peça                                                     DONE
-    - atraso superior à data esperada do fim da manutenção -> contactar o cliente                       DONE
-    - 3.5 está bem -> é para a tarefa ser atribuida                                                     DONE
-- Diagrama da manutenção                                                                                DONE
-    - Se a tarefa requer alteração então pausa na tarefa e cria um taskChange com vehiclePart novo      DONE
-    - Chefe de oficina não autoriza                                                                     DONE
-    - mecanico retoma a tarefa                                                                          DONE
-----------------------------------------------------
-    - chefe de oficina autoriza                                                                         DONE
-    - pedir autorização ao cliente                                                                      DONE
-    - cliente autoriza a alteração                                                                      DONE
-    - finalizar tarefa                                                                                  DONE
-----------------------------------------------------
-    - cliente invalida a tarefa                                                                         DONE
-----------------------------------------------------
-    - cliente não autoriza a alteração                                                                  DONE
-    - mecanico retoma a tarefa                                                                          DONE
-----------------------------------------------------
-    - chefe de oficina adicionar                                                                        DONE                      
-    - Cliente valida                                                                                    DONE
-    - chefe de oficina atribui a tarefa                                                                 DONE
-----------------------------------------------------
-    - cliente invalida a tarefa                                                                         DONE
 
 Quando acabar a manutenção (rever peças que foram removidas) fazer revisão de peças
 
@@ -89,7 +61,8 @@ Criar MeanDeliveryInDays on purchase ou assim
 Mudar diagrama de purchase para mudar estado de todas as tarefas com tasks      
 Acrescentar use case editar inventory location                        
 
-  
+Tirar type da maitenance task type                                                                                      DONE                                   
+Tirar substeps das tasks                                                                                                DONE
 Cancelar uma manutenção invalida as tarefas não começadas, é preciso registar esta ação (temporal e quem fez)           DONE
 
 Adicionar razão ao maintenance change?   
@@ -186,6 +159,8 @@ User case 6.2 – Criar Concessionários
 User case 6.3 – Criar Partes de veículos
 User case 6.4 – Alterar tabela de preço das partes
 User case 6.5 – Adicionar tipo de veículo ao concessionário
+User case 6.6 – Adicionar tarefas de Avaliação
+
 
 
 ## Fluxos completos
