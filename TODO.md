@@ -13,6 +13,11 @@ User case 6.5 – Adicionar tipo de veículo ao concessionário     DONE
 User case 6.6 – Adicionar tarefas de Avaliação                  DONE
 
 
+Separar tese para outro projeto
+
+Atualizar .net 6 para .net 9
+
+
 Aplicação do Cliente
 Use Case 5.1 – Visualizar o estado atual da manutenção
 Use Case 5.2 – Notificar o cliente do fim da manutenção

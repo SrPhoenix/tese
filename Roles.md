@@ -67,3 +67,15 @@ User_Create Dealership admin
 
 ### User
 costav689+DealershipAdmin@gmail.com
+
+## Client
+Client
+
+Roles User Edit Group Client
+Roles User Edit Role Client
+Roles Group View Client
+Roles Group Edit Client
+User_Create Client
+
+### User
+costav689+Client@gmail.com
