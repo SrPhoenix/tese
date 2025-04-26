@@ -130,6 +130,7 @@ CREATE TABLE MaintenanceTasksType (
   [Price] float NOT NULL,
   [Hours] float NOT NULL,
   [Type] tinyint NOT NULL,
+  [Quantity] tinyint NOT NULL,
   IsRemoved bit not null
 );
 
@@ -196,8 +197,9 @@ CREATE TABLE DealershipInventory (
   locationWithinWarehouse varchar(36) not null,
   MeanDeliveryInDays float,
   QuantityAvailable int not null,
-  MinimumStockLevel int ,
-  MaximumStockLevel int ,
+  DefaultOrderQuantity int,
+  MinimumStockLevel int,
+  MaximumStockLevel int,
   ReorderPoint int 
 );
 

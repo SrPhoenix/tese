@@ -4,15 +4,6 @@
 ## important
 
 
-Administrador
-User case 6.1 – Criar Tipos de Tarefas                          DONE
-User case 6.2 – Criar Concessionários                           DONE
-User case 6.3 – Criar Partes de veículos                        DONE
-User case 6.4 – Alterar tabela de preço das partes              DONE
-User case 6.5 – Adicionar tipo de veículo ao concessionário     DONE
-User case 6.6 – Adicionar tarefas de Avaliação                  DONE
-
-
 Separar tese para outro projeto
 
 Atualizar .net 6 para .net 9
@@ -32,9 +23,27 @@ Criar manutenção Faltam tarefas
 Criar manutenção Parte errada
 - Offcanvas ao fazer a tarefa (fazer pausa e retoma da tarefa)
 
+Todo:
+Importante 
+- App Cliente
+- Use case 4.5 e criar funcionários                                                 
+- fluxo manutenção com falta de tarefas                                             
+- fluxo manutenção parte errada                                                     
+- Criar MeanDeliveryInDays on purchase ou assim                                     
 
-Quando acabar a manutenção (rever peças que foram removidas) fazer revisão de peças
+Warehouse manager
+- Mostrar número de partes necessárias, as manutenções e tasks associadas e as compras feitas relacionadas a essas partes       DEPRECATED
+- Adicionar bola vermelha com o finalizar compra                                                                                DONE
+- Separar tabela de compras entregues das outras                                                                                DONE
+- Editar inventário                                                                                                             DONE
 
+rececionista                                                                                                                            FALTA TESTAR
+- Adicionar bola vermelha com as alterações das manutenções                                                                     DONE
+- Adicionar bola vermelha com o finalizar manutenção                                                                            DONE
+- Mostrar apenas as manutenções não entregues                                                                                   DONE
+- Juntar ações com manutençoes                                                                                                  DONE    
+- Maybe juntar manutenções com a pagina de inicio                                                                               DONE    
+    
 
 ### Warehouse manager
 Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue           
@@ -45,7 +54,7 @@ Separar tabela de compras entregues das outras
 
 ### mechanic
 
-testar criar fazre varias tasks de uma vez
+testar criar fazer varias tasks de uma vez
 
 
 
@@ -63,15 +72,8 @@ Maybe juntar manutenções com a pagina de inicio
 ### Sistema 
 
 Criar MeanDeliveryInDays on purchase ou assim                                   
-Mudar diagrama de purchase para mudar estado de todas as tarefas com tasks      
-Acrescentar use case editar inventory location                        
-
-Tirar type da maitenance task type                                                                                      DONE                                   
-Tirar substeps das tasks                                                                                                DONE
-Cancelar uma manutenção invalida as tarefas não começadas, é preciso registar esta ação (temporal e quem fez)           DONE
-
 Adicionar razão ao maintenance change?   
-VER NOTAS DA REUNIAO COM O TIAGO                               
+VER NOTAS DA REUNIAO COM O TIAGO                
 
 <!-- Trocar pneus pode requerer remover 2 peças -->
 <!-- Alterar Tasks type para meter quantidade necessária  -->
