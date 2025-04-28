@@ -4,6 +4,9 @@
 ## important
 
 
+SEPARAR HTMLS E ASSIM EM PARTIALS OU OUTROS FICHEIROS !!!!!
+
+
 Separar tese para outro projeto
 
 Atualizar .net 6 para .net 9
@@ -17,7 +20,7 @@ Use Case 5.3 – Avaliação do serviço prestado
 User case 4.5 – Atribuir cargos a funcionários
 
 
-Criar manutenção Faltam tarefas
+Criar manutenção Faltam tarefas                                                         DONE
 - worshop acrescenta -> rececionista valida -> workshop atribui....
 
 Criar manutenção Parte errada
@@ -27,47 +30,26 @@ Todo:
 Importante 
 - App Cliente
 - Use case 4.5 e criar funcionários                                                 
-- fluxo manutenção com falta de tarefas                                             
+- fluxo manutenção com falta de tarefas                                                 DONE
 - fluxo manutenção parte errada                                                     
 - Criar MeanDeliveryInDays on purchase ou assim                                     
 
-Warehouse manager
-- Mostrar número de partes necessárias, as manutenções e tasks associadas e as compras feitas relacionadas a essas partes       DEPRECATED
-- Adicionar bola vermelha com o finalizar compra                                                                                DONE
-- Separar tabela de compras entregues das outras                                                                                DONE
-- Editar inventário                                                                                                             DONE
-
-rececionista                                                                                                                            FALTA TESTAR
-- Adicionar bola vermelha com as alterações das manutenções                                                                     DONE
-- Adicionar bola vermelha com o finalizar manutenção                                                                            DONE
-- Mostrar apenas as manutenções não entregues                                                                                   DONE
-- Juntar ações com manutençoes                                                                                                  DONE    
-- Maybe juntar manutenções com a pagina de inicio                                                                               DONE    
-    
 
 ### Warehouse manager
 Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue           
-Mostrar número de partes necessárias, as manutenções e tasks associadas e as compras feitas relacionadas a essas partes
-Adicionar bola vermelha com o finalizar compra
-Separar tabela de compras entregues das outras
-
 
 ### mechanic
-
 testar criar fazer varias tasks de uma vez
 
 
 
 ### rececionista
-Adicionar bola vermelha com as alterações das manutenções
-Adicionar bola vermelha com o finalizar manutenção
-Mostrar apenas as manutenções não entregues
-Juntar ações com manutençoes
-Maybe juntar manutenções com a pagina de inicio
+limpar Tarefas a Realizar/Realizadas
 
 
 ### chefe de oficina 
-
+Adicionar botão para ver manutenções passadas
+limpar Tarefas a Realizar/Realizadas
 
 ### Sistema 
 
@@ -161,12 +143,12 @@ Use Case 5.2 – Notificar o cliente do fim da manutenção
 Use Case 5.3 – Avaliação do serviço prestado
 
 Administrador
-User case 6.1 – Criar Tipos de Tarefas
-User case 6.2 – Criar Concessionários
-User case 6.3 – Criar Partes de veículos
-User case 6.4 – Alterar tabela de preço das partes
-User case 6.5 – Adicionar tipo de veículo ao concessionário
-User case 6.6 – Adicionar tarefas de Avaliação
+User case 6.1 – Criar Tipos de Tarefas                              DONE
+User case 6.2 – Criar Concessionários                               DONE
+User case 6.3 – Criar Partes de veículos                            DONE
+User case 6.4 – Alterar tabela de preço das partes                  DONE
+User case 6.5 – Adicionar tipo de veículo ao concessionário         DONE
+User case 6.6 – Adicionar tarefas de Avaliação                      DONE
 
 
 
@@ -178,8 +160,8 @@ Criar manutenção Faltam tarefas
 Criar manutenção Parte errada               
 Criar manutenção com atraso                 DONE
 Criar manutenção com Report             
-Criar manutenção com compra em atraso       done
-Fazer uma compra em atraso                  done
+Criar manutenção com compra em atraso       DONE
+Fazer uma compra em atraso                  DONE
 
 Criar manutenção sem espinhas e sem partes DONE
 Fazer uma compra                           DONE
