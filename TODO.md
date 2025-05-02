@@ -20,18 +20,19 @@ Use Case 5.3 – Avaliação do serviço prestado
 User case 4.5 – Atribuir cargos a funcionários
 
 
-Criar manutenção Faltam tarefas                                                         DONE
-- worshop acrescenta -> rececionista valida -> workshop atribui....
+
 
 Criar manutenção Parte errada
 - Offcanvas ao fazer a tarefa (fazer pausa e retoma da tarefa)
+- adicionar price to maintenance task change
+- no mecanico meter o novo budget quando se faz a change
+- ver se vale a pena criar usar o maintenance change em vez
 
 Todo:
 Importante 
 - App Cliente
 - Use case 4.5 e criar funcionários                                                 
-- fluxo manutenção com falta de tarefas                                                 DONE
-- fluxo manutenção parte errada                                                     
+- fluxo manutenção parte errada                                                         
 - Criar MeanDeliveryInDays on purchase ou assim                                     
 
 
@@ -55,7 +56,8 @@ limpar Tarefas a Realizar/Realizadas
 
 Criar MeanDeliveryInDays on purchase ou assim                                   
 Adicionar razão ao maintenance change?   
-VER NOTAS DA REUNIAO COM O TIAGO                
+VER NOTAS DA REUNIAO COM O TIAGO            
+VER LOCALIZERs    
 
 <!-- Trocar pneus pode requerer remover 2 peças -->
 <!-- Alterar Tasks type para meter quantidade necessária  -->

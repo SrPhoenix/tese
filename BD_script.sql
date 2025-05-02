@@ -189,6 +189,15 @@ CREATE TABLE MechanicTasks (
 ALTER TABLE MechanicTasks ADD FOREIGN KEY (MechanicId) REFERENCES AspNetUsers (Id);
 ALTER TABLE MechanicTasks ADD FOREIGN KEY (MaintenanceTaskId) REFERENCES MaintenanceTask (Id);
 
+CREATE TABLE PauseTasks (
+  MaintenanceTaskId uniqueidentifier not null,
+  StartDate Datetime,
+  EndDate Datetime,
+  PRIMARY KEY (MaintenanceTaskId)
+);
+
+ALTER TABLE PauseTasks ADD FOREIGN KEY (MaintenanceTaskId) REFERENCES MaintenanceTask (Id);
+
 
 CREATE TABLE DealershipInventory (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
@@ -209,16 +218,16 @@ ALTER TABLE DealershipInventory ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES D
 ALTER TABLE DealershipInventory ADD FOREIGN KEY (DealershipId) REFERENCES Dealership (Id);
 
 
--- CREATE TABLE [MaintenanceTaskChange] (
---   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
---   [MaintenanceTaskId] uniqueidentifier NOT NULL,
---   [CreateDate] datetime NOT NULL,
---   [VehiclePartTypeId] uniqueidentifier NOT NULL,
---   [Status] tinyint NOT NULL
--- )
+CREATE TABLE [MaintenanceTaskChange] (
+  [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
+  [MaintenanceTaskId] uniqueidentifier NOT NULL,
+  [CreateDate] datetime NOT NULL,
+  [VehiclePartTypeId] uniqueidentifier NOT NULL,
+  [Status] tinyint NOT NULL
+)
 
--- ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([MaintenanceTaskId]) REFERENCES [MaintenanceTask] ([Id])
--- ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([VehiclePartTypeId]) REFERENCES [DealershipVehiclePartType] ([Id])
+ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([MaintenanceTaskId]) REFERENCES [MaintenanceTask] ([Id])
+ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([VehiclePartTypeId]) REFERENCES [DealershipVehiclePartType] ([Id])
 
 CREATE TABLE Purchase  (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
