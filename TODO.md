@@ -4,10 +4,10 @@
 ## important
 
 
-SEPARAR HTMLS E ASSIM EM PARTIALS OU OUTROS FICHEIROS !!!!!
+Traduções
 
 
-Separar tese para outro projeto
+Separar tese para outro projeto                                 DONE
 
 Atualizar .net 6 para .net 9
 
@@ -19,14 +19,6 @@ Use Case 5.3 – Avaliação do serviço prestado
 
 User case 4.5 – Atribuir cargos a funcionários
 
-
-
-
-Criar manutenção Parte errada
-- Offcanvas ao fazer a tarefa (fazer pausa e retoma da tarefa)
-- adicionar price to maintenance task change
-- no mecanico meter o novo budget quando se faz a change
-- ver se vale a pena criar usar o maintenance change em vez
 
 Todo:
 Importante 
@@ -45,12 +37,12 @@ testar criar fazer varias tasks de uma vez
 
 
 ### rececionista
-limpar Tarefas a Realizar/Realizadas
+limpar Tarefas a Realizar/Realizadas q estão a mais
 
 
 ### chefe de oficina 
 Adicionar botão para ver manutenções passadas
-limpar Tarefas a Realizar/Realizadas
+limpar Tarefas a Realizar/Realizadas q estão a mais
 
 ### Sistema 
 
