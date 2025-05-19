@@ -25,3 +25,5 @@ O que voces fazem quando uma compra chega atrasada? são notificados
 
 Que informação tem o relatório de entrega? (tarefas feitas e preço)
 O que fazer se o veículo não passa no controlo de qualidade?
+É preciso dar entrada do veículo no concessionário?
+Existe prioridade de tarefas? (tarefas que precisam ser feitas a seguir a outras?)

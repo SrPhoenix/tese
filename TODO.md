@@ -4,59 +4,63 @@
 ## important
 
 
-Traduções
+
+User case 4.8 – Criar funcionário                                                                           DONE
+    - Nova Página (?) Formmulario como criar na dashboard                       
+User case 4.5 – Atribuir cargos a funcionários                                                              DONE
+    - Ver lista de utilizadores do dealerships
+    - Ver detalhes
+    - Mudar grupo de cargos (apenas)
+
+Use Case 4.3 – Ver histórico de manutenções efetuadas
+    - página de manutenções ativas -> adicionar ver manutenções passadas (passar para outra página)
+    - na página:
+        - Lista de todas as manutenções
+        - Gráficos com estatisticas (como nas métricas e assim)
 
 
-Separar tese para outro projeto                                 DONE
-
-Atualizar .net 6 para .net 9
-
+     
 
 Aplicação do Cliente
 Use Case 5.1 – Visualizar o estado atual da manutenção
 Use Case 5.2 – Notificar o cliente do fim da manutenção
 Use Case 5.3 – Avaliação do serviço prestado
 
-User case 4.5 – Atribuir cargos a funcionários
+### TODOS OS UTILIZADORES DO CONCESSIONÁRIO
+Adicionar layout page para:
+- alterar email
+- alterar palavra passe
 
-
-Todo:
-Importante 
-- App Cliente
-- Use case 4.5 e criar funcionários                                                 
-- fluxo manutenção parte errada                                                         
-- Criar MeanDeliveryInDays on purchase ou assim                                     
 
 
 ### Warehouse manager
-Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue           
+      
 
 ### mechanic
 testar criar fazer varias tasks de uma vez
-
+on chrome leave pause task
+continue, faz continue da tarefa
 
 
 ### rececionista
-limpar Tarefas a Realizar/Realizadas q estão a mais
 
 
 ### chefe de oficina 
-Adicionar botão para ver manutenções passadas
-limpar Tarefas a Realizar/Realizadas q estão a mais
 
 ### Sistema 
 
 Criar MeanDeliveryInDays on purchase ou assim                                   
 Adicionar razão ao maintenance change?   
 VER NOTAS DA REUNIAO COM O TIAGO            
-VER LOCALIZERs    
 
+
+### obsolete
+- warehouse -> Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue     
 <!-- Trocar pneus pode requerer remover 2 peças -->
 <!-- Alterar Tasks type para meter quantidade necessária  -->
 
 <!-- Adicionar quantity real ao inventário (é alterada com o registo de compras e finalização de tarefas)
 - a quantidade disponivel é decrescentada na criação de tarefas e na saida de waitPart e é somada na invalidação, registo -->
-
 
 ## it can wait
 
@@ -126,15 +130,15 @@ User case 4.1 – Atribuir tarefas a funcionários                     DONE
 Use Case 4.2 – Autorizar compras                                    DONE
 Use Case 4.3 – Ver histórico de manutenções efetuadas               
 Use Case 4.4 – Elaborar estatísticas                                
-User case 4.5 – Atribuir cargos a funcionários                      
+User case 4.5 – Atribuir cargos a funcionários                      DONE
 User case 4.6 – Autorizar alteração                                 DONE
-User case 4.7 – Adicionar Tarefa                                    
-User case 4.8 – Criar funcionário                                   
+User case 4.7 – Adicionar Tarefa                                    DONE    
+User case 4.8 – Criar funcionário                                   DONE
 
 Aplicação do Cliente
-Use Case 5.1 – Visualizar o estado atual da manutenção
-Use Case 5.2 – Notificar o cliente do fim da manutenção
-Use Case 5.3 – Avaliação do serviço prestado
+Use Case 5.1 – Visualizar o estado atual da manutenção              
+Use Case 5.2 – Notificar o cliente do fim da manutenção            
+Use Case 5.3 – Avaliação do serviço prestado                        
 
 Administrador
 User case 6.1 – Criar Tipos de Tarefas                              DONE
@@ -150,10 +154,10 @@ User case 6.6 – Adicionar tarefas de Avaliação                      DONE
 
 Criar manutenção com Stock                  DONE
 Criar manutenção Sem Stock                  DONE
-Criar manutenção Faltam tarefas             
-Criar manutenção Parte errada               
+Criar manutenção Faltam tarefas             DONE
+Criar manutenção Parte errada               DONE
 Criar manutenção com atraso                 DONE
-Criar manutenção com Report             
+Criar manutenção com Report                 
 Criar manutenção com compra em atraso       DONE
 Fazer uma compra em atraso                  DONE
 
