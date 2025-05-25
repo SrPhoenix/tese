@@ -3,20 +3,13 @@
 
 ## important
 
+Ver maneiras de fazer login
 
-
-User case 4.8 – Criar funcionário                                                                           DONE
-    - Nova Página (?) Formmulario como criar na dashboard                       
-User case 4.5 – Atribuir cargos a funcionários                                                              DONE
-    - Ver lista de utilizadores do dealerships
-    - Ver detalhes
-    - Mudar grupo de cargos (apenas)
-
-Use Case 4.3 – Ver histórico de manutenções efetuadas
-    - página de manutenções ativas -> adicionar ver manutenções passadas (passar para outra página)
+Use Case 4.3 – Ver histórico de manutenções efetuadas                                   DONE
+    - página de manutenções ativas -> adicionar ver manutenções passadas (passar para outra página/offcanvas full page)                 DONE
     - na página:
-        - Lista de todas as manutenções
-        - Gráficos com estatisticas (como nas métricas e assim)
+        - Lista de todas as manutenções                                                 DONE
+        - Gráficos com estatisticas (como nas métricas e assim)                         DONE
 
 
      
@@ -27,9 +20,9 @@ Use Case 5.2 – Notificar o cliente do fim da manutenção
 Use Case 5.3 – Avaliação do serviço prestado
 
 ### TODOS OS UTILIZADORES DO CONCESSIONÁRIO
-Adicionar layout page para:
-- alterar email
-- alterar palavra passe
+Adicionar layout page para:                     DONE
+- alterar email                                 DONE
+- alterar palavra passe                         DONE
 
 
 
