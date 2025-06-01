@@ -3,40 +3,49 @@
 
 ## important
 
-Ver maneiras de fazer login
+Review Design of every page
+- Rececionista -> calendario tem de mudar
 
-Use Case 4.3 – Ver histórico de manutenções efetuadas                                   DONE
-    - página de manutenções ativas -> adicionar ver manutenções passadas (passar para outra página/offcanvas full page)                 DONE
-    - na página:
-        - Lista de todas as manutenções                                                 DONE
-        - Gráficos com estatisticas (como nas métricas e assim)                         DONE
-
-
-     
+Admin tools to manually assign deliveries to users.
+Recepcionist tools to resend confirm email and reset password (maybe separados até)
 
 Aplicação do Cliente
 Use Case 5.1 – Visualizar o estado atual da manutenção
 Use Case 5.2 – Notificar o cliente do fim da manutenção
 Use Case 5.3 – Avaliação do serviço prestado
 
-### TODOS OS UTILIZADORES DO CONCESSIONÁRIO
-Adicionar layout page para:                     DONE
-- alterar email                                 DONE
-- alterar palavra passe                         DONE
+### Client
+
+Add Client personal info in the reset password
+
+Duas páginas
+
+- Current Maintenance
+    - container in the middle of page to work fine in mobile
+    - progress step like maintenance in the top
+    - Title below with info of the step in a card (?)
+    - top right the expected conclusion date
+    - top left the expected budget 
+
+- Maintenance History
+    - List of cards with:
+        - vehicle 
+        - conclusion date
+        - budget
+        - button to see more details
+        - button to see the report
 
 
 
 ### Warehouse manager
-      
 
 ### mechanic
-testar criar fazer varias tasks de uma vez
-on chrome leave pause task
-continue, faz continue da tarefa
+testar criar fazer varias tasks de uma vez                  
+on chrome leave pause task                                  
+continue, faz continue da tarefa                            
 
 
 ### rececionista
-
 
 ### chefe de oficina 
 
@@ -46,7 +55,6 @@ Criar MeanDeliveryInDays on purchase ou assim
 Adicionar razão ao maintenance change?   
 VER NOTAS DA REUNIAO COM O TIAGO            
 
-
 ### obsolete
 - warehouse -> Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue     
 <!-- Trocar pneus pode requerer remover 2 peças -->
@@ -54,6 +62,16 @@ VER NOTAS DA REUNIAO COM O TIAGO
 
 <!-- Adicionar quantity real ao inventário (é alterada com o registo de compras e finalização de tarefas)
 - a quantidade disponivel é decrescentada na criação de tarefas e na saida de waitPart e é somada na invalidação, registo -->
+
+client - Create Maintenance                                                                                         DONE
+    - create Client without personal information                                                                    DONE
+    - add code to maintenance                                                   (optional)                              
+    - add userId to maintenance (or add the maintenance code to the user)                                           DONE
+    - send link by email to configure password                                                                      DONE
+    - put maintenance code/Email first to assure is the correct user            (optional)
+    - show page ResetPassword                                                                                       DONE
+    - merge confirmEmail with resetPassword in another page (ConfirmEmailAndResetPassword.cshtml + .cs)             DONE
+
 
 ## it can wait
 
@@ -121,8 +139,8 @@ Use Case 3.5 – Alterar estado da tarefa                             DONE
 Chefe de Oficina
 User case 4.1 – Atribuir tarefas a funcionários                     DONE
 Use Case 4.2 – Autorizar compras                                    DONE
-Use Case 4.3 – Ver histórico de manutenções efetuadas               
-Use Case 4.4 – Elaborar estatísticas                                
+Use Case 4.3 – Ver histórico de manutenções efetuadas               DONE
+Use Case 4.4 – Elaborar estatísticas                                DONE    
 User case 4.5 – Atribuir cargos a funcionários                      DONE
 User case 4.6 – Autorizar alteração                                 DONE
 User case 4.7 – Adicionar Tarefa                                    DONE    
@@ -163,10 +181,10 @@ continuar tarefa                            DONE
 
 ### chefe de oficina
 Ver transições de inventário                DONE
-Ver Manutenções ativas e passadas
-Criar funcionários
+Ver Manutenções ativas e passadas           DONE
+Criar funcionários                          DONE
 Ver relatorios
-Ver estatisticas (Quais?)
+Ver estatisticas (Quais?)                   DONE
 
 
 
@@ -189,3 +207,5 @@ Acontece:
 # Dúvidas
 Pergunta, durante a manutenção um mecânico descobre um problema?
 O que fazer se o veículo não passa no controlo de qualidade?
+
+

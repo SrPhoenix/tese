@@ -35,7 +35,7 @@ CREATE TABLE Dealership (
   PhoneNumber varchar(255) not null,
   Email varchar(255) not null,
   Nif varchar(255) not null,
-  IsRemoved bit not null
+  IsRemoved bit not null DEFAULT 0
 );
 
 
@@ -61,8 +61,8 @@ CREATE TABLE [Maintenance] (
   [Budget] float,
   [ClientScoreExpected] float,
   [ClientScore] float,
-  [WorkHoursExpected] int,
-  [WorkHours] int,
+  [WorkHoursExpected] float,
+  [WorkHours] float,
   [StatusId] tinyint NOT NULL
 );
 
@@ -83,7 +83,7 @@ CREATE TABLE DealershipVehiclePartType (
   [Price] float NOT NULL,
   [CategoryId] integer NOT NULL,
   [ReorderQuantity] int NOT NULL,
-  IsRemoved bit not null
+  IsRemoved bit not null DEFAULT 0
 );
 
 ALTER TABLE [DealershipVehiclePartType] ADD FOREIGN KEY ([CategoryId]) REFERENCES [VehiclePartTypeCategory] ([Id])
@@ -106,7 +106,7 @@ CREATE TABLE EvalTasks (
   [VehicleTypeId] int,
   [Description] varchar(255) NOT NULL,
   StepNum tinyint NOT NULL,
-  IsRemoved bit not null
+  IsRemoved bit not null DEFAULT 0
 ); 
 
 ALTER TABLE [EvalTasks] ADD FOREIGN KEY ([VehicleTypeId]) REFERENCES [VehicleType] ([Id])
@@ -129,9 +129,8 @@ CREATE TABLE MaintenanceTasksType (
   [Description] varchar(255) NOT NULL,
   [Price] float NOT NULL,
   [Hours] float NOT NULL,
-  [Type] tinyint NOT NULL,
-  [Quantity] tinyint NOT NULL,
-  IsRemoved bit not null
+  [Quantity] tinyint NULL,
+  IsRemoved bit not null DEFAULT 0
 );
 
 ALTER TABLE [MaintenanceTasksType] ADD FOREIGN KEY ([VehicleTypeId]) REFERENCES [VehicleType] ([Id])
