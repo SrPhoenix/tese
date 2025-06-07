@@ -5,14 +5,52 @@
 
 Review Design of every page
 - Rececionista -> calendario tem de mudar
+               -> retirar client expected score do definir detalhes da manutenção
+               
+Client score form investigar mais que perguntas fazer
+client reset Password
+- dar informação extra no form (phoneNumber, nome do client,....)
+
+- System -> Maintenance Change precisa de ser mudado (Ou n precisa de maintenanceId ou é preciso mais uma tabela)
+- workshop manager n tem bola vermelha com uma compra por dar assign
+
+Mudar para ter mensagem de erro em condições:            
+    if (!ModelState.IsValid)
+    {
+        var errors = ModelState.Values.SelectMany(v => v.Errors);
+        return BadRequest(errors);
+    }
 
 Admin tools to manually assign deliveries to users.
 Recepcionist tools to resend confirm email and reset password (maybe separados até)
 
-Aplicação do Cliente
-Use Case 5.1 – Visualizar o estado atual da manutenção
-Use Case 5.2 – Notificar o cliente do fim da manutenção
-Use Case 5.3 – Avaliação do serviço prestado
+Show tarefas no calendario aparece mal  
+Mudar linha 433 do mecanico para dizer que o veiculo nao tem nenhuma parte dessa categoria para substituir
+
+Ver como fazer varias maintenance ativas no client home page
+
+Remover dealership e transformar em entities
+
+Ver dealership vehicle part type
+
+Rececionista e workshop manager
+- task do calendario mostrar o nome da tarefa e separá-las
+- adicionar filtro por mecânico
+
+Permitir dar logout do client no telemóvel
+Client history
+- ver pdf
+- meter página mais bonita
+
+rececionista actions offcanvas does not refresh on maintenance finish start
+atualizar lista de cards dps de fazer uma ação no client app
+
+Rececionista -> ao invalidar alteração, apenas fazer com que seja mantido como era antes
+             -> adicionar caso, invalidar tarefa
+
+Adicionar localizer ao report
+
+Remover caso de uso 2.7
 
 ### Client
 
@@ -126,7 +164,7 @@ Use Case 2.2 – Fazer a avaliação do veículo                         DONE
 Use Case 2.3 – Elaborar lista de tarefas necessárias                DONE
 Use Case 2.4 – Recolher peças no Armazém                            DONE
 Use Case 2.6 – Manutenção do veículo                                DONE
-Use Case 2.7 - Fazer o relatório do conserto                        
+Use Case 2.7 - Fazer o relatório do conserto                        DONE
 Use Case 2.8 – Tarefa Requer Alteração                              DONE
 
 Armazém
@@ -147,9 +185,11 @@ User case 4.7 – Adicionar Tarefa                                    DONE
 User case 4.8 – Criar funcionário                                   DONE
 
 Aplicação do Cliente
-Use Case 5.1 – Visualizar o estado atual da manutenção              
-Use Case 5.2 – Notificar o cliente do fim da manutenção            
-Use Case 5.3 – Avaliação do serviço prestado                        
+Use Case 5.1 – Visualizar o estado atual da manutenção              DONE
+Use Case 5.2 – Notificar o cliente do fim da manutenção             DONE
+Use Case 5.3 – Avaliação do serviço prestado                        DONE
+Use Case 5.4 – Avaliação expectável do serviço                      DONE
+Use Case 5.5 – Ver manutenções passadas                             DONE
 
 Administrador
 User case 6.1 – Criar Tipos de Tarefas                              DONE
