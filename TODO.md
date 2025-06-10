@@ -3,54 +3,56 @@
 
 ## important
 
-Review Design of every page
-- Rececionista -> calendario tem de mudar
-               -> retirar client expected score do definir detalhes da manutenção
-               
-Client score form investigar mais que perguntas fazer
-client reset Password
-- dar informação extra no form (phoneNumber, nome do client,....)
 
-- System -> Maintenance Change precisa de ser mudado (Ou n precisa de maintenanceId ou é preciso mais uma tabela)
-- workshop manager n tem bola vermelha com uma compra por dar assign
+Testar procurar por users e veiculos e crair uma manutenção com alguem e veiculo que n posso, rececionista
+testar adicionar task type id errado no workshop
 
-Mudar para ter mensagem de erro em condições:            
-    if (!ModelState.IsValid)
-    {
-        var errors = ModelState.Values.SelectMany(v => v.Errors);
-        return BadRequest(errors);
-    }
-
-Admin tools to manually assign deliveries to users.
-Recepcionist tools to resend confirm email and reset password (maybe separados até)
-
-Show tarefas no calendario aparece mal  
-Mudar linha 433 do mecanico para dizer que o veiculo nao tem nenhuma parte dessa categoria para substituir
-
-Ver como fazer varias maintenance ativas no client home page
-
-Remover dealership e transformar em entities
-
-Ver dealership vehicle part type
+ajeitar reset password e confirm email page quando nao se está logged in        
 
 Rececionista e workshop manager
 - task do calendario mostrar o nome da tarefa e separá-las
 - adicionar filtro por mecânico
 
-Permitir dar logout do client no telemóvel
-Client history
-- ver pdf
-- meter página mais bonita
+Show tarefas no calendario aparece mal  
 
-rececionista actions offcanvas does not refresh on maintenance finish start
-atualizar lista de cards dps de fazer uma ação no client app
+Recepcionist tools to resend confirm email and reset password (maybe separados até)
+
+Admin tools to manually assign deliveries to users.
+
 
 Rececionista -> ao invalidar alteração, apenas fazer com que seja mantido como era antes
              -> adicionar caso, invalidar tarefa
 
-Adicionar localizer ao report
 
-Remover caso de uso 2.7
+- System -> Maintenance Change precisa de ser mudado (Ou n precisa de maintenanceId ou é preciso mais uma tabela)
+
+Client score form investigar mais que perguntas fazer
+
+Review Design of every page
+- Rececionista -> calendario tem de mudar
+               -> retirar client expected score do definir detalhes da manutenção
+
+permitir dealership admin ou admin to adicionar vehicletype ao owner
+
+### Remove dealership
+- Remover tabela dealership                                                         DONE
+- Alterar tabelas para ligarem se ao owner                                          DONE
+- Adicionar Module ao owner (criar tabela para n interagir com a outra)             DONE
+    - Maintenance                                                                   DONE
+    - Fleet management                                                              DONE
+- criar tabela ownerpartnership                                                     DONE
+    - criar ligação entre owner                                                     DONE    
+        - owner 1 faz sugestão onwer 2                                                  
+        - owner 2 aceita                                                            DONE
+- Só consegue fazer manutenções das suas bicicletas ou bicicletas de parceiro (com parceria manutenção)
+    - E com clientes que não estão relacionados a entidades? Vehicles sem VehicleOwner?
+- mudar navbar para ter o nome do projeto                                           DONE
+- chefe de oficina e gestor são contas/pessoas diferentes?
+    - Segundo loulei, parece que não
+    - Permitir gestor ver as mesmas operações do chefe de oficina ? 
+        - É preciso página extra para manutenção
+        - É preciso página extra para inventário, transações, compras, atrasos e partes em falta
+
 
 ### Client
 
@@ -59,21 +61,11 @@ Add Client personal info in the reset password
 Duas páginas
 
 - Current Maintenance
-    - container in the middle of page to work fine in mobile
-    - progress step like maintenance in the top
-    - Title below with info of the step in a card (?)
+    - container in the middle of page to work fine in mobile        DONE
+    - progress step like maintenance in the top                     DONE    
+    - Title below with info of the step in a card (?)               DONE
     - top right the expected conclusion date
     - top left the expected budget 
-
-- Maintenance History
-    - List of cards with:
-        - vehicle 
-        - conclusion date
-        - budget
-        - button to see more details
-        - button to see the report
-
-
 
 ### Warehouse manager
 
@@ -92,6 +84,9 @@ continue, faz continue da tarefa
 Criar MeanDeliveryInDays on purchase ou assim                                   
 Adicionar razão ao maintenance change?   
 VER NOTAS DA REUNIAO COM O TIAGO            
+
+
+FAZER UNIT TESTS
 
 ### obsolete
 - warehouse -> Criar compra com tarefa do tipo wait part atribuida e sem compras não inválida e não entregue     
@@ -208,12 +203,12 @@ Criar manutenção Sem Stock                  DONE
 Criar manutenção Faltam tarefas             DONE
 Criar manutenção Parte errada               DONE
 Criar manutenção com atraso                 DONE
-Criar manutenção com Report                 
+Criar manutenção com Report                 DONE
 Criar manutenção com compra em atraso       DONE
 Fazer uma compra em atraso                  DONE
 
-Criar manutenção sem espinhas e sem partes DONE
-Fazer uma compra                           DONE
+Criar manutenção sem espinhas e sem partes  DONE
+Fazer uma compra                            DONE
 
 ## mini fluxos 
 ### Mecanico
@@ -223,7 +218,7 @@ continuar tarefa                            DONE
 Ver transições de inventário                DONE
 Ver Manutenções ativas e passadas           DONE
 Criar funcionários                          DONE
-Ver relatorios
+Ver relatorios                              DONE
 Ver estatisticas (Quais?)                   DONE
 
 

@@ -1,7 +1,12 @@
 Integração com a dashboard
--  O Plano de Manutenção deverá ser carregado na Plataforma Eletrónica de Gestão e Manutenção para adequada programação, emissão de ordens de execução e consequente monitorização e registo de todas as ações associadas,
+-  O Plano de Manutenção deverá ser carregado na Plataforma Eletrónica de Gestão e Manutenção para adequada programação, emissão de ordens de execução e consequente monitorização e registo de todas as ações associadas
 
-O Plano de Manutenção de todos equipamentos deverá ter em consideração diversas variáveis no que diz respeito à definição da periodicidade, nomeadamente: intervalo de tempo percorrido, número de utilizações, quilómetros percorridos (no caso das bicicletas) ou outro fator condicionante do bom estado de funcionamento e conservação dos equipamentos
+O Plano de Manutenção de todos equipamentos deverá ter em consideração diversas variáveis no que diz respeito à definição da periodicidade, nomeadamente: 
+- intervalo de tempo percorrido
+- número de utilizações
+- quilómetros percorridos (no caso das bicicletas) 
+- ou outro fator condicionante do bom estado de funcionamento e conservação dos equipamentos
+
 Todas as intervenções, quer sejam de carácter preventivo ou corretivo, deverão ser registadas na plataforma de gestão, em formulário específico, tendo em consideração o equipamento em apreço, devendo ser registados os seguintes parâmetros:
 - identificação do equipamento intervencionado
 - check list de todas as verificações efetuadas
