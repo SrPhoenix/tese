@@ -1,17 +1,14 @@
 
 # TODO 
-
+<!-- vehicle without owner ABS025 -->
 ## important
 
-
-Testar procurar por users e veiculos e crair uma manutenção com alguem e veiculo que n posso, rececionista
-testar adicionar task type id errado no workshop
-
-ajeitar reset password e confirm email page quando nao se está logged in        
 
 Rececionista e workshop manager
 - task do calendario mostrar o nome da tarefa e separá-las
 - adicionar filtro por mecânico
+
+ajeitar reset password e confirm email page quando nao se está logged in        
 
 Show tarefas no calendario aparece mal  
 
@@ -34,6 +31,22 @@ Review Design of every page
 
 permitir dealership admin ou admin to adicionar vehicletype ao owner
 
+Testar fluxo client sem owner e vehicle sem vehicle owner
+
+### Fazer fluxo manutenção da propria entidade
+- sem 
+    - clientid
+    - expected budget
+    - budget
+    - expected conclusion date
+    - ClientEntity
+- Não há rececionista
+- Um operador/gestor cria a manutenção para o veículo
+- todas as tasks criadas pelo mecânico são válidas
+- todas as tasks completas levam à finalização da manutenção
+- no report remover informação não utilizada
+
+
 ### Remove dealership
 - Remover tabela dealership                                                         DONE
 - Alterar tabelas para ligarem se ao owner                                          DONE
@@ -44,10 +57,10 @@ permitir dealership admin ou admin to adicionar vehicletype ao owner
     - criar ligação entre owner                                                     DONE    
         - owner 1 faz sugestão onwer 2                                                  
         - owner 2 aceita                                                            DONE
-- Só consegue fazer manutenções das suas bicicletas ou bicicletas de parceiro (com parceria manutenção)
+- Só consegue fazer manutenções das suas bicicletas ou bicicletas de parceiro (com parceria manutenção)         DONE
     - E com clientes que não estão relacionados a entidades? Vehicles sem VehicleOwner?
-- mudar navbar para ter o nome do projeto                                           DONE
-- chefe de oficina e gestor são contas/pessoas diferentes?
+- mudar navbar para ter o nome do projeto                                                                       DONE
+- chefe de oficina e gestor são contas/pessoas diferentes?                              
     - Segundo loulei, parece que não
     - Permitir gestor ver as mesmas operações do chefe de oficina ? 
         - É preciso página extra para manutenção
@@ -55,17 +68,6 @@ permitir dealership admin ou admin to adicionar vehicletype ao owner
 
 
 ### Client
-
-Add Client personal info in the reset password
-
-Duas páginas
-
-- Current Maintenance
-    - container in the middle of page to work fine in mobile        DONE
-    - progress step like maintenance in the top                     DONE    
-    - Title below with info of the step in a card (?)               DONE
-    - top right the expected conclusion date
-    - top left the expected budget 
 
 ### Warehouse manager
 
