@@ -1,9 +1,10 @@
 # tarefas
 Existe tarefas para a manutenção?
 Qual é a granularidade?
-Como calcula o preço de uma tarefa?
+Como é o processo de realização de uma tarefa?
 O que acontece se um mecânico descobrir um erro na tarefa?
 O que acontece se se descobrir que existe uma tarefa em falta?
+Como calcula o preço de uma tarefa?
 Como calculam o preço?
 
 

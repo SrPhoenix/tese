@@ -3,12 +3,14 @@
 <!-- vehicle without owner ABS025 -->
 ## important
 
+Meter atrasos e wait parts dentro das compras (?)
+Criar historico de compras (?)
 
-Rececionista e workshop manager
-- task do calendario mostrar o nome da tarefa e separá-las
-- adicionar filtro por mecânico
+Dealership admin Create maintenance task type adicionar remove substep 
 
-ajeitar reset password e confirm email page quando nao se está logged in        
+Rececionista e workshop manager                                                     
+- task do calendario separar tarefas de diferentes pessoas
+
 
 Show tarefas no calendario aparece mal  
 
@@ -33,13 +35,36 @@ permitir dealership admin ou admin to adicionar vehicletype ao owner
 
 Testar fluxo client sem owner e vehicle sem vehicle owner
 
+Remove Client do AspNetUser para não roubar o email ao utilizador
+
+Search User to search for clients too
+
+Criar funcionario, Workshop manager, mandar a palavra passe por email como no client
+
+Ordenar compras por start Date e remover compras à mais de 30 dias
+
+Ver fluxo alteração/adicionar tarefa sem client
+
+Passar os numeros dos estados para enums no projeto todo
+
+### Fazer fluxo change maintenance Task
+- Criar maintenance Task Change tabela
+- Trocar associação das tarefas para maitnenaceTaskChange
+- Quando altera task criar maintenanceTaskChange
+- Alterar GetMechanicTasks para procurar maitnenaceTaskChange
+- manager:
+    - Valida: Muda de estado e Cria maintenanceChange
+    - Invalida : Só muda de estado
+    - Cancela: Muda de estado e Cria maintenanceChange
+
+
+
 ### Fazer fluxo manutenção da propria entidade
-- sem 
+- sem e não mostrar nos detalhes
     - clientid
     - expected budget
     - budget
     - expected conclusion date
-    - ClientEntity
 - Não há rececionista
 - Um operador/gestor cria a manutenção para o veículo
 - todas as tasks criadas pelo mecânico são válidas
@@ -65,6 +90,19 @@ Testar fluxo client sem owner e vehicle sem vehicle owner
     - Permitir gestor ver as mesmas operações do chefe de oficina ? 
         - É preciso página extra para manutenção
         - É preciso página extra para inventário, transações, compras, atrasos e partes em falta
+
+### Gestor
+página da manutenção
+- igual á do chefe de oficina, mas apenas com:
+    - Inventário
+    - manutenções
+    - compras
+    - página inicila com calendario e atribuição de tarefas
+    - historico de manutenções
+    - atrasos
+    - wait parts (?)
+
+adicionar Partnerships ao overview page com lista de entidades e as parcerias existentes ou que podem ser feitas
 
 
 ### Client

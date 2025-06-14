@@ -47,12 +47,14 @@ CREATE TABLE [VehiclePartTypeCategory] (
 
 CREATE TABLE [Maintenance] (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
-  [ClientId] varchar(36) NOT NULL,
+  [ClientId] varchar(36),
   [OwnerId] uniqueidentifier NOT NULL,
   [ClientEntityId] uniqueidentifier,
   [VehicleId] uniqueidentifier NOT NULL,
   [CreatedDate] datetime NOT NULL,
   [EvalDate] datetime NOT NULL,
+  [AnomalyIdentification] varchar(255) NOT NULL,
+  [AnomalyCause] varchar(255) NOT NULL,
   [ClientNotes] varchar(255),
   [ConclusionDateExpected] date,
   [ConclusionDate] date,
