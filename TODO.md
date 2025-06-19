@@ -138,7 +138,13 @@ adicionar Partnerships ao overview page com lista de entidades e as parcerias ex
 
 ### Compras
 - Alterar tabela de compras para ter vário tipo de peças (voltar a ver site e recuperar purchase details)
+- quando uma peça tiver abaixo de certo nivel,cria compra automaticamente sem quantidade e mostra possiveis peças para adicionar à compra dentro do contrato publico, se possivel
+- associar compras a um fornecedor(?) 
 
+### processo de manutenção 
+- avaliação opcional
+- organização por fifo sem atribuição/ linha de produção 
+- prov separar entidade com manutenção de concessionário (?).... prov not
 
 ### Client
 
