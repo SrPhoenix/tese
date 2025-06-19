@@ -220,16 +220,16 @@ ALTER TABLE OwnerInventory ADD FOREIGN KEY (VehiclePartTypeId) REFERENCES OwnerV
 ALTER TABLE OwnerInventory ADD FOREIGN KEY (OwnerId) REFERENCES Owner (Id);
 
 
--- CREATE TABLE [MaintenanceTaskChange] (
---   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
---   [MaintenanceTaskId] uniqueidentifier NOT NULL,
---   [CreateDate] datetime NOT NULL,
---   [VehiclePartTypeId] uniqueidentifier NOT NULL,
---   [Status] tinyint NOT NULL
--- )
+CREATE TABLE [MaintenanceTaskChange] (
+  [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
+  [MaintenanceTaskId] uniqueidentifier NOT NULL,
+  [CreateDate] datetime NOT NULL,
+  [VehiclePartTypeId] uniqueidentifier NOT NULL,
+  [Status] tinyint NOT NULL
+)
 
--- ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([MaintenanceTaskId]) REFERENCES [MaintenanceTask] ([Id])
--- ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([VehiclePartTypeId]) REFERENCES [DealershipVehiclePartType] ([Id])
+ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([MaintenanceTaskId]) REFERENCES [MaintenanceTask] ([Id])
+ALTER TABLE [MaintenanceTaskChange] ADD FOREIGN KEY ([VehiclePartTypeId]) REFERENCES [OwnerVehiclePartType] ([Id])
 
 CREATE TABLE Purchase  (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
@@ -302,14 +302,14 @@ CREATE TABLE MaintenanceChange (
   [NewBudget] float,
   [MinConclusionDate] date,
   [NewConclusionDate] date,
-  [MaintenanceTaskId] uniqueidentifier,
-  [VehiclePartTypeId] uniqueidentifier,
   [Status] tinyint NOT NULL,
+  [MaintenanceTaskId] uniqueidentifier,
+  [MaintenanceTaskChangeId] uniqueidentifier,
   PRIMARY KEY ([MaintenanceId], [CreateDate])
 );
-ALTER TABLE MaintenanceChange ADD FOREIGN KEY (MaintenanceId) REFERENCES Maintenance (Id);
 ALTER TABLE MaintenanceChange ADD FOREIGN KEY (MaintenanceTaskId) REFERENCES MaintenanceTask (Id);
-ALTER TABLE [MaintenanceChange] ADD FOREIGN KEY ([VehiclePartTypeId]) REFERENCES [OwnerVehiclePartType] ([Id])
+ALTER TABLE MaintenanceChange ADD FOREIGN KEY (MaintenanceId) REFERENCES Maintenance (Id);
+ALTER TABLE MaintenanceChange ADD FOREIGN KEY (MaintenanceTaskChangeId) REFERENCES MaintenanceTaskChange (Id);
 
 
 -- CREATE TABLE Delivery (

@@ -47,9 +47,19 @@ Ver fluxo alteração/adicionar tarefa sem client
 
 Passar os numeros dos estados para enums no projeto todo
 
+Ver tasks a seguir a outras (talvez a penas a qualidade)
+
+Workshop AssignTask  MaintenanceChange MinConclusionDate para NewConclusionDate (?)
+
+Client Page review info submitted
+
+Report redo with the new info
+
+Remove maintenance Change do model do maintenanceTask e ver onde dá erro
+
 ### Fazer fluxo change maintenance Task
-- Criar maintenance Task Change tabela
-- Trocar associação das tarefas para maitnenaceTaskChange
+- Criar maintenance Task Change tabela                                  DONE
+- Trocar associação das tarefas para maitnenaceTaskChange               DONE
 - Quando altera task criar maintenanceTaskChange
 - Alterar GetMechanicTasks para procurar maitnenaceTaskChange
 - manager:
@@ -60,16 +70,16 @@ Passar os numeros dos estados para enums no projeto todo
 
 
 ### Fazer fluxo manutenção da propria entidade
-- sem e não mostrar nos detalhes
-    - clientid
-    - expected budget
-    - budget
-    - expected conclusion date
-- Não há rececionista
-- Um operador/gestor cria a manutenção para o veículo
-- todas as tasks criadas pelo mecânico são válidas
-- todas as tasks completas levam à finalização da manutenção
-- no report remover informação não utilizada
+- sem e não mostrar nos detalhes                                                    DONE
+    - clientid                                                                      DONE
+    - expected budget                                                               DONE
+    - budget                                                                        DONE
+    - expected conclusion date                                                      DONE
+- Não há rececionista                                                               DONE
+- Um operador/gestor cria a manutenção para o veículo                               
+- todas as tasks criadas pelo mecânico são válidas                                  DONE
+- todas as tasks completas levam à finalização da manutenção                        DONE
+- no report remover informação não utilizada                                        DONE
 
 
 ### Remove dealership
@@ -103,6 +113,31 @@ página da manutenção
     - wait parts (?)
 
 adicionar Partnerships ao overview page com lista de entidades e as parcerias existentes ou que podem ser feitas
+
+### Gestão de contratos públicos
+- Criar tabela de contrato
+    - Duração
+    - Data de Ínicio
+    - Orçamento
+    - Quantidade
+    - Data de Fim
+    - Lista de peças associadas
+    - Id
+
+- Tab igual á da manutenção ativa com cards com progress bar e data limite
+- Detalhes:
+    - Duração
+    - Data de Ínicio
+    - Orçamento
+    - Quantidade
+    - Data de Fim
+    - Lista de peças associadas
+    - Velocidade Média por mês
+    - velocidade média por semana
+    - espectativa de conclusão em número de dia/meses (>2 meses muda para em dias)
+
+### Compras
+- Alterar tabela de compras para ter vário tipo de peças (voltar a ver site e recuperar purchase details)
 
 
 ### Client
@@ -238,14 +273,17 @@ User case 6.6 – Adicionar tarefas de Avaliação                      DONE
 
 ## Fluxos completos
 
-Criar manutenção com Stock                  DONE
-Criar manutenção Sem Stock                  DONE
-Criar manutenção Faltam tarefas             DONE
-Criar manutenção Parte errada               DONE
-Criar manutenção com atraso                 DONE
-Criar manutenção com Report                 DONE
-Criar manutenção com compra em atraso       DONE
-Fazer uma compra em atraso                  DONE
+Criar manutenção com Stock                              DONE                TESTADO
+Criar manutenção Sem Stock                              DONE                TESTADO
+Criar manutenção Faltam tarefas                         DONE                TESTADO
+Criar manutenção Faltam tarefas sem stock
+Criar manutenção Parte errada                           
+Criar manutenção com atraso                             
+Criar manutenção com Report                             DONE                TESTADO
+Criar manutenção com compra em atraso                   
+Fazer uma compra em atraso                              DONE                
+Criar manutenção Sem Stock com compra cancelada                  
+
 
 Criar manutenção sem espinhas e sem partes  DONE
 Fazer uma compra                            DONE

@@ -222,6 +222,27 @@ INSERT INTO [dbo].[ServiceType]
 GO
 
 
+USE [MobiCycle]
+GO
+
+INSERT INTO [dbo].[OwnerPartnership]
+           ([FromOwnerId]
+           ,[ToOwnerId]
+           ,[VehicleTypeId]
+           ,[Status]
+           ,[CreateDate]
+           ,[ServiceTypeId])
+     VALUES
+           ('373228F3-D80A-4854-A4C8-49A8C712BC2D'
+           ,'1925D918-7D36-4539-A780-8F01090148D9'
+           ,'2'
+           ,0
+           ,GETUTCDATE()
+           ,1)
+GO
+
+
+
 
 -- USE [MobiCycle]
 -- GO
