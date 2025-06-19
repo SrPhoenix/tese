@@ -117,34 +117,68 @@ adicionar Partnerships ao overview page com lista de entidades e as parcerias ex
 ### Gestão de contratos públicos
 - Criar tabela de contrato
     - Duração
-    - Data de Ínicio
+    - Data de Ínicio not null
     - Orçamento
     - Quantidade
     - Data de Fim
-    - Lista de peças associadas
-    - Id
+    - Lista de peças associadas not null
+    - Id not null
 
 - Tab igual á da manutenção ativa com cards com progress bar e data limite
-- Detalhes:
+- Detalhes (mostrar apenas os non nullables):
     - Duração
     - Data de Ínicio
-    - Orçamento
-    - Quantidade
+    - Orçamento Total
+    - Orçamento gasto
+    - Orçamento livre (?)
+    - Quantidade Total
+    - Quantidade gasta
+    - Quantidade livre (?)
     - Data de Fim
     - Lista de peças associadas
     - Velocidade Média por mês
     - velocidade média por semana
     - espectativa de conclusão em número de dia/meses (>2 meses muda para em dias)
+    - Quando a espectativa é inferior a 2 meses gera alerta por email e aparece asinalado 
 
 ### Compras
 - Alterar tabela de compras para ter vário tipo de peças (voltar a ver site e recuperar purchase details)
 - quando uma peça tiver abaixo de certo nivel,cria compra automaticamente sem quantidade e mostra possiveis peças para adicionar à compra dentro do contrato publico, se possivel
 - associar compras a um fornecedor(?) 
+- Permitir ver informação dos fornecedores
 
-### processo de manutenção 
-- avaliação opcional
-- organização por fifo sem atribuição/ linha de produção 
-- prov separar entidade com manutenção de concessionário (?).... prov not
+
+### processo de manutenção GERAL
+- Formulário inicial ter lista de várias tarefas iniciais para fazer (haver tradução entre peças e tarefas)
+- remover start date e expected start date das tarefas e apenas atribuir o dia de serem realizada
+- home page mostra nº de horas expectaveis de trabalho de cada funcionario numa semana
+- permitir Tarefas/manutenção não serem atribuidas, mas o mecânico pode dar claim
+- No final da realização da manutenção acontece as verificações finais que pode levar a voltar a fazer alguma tarefa
+    - indicar que verificações falhou 
+    - adicionar nova tarefa tagged 
+
+### sequencia de realização de tarefas
+    - Adicionar step num à maintenance task type e n haver nenhuma task com o mesmo vehicle type (ou um null e outro com valor) e mesmo step num 
+
+### Confs
+
+#### Task/Vehicle Assign
+True:
+- Mecanicos vêm várias tarefas por fazer naquele dia
+- Chefes de oficina atribuem tarefas e podem ver várias tarefas por fazer
+False:
+- Mecanicos vêm vários veículos por fazer naquele dia
+- Chefes de oficina atribuem veículos e podem ver vários veículos por fazer
+
+#### Conf Eval Task
+True:
+- tarefa feita cria tarefas por realizar
+
+False:
+- tarefa feita cria tarefas realizadas
+
+
+
 
 ### Client
 
