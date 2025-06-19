@@ -11,7 +11,8 @@ Como calculam o preço?
 # peças
 Que tipo de peças é que existem? Preçário?
 
-# stock
+# stock, ,
+⁴
 Têm um sistema de organização das peças?
 As peças são compradas em conjuntos pré definidos ou variáveis? Ex.: só se pode comprar conjuntos de pneus multiplos de 50 
 Como vocês fazem quando precisam de uma peça que nunca tiveram aqui no armazém?
@@ -28,3 +29,9 @@ Que informação tem o relatório de entrega? (tarefas feitas e preço)
 O que fazer se o veículo não passa no controlo de qualidade?
 É preciso dar entrada do veículo no concessionário?
 Existe prioridade de tarefas? (tarefas que precisam ser feitas a seguir a outras?)
+
+
+100 biclas
+18 postos
+
+7 horas
