@@ -3,6 +3,51 @@
 <!-- vehicle without owner ABS025 -->
 ## important
 
+
+### processo de manutenção GERAL
+- Formulário inicial ter lista de várias tarefas iniciais para fazer (haver tradução entre peças e tarefas)
+- Se n houver evalTask é criada logo essas tarefas, se não, são preselecionadas no evalTask
+- Ligação vehicle type, vehiclepart e vehiclepart category e permitir alterar no adminPage
+- remover start date e expected start date das tarefas e apenas atribuir o dia de serem realizada
+- home page mostra nº de horas expectaveis de trabalho de cada funcionario numa semana
+- permitir Tarefas/manutenção não serem atribuidas, mas o mecânico pode dar claim
+- No final da realização da manutenção acontece as verificações finais que pode levar a voltar a fazer alguma tarefa
+    - indicar que verificações falhou 
+    - adicionar nova tarefa tagged 
+
+
+
+#### sequencia de realização de tarefas                                             DONE
+- começar por eval task se houver                                                                                                               DONE
+- Adicionar step num à maintenance task type e n haver nenhuma task com o mesmo vehicle type (ou um null e outro com valor) e mesmo step num    DONE
+- finalizar com task(s) de validação                                                                                                            DONE
+- Tasks tem a seguinte sequencia de estados                                                                                                     DONE
+    - WaitApproval                                                                                                                              DONE
+    - WaitAssignment                                                                                                                            DONE
+    - Invalid                                                                                                                                   DONE
+
+    - WaitApproval                                                                                                                              DONE
+    - WaitAssignment                                                                                                                            DONE
+    - WaitPart                                                                                                                                  DONE
+    - Assigned                                                                                                                                  DONE
+    - Ready                                                                                                                                     DONE
+    - Concluded                                                                                                                                 DONE 
+- Fazer diagrama com sequencia de estados                                                                                                       DONE
+
+
+
+### Compras
+- Alterar tabela de compras para ter vário tipo de peças (voltar a ver site e recuperar purchase details)
+- quando uma peça tiver abaixo de certo nivel,cria compra automaticamente sem quantidade e mostra possiveis peças para adicionar à compra dentro do contrato publico, se possivel
+- associar compras a um fornecedor(?) 
+- Permitir ver informação dos fornecedores
+
+
+
+
+
+### Tasks Gerais
+
 Meter atrasos e wait parts dentro das compras (?)
 Criar historico de compras (?)
 
@@ -57,17 +102,6 @@ Report redo with the new info
 
 Remove maintenance Change do model do maintenanceTask e ver onde dá erro
 
-### Fazer fluxo change maintenance Task
-- Criar maintenance Task Change tabela                                  DONE
-- Trocar associação das tarefas para maitnenaceTaskChange               DONE
-- Quando altera task criar maintenanceTaskChange
-- Alterar GetMechanicTasks para procurar maitnenaceTaskChange
-- manager:
-    - Valida: Muda de estado e Cria maintenanceChange
-    - Invalida : Só muda de estado
-    - Cancela: Muda de estado e Cria maintenanceChange
-
-
 
 ### Fazer fluxo manutenção da propria entidade
 - sem e não mostrar nos detalhes                                                    DONE
@@ -80,9 +114,21 @@ Remove maintenance Change do model do maintenanceTask e ver onde dá erro
 - todas as tasks criadas pelo mecânico são válidas                                  DONE
 - todas as tasks completas levam à finalização da manutenção                        DONE
 - no report remover informação não utilizada                                        DONE
+#### Gestor
+página da manutenção
+- igual á do chefe de oficina, mas apenas com:
+    - Inventário
+    - manutenções
+    - compras
+    - página inicila com calendario e atribuição de tarefas
+    - historico de manutenções
+    - atrasos
+    - wait parts (?)
+
+adicionar Partnerships ao overview page com lista de entidades e as parcerias existentes ou que podem ser feitas
 
 
-### Remove dealership
+#### Remove dealership
 - Remover tabela dealership                                                         DONE
 - Alterar tabelas para ligarem se ao owner                                          DONE
 - Adicionar Module ao owner (criar tabela para n interagir com a outra)             DONE
@@ -101,66 +147,11 @@ Remove maintenance Change do model do maintenanceTask e ver onde dá erro
         - É preciso página extra para manutenção
         - É preciso página extra para inventário, transações, compras, atrasos e partes em falta
 
-### Gestor
-página da manutenção
-- igual á do chefe de oficina, mas apenas com:
-    - Inventário
-    - manutenções
-    - compras
-    - página inicila com calendario e atribuição de tarefas
-    - historico de manutenções
-    - atrasos
-    - wait parts (?)
-
-adicionar Partnerships ao overview page com lista de entidades e as parcerias existentes ou que podem ser feitas
-
-### Gestão de contratos públicos
-- Criar tabela de contrato
-    - Duração
-    - Data de Ínicio not null
-    - Orçamento
-    - Quantidade
-    - Data de Fim
-    - Lista de peças associadas not null
-    - Id not null
-
-- Tab igual á da manutenção ativa com cards com progress bar e data limite
-- Detalhes (mostrar apenas os non nullables):
-    - Duração
-    - Data de Ínicio
-    - Orçamento Total
-    - Orçamento gasto
-    - Orçamento livre (?)
-    - Quantidade Total
-    - Quantidade gasta
-    - Quantidade livre (?)
-    - Data de Fim
-    - Lista de peças associadas
-    - Velocidade Média por mês
-    - velocidade média por semana
-    - espectativa de conclusão em número de dia/meses (>2 meses muda para em dias)
-    - Quando a espectativa é inferior a 2 meses gera alerta por email e aparece asinalado 
-
-### Compras
-- Alterar tabela de compras para ter vário tipo de peças (voltar a ver site e recuperar purchase details)
-- quando uma peça tiver abaixo de certo nivel,cria compra automaticamente sem quantidade e mostra possiveis peças para adicionar à compra dentro do contrato publico, se possivel
-- associar compras a um fornecedor(?) 
-- Permitir ver informação dos fornecedores
 
 
-### processo de manutenção GERAL
-- Formulário inicial ter lista de várias tarefas iniciais para fazer (haver tradução entre peças e tarefas)
-- remover start date e expected start date das tarefas e apenas atribuir o dia de serem realizada
-- home page mostra nº de horas expectaveis de trabalho de cada funcionario numa semana
-- permitir Tarefas/manutenção não serem atribuidas, mas o mecânico pode dar claim
-- No final da realização da manutenção acontece as verificações finais que pode levar a voltar a fazer alguma tarefa
-    - indicar que verificações falhou 
-    - adicionar nova tarefa tagged 
-
-### sequencia de realização de tarefas
-    - Adicionar step num à maintenance task type e n haver nenhuma task com o mesmo vehicle type (ou um null e outro com valor) e mesmo step num 
 
 ### Confs
+Haver um conf para quando houver alteração de uma tarefa n precisar de ir ao chefe de oficina
 
 #### Task/Vehicle Assign
 True:
@@ -170,12 +161,12 @@ False:
 - Mecanicos vêm vários veículos por fazer naquele dia
 - Chefes de oficina atribuem veículos e podem ver vários veículos por fazer
 
-#### Conf Eval Task
-True:
-- tarefa feita cria tarefas por realizar
+#### Conf Eval Task                                                 
+True:                                                       DONE
+- tarefa feita cria tarefas por realizar                    DONE    
 
-False:
-- tarefa feita cria tarefas realizadas
+False:                                                      DONE
+- tarefa feita cria tarefas realizadas                      DONE
 
 
 
@@ -222,6 +213,35 @@ client - Create Maintenance                                                     
 
 
 ## it can wait
+
+
+### Gestão de contratos públicos
+- Criar tabela de contrato
+    - Duração
+    - Data de Ínicio not null
+    - Orçamento
+    - Quantidade
+    - Data de Fim
+    - Lista de peças associadas not null
+    - Id not null
+
+- Tab igual á da manutenção ativa com cards com progress bar e data limite
+- Detalhes (mostrar apenas os non nullables):
+    - Duração
+    - Data de Ínicio
+    - Orçamento Total
+    - Orçamento gasto
+    - Orçamento livre (?)
+    - Quantidade Total
+    - Quantidade gasta
+    - Quantidade livre (?)
+    - Data de Fim
+    - Lista de peças associadas
+    - Velocidade Média por mês
+    - velocidade média por semana
+    - espectativa de conclusão em número de dia/meses (>2 meses muda para em dias)
+    - Quando a espectativa é inferior a 2 meses gera alerta por email e aparece asinalado 
+
 
 
 ### Warehouse manager
@@ -316,8 +336,8 @@ User case 6.6 – Adicionar tarefas de Avaliação                      DONE
 Criar manutenção com Stock                              DONE                TESTADO
 Criar manutenção Sem Stock                              DONE                TESTADO
 Criar manutenção Faltam tarefas                         DONE                TESTADO
-Criar manutenção Faltam tarefas sem stock
-Criar manutenção Parte errada                           
+Criar manutenção Faltam tarefas sem stock               
+Criar manutenção Parte errada                           DONE                TESTADO                       
 Criar manutenção com atraso                             
 Criar manutenção com Report                             DONE                TESTADO
 Criar manutenção com compra em atraso                   

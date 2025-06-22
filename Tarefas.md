@@ -7,21 +7,11 @@ Registar novo manifesto e o novo service worker e adicionar scope para o novo ca
 Rececionista:
 - Detalhes da tarefa, lista de tarefas ocupar mais espaço a baixo
 
-
-
-
 chefe de oficina:
-
 - Atrasos o fluxo está inacabado
 
-
-
 Warehouse manager:
-
 - GetTaskWaitPart passa se qualquer coisa
-
-
-
 
 - Ver fluxo alteração/adicionar tarefa sem client
     - Mecânico

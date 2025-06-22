@@ -242,6 +242,21 @@ INSERT INTO [dbo].[OwnerPartnership]
 GO
 
 
+USE [MobiCycle]
+GO
+
+INSERT INTO [dbo].[ServiceTypeConfig]
+           ([ServiceTypeId]
+           ,[Name])
+     VALUES
+           (1
+           ,'Task/Vehicle Assign'),
+		   (1
+           ,'Conf Eval Task')
+GO
+
+
+
 
 
 -- USE [MobiCycle]
