@@ -1,0 +1,266 @@
+%!TEX encoding = UTF-8 Unicode
+
+%% Thesis cover pages
+%%
+%% Based on the example.tex file provided by Tomás Oliveira e Silva
+%%
+%% Modified by João Paulo Barraca <jpbarraca@ua.pt>
+%% Modified by Filipe Manco <filipe.manco@ua.pt>
+
+% Remove 'coverdepname' parameter to remove department name from cover pages
+% Add 'final' parameter to remove "DOCUMENTO PROVISÓRIO" from cover page
+\documentclass[11pt,a4paper]{report}
+
+%%% This file is a template for the cover of your
+%%%  thesis.
+%%% Lines like this one, starting with %%% , are
+%%%  instructions. Search them to know where and
+%%%  how to edit this file. After editing the
+%%%  document you can delete them.
+%%% Items marked with OPTIONAL can be removed.
+%%% Most of the lines you will have to change
+%%%  already have examples to help you understand.
+%%% The complete list of options and commands can
+%%%  be found in uaThesisTemplate.sty
+
+%%% Select your area of study and department from
+%%%  the following lists and replace them in the
+%%%  \usepackage declaration ([area,department]).
+%%%
+%%% | area        |   | department |
+%%% ---------------   --------------
+%%% | arts        |   | dao        |
+%%% | sciences    |   | dbio       |
+%%% | education   |   | dcspt      |
+%%% | economy     |   | deca       |
+%%% | engineering |   | degeit     |
+%%% | humanities  |   | de         |
+%%% | health      |   | deti       |
+%%% |             |   | demac      |
+%%% |             |   | decivil    |
+%%% |             |   | dem        |
+%%% |             |   | dfis        |
+%%% |             |   | dlc        |
+%%% |             |   | dmat       |
+%%% |             |   | dq         |
+%%% |             |   | dcm        |
+%%% |             |   | dgeo        |
+%%% ---------------   --------------
+%% Import the UA thesis template
+\usepackage[engineering,deti]{uaThesisTemplate}
+
+%% Optional packages for utf8 encoding and T1 fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\renewcommand\familydefault{\sfdefault}
+
+%% We will use english and portuguese
+\usepackage[english,portuguese]{babel}
+
+\usepackage{xspace}% used by \sigla
+
+%%% This package is only used to create a dummy
+%%%  text for the abstract. You can remove the
+%%%  following line in the final document.
+%\usepackage{blindtext}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       DEFINE THESIS COVER FIELDS
+%%                  START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Edit thesis year
+%% Thesis Year
+\ThesisYear{2025}
+
+
+%%% Uncomment one of the following options:
+\DocumentTypeThesis
+% \DocumentTypeThesisProposal
+% \DocumentTypeDissertation
+
+%%% Uncomment if you are a student of a MAP Doctoral program 
+%%% http://www.map.edu.pt/
+%%% | area                | identifier |
+%%% | Biology of Plants   | bioplant   |
+%%% | Computer Science    | i          |
+%%% | Physics             | fis        |
+%%% | Telecommunications  | tele       |
+
+%\MAPProgram{i}
+
+%%% Edit author's name
+%% Author's full name
+\Author{Vicente\\Costa}
+
+%%% Edit thesis title in Portuguese
+%% Thesis Mandatory Title in Portuguese
+\TitlePT{Aplicação para Partilha de Informação, Gestão e Controlo de uma rede de concessionários de veículos partilhados}
+
+%%% OPTIONAL: you can write your thesis title in
+%%%  other languages. You can repeat the following
+%%%  line as many times as you want, or remove it
+%%%  if you only want the portuguese title.
+%% Optional Titles in additional languages.
+\TitleEN{Application for Information Sharing, Management and Control of a network of shared vehicle dealers}
+
+%%% Edit your supervisor's information.
+%%%
+%%% Use this command for male supervisor
+%%% \Supervisor{name}{category}
+%%%
+%%% Or this command for female supervisor
+%%% \Supervisora{name}{category}
+%%%
+%%% name   : Supervisor's name
+%%% categoy: One of the following list
+%%%
+%%% | category                  |
+%%% -----------------------------
+%%% | catedrático/a             |
+%%% | catedrático/a convidado/a |
+%%% | associado/a c/ agregação  |
+%%% | associado/a               |
+%%% | auxiliar                  |
+%%% | auxiliar convidado        |
+%%% -----------------------------
+%% Supervisor information
+\Supervisor{Joaquim Manuel Henriques de Sousa Pinto}{associado}
+
+%%% OPTIONAL: you can add a second supervisor.
+%%%
+%%% Use this command for male supervisor
+%%% \SupervisorMember{name}{category}
+%%% 
+%%% Or this command for female supervisor
+%%% \SupervisoraMember{name}{category}
+%%%  {[preposition: (at, in, no, da)] department}
+%%%  {[preposition: (at, in, do, na)] school}
+%%%  {[preposition: (and, e)] }
+%%%
+%%% name      : See above.
+%%% category  : See above.
+%%% department: Can be a department, faculty or
+%%%             other; Choose the preposition
+%%%             accordingly.
+%%% school    : University/School name; Choose the
+%%%             preposition accordingly.
+%%% last      : Write {e } (Portuguese) or {and } (English)
+%%%             for the last enumerated Supervisor; Or
+%%%             nothing {} for all other supervisors 
+%% Optional SecondSupervisor information
+\SupervisorMember{(co-orientador)}{Tiago Oliveira}{do Departamento de Informatica}{da empresa Lightenjin}{}
+
+%%% Repeat the above declaration for additional
+%%%  Supervisor members as many times as necessary.
+%% Additional Supervisor members
+% \SupervisoraMember{(co-orientadora)}{associada c/ agregação}{do Departamento de Biologia}{da Universidade de Aveiro}{}
+% \SupervisorMember{(co-orientador)}{auxiliar convidado}{do Departamento de Física}{da Universidade de Aveiro}{e }
+
+%%% Edit your degree information.
+%%%
+%%% \Degree{title}{name}
+%%%
+%%% title: Degree title (Mestre or Doutor)
+%%% name : Degree name
+%% Degree title and name
+\Degree{Mestre}{Engenharia de Computadores e Informática}
+
+%%% OPTIONAL: edit grant support texts where
+%%%  appropriate. Maximum two.
+%%%
+%%% \GrantText{grant1}{grant2}
+%% Optional Grant support texts
+\GrantText{Texto Apoio financeiro do POCTI no âmbito do III Quadro Comunitário de Apoio.\\
+          \newline
+          (if applicable- Portuguese mandatory)}
+          {Texto Apoio financeiro da FCT e do FSE no âmbito do III Quadro Comunitário de Apoio.\\
+          \newline
+          (if applicable- Portuguese mandatory)}
+
+%%% Edit the Jury President information.
+%% First Member will be the President of the Jury
+% \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+
+%%% Repeat the above declaration for additional
+%%%  members of the jury as many times as necessary.
+%% Additional members of the Jury
+% \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+% \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+% \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+% \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+% \JuriMember{Prof. Doutor João Antunes da Silva}{professor associado da Universidade de Aveiro}
+
+
+
+%%% OPTIONAL: Add an acknowledgement text
+%% Optional Acknowledgement text
+% \Acknowledgements{Agradeço toda a ajuda e apoio da minha família que me apoiou não só neste trabalho, mas ao longo da minha vida. 
+% aos meus colegas de trabalho que me sempre ajudaram quando precisava. 
+% Agradeço também à minha família que me apoiou desde o ínicio a seguir estudos e a tomar decisões. 
+% Agradeço também aos meus amigos de longa data, que tiveram sempre presentes e me ajudaram a crescer. 
+% Agradeço também à empresa pela oportunidade de trabalho, apoio e motivação que deram. 
+% Agradeço também ao meu orientador que me deu esta oportunidade e ajudou a perceber o que é necessário para fazer um bom trabalho.}
+
+%%% Edit the keywords and abstract in Portuguese
+%%% Don't forget to remove the \blindtext[3]
+%%%  declaration.
+%%% Don't remove the \selectlanguage statement or you will end with incorrect hyphenation
+%% Mandatory Keywords and Abstract in Portuguese
+\Abstract{palavras-chave}{veículos partilhados, concessionários, veículos elétricos, manutenção, aplicação web.}
+         {resumo}{\selectlanguage{portuguese}
+         A crescente procura por soluções de mobilidade sustentável e partilhada tem impulsionado a necessidade de sistemas eficientes de manutenção e gestão de veículos.
+         Esta dissertação apresenta o design e desenvolvimento de duas aplicações web destinadas a melhorar as operações de concessionários de veículos partilhados.
+         O sistema proposto integra funcionalidades de partilha de informação, gestão de fluxo de trabalho e controlo operacional, abordando desafios como erros manuais na introdução de dados e gestão ineficaz de tarefas.
+         As aplicações, desenvolvidas em ASP.NET Core MVC, seguem uma arquitetura Model-View-Controller (MVC), permitindo uma integração fácil com a plataforma existente de gestão de frotas.
+         A dissertação utiliza o modelo FURPS para definir os requisitos funcionais e não funcionais, garantindo elevada disponibilidade, fiabilidade e desempenho.
+         Os casos de uso abrangem diversos tipos de utilizadores, incluindo rececionistas, mecânicos, operadores de armazém, administradores e clientes, garantindo um fluxo eficiente de operações no concessionário.
+         O plano de trabalho estabelece um cronograma estruturado de desenvolvimento, incluindo planeamento de tarefas em forma de sprints, testes com utilizadores e escrita contínua da dissertação, assegurando uma execução eficiente do projeto.}
+
+%%% OPTIONAL: you can write the keywords and
+%%%  abstract in other languages. You can repeat
+%%%  the following lines as many times as you want
+%%%  or remove them if you only want portuguese.
+%%% Don't remove the \selectlanguage statement or you will end with incorrect hyphenation.
+%%% You can modify the language to any other supported by Latex
+%% Optional Keywords and Abstract in additional languages.
+\Abstract{keywords}{shared vehicles, dealerships, eletric vehicles, maintenance, web application.}
+         {abstract}{\selectlanguage{english}
+         The growing demand for sustainable and shared mobility solutions has driven the need for efficient vehicle maintenance and management systems.
+         This dissertation presents the design and development of two web applications aimed at improving the operations of shared vehicle dealerships.
+         The proposed system integrates functionalities for information sharing, workflow management, and operational control, addressing challenges such as manual data entry errors and inefficient task management.
+         The applications, developed using ASP.NET Core MVC, follow a Model-View-Controller (MVC) architecture, allowing seamless integration with the existing fleet management platform.
+         The dissertation employs the FURPS model to define both functional and non-functional requirements, ensuring high availability, reliability, and performance.
+         The use cases incorporate various user roles, including receptionists, mechanics, warehouse operators, administrators, and clients, ensuring an efficient workflow in dealership operations.
+         The work plan outlines a structured development schedule, including task planning based on sprints, user testing, and continuous dissertation writing, ensuring an efficient project execution.
+         }
+
+
+%%% OPTIONAL: Acknowledge the use of AI Tools
+\AIUse{Reconheço a utilização do ChatGPT 3.5 e 4.0 (Open AI, https://chat.openai.com), Perplexity AI (https://www.perplexity.ai/) e You Learn (https://app.youlearn.ai/) resumir as notas iniciais, refazer algumas frases e procurar informação. O rascunho final foi revisto por Grammarly AI (https://app.grammarly.com/) e modificado por mim para manter o toque humano e o meu estilo de escrita. Reconheço a utilização do Google Docs (Google, https://docs.google.com/) e Visual Studio Code (https://code.visualstudio.com/) com Copilot (Microsoft,https://copilot.microsoft.com/) para a escrita do texto.}
+\AIUse{I Recognize the use of ChatGPT 3.5 and 4.0 (Open AI, https://chat.openai.com), Perplexity AI (https://www.perplexity.ai/) and You Learn (https://app.youlearn.ai/) summarize the initial note, to rephrase a few sentences and search for information. The final draft was reviewed by Grammarly AI (https://app.grammarly.com/) and modified by me to maintain human touch and my writing style. I recognize the use of Google Docs (Google, https://docs.google.com/) and Visual Studio Code (https://code.visualstudio.com/) with Copilot (Microsoft,https://copilot.microsoft.com/) for writing the text.}
+%Reconheço o uso de [inserir sistema(s) de IA e respetiva hiperligação] para [indicar utilização específica de IA ou outras tarefas]. Reconheço a utilização de [indicar software, código ou plataforma] para [indicar utilização específica de software, código ou platafoma ou para outras tarefas].
+%Exemplo 1: Reconheço a utilização do ChatGPT 3.5 (Open AI, https://chat.openai.com) para resumir as notas iniciais e para rever o rascunho final, a utilização do Office365 (Microsoft, https://www.office.com) para a escrita do texto.
+%Exemplo 2: Não foram utilizados no presente trabalho quaisquer conteúdos gerados por tecnologias de IA.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       DEFINE THESIS COVER FIELDS
+%%                  END
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%%% By default we consider portuguese to be the
+%%%  main language (the last one in the usepackage
+%%%  declaration). If you're writing your thesis
+%%%  in english uncomment the following line.
+%%% Set the proper language or you will end with incorrect hyphenation!
+\selectlanguage{english}
+
+
+\MakeCover
+\end{document}

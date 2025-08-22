@@ -4,44 +4,45 @@
 ## important
 
 
-### processo de manutenção GERAL
-- Formulário inicial ter lista de várias tarefas iniciais para fazer (haver tradução entre peças e tarefas)
-- Se n houver evalTask é criada logo essas tarefas, se não, são preselecionadas no evalTask
-- Ligação vehicle type, vehiclepart e vehiclepart category e permitir alterar no adminPage
-- remover start date e expected start date das tarefas e apenas atribuir o dia de serem realizada
-- home page mostra nº de horas expectaveis de trabalho de cada funcionario numa semana
 - permitir Tarefas/manutenção não serem atribuidas, mas o mecânico pode dar claim
+- permitir mecânico adicionar tarefa à manutenção sem validação e sem clientid
+- associar task a um mecânico com o novo layout
 - No final da realização da manutenção acontece as verificações finais que pode levar a voltar a fazer alguma tarefa
     - indicar que verificações falhou 
     - adicionar nova tarefa tagged 
+- Mecanico poder adicionar tarefas que fez (criar configuração)
+    - adicionar tarefa so requer verificação do manager se for de um cliente 
+    - adicionar tarefa so pode ser feito se for manutenção por veiculo e n por task
 
 
 
-#### sequencia de realização de tarefas                                             DONE
-- começar por eval task se houver                                                                                                               DONE
-- Adicionar step num à maintenance task type e n haver nenhuma task com o mesmo vehicle type (ou um null e outro com valor) e mesmo step num    DONE
-- finalizar com task(s) de validação                                                                                                            DONE
-- Tasks tem a seguinte sequencia de estados                                                                                                     DONE
-    - WaitApproval                                                                                                                              DONE
-    - WaitAssignment                                                                                                                            DONE
-    - Invalid                                                                                                                                   DONE
+- mostrar todos os funcionários na home page
+- home page mostra nº de horas expectaveis de trabalho sem funcionarios atribuidos
+- Ligação vehicle type, vehiclepart e vehiclepart category e permitir alterar no adminPage
 
-    - WaitApproval                                                                                                                              DONE
-    - WaitAssignment                                                                                                                            DONE
-    - WaitPart                                                                                                                                  DONE
-    - Assigned                                                                                                                                  DONE
-    - Ready                                                                                                                                     DONE
-    - Concluded                                                                                                                                 DONE 
-- Fazer diagrama com sequencia de estados                                                                                                       DONE
+- Permitir tarefas pertencerem àquela entidade
+- Permitir gestor criar as tarefas
+- Permitir adicionar tarefas danificadas à manutenção
 
+### processo de manutenção GERAL
 
 
 ### Compras
-- Alterar tabela de compras para ter vário tipo de peças (voltar a ver site e recuperar purchase details)
-- quando uma peça tiver abaixo de certo nivel,cria compra automaticamente sem quantidade e mostra possiveis peças para adicionar à compra dentro do contrato publico, se possivel
-- associar compras a um fornecedor(?) 
-- Permitir ver informação dos fornecedores
+- Dps do registo de uma compra perguntar se quer dar notify a outra tarefa se tiver quantidade suficiente para elas         
+- Permitir o workshop manager ver as compras passadas                                                                       
+- Permitir o workshop cancelar compras antes de finalizar                                                                   
+- Não permitir adicionar parts dps de já ter adicionado essa parte                                                          
+- Permitir aumentar a quantidade de peças numa compra quando for dar assign
+- Não permitir o workshop manager de adicionar part que ja está adicionado na compra 
+- adicionar tipo de partes no inventário mas com transparencia ou noutra tab 
+- adicionar triangulo a parts perto do reorder point
+- Adicionar alerta no inventário da página do warehouse quando tem poucas partes
+- Criar Fornecedores
+- workshop purchase delay check 
+- Merge compras com wait parts
+- Add image to vehicle part
 
+- Permitir o gestor criar contratos de fornecedor com um conjunto de peças associadas e o seu preço por peça 
 
 
 
@@ -380,5 +381,9 @@ Acontece:
 # Dúvidas
 Pergunta, durante a manutenção um mecânico descobre um problema?
 O que fazer se o veículo não passa no controlo de qualidade?
+
+
+
+
 
 
