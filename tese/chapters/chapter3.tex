@@ -61,7 +61,7 @@ To interact with the client it is need a rececionist. The requirements are:
 the mechanic should be able to:
 - can change betwen english and portuguese
 - see the tasks needed for todays date
-- pause a task
+- pause a task, for per example, lunch hour
 - continue a task
 - see the following information in a maintenance task 
   - the vehicle registration number
@@ -159,7 +159,7 @@ The workshop manager can do:
     - the tasks done
     - price
   - it can export a pdf with the same information
-  - see total price received from mainteance per month
+  - see total price received from maintenance per month
   - see total hours worked per month
 - assign an purchase to a operator
 - see the purchases requests with the information:
@@ -211,18 +211,18 @@ The workshop manager can do:
 
 
 
-
+ 
 
 
 The system also has requirements.
 Do the repair report... (? os outros é que podem fazer download do report?)
 Tasks have a sequence to be done
-\item Use Case 2.5 – Making the repair report
-\begin{itemize}
-  \item Scenario – After vehicle maintenance.
-  \item Objective – Conclude the maintenance of a vehicle.
-  \item System – The Mechanic enters into the system all operations and tests carried out on the system as well as their results.
-\end{itemize}
+% \item Use Case 2.5 – Making the repair report
+% \begin{itemize}
+%   \item Scenario – After vehicle maintenance.
+%   \item Objective – Conclude the maintenance of a vehicle.
+%   \item System – The Mechanic enters into the system all operations and tests carried out on the system as well as their results.
+% \end{itemize}
 purchase has multiple parts
 
 
@@ -269,7 +269,7 @@ The use cases are:
       \item Objective – Complete the vehicle maintenance process.
       \item System – Sends a report in a PDF format to the client with the information about the maintenance and alters the maintenance request status in the system to conclude. 
     \end{itemize}
-          \item Use Case 1.7 – Cancel Mainteannce 
+          \item Use Case 1.7 – Cancel Maintenance 
     \begin{itemize}
       \item Scenario – The client does not like the maintenance agreement and wants to retreive the vehicle.
       \item Objective – Cancel the maintenance.
@@ -467,7 +467,7 @@ After the development of the use cases, a flow chart was designed to understand 
 \begin{figure}[h]
   \caption{Use Case Flow Chart of the Client, Receptionist, Mechanic, Warehouse Operator, and Administrator.}
   \centering
-  \includegraphics[width=\textwidth]{figs/UseCaseDiagram}
+  \includegraphics[width=\textwidth]{figs/UseCaseDiagram2}
   \label{fig:figure2}
 \end{figure}
 
@@ -514,26 +514,300 @@ These flows are listed below:
 \begin{figure}[h]
   \caption{Database general diagram.}
   \centering
-  \includegraphics[width=\textwidth]{figs/dbDiagrams/DbDiagram_Full}
-  \label{fig:figure2}
+  \includegraphics[width=\textwidth]{figs/dbDiagrams/DbDiagramFull}
+  \label{fig:figure2} 
 \end{figure}
 
 In this section i will describe the dabase structure i create to solve this problem.
 To solve this problem i create a structure that devides in 5 sections:
-- Maintenance & Tasks
-- Parts & Inventory
+- Maintenance \& Tasks
+- Parts \& Inventory 
 - Purchasing
 - Services
-- Vehicles & Owners
+- Vehicles \& Owners
 - Users
+ 
+
+\subsection{Users} 
 
 The section users was provided by the ligthmobie's dabase structure and i used it to create users, create the roles of the users and create the group of users (client, rececionist, warehouse manager,...).
 
 
 
-\subsection{Maintenance & Tasks} 
+\subsection{Maintenance and Tasks} 
+
+
+\begin{figure}[h]
+  \caption{Database Maintenance and Tasks diagram.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/dbDiagrams/Maintenance_and_Tasks}
+  \label{fig:figure2}
+\end{figure}
+
+To save the information about the maintenance i created a table called the "Maintenance". This table has the following columns:
+- ClientId, which is a foreign key to the AspNetUsers Table and is the table that has the information about the users of the platform.
+- OwnerId, which is a foreign key to the Owners table and represents the dealership that is providing the maintenance
+- VehicleId, the vehicle that is going to do the maintenance
+- ClientEntityId, Optional column that connects to the Owner of a bike sharing system
+- CreatedDate, that is the date of creation of the maintenance
+- EvalDate, date of the evaluation date of the vehicle
+- AnomalyIdentification, is a text describing the problem with the vehicle
+- AnomalyCause, is a text describing the cause of the problem with the vehicle
+- ClientNotes, is a text describing additional information provided by the client
+- ConclusionDateExpected, is the expectedd date of the end of the maintenance agreed with the client, used to control the expectation of client for the duration of the maintenance 
+- ConclusionDate, the actual date of the end of the maintenance
+- DeliverDate, the date of the deliver of the vehicle to the client
+- BudgetExpected, the expected budget of the maintenance agreed with the client, used to control the expectation of client for the price of the maintenance 
+- Budget, the actual price of the maintenance
+- ClientScoreExpected, the score of the quality of the service expected by the client
+- ClientScore, the score of the quality of the service perceived by the client
+- WorkHoursExpected, the number of hours expected to conclude the maintenance
+- WorkHours, the number of hours to conclude the maintenance
+- StatusId, the status of the maintenance. It can be WaitEvaluation, the status before the evaluation of the vehicle; waitApproval, after the evaluation of the vehicle and before the client and rececionist decide which tasks should be done, the budget of the expected budget of the maintenance and the expected conclusion date; DuringMaintenance, the status when the tasks of the maintenance are being completed; MaintenanceFinished, after all the tasks of the maintenance are completed; Delivered, when the vehicle is delivered to the client; Canceled, when the client decides to cancel the maintenance and retrieve the vehicle as it is
+
+The maintenance is connected to the MaintenanceChange table. This table is used to save the information when a change in the maintenance occurr, like the expected conclusion date change, a task changed or the expected budget changed.
+This table has the following columns:
+- MaintenanceId, the identification of the maintenance which is being changed
+- CreatedDate, the date of the change
+- NewBudget, the new expected budget
+- MinConclusionDate, the earleast date to complete the maintenance. This columns is important if, for example a part delivery is late and may only arrive on a date after the expected conclusion date.
+- NewConclusionDate, the new expected conclusion date agreed with the client
+- Status, the status of the maintenanceChange. It may be AskClient, when the maintenance change needs the valiation of the client; Agreed, when the client accept the changes; Refused, when the changes are refused and the maintenance keeps the same information and the previous agreement; TaskCanceled, when the client decides to cancel the task that provokes the maintenance change; MaintenanceCanceled, when the client decides to terminated the maintenance as it is.
+- VehiclePartTypeId, the new part of the vehicle that from the maintenance task that is being changed
+- MaintenanceTaskId, the identification of the maintenance Task that provokes the change
+
+The maintenance is also connected with the table maintenanceTask that saves the information of the tasks from that maintenance.
+This table has the following columns:
+- Id, the identification of the task
+- MaintenanceId, the identification of the maintenance
+- MaintenanceTaskTypeId, the identification of the type of task
+- VehiclePartTypeId, the identification of the type of part is used in this task
+- Status, the status of the task. It may be WaitApproval, status before the approval from the client; WaitAssignment, status after the client aproval but before the workshop mananger assign it to a mechanic; Invalid, status when the client rejects the task during the maintenance agreement with the rececionist; Assigned, status when the task is assigned to a mechanic; Concluded, when the task is finished; Changed, when the mechanic notes a problem with the task and suggest a change that requires the validation from the client; WaitPart, when the part needed to complete the task is not in inventory and needs to wait for it availability to be completed.
+% - PurchaseDetailId, the identification of the purchase part that is requesting the part needed to complete this task. This column allows when the purchase is complete and the parts arrive the task is notified to be able to be assigned and completed.
+
+
+The maintenanceTask is connected with the table pauseTasks, that keeps tracking of the pauses of the task. 
+This table has a:
+- MaintenanceTaskId, that identifies the task of the maintenance
+- StartDate, the start date of the pause
+- EndDate, the end date of the pause
+
+It is connected to the mechanicTasks. This table has the information of the completion of the task. It has the following columns:
+- MechanicId, the identification of the mechanic
+- MaintenanceTaskId, the identification of the task of the maintenance
+- StatDateExpected, the date the workshop manager assigned to the mechanic starts the task
+- EndDateExpected, the expected date the mechanic should end the task
+- StartDate, the actual date the mechanic started the task
+- EndDate, the actual date the mechanic ended the task
+- MechanicNote, text left from the mechanic about the task or the vehicle
+
+
+The MaintenanceTask table is also connected to the MaintenanceTaskType table. This table has the information of the type of tasks exist.
+It has the following columns:
+- Id, identification of the task type
+- EvalTaskId, the identification of the evaluation task that can generate this type of tasks. During the evaluation period of the vehicle, if the mechanic do this evaluation task, it may add this task to the maintenance
+- VehiclePartTypeCategoryId, the identification of the category of parts that this task type need to be completed
+- Name, the name of the task
+- Description, the description of the task
+- StepNum, a integer value that represents the sequence of the tasks, for example it it has the value 2, it means it is only possible to complete this task after all tasks from stepNum 0 and 1 from this maintenance are completed
+- Price, the price the client must pay to complete the task
+- Hours, the number of hours estimated to complete the task
+- Quantity, the number of parts is needed to complete the task
+- Type, the type of maintenanceTaskType this type of maintenanceTaskType is. It may be normal, a normal task or a quality task, a task to assure the quality of the vehicle before the deliver to the client
+- IsRemoved, it tells if this type of task is visible or not in the platform, this virtually seems that the task is deleted on the platform, but it can be recover if needed
+
+The maintenanceTaskType is connected to the maintenanceTaskStep, that has the information of all the steps to complete the task.
+It has the following columns:
+- Id, the identification of the step
+- MaintenanceTaskTypeId, the identification of the task type
+- StepNum, the number of the step of the task type
+- name, the name of the step
+- description, the description of the step and how to complete it
+
+The maintenanceTaskType also is connected to the EvalTasks. This table has the information about the task steps used during the evaluation of the vehicle.
+It has the following columns:
+- Id, the identification of the evaluation task step
+- Name, the name of the evaluation task step
+- VehiclTypeId, the identification of the type of vehicle that this task step is used on
+- Description, the description of the task step
+- StepNum, the step number of the task step
+- IsRemoved, it tells if this type of task is visible or not in the platform
+
+
+\subsection{Parts and Inventory} 
+
+
+\begin{figure}[h]
+  \caption{Database Parts and Inventory diagram.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/dbDiagrams/Parts_and_Inventory}
+  \label{fig:figure2}
+\end{figure}
+
+The inventory of the dealership is used to track the available parts on the dealership on the table OwnerInventory.
+It has the following columns:
+- Id, identification of the inventory
+- VehiclePartTypeId, the identification of the part type of this inventory
+- OwnerId, the identification of the dealership of this inventory
+- LocationWithinWarehouse, is text with the code to locate the part in the warehouse of the dealership
+- MeanDeliveryInDays, mean of the number of days it takes for the part to arrive at the dealership after the purchase
+- QuantityAvailable, the number of parts of a specific type are available at this dealership
+- DefaultOrderQuantity, the number of parts used when creating an automatic purchase for this part type when quantity on the dealership reaches a threshold
+- MinimumStockLevel, the minimum number parts it the dealership should have
+- MaximumStockLevel, the maximum number of parts the dealership should have
+- ReorderPoint, the threshold where a purchase is created when the quantity available reaches this value
+
+The OwnerInventory table is connected to the table OwnerInventoryTransaction, which stores the information of the sales and restock. When the quantity available changes, the action that provokes this change is saved in here.
+This table has the following columns:
+- Id, identification of the transaction
+- InventoryId, the identification of the inventory from which occurred a sale or a restock
+- PurchaseDetailId, the identification of the purchase that make the restock
+- Type, if it is a restock or sale
+- OperatorId, the identification of the person that provided this transaction (Warehouse Operator if it was a restock or a mechanic if it was a sale)
+- CreatedDate, the date of the transaction
+- Quantity, the number of parts that were added or removed from the inventory
+
+The OwnerInventory table is also connected to the table Supplier throw the table OwnerVehiclePartSupplier.
+The table supplier has the information of the suppliers of a dealership. The OwnerVehiclePartSupplier has the information of the contract between the dealership and the supplier. 
+The table supplier has the following information:
+- Id, the identification of the supplier
+- Name, the name of the supplier
+- PhoneNumber, the phonenumber of the supplier 
+- Email, the email of the supplier
+- Address, the address of the supplier
+
+The OwnerVehiclePartSupplier has the following columns:
+- Id, the identification of the contract
+- SupplierId, the identification of the supplier
+- OwnerInventoryId, the identification of the inventory of the dealership. This column identifies the dealership and the part on the contract.
+- DateIn, the date that the contract starts
+- DateOut, the date when the contract ended
+- ExpecteDateOut, the date where contract is expected to end
+
+The OwnerInventory is also connected to the OwnerVehiclePartType that stores the type of parts exist.
+This table has the following columns:
+- Id, the identification of the part type
+- Code, the code of the part type
+- Name, the name of the part type
+- Description, the description of the part type
+- Price, the price of the part type
+- CategoryId, the identification of category of the part type
+- IsRemoved, it tells if this type of part is visible or not in the platform
+
+This table is connected to two other tables, the VehiclePartTypeCategory and the OwnerVehiclePart.
+The VehiclePartTypeCategory stores the information of the category of parts exist. 
+The OwnerVehiclePart table tracks which vehicle has which parts and it already existed in the lightmobie database.
+The VehiclePartTypeCategory has the following columns:
+- Id, the identification of the category
+- Name, the name of the category
+
+The OwnerVehiclePart has the following columns:
+- VehiclePartTypeId, the identification of the part type that the vehicle has
+- VehicleId, the identification of the vehicle that has the part
+- DateIn, the date when the part was inserted to the vehicle
+- DateOut, the date when the part was removed from the vehicle
 
 
 
+\subsection{Purchasing} 
+
+
+\begin{figure}[h]
+  \caption{Database Purchasing diagram.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/dbDiagrams/Purchasing}
+  \label{fig:figure2}
+\end{figure}
+
+The inventory needs purchase to restock. To this I build the table Purchase with the following columns:
+- Id, the identification of the purchase
+- OwnerId, the identification of the dealership that done this purchase
+- OperatorId, the identification of the warehouse operator that completed the purchase
+- CreatedDate, the date of the creation of the purchase
+- Reason, the reason for the purchase. It is useful since the purchase needs to be verified by the workshop manager
+- Status, the status of the purchase. The status may be WaitApproval, used before the purchase is approved by the workshop manager; Invalid, used when the purchase was rejected by the workshop manager; Assigned, when the purchase was approved by the workshop manager and assigned to a warehouse operator; WaitArrival, when the purchase was complete but the parts still did not arrived; Finished, after the parts arrive at the dealership
+- ExpectedArrivalDate, the expected date of the arrival of the parts
+- ArrivalDate, the actual date of the arrival of the parts
+- PurchaseDate, the date when the purchase was done
+
+The purchase is connected with the tables PurchaseDelay and PurchaseDetail. 
+The table PurchaseDetail is used to describe the quantity of the multiple parts in a purchase.
+The table PurchaseDelay is used to store the information when a purchase arrival date is delayed and the client expectation of the client due to that.
+The table PurchaseDetail is also connected to the maintenanceTaskPurchase to allow a task be connected to multiple purchases due to a mistake by the mechanic and a purchase connected to multiple tasks to notify the multiple tasks that the parts have arrived.
+The purchaseDetail has the following columns:
+- Id, the identification of the purchaseDetail
+- PurchaseId, the identification of the purchase that it is associated with
+- price, the price of the part
+- Count, the number of parts of this type in the purchase detail
+- VehiclePartTypeId, the identification of the type of parts in the purchase detail
+  
+The final table, the PurchaseDelay, has the following columns:
+- Id, the identification of the purchase delay
+- PurchaseId, the identification of the purchase that is associated with
+- CreatedDate, the date of the creation of the delay
+- ExpectedArrivalDate, the new expected arrival Date
+
+
+\subsection{Services} 
+
+
+\begin{figure}[h]
+  \caption{Database Services diagram.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/dbDiagrams/Services}
+  \label{fig:figure2}
+\end{figure}
+
+The services section starts with the tablke serviceType that has all type of services that exist, namely "bike sharing" and "Dealership"
+This table has the following columns:
+- Id, the identification of the service type
+- name, the name of the service type
+
+This table is connected with the Table Owner through the table OwnerServiceType.
+This table has the info of the duration of the service to the owner.
+It has the following columns:
+- Id, the id of the owner service connection
+- OwnerId, the identification of the owner
+- ServiceType, the identification of the type of service is connected to the owner
+- DateIn, the date when the service started
+- DateOut, the date when the service ended
+
+The serviceType is also connected with the table serviceTypeConfig that has the information of the various configuration of the dealership, like if does tasks division and assignment or in the evaluation it does the maintenance of the vehicle and identifies the tasks done.
+It has the following columns:
+- Id, the identification of the configuration
+- ServiceTypeId, the identification of the service type is associated with
+- Name, the name of the configuration
+
+This table is associated with the OwnerServiceType in the table OwnerServiceTypeConfig since the dealership can chose which configuration it decides to have.
+It has the following columns:
+- OwnerServiceTypeId, the identification the connection of the service type and the dealership
+- ServiceTypeConfigId, the identification of the configuration of the service type
+- DateIn, the date when dealership start using the configuration started
+- DateOut, the date when the dealership remove de configuration
+
+
+\subsection{Vehicles and Owners} 
+
+
+\begin{figure}[h]
+  \caption{Database Vehicles and Owners diagram.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/dbDiagrams/Vehicles_and_Owners}
+  \label{fig:figure2}
+\end{figure}
+
+
+This section the tables Owner, Vehicle and VehicleType already existed in the lightmobie database.
+The Owner table registers the information of the dealerships and bike sharing entities.
+The vehicle table registers the information of each vehicle and is connected with the vehicleType thar stores the type of vehicles, like "Eletric bikes", "convention bikes", etc.
+
+I created the table OwnerVehicleType to allow disinguish between dealership availability to do a maintenance to specific type of vehicles. This table only has the column of connection of the two tables, owner and vehicleType.
+The OwnerPartnership table is used to allow bikesharing entities to share information with dealership for it to do the maintenance. If a dealership is not connected to a bike sharing entity is not allowed to view theres vehicle information.
+This table has the following columns:
+- FromOwnerId, the identification of the bike sharing entity that wants to associate with the dealership
+- ToOwnerId, the identification of the dealership that is requested to do maintenances to the bikesharing entity
+- VehicleTypeId, the identification of the type of vehicles the bike sharing entity wants the dealership to do maintenances
+- CreateDate, the date the request was created
+- Status, the satus of the request, it can be Request, the request is waiting for response from the dealership; Accept, the request was accepted; Denied, the request was denied
 
 

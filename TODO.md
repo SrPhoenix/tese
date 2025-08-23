@@ -386,4 +386,21 @@ O que fazer se o veículo não passa no controlo de qualidade?
 
 
 
+# tese
+Remover vehicleType do maintenancetask type, ja temos no eval task
+adicionar tabelas de userroles e user group no diagrama
+adicionar quantity ao OwnerVehiclePartSupplier non null
+remove reordderQuantity oin OwnerVehicelPartType
+remove WaitAssignment from the purchase status
+remove PurchaseDetailId from maintenanceTask
+NotActionNecessay to NoActionNecessary in purchaseDelay
+
+Remove status from purchaseDelay
+add a red dot in the tables already created na bolsa
+remove ServiceTypeId from ownerPartnership~
+
+fazer graficos dos status ao longo da manutenção, compra....
+fazer graficos do flow dos status
+
+
 
