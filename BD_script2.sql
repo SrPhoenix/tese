@@ -47,7 +47,6 @@ CREATE TABLE [OwnerPartnership] (
   [ToOwnerId] uniqueidentifier NOT NULL,
   [VehicleTypeId] int,
   [CreateDate] datetime NOT NULL,
-  [ServiceTypeId] integer not null,
   [Status] tinyint not null,
   [DateIn] datetime,
   [DateOut] datetime,
@@ -56,7 +55,6 @@ CREATE TABLE [OwnerPartnership] (
 ALTER TABLE [OwnerPartnership] ADD FOREIGN KEY ([FromOwnerId]) REFERENCES [Owner] ([Id])
 ALTER TABLE [OwnerPartnership] ADD FOREIGN KEY ([ToOwnerId]) REFERENCES [Owner] ([Id])
 ALTER TABLE [OwnerPartnership] ADD FOREIGN KEY ([VehicleTypeId]) REFERENCES [VehicleType] ([Id])
-ALTER TABLE [OwnerPartnership] ADD FOREIGN KEY ([ServiceTypeId]) REFERENCES [ServiceType] ([Id])
 
 CREATE TABLE [VehiclePartTypeCategory] (
   [Id] integer PRIMARY KEY IDENTITY(1, 1),
@@ -182,7 +180,6 @@ CREATE TABLE MaintenanceTask (
   [MaintenanceTaskTypeId] integer NOT NULL,
   [VehiclePartTypeId] uniqueidentifier,
   [Status] tinyint NOT NULL,
-  [PurchaseDetailId] uniqueidentifier,
 );
 
 
@@ -453,6 +450,7 @@ CREATE TABLE OwnerVehiclePartSupplier (
   [SupplierId] uniqueidentifier not null,
   OwnerInventoryId uniqueidentifier not null,
   [DateIn] datetime not null,
+  [Quantity] int ,
   [DateOut] datetime,
   [ExpectedDateOut] datetime not null
 );
@@ -471,3 +469,81 @@ ALTER TABLE [MaintenanceTaskPurchase] ADD FOREIGN KEY ([MaintenanceTaskId]) REFE
 ALTER TABLE [MaintenanceTaskPurchase] ADD FOREIGN KEY ([PurchaseDetailId]) REFERENCES [PurchaseDetail] ([Id])
 
 rollback
+
+
+
+
+/*
+CREATE TABLE [AspNetUserRoles](
+	[UserId] [varchar](36) NOT NULL,
+	[RoleId] [nvarchar](36) NOT NULL,
+	[OwnerId] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC,
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [AspNetUserRoles]  WITH CHECK ADD FOREIGN KEY([OwnerId])
+REFERENCES [Owner] ([Id])
+GO
+
+ALTER TABLE [AspNetUserRoles] CHECK CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId]
+GO
+
+ALTER TABLE [AspNetUserRoles] CHECK CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId]
+GO
+
+
+CREATE TABLE [AspNetRoles](
+	[Id] [nvarchar](36) NOT NULL,
+	[Name] [nvarchar](256) NULL,
+	[NormalizedName] [nvarchar](256) NULL,
+	[ConcurrencyStamp] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetRoles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+CREATE TABLE [UserGroup](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Name] [nvarchar](256) NOT NULL,
+	[NormalizedName] [nvarchar](256) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [UserGroup] ADD  DEFAULT (newid()) FOR [Id]
+GO
+
+
+
+CREATE TABLE [UserGroupRoles](
+	[UserGroupId] [uniqueidentifier] NOT NULL,
+	[RoleId] [nvarchar](36) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[UserGroupId] ASC,
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [UserGroupRoles]  WITH CHECK ADD FOREIGN KEY([RoleId])
+REFERENCES [AspNetRoles] ([Id])
+GO
+
+ALTER TABLE [UserGroupRoles]  WITH CHECK ADD FOREIGN KEY([UserGroupId])
+REFERENCES [UserGroup] ([Id])
+GO
+
+
+

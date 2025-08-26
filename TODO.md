@@ -43,7 +43,7 @@
 - Add image to vehicle part
 
 - Permitir o gestor criar contratos de fornecedor com um conjunto de peças associadas e o seu preço por peça 
-
+- quando fazer um purchase delay verificar se tem tasks associadas, se tiver tasks associadas verificiar se a manutenção está antes da data de chegada das peças, se tiver criar maintenance change
 
 
 
@@ -387,20 +387,17 @@ O que fazer se o veículo não passa no controlo de qualidade?
 
 
 # tese
-Remover vehicleType do maintenancetask type, ja temos no eval task
-adicionar tabelas de userroles e user group no diagrama
-adicionar quantity ao OwnerVehiclePartSupplier non null
-remove reordderQuantity oin OwnerVehicelPartType
-remove WaitAssignment from the purchase status
-remove PurchaseDetailId from maintenanceTask
-NotActionNecessay to NoActionNecessary in purchaseDelay
+adicionar tabelas de userroles e user group no diagrama             - DONE
+adicionar quantity ao OwnerVehiclePartSupplier non null             - DONE
+remove WaitAssignment from the purchase status                      - DONE
+remove PurchaseDetailId from maintenanceTask                        - DONE
+NotActionNecessay to NoActionNecessary in purchaseDelay             - DONE
+Remove status from purchaseDelay                                    - DONE
+remove ServiceTypeId from ownerPartnership                          - DONE
+add a red dot in the tables already created na bolsa                - DONE
 
-Remove status from purchaseDelay
-add a red dot in the tables already created na bolsa
-remove ServiceTypeId from ownerPartnership~
-
-fazer graficos dos status ao longo da manutenção, compra....
 fazer graficos do flow dos status
+fazer graficos dos status ao longo da manutenção, compra....
 
 
 

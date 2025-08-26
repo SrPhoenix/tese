@@ -628,6 +628,7 @@ The maintenanceTaskType also is connected to the EvalTasks. This table has the i
 It has the following columns:
 - Id, the identification of the evaluation task step
 - Name, the name of the evaluation task step
+-VehicleTypeId, the type of vehicle that this task can be applied to
 - VehiclTypeId, the identification of the type of vehicle that this task step is used on
 - Description, the description of the task step
 - StepNum, the step number of the task step
@@ -682,6 +683,7 @@ The OwnerVehiclePartSupplier has the following columns:
 - OwnerInventoryId, the identification of the inventory of the dealership. This column identifies the dealership and the part on the contract.
 - DateIn, the date that the contract starts
 - DateOut, the date when the contract ended
+- Quantity, the limit of parts requested in the contract
 - ExpecteDateOut, the date where contract is expected to end
 
 The OwnerInventory is also connected to the OwnerVehiclePartType that stores the type of parts exist.
@@ -692,6 +694,7 @@ This table has the following columns:
 - Description, the description of the part type
 - Price, the price of the part type
 - CategoryId, the identification of category of the part type
+- ReorderQuantity, the number of items per group this part must be bought with
 - IsRemoved, it tells if this type of part is visible or not in the platform
 
 This table is connected to two other tables, the VehiclePartTypeCategory and the OwnerVehiclePart.
