@@ -257,7 +257,7 @@ The use cases are:
       \item Objective – Accept the changes of the maintenance.
       \item System – The Receptionist goes to the maintenance details, to the section of the maintenance changes and accept the changes for that maintenance.
     \end{itemize}
-    \item Use Case 1.4 – Refuse maintenance changes
+    \item Use Case 1.5 – Refuse maintenance changes
     \begin{itemize}
       \item Scenario – A problem in a vehicle maintenance has occurred and the initial agreement with the client was broken and the client refuses the changes.
       \item Objective – Refuse the changes of the maintenance.
@@ -269,11 +269,17 @@ The use cases are:
       \item Objective – Complete the vehicle maintenance process.
       \item System – Sends a report in a PDF format to the client with the information about the maintenance and alters the maintenance request status in the system to conclude. 
     \end{itemize}
-          \item Use Case 1.7 – Cancel Maintenance 
+      \item Use Case 1.7 – Cancel Maintenance 
     \begin{itemize}
       \item Scenario – The client does not like the maintenance agreement and wants to retreive the vehicle.
       \item Objective – Cancel the maintenance.
       \item System – The rececionist goes to the maintenance details and cancels the maintenance. 
+    \end{itemize}
+    \item Use Case 1.8 – Cancel Task 
+    \begin{itemize}
+      \item Scenario – A problem in a vehicle maintenance has occurred and the initial agreement with the client was broken and the client refuses the changes.
+      \item Objective – Cancel the task to be done.
+      \item System – The Receptionist goes to the maintenance details, to the section of the maintenance changes and cancels the task with the problem.
     \end{itemize}
   \end{itemize}  
   \hfill \break
@@ -454,6 +460,12 @@ The use cases are listed below:
     \item Objective – The Client rating the quality of the service he is expected to receive.
     \item System – The system will show a form to the client asking about the service he is expected to receive. 
   \end{itemize}
+      \item Use Case 5.5 – View maintenance history
+  \begin{itemize}
+    \item Scenario – The client wants to see the price of the last maintenance.
+    \item Objective – See the information about the last maintenance of the client.
+    \item System – The client opens the app and sees a page call "Maintenance History" in the menu. When clicking on tha page it shows a list of all the maintenances of that account. The client click on the first one, because it is ordered by date and it opens the details of the that maintenance in a offcanvas 
+  \end{itemize}
 \end{itemize}
 \hfill \break
 
@@ -467,7 +479,7 @@ After the development of the use cases, a flow chart was designed to understand 
 \begin{figure}[h]
   \caption{Use Case Flow Chart of the Client, Receptionist, Mechanic, Warehouse Operator, and Administrator.}
   \centering
-  \includegraphics[width=\textwidth]{figs/UseCaseDiagram2}
+  \includegraphics[width=\textwidth]{figs/UseCaseDiagram - General}
   \label{fig:figure2}
 \end{figure}
 
@@ -506,6 +518,188 @@ These flows are listed below:
 \end{itemize}
  
 
+\section{Status} 
+
+With the flow talked in the previous section, it was needed to create multiple status of system.
+- The maintenance status: the status of a mainteannce
+- The maintenance change status: the status when occurs a change on the maintenance like the conclusion date was changed or the budget.
+- The maintenance task status: the status of a mechanic task.
+- The purchase status: the status when the dealership purchase new parts
+- The owner partnership status: when a bike sharing entity wants to associate with the dealership to provide maintenance of theres vehicles
+
+\subsection{Maintenance} 
+
+
+\begin{figure}[h]
+  \caption{Status flow chart of a maintenance}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/Maintenance/StatusDiagram}
+  \label{fig:figure2}
+\end{figure}
+
+
+When occurr a maintenance it is divided in 6 status as seen in the figure above:
+- Wait Evaluation: the inicial status when the vehicle is waiting to be analysed by the mechanic
+- Wait Approval: the status where the tasks choosen by the mechanic need to be approved by the client, as well as the budget and the conclusion date
+- During Maintenance: the status when the tasks of the maintenance are being done
+- Maintenance Finished: after all the tasks of the maintenance are completed
+- Delivered: when the vehicle is delivered to the client
+- Canceled: when the client decides to cancel the maintenance and retrieve the vehicle as it is
+
+
+\begin{figure}[h]
+  \caption{Use case flow chart of dealership normal maintenance. With the status grouped by the use cases}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/Maintenance/UseCaseStatus}
+  \label{fig:figure2}
+\end{figure}
+
+In the figure above we can see how this status is divided in the flow of the use case of a maintenance in a dealership.
+The flow starts with the "Wait Evaluation" status when the client contacts the rececionist to schedule a new maintenance. Then this status is hold with the assign of the evaluation task and the execution of the task by the mechanic.
+When the task is done, the maintenance pass to the "Wait Approval" status where the rececionist contacts the client to confirm which tasks he decides to use in the maintenance as well as the budget and the conclusion date of the maintenance.
+After the client decides which tasks he wants to keep and which he doesnt the maintenance pass to the status "During maintenance", where it keeps it until the end of the last task. Until this point the client can contact the rececionist to cancel the maintenance and pass to the status "Canceled", where the client can rate the service provided.
+After the maintenance is finished, the maintenance pass to the stastus "Maintenance Finished" where the client is notified with the conclusion of the maintenance and the vehicle is delivered. After the vehicle is delivered, the maintenace pass to the status "Delivered" and the client may rate the service.
+
+\begin{figure}[h]
+  \caption{Use case flow chart of a entity with maintenance of theres vehicles. With the status grouped by the use cases}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/Maintenance/EntityDiagram}
+  \label{fig:figure2}
+\end{figure}
+
+When the entity doing the maintenance also provides a bike sharing system, the maintenance may be more efficient.
+In that case there is a flow of the system more simplified.
+First a rececionist or another employee enconters a problem in a vehicle and schedules a maintenance with the rececionist. In this situation the maintenance is in "Wait Evaluation" status until the evaluation is carried out like the previous flow.
+The diference in this flow is, during the evaluation the mechanic is not going to say which task is needed to be performed on the vehicle, he says which tasks he done during the evaluation to complete the maintenance, so the maintenance of the vehicle pass to the "Maintenance Finished" status.
+Since this maintenance doesn't have a client the client is not notified so but when the vehicle leaves the workshop to the redistributors to the be used, it pass to the "Delivered" state.  
+
+
+\subsection{Maintenance Change} 
+
+
+\begin{figure}[h]
+  \caption{Status flow chart of a maintenance Change}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/MaintenanceChange/StatusDiagram}
+  \label{fig:figure2}
+\end{figure}
+
+
+When occurr a maintenance change the client needs to be notified and this flow has the following status, as seen in the figure above:
+- AskClient, The inicial status when the maintenance change needs to be confirmed by the client
+- Agreed, when the client accept the changes
+- Refused, when the changes are refused and the maintenance keeps the same information and the previous agreement; 
+- TaskCanceled, when the client decides to cancel the task that provokes the maintenance change
+- MaintenanceCanceled, when the client decides to terminated the maintenance as it is.
+
+
+
+\begin{figure}[h]
+  \caption{Use case flow chart of a maintenance change divided by the multiple status of the maintenance change}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/MaintenanceChange/UseCaseStatus}
+  \label{fig:figure2}
+\end{figure}
+
+In the figure above we can see how this status is divided in the flow of the use case of a maintenance change.
+First a change is made in the maintenance and the rececionist is notified to contact the client, at this time the status s "Ask Client".
+After contacting the client and explaining the situation the rececionist have this option depending on the will of the client:
+- Agreed, when the client accept the changes
+- Refused, when the changes are refused and the maintenance keeps the same information and the previous agreement; 
+- TaskCanceled, when the client decides to cancel the task that provokes the maintenance change
+- MaintenanceCanceled, when the client decides to terminated the maintenance as it is.
+
+\subsection{Maintenance Task} 
+
+
+\begin{figure}[h]
+  \caption{Status flow chart of a task}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/MaintenanceTask/StatusDiagram}
+  \label{fig:figure2}
+\end{figure}
+
+
+In the figure above we can see how this status is divided in the flow of the use case of a task.
+- WaitApproval: The inicial state when the task is created and before the approval from the client.
+- WaitAssignment: The state when a task is approved by the client and has no needed parts or the parts needed are on the warehouse. 
+- Invalid: When a task is rejected by the client
+- Assigned: When a ready task is a assigned to a mechanic
+- Concluded: When a mechanic finish concluding the task
+- Changed: When the mechanic notes a problem during the task and suggest a change that requires the validation from the client
+- WaitPart: When the task is aproved by the client but needs parts to be completed that are not in the inventory.
+
+
+
+\begin{figure}[h]
+  \caption{Use case flow chart of a task divided by the multiple status of the task}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/MaintenanceTask/UseCaseStatus}
+  \label{fig:figure2}
+\end{figure}
+
+In the figure above we can see the flow of a maintenance task during a maintenance.
+The flow may start with two states, the "Wait Approval" or with the "Concluded".
+On the case of a bikesharing system with maintenance of there own vehicle, the mechanic during the evaluation it completes the tasks that he registers so this tasks added to the system start at the state concluded.
+At a dealership, a task from a maintenance with a client starts with the workshop manager adding a new task or during the evaluation of the maintenance.
+In this time the task is in the status "Wait Approval". Then the task needs to be validated by the client. 
+If it is invalidated it takes the status "Invalid" and the task flow ends here. If the task is approved, the system checks if it needs parts to be completed and if the task are available in the warehouse.
+If the task need the parts and they are not available, the flow stops in the state "Wait part". After that, the system verifies if the task is assigned to a user. 
+If it is not, the task holds in the state "Wait Assignment", until the workshop manager assigns a mechanic. Then, it goes to the state "Assigned", where the mechanic executes the task.
+If the mechanic does not find any problens, the task is finished and goes to the state "Concluded" ending the flow. If the mechanic finds that the chosen part is not apropriate to this vehicle, he can suggest a new part to complete the task and the task goes to the state "Changed".
+After this, the client needs to approve this change and the flow repeats after "Wait Approval" state.
+
+
+\subsection{Purchase} 
+
+
+
+\begin{figure}[h]
+  \caption{Status flow chart of a purchase}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/Purchase/StatusDiagram}
+  \label{fig:figure2}
+\end{figure}
+
+
+When occurr a purchase the workshop manager needs to be notified and the flow has the following status, as seen in the figure above:
+- WaitApproval: The inicial state when the purchase request needs to be approved by the workshop manager
+- Invalid: When the workshop manager rejects a purchase request
+- Assigned: When the purchase request was approved by the workshop manager and assigned to a warehouse operator
+- WaitArrival: After the operator assigned to the purchase contacts the supplier to request the purchase
+- Finished: When the parts arrive at the dealership and are registered into the system
+
+
+\begin{figure}[h]
+  \caption{Use case flow chart of a purchase divided by the multiple status of the purchase}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/Purchase/UseCaseStatus}
+  \label{fig:figure2}
+\end{figure}
+
+In the figure above we can see how this status is divided in the flow of the use case of a purchase.
+The flow starts when the operator (or the system) makes a purchase request. This request has the state "Wait Approval" untils the workshop manager authorize (or not) the request.
+If the workshop manager rejects the request, the purchase request keeps with the status "Invalid" and the flow ends here. If the purchase is authorized, purchase passes to the status "Assigned".
+After the request is authorized, the warehouse operator assigned to the purchase contacts the supplier to get the parts of the request.
+After that, he introduces the expected date of the Arrival of the parts and the request pass to the status "Wait Arrival".
+When the parts arrive at the dealership the operator register the parts and the purchase pass to the status "Finished"
+
+
+\subsection{Owner Partnership} 
+
+
+
+\begin{figure}[h]
+  \caption{Status flow chart of a partnership}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Status/OwnerPartnership_StatusDiagram}
+  \label{fig:figure2}
+\end{figure}
+
+when a entity wants to do a partnership with a dealership to allow him to do the maintenance of theres vehicle the flow is follow by the figure above:
+- Request: the workshop manager is notified that a new entity wants to do a partnership with the dealership
+- Accept, the dealership is allow to see the information about the vehicles of that entity and schedule maintenance for its vehicles
+- Denied, the request was denied
 
 
 \section{Database} 
@@ -814,3 +1008,12 @@ This table has the following columns:
 - Status, the satus of the request, it can be Request, the request is waiting for response from the dealership; Accept, the request was accepted; Denied, the request was denied
 
 
+\section{Implementation}
+
+\subsection{Rececionist view}
+The rececionist application view has only one page as see in \ref .
+\subsection{Mechanic view}
+\subsection{Warehouse Operator view}
+\subsection{Workshop Manager view}
+\subsection{Client view}
+\subsection{Administrator view}

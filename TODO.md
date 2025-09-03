@@ -384,20 +384,80 @@ O que fazer se o veículo não passa no controlo de qualidade?
 
 
 
+- Reler a introdução
+    - Decidir secções que adicionar
+    - Decidir pontos a adicionar
+
+- Reler state of art
+    - Decidir secções que adicionar
+    - Decidir pontos a adicionar
+
+- Reler metodologia
+    - Decidir secções que adicionar
+    - Decidir pontos a adicionar
+
+- Reler Conclusão
+    - Decidir secções que adicionar
+    - Decidir pontos a adicionar
 
 
-# tese
-adicionar tabelas de userroles e user group no diagrama             - DONE
-adicionar quantity ao OwnerVehiclePartSupplier non null             - DONE
-remove WaitAssignment from the purchase status                      - DONE
-remove PurchaseDetailId from maintenanceTask                        - DONE
-NotActionNecessay to NoActionNecessary in purchaseDelay             - DONE
-Remove status from purchaseDelay                                    - DONE
-remove ServiceTypeId from ownerPartnership                          - DONE
-add a red dot in the tables already created na bolsa                - DONE
+- preparar user testes
+- ver cena das perguntas de qualidade de serviço
 
-fazer graficos do flow dos status
-fazer graficos dos status ao longo da manutenção, compra....
 
+
+
+- Introdução
+    - Adicionar resumo da metodologia
+    - Adicionar lisboa nos objetivos e problemas
+    - Reler o que está feito e se falta alguma cena
+    - meter no chat para ver se está fixe
+
+- State of Art
+    - Falar de * **Sistemas de Gestão de Manutenção** (CMMS – Computerized Maintenance Management Systems).         DONE
+    - * **Gestão de Serviços em Oficinas**  (Maybe)                                                                 DEPRECATED
+    - Talvez tirar service quality ??? (Se conseguir, deixa ficar)                                                  ???
+    - adicionar Comparação com outros softwares usados por concessionários                                          DONE
+    - Adicionar lacunas das soluções existentes                                                                     DONE
+    - Adicionar uma secção de lisboa a explicar os casos de uso                                                     DONE
+    - adicionar introdução e conclusão
+
+- Metodologia
+    - adicionar no fim nos user testes notas recebidas por lisboa e pelo tiago                                      DONE
+    - Melhorar o levantamento de requisitos dizendo que foi visto da analise de literatura do tiago e de lisboa     
+    - adicionar testes com utilizadores reais, ver metricas:
+    * **Métricas**: tempo de execução, taxa de erros, satisfação do utilizador.
+    - Análise dos resultados
+    - adicionar falar de cada página da aplicação 
+    - tirar chapter 4 ????
+
+- Conclusão
+    - Resumo dos objetivos
+    - Resumo dos principais resultados
+    - adicionar limitações
+    - adicionar future work
+    - considerações finais
+
+
+
+
+
+- Falar de * **Sistemas de Gestão de Manutenção** (CMMS – Computerized Maintenance Management Systems).      
+https://www.manwinwin.com/cmms/     
+https://www.ibm.com/think/topics/what-is-a-cmms    
+https://www.sap.com/products/scm/asset-management-eam/what-is-cmms.html      
+https://www.perplexity.ai/search/i-want-to-know-more-about-cmms-5dhgrMROTBe61SGMCci_Mg?0=d
+
+- Falar detype of maintenances  ???
+https://www.perplexity.ai/search/i-want-to-add-a-section-about-e9T0ev4LSJqIIKnKUq5kfw
+
+
+
+- falar de lacunas e comparação com soluções
+https://coastapp.com/blog/fiix-review/
+
+https://www.rockwellautomation.com/en-us/products/software/factorytalk/maintenancesuite/fiix.html#:~:text=That%20leaves%20you%20constantly%20reacting,maintenance%20management%20system%20(CMMS).
+
+(https://www.clickmaint.com/blog/fiix-cmms)
 
 
