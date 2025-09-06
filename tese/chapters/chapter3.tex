@@ -1437,26 +1437,186 @@ Each part has the duration of the contract in which the supplier may supply the 
 The workshop manager view shows the general info of system.
 The home page, as seen in \ref, is very similar to the rececionist where it is seen a graph with the tasks of the mechanics for a week. 
 It differs by the column listing the tasks with no user assigned.
-
-
+The manager can assigned a task on a user by clicking on a day in the graph or clicking on the button "Adicionar Task" and navegate to the day he wishes.
+This action will open a modal with the details of the day as seen in \ref.
 
 \begin{figure}[h]
-  \caption{Workshop manager adicionar task.}
+  \caption{Assign task to a mechanic.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/addTask}
   \label{fig:figure2}
 \end{figure}
 
+This modal is also very similar as in the rececionist schedule task modal, but on the right is the form to assigned the task to a mechanic. 
+To fill this form the manager must select the mechanic by writting their email, the hour he wants the task to begin (maybe remove this) and the task he wants to assigned to the user.
 
 \begin{figure}[h]
-  \caption{Workshop manager adicionar task.}
+  \caption{Active maintenance list.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/addTask}
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceList}
+  \label{fig:figure2}
+\end{figure}
+
+
+\begin{figure}[h]
+  \caption{Maintenance details information tab.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceDetails}
+  \label{fig:figure2}
+\end{figure}
+
+\begin{figure}[h]
+  \caption{Maintenance details tasks tab.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceDetailsTask}
+  \label{fig:figure2}
+\end{figure}
+
+Returning to the home page, the manager to see information about a maintenance may click on the button "Mutações ativas" on the menu.
+This will show a offcanvas with the list of active maintenances, very similar as the rececionist, as wee can see in \ref.
+This maintenance details show the same information as the rececionist, including the tasks tab, but doen't has the tab of the "alterações", as seen in \ref and \ref.
+It has the additional funcionality of adding a task to a maitnenace on the task tab, to this the manager just needs to select the task, the mechanic and the date for the mechanic to do the task. 
+This will provoke a maintenance change that needs to be validated by the client.
+
+\begin{figure}[h]
+  \caption{Maintenance history list.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceHistory}
+  \label{fig:figure2}
+\end{figure}
+
+The offcanvas has the additional funcionally of showing the history of maintenance done by the dealership (Use Case 4.3 – View history of maintenance performed), by clicking in the button "Histórico de Manutenções" on the top of offcanvas.
+This will open another offcanvas as seen in \ref.
+
+\begin{figure}[h]
+  \caption{Report example.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/report}
+  \label{fig:figure2}
+\end{figure}
+
+
+In this offcanvas we can filter the list by client, vehicle registration, and date.
+Each maintenance details will show the same modal as in the active maintenance list, but the maintenances that are concluded, the card has a button beside the "Ver Detalhes" with the icon of a pdf.
+This button will return the report of the maintenance, that is the information of the maintenance in a report format. This report can be see in \ref. 
+Below the list of maintenance there is some statistics about the maintenances (Use Case 4.4 – Develop statistics). 
+First there is a table with the total number of maintenance in each state, and below two graphs:
+- one with the total revenue per month, and the other the number of working hours per month
+
+
+\begin{figure}[h]
+  \caption{Purchase request list.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/purchaseList}
   \label{fig:figure2}
 \end{figure}
 
 
 
+\begin{figure}[h]
+  \caption{Purchase request details.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/purchaseDetails}
+  \label{fig:figure2}
+\end{figure}
+
+Returning to the home page, the menu next option is the purchases.
+By clicking in this button, it will open the list of purchases that need to be authorized by the manager.
+When opening the details of a purchase will show a modal with the information of the purchase on the left side and a form on the right.
+The form allows the workshop manager to add more parts to the purchase and assign the purchase to a operator if it isn't assigned to anyone.
+To authorize or reject the purchase the workshop manager can do that by clicking on the button "Confirmar" or "Reject", respectively, to accomplish this (Use Case 4.2 – Authorize purchase)
+
+% \begin{figure}[h]
+%   \caption{Transaction list.}
+%   \centering
+%   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/transactionList}
+%   \label{fig:figure2}
+% \end{figure}
+
+% Returning to the home page, the next offcanvas of the menu is the "Transações" which are the transaction of the parts in the inventory.
+% By clicking on this button will show the \ref.
+
+
+\begin{figure}[h]
+  \caption{Worker list.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/workerList}
+  \label{fig:figure2}
+\end{figure}
+
+Returning to the home page, the next offcanvas of the menu is the "Funcionários" which list the workers on the dealership.
+By clicking on this button will show the \ref.
+
+\begin{figure}[h]
+  \caption{Worker details.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/workerDetails}
+  \label{fig:figure2}
+\end{figure}
+
+This table shows the workers by email and there role. 
+By cliking the details button, it will open a modal as seen in \ref.
+In this modal, the manager can remove the worker, edit the role (Use Case 4.5 – Assign roles to employees) and also see the following information:
+- the name of the worker
+- the date of birth
+- the phone number
+- sex
+
+
+
+\begin{figure}[h]
+  \caption{Create worker.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/workerCreate}
+  \label{fig:figure2}
+\end{figure}
+
+
+In the list of the users there is also a button to create workers called "Criar Funcionário", that will open a modal as seen in \ref.
+To create a worker must introduce:
+- Name
+- Email
+- phone number
+- Date of birth
+- sex
+- Role
+- Password
+
+After the user is created he must confirm his email in his email box.
+
+\begin{figure}[h]
+  \caption{Partnership list.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/partnershipList}
+  \label{fig:figure2}
+\end{figure}
+
+
+Returning to the home page, the next menu option is the "Parceiros", that will open a modal like in \ref.
+In this modal it shows two tables, the first one are the request from others bike sharing entities with:
+- the name of the entity
+- the type of vehicles the entity wants the dealership to maintain
+- the date of creation of the request
+- two buttons to confirm or reject the request (Use Case 4.8 – Accept/Reject partnership)
+
+The next table shows all the partners of the dealership.
+
+\begin{figure}[h]
+  \caption{Supplier list.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/supplierList}
+  \label{fig:figure2}
+\end{figure}
+
+\begin{figure}[h]
+  \caption{Supplier Details.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/supplierDetails}
+  \label{fig:figure2}
+\end{figure}
+
+The last menu option are the "Fornecedores", this offcanvas is the same as the warehouse operator.
+It shows the suppliers and the information of the contracts of parts they supply, as seen in \ref and \ref.
 
 
 \subsection{Client view}
