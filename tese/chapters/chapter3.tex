@@ -8,1794 +8,505 @@ This chapter presents the non-functional requirements and the use cases of the a
 
 
 
-\section{Applications Requirements} 
+\section{Application Requirements}
+The requirements for the application were identified using the FURPS model, which divides requirements into functional and non-functional categories.
 
+\subsection{Non-Functional Requirements}
+The main non-functional requirements, organized by FURPS, are summarized as follows:
 
-To identify the requirements of the application, I used the FURPS model. 
-The non-functional requirements are listed below:
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Category} & \textbf{Requirement} \\ \hline
+Scalability & The system should be able to support users from Europe. \\ \hline
+Reliability & The system should have an availability of 99\% and must recover from any failure within 4 hours. \\ \hline
+Performance & The system should not take longer than 2 seconds to respond. \\ \hline
+Usability & Training for a new user should not take longer than 8 hours. \\ \hline
+Supportability & The system should be compatible with Chrome, Firefox, Microsoft Edge, and Safari browsers. \\ \hline
+\end{tabular}
+\caption{Non-Functional Requirements (FURPS Model)}
+\end{table}
 
+\subsection{Functional Requirements}
+The application supports the following user roles: receptionist, mechanic, warehouse manager, and workshop manager. There is also a client application and an administrator view.
+
+\subsubsection{Administrator}
 \begin{itemize}
-  \item Scalability – The system should be able to support users from Europe.
-  \item Reliability – The system should have a high availability of 99\% and the system also should not take longer than 4 hours to recover from a failure.
-  \item Performance – The system should not take longer than 2 seconds to respond.
-  \item Usability – The train of a new user should not take longer than 8 hours.
-  \item Supportability – The system should be supported on the web browsers Chrome, Firefox, Microsoft Edge, and Safari.
+    \item Create, edit, view, and remove task types
+    \item Manage dealerships (create, edit, view, remove, add/remove vehicle types)
+    \item Manage vehicle parts (create, edit, view, remove)
+    \item Create and view dealership employees
 \end{itemize}
 
-As mentioned in Chapter II, the dealership application is structured into four key user roles: receptionist, mechanic, warehouse operator, and workshop manager.
-There is a also a client aplication and an administrator.
-The fuctional requirements are written below:
-To manage the system it is needed an administrator to accomplish the following tasks.
-- Create, change, view and remove tasks types
-- Create, change, view and remove dealerships
-  - Add and remove vehicle types that a dealership can operate
-- Create, change, view and remove vehicle parts
-- Create and view dealership employee
+\subsubsection{Receptionist}
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View daily working hours and user-specific hours
+    \item Schedule vehicle reception (registration number, client email, owner name, reception date)
+    \item Create maintenance (expected budget, tasks, expected conclusion date)
+    \item View active maintenances (client name, registration number, entity, creation date, evaluation date, expected conclusion date, budget, planned work hours, tasks)
+    \item Receive notifications on budget or deadline changes in maintenance
+    \item Confirm or reject maintenance changes
+    \item Cancel maintenance
+    \item Conclude maintenance
+    \item Notify when all maintenance tasks are completed
+\end{itemize}
 
-To interact with the client it is need a rececionist. The requirements are:
-- can change betwen english and portuguese
-- see number of working hours in a day 
-- see the working hours of a user in a day 
-- Schedule a vehicle reception date with the following information
-  - vehicle registration number
-  - client email
-  - owner name (if applicable)
-  - vehicle reception date
-- create a maintenance with an expected budger, the tasks that should be performed and am expected conclusion date
-- see active maintenances with the following information:
-  - the name of the client
-  - with the vehicle registration number
-  - The entity of the vehicle if applicable
-  - the creation date of the maintenance
-  - evaluation date
-  - expected conclusion date
-  - expected budget
-  - Number of hours of work expected
-  - the tasks planed to be perfomerd
-- The rececionist should receive a notification if there is a change in the expected budget or the expected conclusion date of the maintenance
-- the rececionist should be able to confirm or reject changes of the maintenance
-- the rececionist should be able to cancel the maintenance
-- conclude a maintenance
-- Notify when a maintenance has all planed tasks concluded 
+\subsubsection{Mechanic}
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View today’s tasks
+    \item Pause and continue tasks (e.g., for breaks)
+    \item View maintenance task details (registration number, task type, parts, step descriptions, needed parts, client desired tasks)
+    \item Finalize a task and comment before completion
+    \item View evaluation tasks (maintenance tasks needed, client comment)
+    \item If evaluations are not used, maintenance concludes when a mechanic finishes the evaluation task
+\end{itemize}
 
-the mechanic should be able to:
-- can change betwen english and portuguese
-- see the tasks needed for todays date
-- pause a task, for per example, lunch hour
-- continue a task
-- see the following information in a maintenance task 
-  - the vehicle registration number
-  - type of the task
-  - vehicle parts
-  - description of each step to conclude a task
-  - part needed to conclude the task
-  - tarefas pretendidas pelo cliente
-- finalize a task
-- write a comment on a task before complete it 
-- see the following information in an evaluation task
-  - the tasks needed to do the maintenance
-  - client comment
-- if the dealership does not do evaluations, when finish an evaluation task, finish the maintenance with the tasks selected
+\subsubsection{Warehouse Manager}
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View dealership inventory (name, code, quantity, warehouse location, description, category, price, quantity per group, min/max values for alarms/purchase requests)
+    \item Edit part type details (location, min/max values, purchase request quantities)
+    \item View quantity changes over time for each part
+    \item See supplier details (name, phone, email, address, contract parts with start/end date)
+    \item Create purchase requests (motive, parts, quantity per part)
+    \item View all purchases (status, arrival date, total price, motive, creation date, parts, stock quantity, price, associated tasks)
+    \item Register expected arrival date or delays for purchases
+    \item Finalize delivery purchase by registering received parts
+\end{itemize}
 
-the warehouse manager should do:
-- can change betwen english and portuguese
-- see the Inventory of the dealership with the following information for each part:
-  - part name
-  - part code
-  - quantity available
-  - location code in the warehouse
-  - description
-  - part category
-  - price per unit
-  - quantity per group
-  - minimum value to generate alarm
-  - maximum value
-  - quantity to generate an automatic purchase requested
-  - quantity in the automatic purchase request
-- it should be able to edit the information of a part type, like:
-  - location code in the warehouse
-  - minimum value to generate alarm
-  - maximum value
-  - quantity to generate an automatic purchase requested
-  - quantity in the automatic purchase request
-- it should be able to see the movements of the quantity of each part in time 
-- it can see the suppliers with the info:
-  - name
-  - phonenumber
-  - email
-  - address
-  - list of parts in the contract and the start date and end date of each of them
-- create a purchase with the following information:
-  - motive
-  - parts
-  - quantity for each part
-- it can see the details of all purchase like
- - the state
- - arrival date
- - total price
- - motive
- - creation date
- - parts of the purchase with:
-  - the name of the part
-  - quantity in stock
-  - price 
-  - tasks associated with this purchase
-- it can register a purchase by selecting a expected arrival date in a assigned purchase
-- it can register a delay on a waiting delivery purchase by selecting a new expected arrival date
-- it can finalize a waiting delivery purchase by registering the parts received
-
-The workshop manager can do:
-- can change betwen english and portuguese
-- see number of working hours in a day 
-- see the working hours of a user in a day 
-- see the tasks that doesn't have a mechanic assigned
-- assign a task to a mechanic
-- see active maintenances with the following information:
-  - the name of the client
-  - with the vehicle registration number
-  - The entity of the vehicle if applicable
-  - the creation date of the maintenance
-  - evaluation date
-  - expected conclusion date
-  - expected budget
-  - Number of hours of work expected
-  - the tasks planed to be perfomerd
-  - the tasks done
-- it can add a task to an active maintenance
-- it can see completed tasks and:
-  - filter by:
-    - client
-    - vehicle
-    - date
-  - see the following information:
-    - the name of the client
-    - with the vehicle registration number
-    - The entity of the vehicle if applicable
-    - the creation date of the maintenance
-    - evaluation date
-    - expected conclusion date
-    - expected budget
-    - Number of hours of work expected
-    - the tasks done
-    - price
-  - it can export a pdf with the same information
-  - see total price received from maintenance per month
-  - see total hours worked per month
-- assign an purchase to a operator
-- see the purchases requests with the information:
-  - price
-  - motive
-  - creation date
-  - parts of the vehicle with:
-    - quantity of the part
-    - quantity in stock
-    - price
-    - maitenance tasks associated with the purchase
-- reject or authorize a purchase request
-- can create a supplier with:
-  - name
-  - phonenumber
-  - email
-  - address
-  - list of parts in the contract with the start date, end date and price of the part for each of them
-- it can see the suppliers with the info:
-  - name
-  - phonenumber
-  - email
-  - address
-  - list of parts in the contract with the start date, end date and price of the part for each of them
-- it can see partnerships with entities
-- it can accept or reject partnerships with entities
-- see a list of employees with the info:
-  - email
-  - name
-  - dob
-  - phonenumber
-  - sex
-  - role
-- it can create a employee with :
-  - email
-  - name
-  - dob
-  - phonenumber
-  - sex
-  - role
-  - password
+\subsubsection{Workshop Manager}
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View daily and user-specific working hours
+    \item View unassigned tasks
+    \item Assign tasks to mechanics
+    \item View and manage active maintenances (full details including done/planned tasks)
+    \item Add tasks to active maintenances
+    \item View completed tasks with filters (client, vehicle, date), details (client name, vehicle registration, entity, creation date, evaluation date, conclusion date, budget, hours, price), and export as PDF
+    \item View monthly maintenance revenue and total hours worked
+    \item Assign purchases to operators
+    \item View purchase requests (price, motive, creation date, parts info)
+    \item Authorize or reject purchase requests
+    \item Create supplier records (name, phone, email, address, contract parts/details)
+    \item View suppliers and partnerships with bike sharing entities; accept/reject partnerships
+    \item View employee list (email, name, DOB, phone, sex, role); create employee records (all listed data plus password)
+\end{itemize}
 
 
+\subsubsection{Client}
+\begin{itemize}
+    \item View active maintenance information
+    \item View maintenance history
+    \item evaluate the perception of the service quality 
+    \item evaluate the expected service quality 
+\end{itemize}
 
 
+\subsection{System Requirements}
+The system also enforces several logical and structural requirements, detailed as follows:
+\begin{itemize}
+    \item The system must generate a repair report for each maintenance completed.
+    \item Each maintenance task must have a defined sequence to ensure correct order of execution.
+    \item Each purchase record may include multiple parts, along with their respective details.
+    \item The system must generate a purchase request when an available quantity of a part is under a determined threshold 
+\end{itemize}
+
+A dealership can only create maintenance of vehicle from bike sharing entities that are there partners, otherwise it can only accept maintenance from clients with no entity.
+The system should be flexible and handle general flow of a vehicle maintenance and the workflow of EMEL.  
 
 
+\section{Application Use Cases}
+Use cases were developed for each type of user to systematically describe their interactions within the system. Each sub-section below outlines the main responsibilities of a particular role, followed by the respective use cases.
 
-
-
-
- 
-
-
-The system also has requirements.
-Do the repair report... (? os outros é que podem fazer download do report?)
-Tasks have a sequence to be done
-% \item Use Case 2.5 – Making the repair report
-% \begin{itemize}
-%   \item Scenario – After vehicle maintenance.
-%   \item Objective – Conclude the maintenance of a vehicle.
-%   \item System – The Mechanic enters into the system all operations and tests carried out on the system as well as their results.
-% \end{itemize}
-purchase has multiple parts
-
-
-\section{Applications use Cases} 
-I developed a set of use cases for each user.
-
-The receptionist will be responsible for interacting with the client, this includes the vehicle check-in and check-out and user communication. 
-The use cases are:
+\subsection{Receptionist Use Cases}
+The receptionist is responsible for direct communication with clients, handling vehicle check-in and check-out, as well as managing updates and changes to maintenance requests.
 
 \begin{itemize}
-    \item Use Case 1.1 – Maintenance Schedule
-    \begin{itemize}
-      \item Scenario – The client arrives at the dealership with a vehicle to be repaired.
-      \item Objective – Create a new maintenance request in the system.
-      \item System – The receptionist fills a form with the vehicle registration, the evaluation date, the entity associated, the client email, client notes and tasks requested by the user
-    \end{itemize}
-        \item Use Case 1.2 – Define maintenance details
-    \begin{itemize}
-      \item Scenario – The vehicle evaluation has terminated
-      \item Objective – Define the budget, a conclusion date and the tasks to be performed.
-      \item System – The receptionist receives a notification that the vehicle evaluation is complete and, together with the customer, determines which tasks have to be performed. The system calculates the price, and the receptionist sets a completion date.
-    \end{itemize}
-    \item Use Case 1.3 – Collect information about a maintenance request
-    \begin{itemize}
-      \item Scenario – A Client calls the dealership to ask about the maintenance of his vehicle.
-      \item Objective – Visualize the maintenance information.
-      \item System –  The Receptionist searches a list of maintenance requests by vehicle or customer and he can visualize the details of the selected maintenance.
-    \end{itemize}
-    \item Use Case 1.4 – Accept maintenance changes
-    \begin{itemize}
-      \item Scenario – A problem in a vehicle maintenance has occurred and the initial agreement with the client was broken, but the client accepts the changes.
-      \item Objective – Accept the changes of the maintenance.
-      \item System – The Receptionist goes to the maintenance details, to the section of the maintenance changes and accept the changes for that maintenance.
-    \end{itemize}
-    \item Use Case 1.5 – Refuse maintenance changes
-    \begin{itemize}
-      \item Scenario – A problem in a vehicle maintenance has occurred and the initial agreement with the client was broken and the client refuses the changes.
-      \item Objective – Refuse the changes of the maintenance.
-      \item System – The Receptionist goes to the maintenance details, to the section of the maintenance changes and refuses the changes for that maintenance.
-    \end{itemize}
-      \item Use Case 1.6 – Vehicle Delivery 
-    \begin{itemize}
-      \item Scenario – The Receptionist delivered the vehicle to the Client.
-      \item Objective – Complete the vehicle maintenance process.
-      \item System – Sends a report in a PDF format to the client with the information about the maintenance and alters the maintenance request status in the system to conclude. 
-    \end{itemize}
-      \item Use Case 1.7 – Cancel Maintenance 
-    \begin{itemize}
-      \item Scenario – The client does not like the maintenance agreement and wants to retreive the vehicle.
-      \item Objective – Cancel the maintenance.
-      \item System – The rececionist goes to the maintenance details and cancels the maintenance. 
-    \end{itemize}
-    \item Use Case 1.8 – Cancel Task 
-    \begin{itemize}
-      \item Scenario – A problem in a vehicle maintenance has occurred and the initial agreement with the client was broken and the client refuses the changes.
-      \item Objective – Cancel the task to be done.
-      \item System – The Receptionist goes to the maintenance details, to the section of the maintenance changes and cancels the task with the problem.
-    \end{itemize}
-  \end{itemize}  
-  \hfill \break
-
-
- The mechanic will be responsible for doing the maintenance in the vehicle, like oil change, tire change, trade vehicle parts, etc. 
- The mechanic use cases are:
-
-  \begin{itemize}
-    \item Use Case 2.1 – View to-do list
-    \begin{itemize}
-      \item Scenario – The mechanic inicialize its shift.
-      \item Objective – See tasks to be completed.
-      \item System – The mechanic enters the system and encounters a list of tasks assigned to him and to be assign. Each task is accompanied by a description, a priority, a vehicle identification, a set of actions to be performed, and comments from other users. 
-    \end{itemize}
-    \item Use Case 2.2 – Carry out a vehicle analysis 
-    \begin{itemize}
-      \item Scenario – A new vehicle needs to be analyzed.
-      \item Objective – Confirm the initial analysis of the receptionist and search for additional problems.
-      \item System – The mechanic enters a list of tasks that need to be performed in the vehicle. 
-    \end{itemize}
-    \item Use Case 2.3 – Register tasks completed
-    \begin{itemize}
-      \item Scenario – A new vehicle needs maintenance.
-      \item Objective – Complete maintenance
-      \item System – The mechanic selects a list of tasks that he done on the vehicle.
-    \end{itemize}
-  \item Use Case 2.4 – Do a Vehicle maintenance task
-  \begin{itemize}
-    \item Scenario – A new vehicle is ready for maintenance.
-    \item Objective – The mechanic will do a vehicle maintenance task (oil change, tire change, vehicle wash…).
-    \item System – The mechanic starts a task and see a sequence of steps to complete the task. In the final step the mechanic can leave a note.
-  \end{itemize}
-  \item Use Case 2.5 – Change Task
-  \begin{itemize}
-    \item Scenario – A created task has the wrong part associated.
-    \item Objective – Change the task to the correct part.
-    \item System – It is registered a new task change that need to be approved by the workshop manager. In case the inicial budget or the maintenance schedule is altered, the client also needs to be notified and give authorization to change the task.
-  \end{itemize}
-    \item Use Case 2.6 – Continue Task
-  \begin{itemize}
-    \item Scenario – The mechanic leave the aplication before finishing the task
-    \item Objective – Continue a task previously started.
-    \item System – The mechanic can see a tasked paused in the list of the tasks he has to do. By clicking the continue button, the mechanic can continue the task.
-  \end{itemize}
+    \item \textbf{Use Case 1.1 – Maintenance Schedule}\\
+    \textit{Scenario:} Client arrives with a vehicle for repair.\\
+    \textit{Objective:} Create a new maintenance request.\\
+    \textit{System:} Receptionist enters vehicle and client details, evaluation date, entity, client notes, and requested tasks.
+    \item \textbf{Use Case 1.2 – Maintenance Approval}\\
+    \textit{Scenario:} Vehicle evaluation concludes.\\
+    \textit{Objective:} Set budget, completion date, and tasks.\\
+    \textit{System:} Receptionist receives evaluation notification, consults customer, system calculates price, completion date set.
+    \item \textbf{Use Case 1.3 – Collect Maintenance Information}\\
+    \textit{Scenario:} Client contacts dealership for maintenance status.\\
+    \textit{Objective:} View details of a maintenance request.\\
+    \textit{System:} Receptionist searches by vehicle or client and views relevant details.
+    \item \textbf{Use Case 1.4 – Accept Maintenance Changes}\\
+    \textit{Scenario:} Issue arises and client accepts proposed changes.\\
+    \textit{Objective:} Accept changes to maintenance.\\
+    \textit{System:} Receptionist navigates to maintenance changes section on maintenance details and approves modifications.
+    \item \textbf{Use Case 1.5 – Refuse Maintenance Changes}\\
+    \textit{Scenario:} Issue arises and client refuses the change.\\
+    \textit{Objective:} Refuse changes to maintenance.\\
+    \textit{System:} Receptionist navigates to maintenance changes section on maintenance details and rejects the modification.
+    \item \textbf{Use Case 1.6 – Vehicle Delivery}\\
+    \textit{Scenario:} Vehicle is ready to be delivered to the client.\\
+    \textit{Objective:} Complete maintenance process.\\
+    \textit{System:} PDF report sent to client, maintenance marked as concluded and the delivery date is registered.
+    \item \textbf{Use Case 1.7 – Cancel Maintenance}\\
+    \textit{Scenario:} Client rejects agreement and retrieves vehicle.\\
+    \textit{Objective:} Cancel the maintenance.\\
+    \textit{System:} Receptionist cancels maintenance within details section and invalidates all uncompleted tasks.
+    \item \textbf{Use Case 1.8 – Cancel Task}\\
+    \textit{Scenario:} Issue leads to cancellation of a specific task.\\
+    \textit{Objective:} Cancel problematic task.\\
+    \textit{System:} Receptionist cancels task in maintenance changes section.
 \end{itemize}
-\hfill \break
 
-The warehouse operator is responsible for managing the dealer's stock and asking for supplies. 
-In this case, the use cases are as follows:
+\subsection{Mechanic Use Cases}
+Mechanics handle maintenance tasks such as vehicle repairs, part replacements, and diagnostics. The following use cases describe their core operations:
 
 \begin{itemize}
-  \item Use Case 3.1 – View the different parts that the warehouse possess
-  \begin{itemize}
-    \item Scenario – The warehouse worker wants to view the quantity of certain parts that the warehouse possesses.
-    \item Objective – Show quantitative warehouse information.
-    \item System – List of all parts and their quantities that the warehouse possesses. 
-  \end{itemize}
-  \item Use Case 3.2 – Requesting purchasing service 
-  \begin{itemize}
-    \item Scenario – The warehouse worker discovers that he has an insufficient number of parts for maintenance or anticipates that this part will be missing soon.
-    \item Objective – Request permission to purchase parts from the supplier.
-    \item System – The Warehouse Worker will place a purchase order for parts. The system notifies the administrator via the platform and by email requesting authorization to make the purchase. 
-  \end{itemize}
-    \item Use Case 3.3 – Buy new parts
-  \begin{itemize}
-    \item Scenario – The warehouse worker contacts the supplier to request new parts.
-    \item Objective – Register the information of the new purchase.
-    \item System – The warehouse operator introduce to the system the date that the parts will arrive.
-  \end{itemize}
-  \item Use Case 3.4 – Registration of new parts in the System
-  \begin{itemize}
-    \item Scenario – The warehouse worker purchased several parts from a supplier.
-    \item Objective – Register new parts in the system.
-    \item System – The warehouse operator adds to the system the parts that arrived to the warehouse and the date that the purchase is completed.
-  \end{itemize}
-    \item Use Case 3.5 – Edit Inventory 
-  \begin{itemize}
-    \item Scenario – The warehouse worker wants to change the part type information.
-    \item Objective – Change the part type information.
-    \item System – The warehouse operator can change the part type description, location, name or code.
-  \end{itemize}
-  \item Use Case 3.6 – Create Purchase Delay
-  \begin{itemize}
-    \item Scenario – A purchase has been delayed.
-    \item Objective – Create a purchase delay.
-    \item System – The warehouse operator goes to the purchase delay and inserts the new expected arrival date.
-  \end{itemize}
+    \item \textbf{Use Case 2.1 – View To-Do List}\\
+    \textit{Scenario:} Mechanic begins shift.\\
+    \textit{Objective:} View tasks for completion.\\
+    \textit{System:} System presents assigned and available tasks with details.
+    \item \textbf{Use Case 2.2 – Conduct Vehicle Analysis}\\
+    \textit{Scenario:} Vehicle needs analysis.\\
+    \textit{Objective:} Confirm initial assessment and detect additional issues.\\
+    \textit{System:} Mechanic reviews and selects analysis tasks.
+    \item \textbf{Use Case 2.3 – Complete maintenance}\\
+    \textit{Scenario:} Maintenance tasks completed.\\
+    \textit{Objective:} Mark tasks as finished.\\
+    \textit{System:} Mechanic logs finished tasks for vehicle.
+    \item \textbf{Use Case 2.4 – Execute Maintenance Task}\\
+    \textit{Scenario:} Vehicle scheduled for specific maintenance.\\
+    \textit{Objective:} Complete task following required steps.\\
+    \textit{System:} System presents a stepwise guidance.
+    \item \textbf{Use Case 2.5 – Change Task}\\
+    \textit{Scenario:} Task has incorrect part associated.\\
+    \textit{Objective:} Rectify the incorrect task.\\
+    \textit{System:} Mechanic submits a task change request for client approval if the budget is impacted.
+    \item \textbf{Use Case 2.6 – Continue Task}\\
+    \textit{Scenario:} Task was paused.\\
+    \textit{Objective:} Resume incomplete task.\\
+    \textit{System:} Mechanic selects task to continue from the list.
 \end{itemize}
-\hfill \break
 
-The last user of the application is the Workshop Manager. This user is in charge of managing the platform and the dealership. So the main use cases encountered are:
+\subsection{Warehouse Operator Use Cases}
+Warehouse operators manage inventory, handle part orders, and update records. Their use cases include:
 
 \begin{itemize}
-    \item Use Case 4.1 – Assign tasks to the employees
-  \begin{itemize}
-    \item Scenario – A new maintenance request has been requested.
-    \item Objective – Assign and organize tasks to different employees.
-    \item System – The Workshop Manager assigns the various tasks of vehicle maintenance to the workshop employees.
-  \end{itemize}
-  \item Use Case 4.2 – Authorize purchase
-  \begin{itemize}
-    \item Scenario –  The Workshop Manager received a purchase request.
-    \item Objective – Authorize or reject a purchase authorization request.
-    \item System – The Workshop Manager can reject or authorize the maintenance request. 
-  \end{itemize}
-  \item Use Case 4.3 – View history of maintenance performed
-  \begin{itemize}
-    \item Scenario – The Workshop Manager wants to gather information from recently performed maintenance.
-    \item Objective – View information about a specific maintenance that occurred.
-    \item System – The Workshop Manager views a list of all maintenance that occurred as well as its details (who carried it out, which parts were removed, the name of the customer, tests carried out, and their results…). 
-  \end{itemize}
-  \item Use Case 4.4 – Develop statistics
-  \begin{itemize}
-    \item Scenario – The Workshop Manager wants to gather statistics on the maintenance that was carried out in the last month.
-    \item Objective – View information about maintenance over a given period of time.
-    \item System – Presentation graphs of the number of parts replaced, number of purchases, total price spent on new parts, remuneration for maintenance, average customer rating, etc.
-  \end{itemize}
-  \item Use Case 4.5 – Assign roles to employees
-  \begin{itemize}
-    \item Scenario – A new employee has been hired.
-    \item Objective –  Assign roles to new employees.
-    \item System – The Workshop Manager assigns to the new employee a certain role and set of permissions.
-  \end{itemize}
-  %   \item Use Case 4.6 – Authorize task change
-  % \begin{itemize}
-  %   \item Scenario – The Workshop Manager is notified with a new task change.
-  %   \item Objective – Reject or authroize the new task change.
-  %   \item System – The Workshop Manager assigns to the new employee a certain role and set of permissions.
-  % \end{itemize}
-  \item Use Case 4.6 – Add new Task
-  \begin{itemize}
-    \item Scenario – A task is missing in an on going maintenance.
-    \item Objective – Add a new task to the on going maintenance.
-    \item System – In the maintenance details the Workshop Manager sees a list of task that he can add to the maintenance. By adding the task, it needs to be validated by the client first.
-  \end{itemize}
-  \item Use Case 4.7 – Create Employee
-  \begin{itemize}
-    \item Scenario – A new employee has been hired for the workshop.
-    \item Objective – Adding a new employee to the system.
-    \item System – The workshop manager fill a form with the name of the new employee, the email, its role, phone number and date of birth .
-  \end{itemize}
-    \item Use Case 4.8 – Accept/Reject partnership
-  \begin{itemize}
-    \item Scenario – A new entity wants to work with the dealership to do the maintenance of there's vehicles .
-    \item Objective – Associate the entity to the dealerships.
-    \item System – Change the status of the request of the partnership request to "accept" or "rejected" depending of the warehouse manager choice.
-  \end{itemize}
-
+    \item \textbf{Use Case 3.1 – View Stock}\\
+    \textit{Scenario:} Need to check part quantities.\\
+    \textit{Objective:} Show inventory levels.\\
+    \textit{System:} List all parts with current quantities.
+    \item \textbf{Use Case 3.2 – Request Purchase}\\
+    \textit{Scenario:} Low stock identified.\\
+    \textit{Objective:} Request authorization to purchase.\\
+    \textit{System:} Place purchase order, notify administrator for approval.
+    \item \textbf{Use Case 3.3 – Register Purchase}\\
+    \textit{Scenario:} Purchase request approved.\\
+    \textit{Objective:} Order new parts from the supplier.\\
+    \textit{System:} Operator enters the expected arrival date of the parts.
+    \item \textbf{Use Case 3.4 – Register New Parts}\\
+    \textit{Scenario:} Parts arrive from supplier.\\
+    \textit{Objective:} Add new stock to inventory.\\
+    \textit{System:} Operator updates parts quantity and purchase completion date.
+    \item \textbf{Use Case 3.5 – Edit Inventory}\\
+    \textit{Scenario:} Need to alter inventory details.\\
+    \textit{Objective:} Update inventory information.\\
+    \textit{System:} Changes made to part location, code or purchase generation.
+    \item \textbf{Use Case 3.6 – Create Purchase Delay}\\
+    \textit{Scenario:} Purchase is delayed.\\
+    \textit{Objective:} Update expected arrival.\\
+    \textit{System:} Operator enters revised arrival date.
 \end{itemize}
-\hfill \break
 
-The client application will only be interacted with by a role of users, the client.
-The use cases are listed below:
+\subsection{Workshop Manager Use Cases}
+Workshop managers oversee employee assignments, authorize purchases, track history, compile statistics, and manage partnerships.
 
 \begin{itemize}
-  \item Use Case 5.1 – View current maintenance status
-  \begin{itemize}
-    \item Scenario – The Customer wants to find information regarding the vehicle maintenance procedure.
-    \item Objective – Display current maintenance status.
-    \item System – The system will illustrate all the maintenance steps that the vehicle has already undergone, as well as those that remain to be completed. 
-  \end{itemize}
-  \item Use Case 5.2 – Notify the customer of the end of maintenance 
-  \begin{itemize}
-    \item Scenario – Vehicle maintenance has been completed and the customer can now collect the vehicle.
-    \item Objective – Notify the user of the end of maintenance.
-    \item System – The system will show an SMS/native notification on the customer's cell phone informing that the vehicle is ready to be picked up. 
-  \end{itemize}
-  \item Use Case 5.3 – Rating of the service provided
-  \begin{itemize}
-    \item Scenario – The client receives the vehicle and the receptionist completes the maintenance process.
-    \item Objective – Get feedback from the client.
-    \item System – The system will show a form to the client asking about the service provided. 
-  \end{itemize}
-    \item Use Case 5.4 – Rating of the service expected
-  \begin{itemize}
-    \item Scenario – After defining the agreement to the maintenance of the vehicle.
-    \item Objective – The Client rating the quality of the service he is expected to receive.
-    \item System – The system will show a form to the client asking about the service he is expected to receive. 
-  \end{itemize}
-      \item Use Case 5.5 – View maintenance history
-  \begin{itemize}
-    \item Scenario – The client wants to see the price of the last maintenance.
-    \item Objective – See the information about the last maintenance of the client.
-    \item System – The client opens the app and sees a page call "Maintenance History" in the menu. When clicking on tha page it shows a list of all the maintenances of that account. The client click on the first one, because it is ordered by date and it opens the details of the that maintenance in a offcanvas 
-  \end{itemize}
+    \item \textbf{Use Case 4.1 – Assign Tasks}\\
+    \textit{Scenario:} New maintenance requested.\\
+    \textit{Objective:} Distribute tasks among staff.\\
+    \textit{System:} Manager assigns tasks to employees.
+    \item \textbf{Use Case 4.2 – Authorize Purchase}\\
+    \textit{Scenario:} Purchase request received.\\
+    \textit{Objective:} Accept/reject authorization.\\
+    \textit{System:} Manager approves or rejects the request.
+    \item \textbf{Use Case 4.3 – View Maintenance History}\\
+    \textit{Scenario:} Access history of performed maintenance.\\
+    \textit{Objective:} Review details.\\
+    \textit{System:} Historical maintenance and detail review.
+    \item \textbf{Use Case 4.4 – Compile Statistics}\\
+    \textit{Scenario:} Manager wants maintenance statistics.\\
+    \textit{Objective:} Present graphical summaries.\\
+    \textit{System:} System generates graphs of parts replaced, purchase volumes, costs, and ratings.
+    \item \textbf{Use Case 4.5 – Assign Roles}\\
+    \textit{Scenario:} New employee hired.\\
+    \textit{Objective:} Set role and permissions.\\
+    \textit{System:} Assignment in employee record.
+    \item \textbf{Use Case 4.6 – Add New Task}\\
+    \textit{Scenario:} Ongoing maintenance lacks a task.\\
+    \textit{Objective:} Add required task after client validation.\\
+    \textit{System:} Manager adds task to maintenance, client validates addition.
+    \item \textbf{Use Case 4.7 – Create Employee}\\
+    \textit{Scenario:} Hiring new workshop staff.\\
+    \textit{Objective:} Register new employee.\\
+    \textit{System:} Manager completes employee registration in system.
+    \item \textbf{Use Case 4.8 – Partnership Decision}\\
+    \textit{Scenario:} Entity proposes partnership.\\
+    \textit{Objective:} Accept or reject partnership.\\
+    \textit{System:} Status of partnership request updated by manager.
 \end{itemize}
-\hfill \break
+
+\subsection{Client Use Cases}
+Clients interact through a dedicated application to monitor status, receive notifications, and provide ratings.
+
+\begin{itemize}
+    \item \textbf{Use Case 5.1 – View Maintenance Status}\\
+    \textit{Scenario:} Client checks current status.\\
+    \textit{Objective:} Display maintenance progress.\\
+    \textit{System:} System displays completed and pending steps.
+    \item \textbf{Use Case 5.2 – Receive End Notification}\\
+    \textit{Scenario:} Maintenance completed.\\
+    \textit{Objective:} Notify client.\\
+    \textit{System:} email sent.
+    \item \textbf{Use Case 5.3 – Rate Completed Service}\\
+    \textit{Scenario:} Maintenance concludes and client retrieves vehicle.\\
+    \textit{Objective:} Obtain service feedback.\\
+    \textit{System:} Rating form offered in app.
+    \item \textbf{Use Case 5.4 – Rate Expected Service}\\
+    \textit{Scenario:} Maintenance agreement finalized.\\
+    \textit{Objective:} Gather rating on expected service.\\
+    \textit{System:} Rating form presented to client.
+    \item \textbf{Use Case 5.5 – View Maintenance History}\\
+    \textit{Scenario:} Client reviews previous maintenances.\\
+    \textit{Objective:} Show maintenance history.\\
+    \textit{System:} History shown and accessible via app interface.
+\end{itemize}
+
 
 
 
 
 \section{Applications Workflow}
 
-After the development of the use cases, a flow chart was designed to understand the users' interaction with the system and each other. The chart is visible in figure \ref{fig:figure2}.
+To better understand how users interact with the system and with each other, i designed a flow chart based on the developed use cases. The overall workflow is shown in \ref{fig:appWorkflow}.
 
 \begin{figure}[h]
-  \caption{Use Case Flow Chart of the Client, Receptionist, Mechanic, Warehouse Operator, and Administrator.}
+  \caption{Use case flow chart of the Client, Receptionist, Mechanic, Warehouse Operator, and Workshop Manager.}
   \centering
   \includegraphics[width=\textwidth]{figs/UseCaseDiagram - General}
-  \label{fig:figure2}
+  \label{fig:appWorkflow}
 \end{figure}
 
-The system's main flow starts when a Client arrives at the dealership for vehicle maintenance. 
-The receptionist gets some input from the client and decides on an initial budget and check-out date agreed with him and inserts the information in the system (Use Case 1.1).
-After that, a worker will be responsible for doing the analysis of the vehicle. 
-He will add to the system all the problems he finds and the necessary parts that need to be replaced (Use Case 2.2 and 2.3).
+The main workflow begins when a client arrives at the dealership to request a vehicle maintenance. The receptionist records the request and registers this information in the system (Use Case 1.1). Once the request is created, a mechanic evaluates the vehicle, identifies problems, and specifies the necessary replacement parts (Use Case 2.2).
+
+After this evaluation, the receptionist contacts the client to present the results. At this stage, both parties agree on the final maintenance plan, including the tasks to be performed, the expected delivery date, and the associated costs (Use Case 1.2). The client also provides an initial evaluation of the expected service quality on the client app (Use Case 5.4). When the plan is confirmed, the workshop manager receives a notification of the tasks and assigns them to the appropriate mechanics (Use Case 4.1).
+
+From this point onward, the execution of the tasks may or may not require replacement parts. If no parts are needed, the mechanic performs the assigned maintenance (Use Case 2.6). If parts are required, the warehouse operator verifies stock availability. When the parts are available, they are delivered to the mechanic (Use Case 2.4). If they are not available, the operator submits a purchase request that must be approved by the workshop manager. If approved, the operator proceeds to order the parts (Use Case 3.3), register them in the system (Use Case 3.4), and deliver them to the mechanic. If the purchase request is rejected, the operator must restart the process with a new request (Use Case 3.2).
+
+During the course of the maintenance, unexpected events may occur. A delivery delay (Use Case 3.6) or a task modification identified by the mechanic (Use Case 2.5) may affect the budget or the expected completion time. In such cases, the receptionist informs the client and requests a decision. The client may authorize the changes and allow the work to continue (Use Case 1.4), reject the changes while maintaining the original agreement (Use Case 1.5), refuse the changes but authorize the completion of the remaining approved tasks (Use Case 1.8), or cancel the maintenance entirely (Use Case 1.7). If the last option is chosen, all remaining tasks are invalidated, and the vehicle is prepared for check-out (Use Case 5.3).
+
+When the maintenance tasks are completed, the system notifies the client that the vehicle is ready. The receptionist delivers the vehicle to the client (Use Case 1.6), after which the client is prompted by the application to rate the service (Use Cases 5.2 and 5.3).
 
 
-If the budget to complete the work or the expected time changes, an alert is sent to the receptionist to inform the Client (Use Case 1.4). 
-The result of this interaction must be "authorize the changes and continue the work", "not authorize the changes but continue as initially agreed" or "not authorizing the changes and wanting to check out the vehicle".
-In the last case, the vehicle is delivered and the app will request the client to rate the service (Use Case 1.2 and 5.3). 
-In any other case, the maintenance process continues. The only difference is the maintenance process information is alterated in the not authorized case.
+% In addition to this main workflow, the system supports several secondary interactions, also represented in \ref{fig:appWorkflow}.
 
-After this step, the admin will receive a notification of the new tasks and will assign them to each worker (Use Case 4.5).
-From there on, the maintenance process can or can not require the need for a vehicle part to be replaced. 
-In the negative case the vehicle goes to the responsible mechanic to do the oil change, tire change, wash, etc (Use Case 2.6). 
-In the affirmative case, the Warehouse Operator will check if the parts the mechanic requested are available in stock. 
-If it does, the operator accepts the request and delivers the parts to the mechanic, who will replace the parts of the vehicle, deliver the damaged parts to the warehouse, and do the maintenance (Use Case 2.4, 2.5 and 2.6). 
-If it does not, the operator needs to buy new parts from the supplier. 
-In this case, he initiates a new requesting purchase that can be authorized by the admin. 
-In the optimal case, the admin accepts the purchase, the operator buys the new parts, registers them in the system, and delivers them to the mechanic. 
-In the worst scenario, the admin rejects the purchase and the mechanic needs to request new parts and restart the process (Use Case 2.3).    
+% \begin{itemize}
+%   \item Clients can check the status of their maintenance (Use Case 5.1).
+%   \item Mechanics view their assigned tasks (Use Case 2.1). 
+%   \item Receptionists access client information (Use Case 1.3).
+%   \item Warehouse operators view stock information (Use Case 3.1).
+%   \item Administrators assign roles and permissions to employees (Use Case 4.4). 
+%   \item Administrators review maintenance records and generate statistics (Use Cases 4.2 and 4.3). 
+% \end{itemize}
 
-Finally, when the vehicle maintenance is finished, the mechanic inserts into the system all operations and tests carried out as well as their results (Use Case 2.7). 
-At once, the system notifies the customer that the vehicle is ready for the check out and, when the receptionist delivers the vehicle to the Customer, the client application asks to rate the system (Use Case 5.2, 1.2 and 5.3).
-
-There are also a few secondary flows visible in the figure \ref{fig:figure2}. 
-These flows are listed below:
-\begin{itemize}
-  \item The client enters the application to check the status of the maintenance (Use case 5.1);
-  \item The mechanic enters the application to view the task he has to do (Use Case 2.1); 
-  \item The Warehouse Operator enters the application to visualize the diverse parts and components in the warehouse (Use case 3.1); 
-  \item The Admin enters the application to assign roles and/or permissions to the employees (Use Case 4.4); 
-  \item The Admin enters the application to gather information about a maintenance performed and see statistics about that information (Use Case 4.2 and 4.3); 
-\end{itemize}
  
 
-\section{Status} 
+\section{System Statuses} 
 
-With the flow talked in the previous section, it was needed to create multiple status of system.
-- The maintenance status: the status of a maintenance
-- The maintenance change status: the status when occurs a change on the maintenance like the conclusion date was changed or the budget.
-- The maintenance task status: the status of a mechanic task.
-- The purchase status: the status when the dealership purchase new parts
-- The owner partnership status: when a bike sharing entity wants to associate with the dealership to provide maintenance of theres vehicles
+\subsection{Maintenance status} 
 
-\subsection{Maintenance} 
+In order to ensure transparency and consistency during the maintenance process, it is important to track the overall progress of each service request through a set of predefined statuses. These statuses provide a structured view of the workflow, from the initial vehicle evaluation to its final delivery, while also capturing critical decision points that may alter the course of the process.
 
+These are the \textit{maintenance status} key stages of this workflow:
+\begin{itemize}
+    \item \textbf{Wait Evaluation}: Inicial status when the vehicle is waiting to be inspected by the mechanic.
+    \item \textbf{Wait Approval}: The mechanic has proposed tasks that require the client's approval.
+    \item \textbf{During Maintenance}: Approved tasks are actively being executed by the workshop.
+    \item \textbf{Maintenance Finished}: All tasks have either been completed or invalidated.
+    \item \textbf{Delivered}: The vehicle is returned to the client after maintenance conclusion.
+    \item \textbf{Canceled}: The client cancels the maintenance process mid-workflow.
+\end{itemize}
 
 \begin{figure}[h]
-  \caption{Status flow chart of a maintenance}
+  \caption{Status flow chart of a maintenance workflow}
   \centering
   \includegraphics[width=\textwidth]{figs/Status/Maintenance/StatusDiagram}
-  \label{fig:figure2}
+  \label{fig:maintenanceFlowChart}
 \end{figure}
 
+The status transitions represented in \ref{maintenanceFlowChart} outline how the workflow evolves over time:
+\begin{itemize}
+    \item \textbf{Wait Evaluation} $\rightarrow$ \textbf{Wait Approval}: After the mechanic completes the initial evaluation.
+    \item \textbf{Wait Approval} $\rightarrow$ \textbf{During Maintenance}: Once the client approves the proposed tasks and budget.
+    \item \textbf{During Maintenance} $\rightarrow$ \textbf{Maintenance Finished}: When all approved tasks are completed.
+    \item \textbf{Maintenance Finished} $\rightarrow$ \textbf{Delivered}: The vehicle is handed back to the client.
+    \item Any status $\rightarrow$ \textbf{Canceled}: If the client decides to cancel the maintenance process.
+    \item \textbf{Wait Evaluation} $\rightarrow$ \textbf{Maintenance Finished}: If the dealership skips the evaluation step and the mechanic completes all tasks directly.
+\end{itemize}
 
-When occurr a maintenance it is divided in 6 status as seen in the figure above:
-- Wait Evaluation: the inicial status when the vehicle is waiting to be analysed by the mechanic
-- Wait Approval: the status where the tasks choosen by the mechanic need to be approved by the client, as well as the budget and the conclusion date
-- During Maintenance: the status when the tasks of the maintenance are being done
-- Maintenance Finished: after all the tasks of the maintenance are completed
-- Delivered: when the vehicle is delivered to the client
-- Canceled: when the client decides to cancel the maintenance and retrieve the vehicle as it is
+In the figure \ref{maintenanceUseCaseStatus} and \ref{maintenanceDealershipUseCaseStatus} we can see how these status are divided in the use case flow of the application.
+
+To further clarify how these statuses operate in practice, \ref{maintenanceUseCaseStatus} and \ref{maintenanceDealershipUseCaseStatus} illustrate their use within two different contexts: a dealership providing standard maintenance services and an entity managing maintenance without evaluation.
 
 
 \begin{figure}[h]
-  \caption{Use case flow chart of dealership normal maintenance. With the status grouped by the use cases}
+  \caption{Use case flow chart of dealership maintenance, with statuses grouped by use cases}
   \centering
   \includegraphics[width=\textwidth]{figs/Status/Maintenance/UseCaseStatus}
-  \label{fig:figure2}
+  \label{fig:maintenanceUseCaseStatus}
 \end{figure}
 
-In the figure above we can see how this status is divided in the flow of the use case of a maintenance in a dealership.
-The flow starts with the "Wait Evaluation" status when the client contacts the rececionist to schedule a new maintenance. Then this status is hold with the assign of the evaluation task and the execution of the task by the mechanic.
-When the task is done, the maintenance pass to the "Wait Approval" status where the rececionist contacts the client to confirm which tasks he decides to use in the maintenance as well as the budget and the conclusion date of the maintenance.
-After the client decides which tasks he wants to keep and which he doesnt the maintenance pass to the status "During maintenance", where it keeps it until the end of the last task. Until this point the client can contact the rececionist to cancel the maintenance and pass to the status "Canceled", where the client can rate the service provided.
-After the maintenance is finished, the maintenance pass to the stastus "Maintenance Finished" where the client is notified with the conclusion of the maintenance and the vehicle is delivered. After the vehicle is delivered, the maintenace pass to the status "Delivered" and the client may rate the service.
 
 \begin{figure}[h]
-  \caption{Use case flow chart of a entity with maintenance of theres vehicles. With the status grouped by the use cases}
+  \caption{Use case flow chart of an entity managing maintenance without evaluation, with statuses grouped by use cases}
   \centering
   \includegraphics[width=\textwidth]{figs/Status/Maintenance/EntityDiagram}
-  \label{fig:figure2}
+  \label{fig:maintenanceDealershipUseCaseStatus}
 \end{figure}
 
-When the entity doing the maintenance also provides a bike sharing system, the maintenance may be more efficient.
-In that case there is a flow of the system more simplified.
-First a rececionist or another employee enconters a problem in a vehicle and schedules a maintenance with the rececionist. In this situation the maintenance is in "Wait Evaluation" status until the evaluation is carried out like the previous flow.
-The diference in this flow is, during the evaluation the mechanic is not going to say which task is needed to be performed on the vehicle, he says which tasks he done during the evaluation to complete the maintenance, so the maintenance of the vehicle pass to the "Maintenance Finished" status.
-Since this maintenance doesn't have a client the client is not notified so but when the vehicle leaves the workshop to the redistributors to the be used, it pass to the "Delivered" state.  
 
+\subsection{Maintenance Change Status} 
 
-\subsection{Maintenance Change} 
+During the course of maintenance, situations may arise that require modifications to the originally planned tasks or agreements. To manage this process effectively, the workflow is modeled through a set of statuses that capture the client's decision and define the subsequent path of action. 
+
+\begin{itemize}
+    \item \textbf{Ask Client}: Initial status when a maintenance change is identified and requires confirmation from the client.
+    \item \textbf{Agreed}: The client accepts the proposed changes.
+    \item \textbf{Refused}: The client rejects the changes, and the maintenance continues according to the previous agreement.
+    \item \textbf{Task Canceled}: The client cancels the specific task that triggered the maintenance change.
+    \item \textbf{Maintenance Canceled}: The client terminates the entire maintenance process.
+\end{itemize}
 
 
 \begin{figure}[h]
-  \caption{Status flow chart of a maintenance Change}
+  \caption{Status flow chart of a maintenance change}
   \centering
   \includegraphics[width=\textwidth]{figs/Status/MaintenanceChange/StatusDiagram}
-  \label{fig:figure2}
+  \label{fig:maintenanceChangeFlowChart}
 \end{figure}
 
 
-When occurr a maintenance change the client needs to be notified and this flow has the following status, as seen in the figure above:
-- AskClient, The inicial status when the maintenance change needs to be confirmed by the client
-- Agreed, when the client accept the changes
-- Refused, when the changes are refused and the maintenance keeps the same information and the previous agreement; 
-- TaskCanceled, when the client decides to cancel the task that provokes the maintenance change
-- MaintenanceCanceled, when the client decides to terminated the maintenance as it is.
+The transitions between these statuses, as shown in \ref{fig:maintenanceChangeFlowChart}, describe how the process evolves depending on the client's decision.
 
+\subsection{Maintenance Task Status} 
 
+Each maintenance process is composed of individual tasks, which represent the specific operations that mechanics must perform. To ensure proper tracking and accountability, every task follows a defined workflow of statuses that describe its current stage, from creation and approval to execution and completion.
 
-\begin{figure}[h]
-  \caption{Use case flow chart of a maintenance change divided by the multiple status of the maintenance change}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Status/MaintenanceChange/UseCaseStatus}
-  \label{fig:figure2}
-\end{figure}
-
-In the figure above we can see how this status is divided in the flow of the use case of a maintenance change.
-First a change is made in the maintenance and the rececionist is notified to contact the client, at this time the status s "Ask Client".
-After contacting the client and explaining the situation the rececionist have this option depending on the will of the client:
-- Agreed, when the client accept the changes
-- Refused, when the changes are refused and the maintenance keeps the same information and the previous agreement; 
-- TaskCanceled, when the client decides to cancel the task that provokes the maintenance change
-- MaintenanceCanceled, when the client decides to terminated the maintenance as it is.
-
-\subsection{Maintenance Task} 
+The \textit{maintenance task status} includes the following stages:
+\begin{itemize}
+\item \textbf{Wait Approval}: Initial status when the task is created and requires client validation.
+\item \textbf{Wait Assignment}: The client has approved the task, no additional parts are needed (or they are available in stock), but the task has not yet been assigned to a mechanic.
+\item \textbf{Invalid}: The client rejects the task, and it is removed from the workflow.
+\item \textbf{Assigned}: The task is assigned to a mechanic and is ready to be executed.
+\item \textbf{Concluded}: The mechanic completes the task successfully.
+\item \textbf{Changed}: The mechanic identifies an issue during execution and suggests a modification that requires client approval.
+\item \textbf{Wait Part}: The task is approved by the client but cannot be completed until the necessary parts, not currently in inventory, become available.
+\end{itemize}
 
 
 \begin{figure}[h]
-  \caption{Status flow chart of a task}
+  \caption{Status flow chart of a maintenance task}
   \centering
   \includegraphics[width=\textwidth]{figs/Status/MaintenanceTask/StatusDiagram}
-  \label{fig:figure2}
+  \label{fig:maintenanceTaskFlowChart}
 \end{figure}
 
+The task workflow shown in \ref{fig:maintenanceTaskFlowChart} highlights the possible transitions between these statuses:
+\begin{itemize}
+\item \textbf{Wait Approval} $\rightarrow$ \textbf{Invalid}: If the client rejects the task.
+\item \textbf{Wait Approval} $\rightarrow$ \textbf{Wait Assignment}: If the client approves and no external parts are required.
+\item \textbf{Wait Approval} $\rightarrow$ \textbf{Wait Part}: If the client approves but required parts are not available in stock.
+\item \textbf{Wait Assignment} $\rightarrow$ \textbf{Assigned}: Once a mechanic is assigned to the task.
+\item \textbf{Assigned} $\rightarrow$ \textbf{Concluded}: When the mechanic completes the task.
+\item \textbf{Assigned} $\rightarrow$ \textbf{Changed}: If the mechanic identifies an issue and suggests a change, requiring renewed client approval.
+\item \textbf{Changed} $\rightarrow$ \textbf{Assigned}: After the suggested change is approved by the client.
+\item \textbf{Changed} $\rightarrow$ \textbf{Wait Part}: After the suggested change is approved by the client, but the required part is not available in stock.
+\item \textbf{Wait Part} $\rightarrow$ \textbf{Wait Assignment}: After the part arrive at the warehouse and the task is not yet assigned. 
+\item \textbf{Wait Part} $\rightarrow$ \textbf{Assigned}: After the part arrive at the warehouse and the task is already assigned. 
 
-In the figure above we can see how this status is divided in the flow of the use case of a task.
-- WaitApproval: The inicial state when the task is created and before the approval from the client.
-- WaitAssignment: The state when a task is approved by the client and has no needed parts or the parts needed are on the warehouse. 
-- Invalid: When a task is rejected by the client
-- Assigned: When a ready task is a assigned to a mechanic
-- Concluded: When a mechanic finish concluding the task
-- Changed: When the mechanic notes a problem during the task and suggest a change that requires the validation from the client
-- WaitPart: When the task is aproved by the client but needs parts to be completed that are not in the inventory.
+\end{itemize}
+
+In practice, the entry point of this workflow depends on the maintenance context. If the dealership skips the evaluation, tasks may begin directly in the \textbf{Concluded} state. In contrast, at a dealership, tasks typically originate from the workshop manager or during the initial vehicle evaluation, as illustrated in \ref{fig:maintenanceTaskUseCase}. In this case, the workflow starts in \textbf{Wait Approval}, followed by the client's decision and subsequent progression through the task statuses until completion. This structured approach ensures flexibility while maintaining a standardized flow across different maintenance scenarios.
 
 
 
 \begin{figure}[h]
-  \caption{Use case flow chart of a task divided by the multiple status of the task}
+  \caption{Use case flow chart of a maintenance task, showing status transitions within the workflow}
   \centering
   \includegraphics[width=\textwidth]{figs/Status/MaintenanceTask/UseCaseStatus}
-  \label{fig:figure2}
+  \label{fig:maintenanceTaskUseCase}
 \end{figure}
 
-In the figure above we can see the flow of a maintenance task during a maintenance.
-The flow may start with two states, the "Wait Approval" or with the "Concluded".
-On the case of a bikesharing system with maintenance of there own vehicle, the mechanic during the evaluation it completes the tasks that he registers so this tasks added to the system start at the state concluded.
-At a dealership, a task from a maintenance with a client starts with the workshop manager adding a new task or during the evaluation of the maintenance.
-In this time the task is in the status "Wait Approval". Then the task needs to be validated by the client. 
-If it is invalidated it takes the status "Invalid" and the task flow ends here. If the task is approved, the system checks if it needs parts to be completed and if the task are available in the warehouse.
-If the task need the parts and they are not available, the flow stops in the state "Wait part". After that, the system verifies if the task is assigned to a user. 
-If it is not, the task holds in the state "Wait Assignment", until the workshop manager assigns a mechanic. Then, it goes to the state "Assigned", where the mechanic executes the task.
-If the mechanic does not find any problens, the task is finished and goes to the state "Concluded" ending the flow. If the mechanic finds that the chosen part is not apropriate to this vehicle, he can suggest a new part to complete the task and the task goes to the state "Changed".
-After this, the client needs to approve this change and the flow repeats after "Wait Approval" state.
+\subsection{Purchase Status} 
 
+In order to keep maintenance workflows uninterrupted, parts and materials often need to be acquired through a structured purchasing process. This process ensures that requests are validated, assigned, tracked, and properly registered once the items arrive. To guarantee accountability, the purchase workflow is modeled with a set of statuses that represent each step, from the initial request to its completion.
 
-\subsection{Purchase} 
-
-
+The \textit{purchase status} is defined by the following stages:
+\begin{itemize}
+\item \textbf{Wait Approval}: Initial status when a purchase request is submitted and awaits validation by the workshop manager.
+\item \textbf{Invalid}: The request is rejected by the workshop manager and removed from the workflow.
+\item \textbf{Assigned}: The request is approved and assigned to a warehouse operator.
+\item \textbf{Wait Arrival}: The operator has contacted the supplier and is awaiting delivery of the requested parts.
+\item \textbf{Finished}: The parts have arrived at the dealership and are registered into the system.
+\end{itemize}
 
 \begin{figure}[h]
   \caption{Status flow chart of a purchase}
   \centering
   \includegraphics[width=\textwidth]{figs/Status/Purchase/StatusDiagram}
-  \label{fig:figure2}
+  \label{fig:purchaseFlowChart}
 \end{figure}
 
+The status transitions illustrated in \ref{fig:purchaseFlowChart} highlight the sequence of steps in a purchase workflow:
+\begin{itemize}
+\item \textbf{Wait Approval} $\rightarrow$ \textbf{Invalid}: If the workshop manager rejects the request.
+\item \textbf{Wait Approval} $\rightarrow$ \textbf{Assigned}: If the request is approved.
+\item \textbf{Assigned} $\rightarrow$ \textbf{Wait Arrival}: After the operator contacts the supplier and logs the expected delivery.
+\item \textbf{Wait Arrival} $\rightarrow$ \textbf{Finished}: Once the parts arrive and are recorded in the system.
+\end{itemize}
 
-When occurr a purchase the workshop manager needs to be notified and the flow has the following status, as seen in the figure above:
-- WaitApproval: The inicial state when the purchase request needs to be approved by the workshop manager
-- Invalid: When the workshop manager rejects a purchase request
-- Assigned: When the purchase request was approved by the workshop manager and assigned to a warehouse operator
-- WaitArrival: After the operator assigned to the purchase contacts the supplier to request the purchase
-- Finished: When the parts arrive at the dealership and are registered into the system
 
+As shown in \ref{fig:purchaseUseCase}, the use case flow chart provides further detail by illustrating how purchase requests are initiated, validated, and completed. This structured process ensures that all acquisitions are traceable and properly integrated into the dealership's inventory.
 
 \begin{figure}[h]
-  \caption{Use case flow chart of a purchase divided by the multiple status of the purchase}
+  \caption{Use case flow chart of a purchase, with statuses grouped by workflow steps}
   \centering
   \includegraphics[width=\textwidth]{figs/Status/Purchase/UseCaseStatus}
-  \label{fig:figure2}
+  \label{fig:purchaseUseCase}
 \end{figure}
 
-In the figure above we can see how this status is divided in the flow of the use case of a purchase.
-The flow starts when the operator (or the system) makes a purchase request. This request has the state "Wait Approval" untils the workshop manager authorize (or not) the request.
-If the workshop manager rejects the request, the purchase request keeps with the status "Invalid" and the flow ends here. If the purchase is authorized, purchase passes to the status "Assigned".
-After the request is authorized, the warehouse operator assigned to the purchase contacts the supplier to get the parts of the request.
-After that, he introduces the expected date of the Arrival of the parts and the request pass to the status "Wait Arrival".
-When the parts arrive at the dealership the operator register the parts and the purchase pass to the status "Finished"
 
+\subsection{Owner Partnership Status} 
 
-\subsection{Owner Partnership} 
+To extend maintenance services beyond individual clients, dealerships may establish partnerships with organizations that own and manage vehicle fleets. The process is modeled through a simple status flow that tracks partnership requests and decisions.
 
+The \textit{owner partnership status} consists of the following stages:
 
+\begin{itemize}
+\item \textbf{Request}: Initial state when a new entity submits a request to establish a partnership with the dealership.
+\item \textbf{Accept}: The dealership approves the request, gaining access to the entity's vehicle information and authorization to schedule maintenance.
+\item \textbf{Denied}: The dealership rejects the partnership request, ending the process.
+\end{itemize}
 
 \begin{figure}[h]
-  \caption{Status flow chart of a partnership}
+  \caption{Status flow chart of an owner partnership}
   \centering
   \includegraphics[width=\textwidth]{figs/Status/OwnerPartnership_StatusDiagram}
-  \label{fig:figure2}
+  \label{fig:ownerPartnershipFlowChart}
 \end{figure}
 
-when a entity wants to do a partnership with a dealership to allow him to do the maintenance of theres vehicle the flow is follow by the figure above:
-- Request: the workshop manager is notified that a new entity wants to do a partnership with the dealership
-- Accept, the dealership is allow to see the information about the vehicles of that entity and schedule maintenance for its vehicles
-- Denied, the request was denied
-
-
-\section{Database} 
-
-
-\begin{figure}[h]
-  \caption{Database general diagram.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/dbDiagrams/DbDiagramFull}
-  \label{fig:figure2} 
-\end{figure}
-
-In this section i will describe the dabase structure i create to solve this problem.
-To solve this problem i create a structure that devides in 5 sections:
-- Maintenance \& Tasks
-- Parts \& Inventory 
-- Purchasing
-- Services
-- Vehicles \& Owners
-- Users
- 
-
-\subsection{Users} 
-
-The section users was provided by the ligthmobie's dabase structure and i used it to create users, create the roles of the users and create the group of users (client, rececionist, warehouse manager,...).
-
-
-
-\subsection{Maintenance and Tasks} 
-
-
-\begin{figure}[h]
-  \caption{Database Maintenance and Tasks diagram.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/dbDiagrams/Maintenance_and_Tasks}
-  \label{fig:figure2}
-\end{figure}
-
-To save the information about the maintenance i created a table called the "Maintenance". This table has the following columns:
-- ClientId, which is a foreign key to the AspNetUsers Table and is the table that has the information about the users of the platform.
-- OwnerId, which is a foreign key to the Owners table and represents the dealership that is providing the maintenance
-- VehicleId, the vehicle that is going to do the maintenance
-- ClientEntityId, Optional column that connects to the Owner of a bike sharing system
-- CreatedDate, that is the date of creation of the maintenance
-- EvalDate, date of the evaluation date of the vehicle
-- AnomalyIdentification, is a text describing the problem with the vehicle
-- AnomalyCause, is a text describing the cause of the problem with the vehicle
-- ClientNotes, is a text describing additional information provided by the client
-- ConclusionDateExpected, is the expectedd date of the end of the maintenance agreed with the client, used to control the expectation of client for the duration of the maintenance 
-- ConclusionDate, the actual date of the end of the maintenance
-- DeliverDate, the date of the deliver of the vehicle to the client
-- BudgetExpected, the expected budget of the maintenance agreed with the client, used to control the expectation of client for the price of the maintenance 
-- Budget, the actual price of the maintenance
-- ClientScoreExpected, the score of the quality of the service expected by the client
-- ClientScore, the score of the quality of the service perceived by the client
-- WorkHoursExpected, the number of hours expected to conclude the maintenance
-- WorkHours, the number of hours to conclude the maintenance
-- StatusId, the status of the maintenance. It can be WaitEvaluation, the status before the evaluation of the vehicle; waitApproval, after the evaluation of the vehicle and before the client and rececionist decide which tasks should be done, the budget of the expected budget of the maintenance and the expected conclusion date; DuringMaintenance, the status when the tasks of the maintenance are being completed; MaintenanceFinished, after all the tasks of the maintenance are completed; Delivered, when the vehicle is delivered to the client; Canceled, when the client decides to cancel the maintenance and retrieve the vehicle as it is
-
-The maintenance is connected to the MaintenanceChange table. This table is used to save the information when a change in the maintenance occurr, like the expected conclusion date change, a task changed or the expected budget changed.
-This table has the following columns:
-- MaintenanceId, the identification of the maintenance which is being changed
-- CreatedDate, the date of the change
-- NewBudget, the new expected budget
-- MinConclusionDate, the earleast date to complete the maintenance. This columns is important if, for example a part delivery is late and may only arrive on a date after the expected conclusion date.
-- NewConclusionDate, the new expected conclusion date agreed with the client
-- Status, the status of the maintenanceChange. It may be AskClient, when the maintenance change needs the valiation of the client; Agreed, when the client accept the changes; Refused, when the changes are refused and the maintenance keeps the same information and the previous agreement; TaskCanceled, when the client decides to cancel the task that provokes the maintenance change; MaintenanceCanceled, when the client decides to terminated the maintenance as it is.
-- VehiclePartTypeId, the new part of the vehicle that from the maintenance task that is being changed
-- MaintenanceTaskId, the identification of the maintenance Task that provokes the change
-
-The maintenance is also connected with the table maintenanceTask that saves the information of the tasks from that maintenance.
-This table has the following columns:
-- Id, the identification of the task
-- MaintenanceId, the identification of the maintenance
-- MaintenanceTaskTypeId, the identification of the type of task
-- VehiclePartTypeId, the identification of the type of part is used in this task
-- Status, the status of the task. It may be WaitApproval, status before the approval from the client; WaitAssignment, status after the client aproval but before the workshop mananger assign it to a mechanic; Invalid, status when the client rejects the task during the maintenance agreement with the rececionist; Assigned, status when the task is assigned to a mechanic; Concluded, when the task is finished; Changed, when the mechanic notes a problem with the task and suggest a change that requires the validation from the client; WaitPart, when the part needed to complete the task is not in inventory and needs to wait for it availability to be completed.
-% - PurchaseDetailId, the identification of the purchase part that is requesting the part needed to complete this task. This column allows when the purchase is complete and the parts arrive the task is notified to be able to be assigned and completed.
-
-
-The maintenanceTask is connected with the table pauseTasks, that keeps tracking of the pauses of the task. 
-This table has a:
-- MaintenanceTaskId, that identifies the task of the maintenance
-- StartDate, the start date of the pause
-- EndDate, the end date of the pause
-
-It is connected to the mechanicTasks. This table has the information of the completion of the task. It has the following columns:
-- MechanicId, the identification of the mechanic
-- MaintenanceTaskId, the identification of the task of the maintenance
-- StatDateExpected, the date the workshop manager assigned to the mechanic starts the task
-- EndDateExpected, the expected date the mechanic should end the task
-- StartDate, the actual date the mechanic started the task
-- EndDate, the actual date the mechanic ended the task
-- MechanicNote, text left from the mechanic about the task or the vehicle
-
-
-The MaintenanceTask table is also connected to the MaintenanceTaskType table. This table has the information of the type of tasks exist.
-It has the following columns:
-- Id, identification of the task type
-- EvalTaskId, the identification of the evaluation task that can generate this type of tasks. During the evaluation period of the vehicle, if the mechanic do this evaluation task, it may add this task to the maintenance
-- VehiclePartTypeCategoryId, the identification of the category of parts that this task type need to be completed
-- Name, the name of the task
-- Description, the description of the task
-- StepNum, a integer value that represents the sequence of the tasks, for example it it has the value 2, it means it is only possible to complete this task after all tasks from stepNum 0 and 1 from this maintenance are completed
-- Price, the price the client must pay to complete the task
-- Hours, the number of hours estimated to complete the task
-- Quantity, the number of parts is needed to complete the task
-- Type, the type of maintenanceTaskType this type of maintenanceTaskType is. It may be normal, a normal task or a quality task, a task to assure the quality of the vehicle before the deliver to the client
-- IsRemoved, it tells if this type of task is visible or not in the platform, this virtually seems that the task is deleted on the platform, but it can be recover if needed
-
-The maintenanceTaskType is connected to the maintenanceTaskStep, that has the information of all the steps to complete the task.
-It has the following columns:
-- Id, the identification of the step
-- MaintenanceTaskTypeId, the identification of the task type
-- StepNum, the number of the step of the task type
-- name, the name of the step
-- description, the description of the step and how to complete it
-
-The maintenanceTaskType also is connected to the EvalTasks. This table has the information about the task steps used during the evaluation of the vehicle.
-It has the following columns:
-- Id, the identification of the evaluation task step
-- Name, the name of the evaluation task step
--VehicleTypeId, the type of vehicle that this task can be applied to
-- VehiclTypeId, the identification of the type of vehicle that this task step is used on
-- Description, the description of the task step
-- StepNum, the step number of the task step
-- IsRemoved, it tells if this type of task is visible or not in the platform
-
-
-\subsection{Parts and Inventory} 
-
-
-\begin{figure}[h]
-  \caption{Database Parts and Inventory diagram.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/dbDiagrams/Parts_and_Inventory}
-  \label{fig:figure2}
-\end{figure}
-
-The inventory of the dealership is used to track the available parts on the dealership on the table OwnerInventory.
-It has the following columns:
-- Id, identification of the inventory
-- VehiclePartTypeId, the identification of the part type of this inventory
-- OwnerId, the identification of the dealership of this inventory
-- LocationWithinWarehouse, is text with the code to locate the part in the warehouse of the dealership
-- MeanDeliveryInDays, mean of the number of days it takes for the part to arrive at the dealership after the purchase
-- QuantityAvailable, the number of parts of a specific type are available at this dealership
-- DefaultOrderQuantity, the number of parts used when creating an automatic purchase for this part type when quantity on the dealership reaches a threshold
-- MinimumStockLevel, the minimum number parts it the dealership should have
-- MaximumStockLevel, the maximum number of parts the dealership should have
-- ReorderPoint, the threshold where a purchase is created when the quantity available reaches this value
-
-The OwnerInventory table is connected to the table OwnerInventoryTransaction, which stores the information of the sales and restock. When the quantity available changes, the action that provokes this change is saved in here.
-This table has the following columns:
-- Id, identification of the transaction
-- InventoryId, the identification of the inventory from which occurred a sale or a restock
-- PurchaseDetailId, the identification of the purchase that make the restock
-- Type, if it is a restock or sale
-- OperatorId, the identification of the person that provided this transaction (Warehouse Operator if it was a restock or a mechanic if it was a sale)
-- CreatedDate, the date of the transaction
-- Quantity, the number of parts that were added or removed from the inventory
-
-The OwnerInventory table is also connected to the table Supplier throw the table OwnerVehiclePartSupplier.
-The table supplier has the information of the suppliers of a dealership. The OwnerVehiclePartSupplier has the information of the contract between the dealership and the supplier. 
-The table supplier has the following information:
-- Id, the identification of the supplier
-- Name, the name of the supplier
-- PhoneNumber, the phonenumber of the supplier 
-- Email, the email of the supplier
-- Address, the address of the supplier
-
-The OwnerVehiclePartSupplier has the following columns:
-- Id, the identification of the contract
-- SupplierId, the identification of the supplier
-- OwnerInventoryId, the identification of the inventory of the dealership. This column identifies the dealership and the part on the contract.
-- DateIn, the date that the contract starts
-- DateOut, the date when the contract ended
-- Quantity, the limit of parts requested in the contract
-- ExpecteDateOut, the date where contract is expected to end
-
-The OwnerInventory is also connected to the OwnerVehiclePartType that stores the type of parts exist.
-This table has the following columns:
-- Id, the identification of the part type
-- Code, the code of the part type
-- Name, the name of the part type
-- Description, the description of the part type
-- Price, the price of the part type
-- CategoryId, the identification of category of the part type
-- ReorderQuantity, the number of items per group this part must be bought with
-- IsRemoved, it tells if this type of part is visible or not in the platform
-
-This table is connected to two other tables, the VehiclePartTypeCategory and the OwnerVehiclePart.
-The VehiclePartTypeCategory stores the information of the category of parts exist. 
-The OwnerVehiclePart table tracks which vehicle has which parts and it already existed in the lightmobie database.
-The VehiclePartTypeCategory has the following columns:
-- Id, the identification of the category
-- Name, the name of the category
-
-The OwnerVehiclePart has the following columns:
-- VehiclePartTypeId, the identification of the part type that the vehicle has
-- VehicleId, the identification of the vehicle that has the part
-- DateIn, the date when the part was inserted to the vehicle
-- DateOut, the date when the part was removed from the vehicle
-
-
-
-\subsection{Purchasing} 
-
-
-\begin{figure}[h]
-  \caption{Database Purchasing diagram.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/dbDiagrams/Purchasing}
-  \label{fig:figure2}
-\end{figure}
-
-The inventory needs purchase to restock. To this I build the table Purchase with the following columns:
-- Id, the identification of the purchase
-- OwnerId, the identification of the dealership that done this purchase
-- OperatorId, the identification of the warehouse operator that completed the purchase
-- CreatedDate, the date of the creation of the purchase
-- Reason, the reason for the purchase. It is useful since the purchase needs to be verified by the workshop manager
-- Status, the status of the purchase. The status may be WaitApproval, used before the purchase is approved by the workshop manager; Invalid, used when the purchase was rejected by the workshop manager; Assigned, when the purchase was approved by the workshop manager and assigned to a warehouse operator; WaitArrival, when the purchase was complete but the parts still did not arrived; Finished, after the parts arrive at the dealership
-- ExpectedArrivalDate, the expected date of the arrival of the parts
-- ArrivalDate, the actual date of the arrival of the parts
-- PurchaseDate, the date when the purchase was done
-
-The purchase is connected with the tables PurchaseDelay and PurchaseDetail. 
-The table PurchaseDetail is used to describe the quantity of the multiple parts in a purchase.
-The table PurchaseDelay is used to store the information when a purchase arrival date is delayed and the client expectation of the client due to that.
-The table PurchaseDetail is also connected to the maintenanceTaskPurchase to allow a task be connected to multiple purchases due to a mistake by the mechanic and a purchase connected to multiple tasks to notify the multiple tasks that the parts have arrived.
-The purchaseDetail has the following columns:
-- Id, the identification of the purchaseDetail
-- PurchaseId, the identification of the purchase that it is associated with
-- price, the price of the part
-- Count, the number of parts of this type in the purchase detail
-- VehiclePartTypeId, the identification of the type of parts in the purchase detail
-  
-The final table, the PurchaseDelay, has the following columns:
-- Id, the identification of the purchase delay
-- PurchaseId, the identification of the purchase that is associated with
-- CreatedDate, the date of the creation of the delay
-- ExpectedArrivalDate, the new expected arrival Date
-
-
-\subsection{Services} 
-
-
-\begin{figure}[h]
-  \caption{Database Services diagram.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/dbDiagrams/Services}
-  \label{fig:figure2}
-\end{figure}
-
-The services section starts with the tablke serviceType that has all type of services that exist, namely "bike sharing" and "Dealership"
-This table has the following columns:
-- Id, the identification of the service type
-- name, the name of the service type
-
-This table is connected with the Table Owner through the table OwnerServiceType.
-This table has the info of the duration of the service to the owner.
-It has the following columns:
-- Id, the id of the owner service connection
-- OwnerId, the identification of the owner
-- ServiceType, the identification of the type of service is connected to the owner
-- DateIn, the date when the service started
-- DateOut, the date when the service ended
-
-The serviceType is also connected with the table serviceTypeConfig that has the information of the various configuration of the dealership, like if does tasks division and assignment or in the evaluation it does the maintenance of the vehicle and identifies the tasks done.
-It has the following columns:
-- Id, the identification of the configuration
-- ServiceTypeId, the identification of the service type is associated with
-- Name, the name of the configuration
-
-This table is associated with the OwnerServiceType in the table OwnerServiceTypeConfig since the dealership can chose which configuration it decides to have.
-It has the following columns:
-- OwnerServiceTypeId, the identification the connection of the service type and the dealership
-- ServiceTypeConfigId, the identification of the configuration of the service type
-- DateIn, the date when dealership start using the configuration started
-- DateOut, the date when the dealership remove de configuration
-
-
-\subsection{Vehicles and Owners} 
-
-
-\begin{figure}[h]
-  \caption{Database Vehicles and Owners diagram.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/dbDiagrams/Vehicles_and_Owners}
-  \label{fig:figure2}
-\end{figure}
-
-
-This section the tables Owner, Vehicle and VehicleType already existed in the lightmobie database.
-The Owner table registers the information of the dealerships and bike sharing entities.
-The vehicle table registers the information of each vehicle and is connected with the vehicleType thar stores the type of vehicles, like "Eletric bikes", "convention bikes", etc.
-
-I created the table OwnerVehicleType to allow disinguish between dealership availability to do a maintenance to specific type of vehicles. This table only has the column of connection of the two tables, owner and vehicleType.
-The OwnerPartnership table is used to allow bikesharing entities to share information with dealership for it to do the maintenance. If a dealership is not connected to a bike sharing entity is not allowed to view theres vehicle information.
-This table has the following columns:
-- FromOwnerId, the identification of the bike sharing entity that wants to associate with the dealership
-- ToOwnerId, the identification of the dealership that is requested to do maintenances to the bikesharing entity
-- VehicleTypeId, the identification of the type of vehicles the bike sharing entity wants the dealership to do maintenances
-- CreateDate, the date the request was created
-- Status, the satus of the request, it can be Request, the request is waiting for response from the dealership; Accept, the request was accepted; Denied, the request was denied
-
-
-\section{Implementation}
-
-\subsection{Rececionist view}
-The rececionist application view has only one page seen in \ref .
-
-\begin{figure}[h]
-  \caption{Rececionist home page.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/rececionistHomePage}
-  \label{fig:figure2}
-\end{figure}
-
-In this page it is visible a bar chart with the expected working hours of each mechanic for the days of the selected week.
-The mechanic can navegate through out the year using the buttons "próxima semana" e "semana anterior" to go to the next and previous week respectively.
-This information is relevant to understand which mechanic is available to do a vehicle evaluation and accomplish the Use Case 1.1 – Maintenance Schedule.
-To schedule a maintenance a rececionist has two options: click on the green button "Adicionar Tarefa" or click on the graph on the specific date he wants to choose.
-Both options will open up a modal seen in figure \ref.
-
-\begin{figure}[h]
-  \caption{Rececionist schedule maintenance.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/addTask}
-  \label{fig:figure2}
-\end{figure}
-
-In the modal, the rececionist can still change the date of the maintenance in the top lef corner and it will show the tasks of the mechanics of that date, including the name of the task and the expected time to complete that task.
-To finish the schedule of the maintenance, the rececionist must fill the form on the right side of the modal.
-The options are:
-- The name of the entity: it is optional and it is refers to a bikesharing entity that has a partnership relational with the dealership;
-- the vehicle registration: it is mandatory and it refers to the vehicle registration of the vehicle, it only accepts vehicles from partner entities or from users without entity; this field has autocompletes
-- the client email: it is mandatory and it refers email of the client, if the client doesn't exist it is created a new client for that account, and an email is sent to that user to finish the account creation;  if the user exist and is related to a partner entity or is a solo client, the email can be autocompleted;
-- the hours of the vehicle arrival: it is mandatory and it refers to the agreed time when the client will bring the vehicle
-- pre-selected tasks: it is optional and it refers to tasks that the rececionist may already add to the maintenance as the will of the client; it has a price tag below to indicate the expected price of the maintenance with those pre-selected tasks
-- adicional notes: it is optional and it refers to notes that the rececionist may want to pass to the mechanic responsible for the vehicle evaluation
-Finally the rececionist clicks on the button "Criar" to finish the maintenance shedule and complete the use case 1.1 – Maintenance Schedule.
-%% Adicionar foto de mostrar o form de criar conta do user
-
-\begin{figure}[h]
-  \caption{List of active maintenances.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/activeMaintenances}
-  \label{fig:figure2}
-\end{figure}
-
-When clicking on the button "Manutenções Ativas" on the menu it shows an offcanvas with the list of non finished maintenances, as seen in \ref.
-This button can have a red circle with a number that represents the number of maintenances that has a maintenance change and needs the rececionist to contact the client.
-In the offcanvas, each card has the information to identify the maintenance and indicate the progress, namely:
-- the vehicle registration: the registration number of the vehicle that is doing the maintenance
-- the entity: the name of the entity of the vehicle
-- the expected conclusion date: the expected date to conclude the maintenance
-- the progress of the maintenance: the percentage of tasks completed
-In each maintenance card may be seen a red circle in the top right corner with a number. 
-This represents the number of maintenance changes for that maintenance, like, for example a task is delayed and another has a part change suggestion.
-
-\begin{figure}[h]
-  \caption{Active maintenance details Information tab.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/maintenance_details}
-  \label{fig:figure2}
-\end{figure}
-
-
-When clicking on "Ver Detalhes" of a maintenance it opens a modal as seen in the figure \ref.
-In this modal has the information that the rececionist may need to answer the client if the client calls to ask for it.
-With this the Use Case 1.3 – Collect information about a maintenance request is completed.
-The information shared in the modal, namely in the "Information" tab is:
-- Vehicle registration
-- Entity name
-- Creation date of the maintenance
-- Evaluation date of the vehicle
-- Expected conclusion date
-- Expected budget
-- Expected Working Hours 
-
-\begin{figure}[h]
-  \caption{Active maintenance details task tab.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/maintenance_details_task}
-  \label{fig:figure2}
-\end{figure}
-
-When navigating to the "Tarefa" tab it shows the tasks selected by the evaluation on the left side and the status of the task on the right side.
-On the left side, for each task it shows:
-- the price 
-- the number of hours to complete
-- the name of the part to complete the task
-On the right side, for each task shows the status that can be:
-- Invalid, represented as a red cross
-- completed, represented as a green check 
-- waiting to be completed, represented as a yellow Hourglass
-I decided to simply to this three states since the client doesn't need to understand the full flow of a task.
-
-
-\begin{figure}[h]
-  \caption{Active maintenance details change tab.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/maintenance_details_change}
-  \label{fig:figure2}
-\end{figure}
-
-The last tab of the modal is "Alterações" that show the maintenance changes of the maintenance.
-As we can see in \ref it shows all the maintenance changes in the left side with the information of the task that provoked the change and the change date.
-And the change details on the right. This details show the following information:
-- the date of the change
-- the expected conclusion date of the maintenance
-- the new vehicle part of the change
-- and the new minimum expeceted conclusion date
-
-In this scenario the rececionist may click on the button "Guardar alteração" to agree to the changes or "Rejeitar Alteração" and,since this maintenance change has a minimum conclusion date, will invalidate the task that since it is delayed.
-With this the Use Case 1.4 – Accept maintenance changes and the Use Case 1.5 – Refuse maintenance changes are completed.
-
-In the modal is also possible to accomplish the Use Case 1.7 – Cancel Maintenance by clicking in the button "Cancelar Manutenção" in the bottom right corner of the modal, as seen in \ref .
-Also, in the same location, if all the tasks are completed, it show a button call "Conluir Manutenção" that allows the Use Case 1.6 – Vehicle Delivery.
-
-
-\begin{figure}[h]
-  \caption{List of maintenances that the evaluation is finished and need to comunicate with the client to decide wich task to be done.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/action_list}
-  \label{fig:figure2}
-\end{figure}
-
-
-The last button of the menu is the "Acções" button, this button, when clicked, shows a list of maintenances where the vehicle evaluation just finished and it needs the client to comfirm wich task needs he agreeds to be done.
-Each maintenance is represented as a card, as seen in \ref with the vehicle registration and the client name or entity name.
-
-\begin{figure}[h]
-  \caption{Maintenance action details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/action_details}
-  \label{fig:figure2}
-\end{figure}
-
-When clicking on the button "Ver Detalhes" on a maintenance card, it shows a modal as sen in \ref.
-In this modal, the Use Case 1.2 – Define maintenance details is addressed where it is showned a list of the tasks that the mechanic selected with the following information:
-- name of the task
-- the price of the task
-- the number of hours to complete the task
-- If it needs to change the part
-- If the part is in stock on the warehouse
-- There is already an active purchase for that part if the part is not in stock
-- The expected data of the arrival of the part if the part is not in stock
-
-On the right side of the modal, it is showend the vehicle registration, the expected budget, that changes with the task being selected; the expected working hours, that also changes with the selection of the tasks; and the evaluatiuon Mechanic notes.
-To complete the maintenance the rececionist choses the tasks the client wants to be done and selects a appropriate date for the conclusion date and clicks on the button "Criar" on the bottom right corner.
-
-If the rececionist would like to change the language it can do it on the right corner of the menu, the application handles portuguese and english. If he would like to leave, he can click on the button profile on the right of the language button and click "Terminar sessão".
-
-
-\subsection{Mechanic view}
-
-The mechanic application layout structure is very similar as the rececionist as seen in \ref and in \ref.
-
-\begin{figure}[h]
-  \caption{Mechanic home page with simple, late and previous started task.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/HomeContinueLate}
-  \label{fig:figure2}
-\end{figure}
-
-
-
-\begin{figure}[h]
-  \caption{Mechanic home page with evaluation task.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/HomeEvalNotLate}
-  \label{fig:figure2}
-\end{figure}
-
-In this page the mechanic can see the tasks assigned to him for the day (Use Case 2.1 – View to-do list).
-In the \ref we can see a task card with a red border and a yellow button with the value "Continue" (Use Case 2.6 – Continue Task).
-This means the task was assigned to him to be done on a previous day and he already started the task but couldn't complete it so he paused it.
-
-On the \ref we can see a evaluation task. A task has the following information:
-- the vehicle registration
-- the name of the task
-- the part needed to completed the task, only appears if the task needs a part to be completed
-
-
-\begin{figure}[h]
-  \caption{Mechanic completing simple task first step.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicTaskNormal}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Vehicle details during a task completion.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicTaskVehicleDetails}
-  \label{fig:figure2}
-\end{figure}
-
-When clicking on the button "Continuar", it shows the steps to complete the task as seen in \ref.
-In this page it has the name of the step, the description to complete the step, two buttons to navegate the through the step of the task, and a button to see the vehicle details.
-When clicking on the button "Ficha tecnica do veículo" it shows a button offcanvas with the information of the vehicle as seen in \ref.
-In this offcanvas is seen the following information:
-- vehicle Registration
-- Number of Kilometers since the last maintenance
-- date of the last maintenance
-- necessary part to complete the task
-- the client notes
-- the name of the parts of the vehicle and the date they were added to it
-
-
-\begin{figure}[h]
-  \caption{Change task modal.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicTaskChangeTask}
-  \label{fig:figure2}
-\end{figure}
-
-In this offcanvas there is also a button "Alterar Tarefa" to change the part of the task.
-When clicking in this button it shows a modal with a select with the part the mechanic wants to replace, and by eating the button "Confirmar" the tasks is paused and a maintenance change is generated.
-with this the Use Case 2.5 – Change Task is completed.
-
-
-\begin{figure}[h]
-  \caption{Mechanic task last step.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicTaskLastStep}
-  \label{fig:figure2}
-\end{figure}
-
-By following the steps of the task the mechanic will reach the last step where he can leave some notes and complete the task, accomplish the Use Case 2.4 – Do a Vehicle maintenance task. As seen in \ref.
-
-
-\begin{figure}[h]
-  \caption{Mechanic Evaluation first step.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicEvaluationNormal}
-  \label{fig:figure2}
-\end{figure}
-
-
-
-\begin{figure}[h]
-  \caption{Mechanic select part modal.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicEvaluationSelectTaskWitPart}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Mechanic Evaluation task with part selected.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/TaskSelected}
-  \label{fig:figure2}
-\end{figure}
-
-when clicking on the "Começar" button on the figure \ref, it appear a toast notification informing the mechanic started the task and a list of tasks the mechanic can add to the maintenance, seen in \ref.
-This page has also the button "Ficha tecnica do vehicle" with the same information as the simple task.
-When a task is selected it turns green, but if the tasks needs a part to be completed it first opens a modal where the mechanic needs to select the part need to complete the task, as seen in figure \ref.
-It shows the number of parts available in the warehouse to inform the mechanic if he would like to change the task since there are few or no parts.
-After that, the part turns green as seen in the figure \ref.
-
-\begin{figure}[h]
-  \caption{Mechanic Evaluation last step.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/EvaluationLastStep}
-  \label{fig:figure2}
-\end{figure}
-
-As the mechanic follows the steps he goes to the last step where he sees the selected tasks and he needs to describe the cause of the anomaly before finishing the task.
-when finishing the task, mechanic is notified by toast notification that the task is completed and with this the Use Case 2.2 – Carry out a vehicle analysis or the Use Case 2.3 – Register tasks completed are completed depending if its a dealership performing a maintenance on the vehicle of the bike sharing entity with efficiency aim maintenance.
-
-
-
-\subsection{Warehouse Operator view}
-
-\begin{figure}[h]
-  \caption{Warehouse home page.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/homepage}
-  \label{fig:figure2}
-\end{figure}
-The warehouse operator view layout strcuture is very similar as the other views as seen in \ref.
-It has the menu on the top of the page and where we can see the list of purchases and the list of suppliers, and has the inventory in the body of the page (Use Case 3.1 – View the different parts that the warehouse possess).
-This inventory is composed of a table of parts in the warehouse including the number of parts available and the location code to locate it.
-If we want to know more about a part we can click on the respective "Detalhes" button and will open a modal, as seen in \ref.
-
-\begin{figure}[h]
-  \caption{Inventory details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/inventoryDetails}
-  \label{fig:figure2}
-\end{figure}
-
-In the modal, we can see the transaction history of the parts; which means the quantity and the date when thes parts were added or removed from the inventory.
-We can also see other information about the part:
-- The name of the part
-- the quantity available
-- the minimum quantity
-- the maximum quantity
-- the location on the warehouse
-- the default quantity to generate a purchase
-- the quantity to use when occurr an automatic purchase generation
-- the code of the part
-- the description of the part
-- the category of the part
-- the quantity per group
-- the price of the part
-
-
-\begin{figure}[h]
-  \caption{Inventory editor.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/inventoryEdit}
-  \label{fig:figure2}
-\end{figure}
-
-It is possible to edit the inventory clicking on the button "Editar" (Use Case 3.5 – Edit Inventory ) and will show a form as seen in \ref.
-In here we can change:
-- the location of the part in the warehouse
-- the minimum quantity of the part
-- the maximum quantity of the part
-- the quantity to generate a maximum purchase
-- the quantity use on the automatic generated purchase
-
-\begin{figure}[h]
-  \caption{Create new purchase modal.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchase}
-  \label{fig:figure2}
-\end{figure}
-
-Returning to the homepage, we can see a search bar on the top of the table that can be use to filter the parts by name, and a button to create a new purchase on the right side of it (Use Case 3.2 – Requesting purchasing service).
-By clicking in this button will show a modal as seen in \ref.
-
-\begin{figure}[h]
-  \caption{Create new purchase modal with a part selected.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchaseWithParts}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Create new purchase modal with a part added.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchaseAddedPart}
-  \label{fig:figure2}
-\end{figure}
-In this modal, the warehouse operator can do the Use Case 3.2 – Requesting purchasing service , and , to accomplish that, he needs to fill a motive and choose which parts he wants to add to the purchase.
-To add a part to the purchase he choses a part on the select (\ref), inserts the number of parts groups he wants to purchase, and clicks on the plus button.
-After added a part he can add more, remove the part on the red button, or finish the purchase by clicking on the button "Criar" on the modal footer (\ref) .
-
-\begin{figure}[h]
-  \caption{List of purchases.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseList}
-  \label{fig:figure2}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Assgined purchase details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseDetails}
-  \label{fig:figure2}
-\end{figure}
-
-Returning to the home page, the warehouse operator may click on the button "Compras" on the menu and will open the list of purchases of the warehouse, as seen in \ref.
-In this offcanvas there is two lists, the finished purchases and the active purchases. 
-Each purchase has two type of information, the creation date and the status.
-When clicking the details of a assigned purchase, it will open a modal like \ref.
-In this modal the user can see the information about the purchase and finalize the purchase by assigning an expected arrival date.
-The information provided is:
-- the state of the purchase
-- the arrival date
-- the total price
-- the motive of the purchase
-- the creation date
-- the parts of the purchase with the quantity being purchased, it quantity in stock, the price and the tasks assigned to the purchase. It is important to show this information to negotiate with the supplier to get the parts before the expected conclusion date of the maintenance.
-
-\begin{figure}[h]
-  \caption{Waiting delivery purchase details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseRegisterParts}
-  \label{fig:figure2}
-\end{figure}
-
-If the user clicks on a waiting delivery purchase, the user can see the same information about the task, but also can add a purchase delay by adding a new expected arrival date; accomplising the Use Case 3.6 – Create Purchase Delay; or register the parts by clicking the "Registar peças" on the modal footer; accomplish the Use Case 3.4 – Registration of new parts in the System (\ref). 
-The use case 3.4 can be also accomplished in the purchase list by clicking the button "Registar peças".
-
-\begin{figure}[h]
-  \caption{Delivered purchase details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseFinishedDetails}
-  \label{fig:figure2}
-\end{figure}
-If the user clicks on the details of a delivered purchase, it will show the same kind of information as seen in \ref.
-
-
-\begin{figure}[h]
-  \caption{Supplier list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/supplierList}
-  \label{fig:figure2}
-\end{figure}
-
-Returning to the home page the warehouse operator can also see the warehouse supplier by clicking on the button "Fornecedores" on the menu.
-This will open a offcanvas, like the purchase, that will show a list of the supplier, as seen in \ref
-This supplier has the following info:
-- the name
-- the Phone Number
-- and the email
-
-\begin{figure}[h]
-  \caption{Supplier details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/supplierDetails}
-  \label{fig:figure2}
-\end{figure}
-
-By clicking the details, it will show the same information plus the address of the supplier and the parts the supplier supplies (\ref).
-Each part has the duration of the contract in which the supplier may supply the warehouse and the quantity of that.
-
-\subsection{Workshop Manager view}
-
-\begin{figure}[h]
-  \caption{Workshop manager home page.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/homePage}
-  \label{fig:figure2}
-\end{figure}
-
-The workshop manager view shows the general info of system.
-The home page, as seen in \ref, is very similar to the rececionist where it is seen a graph with the tasks of the mechanics for a week. 
-It differs by the column listing the tasks with no user assigned.
-The manager can assigned a task on a user by clicking on a day in the graph or clicking on the button "Adicionar Task" and navegate to the day he wishes.
-This action will open a modal with the details of the day as seen in \ref.
-
-\begin{figure}[h]
-  \caption{Assign task to a mechanic.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/addTask}
-  \label{fig:figure2}
-\end{figure}
-
-This modal is also very similar as in the rececionist schedule task modal, but on the right is the form to assigned the task to a mechanic. 
-To fill this form the manager must select the mechanic by writting their email, the hour he wants the task to begin (maybe remove this) and the task he wants to assigned to the user.
-
-\begin{figure}[h]
-  \caption{Active maintenance list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceList}
-  \label{fig:figure2}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Maintenance details information tab.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceDetails}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Maintenance details tasks tab.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceDetailsTask}
-  \label{fig:figure2}
-\end{figure}
-
-Returning to the home page, the manager to see information about a maintenance may click on the button "Mutações ativas" on the menu.
-This will show a offcanvas with the list of active maintenances, very similar as the rececionist, as wee can see in \ref.
-This maintenance details show the same information as the rececionist, including the tasks tab, but doen't has the tab of the "alterações", as seen in \ref and \ref.
-It has the additional funcionality of adding a task to a maitnenace on the task tab, to this the manager just needs to select the task, the mechanic and the date for the mechanic to do the task. 
-This will provoke a maintenance change that needs to be validated by the client.
-
-\begin{figure}[h]
-  \caption{Maintenance history list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceHistory}
-  \label{fig:figure2}
-\end{figure}
-
-The offcanvas has the additional funcionally of showing the history of maintenance done by the dealership (Use Case 4.3 – View history of maintenance performed), by clicking in the button "Histórico de Manutenções" on the top of offcanvas.
-This will open another offcanvas as seen in \ref.
-
-\begin{figure}[h]
-  \caption{Report example.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/report}
-  \label{fig:figure2}
-\end{figure}
-
-
-In this offcanvas we can filter the list by client, vehicle registration, and date.
-Each maintenance details will show the same modal as in the active maintenance list, but the maintenances that are concluded, the card has a button beside the "Ver Detalhes" with the icon of a pdf.
-This button will return the report of the maintenance, that is the information of the maintenance in a report format. This report can be see in \ref. 
-Below the list of maintenance there is some statistics about the maintenances (Use Case 4.4 – Develop statistics). 
-First there is a table with the total number of maintenance in each state, and below two graphs:
-- one with the total revenue per month, and the other the number of working hours per month
-
-
-\begin{figure}[h]
-  \caption{Purchase request list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/purchaseList}
-  \label{fig:figure2}
-\end{figure}
-
-
-
-\begin{figure}[h]
-  \caption{Purchase request details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/purchaseDetails}
-  \label{fig:figure2}
-\end{figure}
-
-Returning to the home page, the menu next option is the purchases.
-By clicking in this button, it will open the list of purchases that need to be authorized by the manager.
-When opening the details of a purchase will show a modal with the information of the purchase on the left side and a form on the right.
-The form allows the workshop manager to add more parts to the purchase and assign the purchase to a operator if it isn't assigned to anyone.
-To authorize or reject the purchase the workshop manager can do that by clicking on the button "Confirmar" or "Reject", respectively, to accomplish this (Use Case 4.2 – Authorize purchase)
-
-% \begin{figure}[h]
-%   \caption{Transaction list.}
-%   \centering
-%   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/transactionList}
-%   \label{fig:figure2}
-% \end{figure}
-
-% Returning to the home page, the next offcanvas of the menu is the "Transações" which are the transaction of the parts in the inventory.
-% By clicking on this button will show the \ref.
-
-
-\begin{figure}[h]
-  \caption{Worker list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/workerList}
-  \label{fig:figure2}
-\end{figure}
-
-Returning to the home page, the next offcanvas of the menu is the "Funcionários" which list the workers on the dealership.
-By clicking on this button will show the \ref.
-
-\begin{figure}[h]
-  \caption{Worker details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/workerDetails}
-  \label{fig:figure2}
-\end{figure}
-
-This table shows the workers by email and there role. 
-By cliking the details button, it will open a modal as seen in \ref.
-In this modal, the manager can remove the worker, edit the role (Use Case 4.5 – Assign roles to employees) and also see the following information:
-- the name of the worker
-- the date of birth
-- the phone number
-- sex
-
-
-
-\begin{figure}[h]
-  \caption{Create worker.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/workerCreate}
-  \label{fig:figure2}
-\end{figure}
-
-
-In the list of the users there is also a button to create workers called "Criar Funcionário", that will open a modal as seen in \ref.
-To create a worker must introduce:
-- Name
-- Email
-- phone number
-- Date of birth
-- sex
-- Role
-- Password
-
-After the user is created he must confirm his email in his email box.
-
-\begin{figure}[h]
-  \caption{Partnership list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/partnershipList}
-  \label{fig:figure2}
-\end{figure}
-
-
-Returning to the home page, the next menu option is the "Parceiros", that will open a modal like in \ref.
-In this modal it shows two tables, the first one are the request from others bike sharing entities with:
-- the name of the entity
-- the type of vehicles the entity wants the dealership to maintain
-- the date of creation of the request
-- two buttons to confirm or reject the request (Use Case 4.8 – Accept/Reject partnership)
-
-The next table shows all the partners of the dealership.
-
-\begin{figure}[h]
-  \caption{Supplier list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/supplierList}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Supplier Details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/supplierDetails}
-  \label{fig:figure2}
-\end{figure}
-
-The last menu option are the "Fornecedores", this offcanvas is the same as the warehouse operator.
-It shows the suppliers and the information of the contracts of parts they supply, as seen in \ref and \ref.
-
-
-\subsection{Client view}
-
-\begin{figure}[h]
-  \caption{Client wait tasks to be completed.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/waitingTaskCompletion}
-  \label{fig:figure2}
-\end{figure}
-
-
-In this view the layout is used for a phone as seen in \ref.
-When the client logs in after agreed to the maintenance details, he sees the page as in \ref.
-In this page he sees the sees the status of the tasks (Use Case 5.1 – View current maintenance status), and a form where he can rate the service he expects to receive (Use Case 5.4 – Rating of the service expected).
-
-After the tasks are completed the page will pass to the next step, as in \ref (Use Case 5.2 – Notify the customer of the end of maintenance ).
-After the vehicle is delivered the client may rate the service the dealership provided (Use Case 5.3 – Rating of the service provided), as in \ref.
-
-
-\begin{figure}[h]
-  \caption{Maintenance history list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceList}
-  \label{fig:figure2}
-\end{figure}
-The client in this app can also see the history of maintenance done to his vehicles (Use Case 5.5 – View maintenance history), as in \ref.
-In this page the client can filter the maintenances and see its details.
-He can see the following information:
-....
-\begin{figure}[h]
-  \caption{Maintenance details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceDetails}
-  \label{fig:figure2}
-\end{figure}
-When opening the maintenance details he sees the following information, as in \ref :
-...
-
-\begin{figure}[h]
-  \caption{Maintenance details report.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceDetailsReport}
-  \label{fig:figure2}
-\end{figure}
-In this offcanvas the user can also make a download of a report with the information of the maintenance, as seen in \ref.
-
-
-
-\subsection{Administrator view}
-
-
-\begin{figure}[h]
-  \caption{Parts type list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsIndex}
-  \label{fig:figure2}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Parts type details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsDetails}
-  \label{fig:figure2}
-\end{figure}
-The administrator view is used to set the information of the system, namely the existing parts, the tasks and eval task.
-When the administrator logs in his account he gets a list of the diferentes types of parts that exist as seen in figure \ref.
-In this page the administrator can create, delete, edit or view the existing parts.
-By clicking in the button "Detalhes" of a row show the information about a part, as in \ref.
-
-\begin{figure}[h]
-  \caption{Parts type edit.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsEdit}
-  \label{fig:figure2}
-\end{figure}
-
-By clicking in the button "edit" of a row show a form with the information about the part, as in \ref.
-
-\begin{figure}[h]
-  \caption{Parts type delete.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsDelete}
-  \label{fig:figure2}
-\end{figure}
-
-
-By clicking in the button "delete" of a row show a form with the information about the part and a button to delete it, as in \ref.
-
-
-
-\begin{figure}[h]
-  \caption{Parts type create.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsCreate}
-  \label{fig:figure2}
-\end{figure}
-
-By clicking in the button "create" in the top of the table it shows the form of the edit empty, as in \ref.
-
-
-\begin{figure}[h]
-  \caption{Task type list index.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskIndex}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Task type edit.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskEdit}
-  \label{fig:figure2}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Task type details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskDetails}
-  \label{fig:figure2}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Task type delete.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskDelete}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Task type create.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskCreate}
-  \label{fig:figure2}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Eval task list index.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalIndex}
-  \label{fig:figure2}
-
-\end{figure}
-\begin{figure}[h]
-  \caption{Eval task create.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalCreate}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Eval task delete.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalDelete}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Eval task details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalDetails}
-  \label{fig:figure2}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Eval task edit.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalEdit}
-  \label{fig:figure2}
-\end{figure}
-
-
-This layout is the same used for the tasks, as seen in \ref, \ref, \ref e \ref, and for eval tasks, as seen in \ref, \ref, \ref e \ref.
-The design of this view is to see the information the more pratical and efficient possible.
-
+This workflow, shown in \ref{fig:ownerPartnershipFlowChart}, ensures that all partnership requests are explicitly validated, preventing unauthorized access to sensitive vehicle data.
 
 
 

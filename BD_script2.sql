@@ -96,8 +96,9 @@ CREATE TABLE [Maintenance] (
   [DeliverDate] datetime,
   [BudgetExpected] float,
   [Budget] float,
-  [ClientScoreExpected] float,
-  [ClientScore] float,
+  [ClientScoreExpectedId] uniqueidentifier,
+  [ClientScoreId] uniqueidentifier,
+  [ClientScoreGap] float,
   [WorkHoursExpected] float,
   [WorkHours] float,
   [StatusId] tinyint NOT NULL
@@ -108,6 +109,8 @@ ALTER TABLE Maintenance ADD FOREIGN KEY (ClientId) REFERENCES AspNetUsers (Id);
 ALTER TABLE Maintenance ADD FOREIGN KEY (VehicleId) REFERENCES Vehicle (Id);
 ALTER TABLE Maintenance ADD FOREIGN KEY (ClientEntityId) REFERENCES Owner (Id);
 ALTER TABLE Maintenance ADD FOREIGN KEY (OwnerId) REFERENCES Owner (Id);
+ALTER TABLE Maintenance ADD FOREIGN KEY (ClientScoreExpectedId) REFERENCES SERVQUALQuestionarie (Id);
+ALTER TABLE Maintenance ADD FOREIGN KEY (ClientScoreId) REFERENCES SERVQUALQuestionarie (Id);
 
 
 
@@ -467,6 +470,34 @@ CREATE TABLE MaintenanceTaskPurchase (
 
 ALTER TABLE [MaintenanceTaskPurchase] ADD FOREIGN KEY ([MaintenanceTaskId]) REFERENCES [MaintenanceTask] ([Id])
 ALTER TABLE [MaintenanceTaskPurchase] ADD FOREIGN KEY ([PurchaseDetailId]) REFERENCES [PurchaseDetail] ([Id])
+
+CREATE TABLE SERVQUALQuestionarie (
+  Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
+  question01 int Not Null,
+  question02 int Not Null,
+  question03 int Not Null,
+  question04 int Not Null,
+  question05 int Not Null,
+  question06 int Not Null,
+  question07 int Not Null,
+  question08 int Not Null,
+  question09 int Not Null,
+  question10 int Not Null,
+  question11 int Not Null,
+  question12 int Not Null,
+  question13 int Not Null,
+  question14 int Not Null,
+  question15 int Not Null,
+  question16 int Not Null,
+  question17 int Not Null,
+  question18 int Not Null,
+  question19 int Not Null,
+  question20 int Not Null,
+  question21 int Not Null,
+  question22 int Not Null
+);
+
+
 
 rollback
 

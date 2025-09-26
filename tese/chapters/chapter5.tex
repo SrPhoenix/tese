@@ -1,30 +1,59 @@
-\chapter{Conclusion}%
-\label{chapter:conclusion}
+\chapter{User Tests}%
+\label{chapter:workPlan}
 
 \begin{introduction}
-The last chapter presents the conclusions of this dissertation.
+This chapter talks about the test made with the users
 \end{introduction} 
 
 
-This dissertation focuses on the planning of the development of a vehicle maintenance web application for LightMobie's dealerships. 
-The research on this topic reveals the importance of assuring quality of service in this market, presenting a paper to corroborate this statement.
-The paper describes a study made in South Africa using the model SERVQUAL to measure the quality of service in the vehicle maintenance service.
-This section also presents a web application using Laravel to increase the performance of the work at a dealership in Libya. 
-The results were positive, however, the dealer's workers recommended some improvements to the system.
+\section{User tests}
 
-The development of the web application was based on the workflow of the research paper with an emphasis on quality service evaluation.
-The application is also planned to integrate a recommendation from the \citet{MAS_MOTORS}, namely the introduction of an SMS service reminder. 
+To test the aplication i decided to create user tests for each application.
+The test consist of a single or multiple tasks that the user needed to perform or a sequence of question the user needed to answer.
+After a user finish the tests of an aplication he answers a questionair to avaliate the aplication.
+Each application has the same questionair seen in \ref and the user tests can be seen in \ref. 
+In this test i search to envolve the requirements and important features of the application.
 
-For the work plan, the use cases were divided into 6 sprints. 
-These sprints are two weeks long and have a week interval in the middle and at the end of the development, in case of delays in a few tasks.
-After the development of the application, a period is reserved for user testing and adjustments, giving the remaining time to write the dissertation's results.
+\section{Results}
+
+\subsection{Rececionist}
+
+The results of the tests can be seen in \ref.
+By observing the users i saw that overall the tasks were easily accomplish without issues, except the task 6 - maintenance approval. 
+The users coudn't find the form to accomplish the task and required my help to localize it. 
+
+From the feedback of the users i discovered some bugs and points where the application was less user friendly and also some limitations.
+The principal issue was the need to close the modals of the maintenance approval and maintenance details change to get information about the dealership occupation.
+Other issue was the task filter on the maintenance schedule modal. 
+It was working by when clicking on a mechanic remove the filter if the filter was on. 
+The users suggest to remove the filter of the other mechanics and only revealing the tasks of the chosen one.
+The last suggestion was to merge the modal of actions with the maintenance details. 
 
 
-\section{Future work}
+\subsection{workshop Manager}
 
-- internal messaging system to comunicate between the rececionist and the mechanics
-- adicionar category parts to the administrator
-- allow mechanic to do tasks that aren't assigned to him
-- The form of assigned task and shedule a maintenance add the date to the right (?), since it's in the left and hidden.... may suggest difficulçty to the user
-- remove passsword and allow it to do like the client
+The results of the tests can be seen in \ref.
+
+The users were able to finish all tasks without help, but they noted some issues on the filter of the maintenance history statistics that was fixed on a later date.
+They also suggest to clear the forms of employee creation and purchase assign after the operation.
+
+
+\subsection{Mechanic}
+
+The results of the tests can be seen in \ref.
+
+The user in this test did not required any help and could complete the task without any issue.
+They noted that the step by step approach to display the tasks was not recommended and a page displaying all the task would be more apresentable.
+
+
+\subsection{Warehouse Operator}
+
+The results of the tests can be seen in \ref.
+
+The users were also able to complete the tasks easily but suggest than in the modal to create a purchase to allow the search the parts by writing on the keyboard instead of simple select.
+\subsection{Client}
+
+The results of the tests can be seen in \ref.
+
+The users were also able to complete the tasks easily but noted when the tasks ended the empty page could be salvage by showing the contacts of the nearby dealerships.
 

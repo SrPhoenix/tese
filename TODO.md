@@ -52,6 +52,7 @@
 Meter atrasos e wait parts dentro das compras (?)
 Criar historico de compras (?)
 
+
 Dealership admin Create maintenance task type adicionar remove substep 
 
 Rececionista e workshop manager                                                     
@@ -183,7 +184,7 @@ continue, faz continue da tarefa
 
 
 ### rececionista
-
+Cancelar a manutenção não envia toast em condições
 ### chefe de oficina 
 
 ### Sistema 
@@ -425,10 +426,9 @@ O que fazer se o veículo não passa no controlo de qualidade?
 - Metodologia
     - adicionar no fim nos user testes notas recebidas por lisboa e pelo tiago                                      DONE
     - Melhorar o levantamento de requisitos dizendo que foi visto da analise de literatura do tiago e de lisboa     
-    - adicionar testes com utilizadores reais, ver metricas:
-    * **Métricas**: tempo de execução, taxa de erros, satisfação do utilizador.
+    - adicionar testes com utilizadores reais
     - Análise dos resultados
-    - adicionar falar de cada página da aplicação 
+    - adicionar falar de cada página da aplicação                                                                   DONE
     - tirar chapter 4 ????
 
 - Conclusão
@@ -461,3 +461,39 @@ https://www.rockwellautomation.com/en-us/products/software/factorytalk/maintenan
 (https://www.clickmaint.com/blog/fiix-cmms)
 
 
+
+## rececionista
+Permitir o input das horas usar o keyboard                                                              
+- Não fiz porque teria de usar a libraria, não permite usar ao teclado e mostar o picker ao mesmo tempo
+
+Filtro das tarefas deve funcionar ao contrário, ao clicar num mecânico filtrar por esse mecânico                DONE
+Adicionar pointer ao gráfico quando o rato passa por cima                                                       DONE
+O preço das tarefas no modal dos detalhes está errado, falta o preço da peça                                    DONE
+
+## workshop manager
+Clicar na tarefa abre o modal de atribuir tarefa                                                                DONE
+Texto do modal está pouco descritivo                                                                            DONE
+Alterar manutenções ativas para apenas manutenções                                                              DONE
+Filtro do mês nas estatísticas não funciona                                                                     DONE
+Remover manutenções ativas no histórico de manutenções                                                          DONE
+Alterar nas compras o "a ser atribuida" para sem utilizador a vermelho                                          DONE
+Ao concluir uma ação no modal, dar clear ao formulário e fechá-lo (nas compras e nos funcionários)              DONE
+Rejeitar compra não funciona                                                                                    DONE
+
+Passar o modal das ações para uma tab nos detalhes da manutenção
+
+
+## Mecânico
+Alterar o botão de alterar tarefa para fora do offcanvas                                                        DONE
+O modal de alterar tarefa não funciona                                                                          DONE
+Botão da ficha técnica não se vê bem                                                                            DONE
+
+
+## Warehouse manager
+Meter o botão de registar atraso para o body do modal                                                           DONE
+Meter data obrigatório no registar atraso                                                                       DONE
+
+
+## Cliente
+Avaliação do cliente é pouco explicativa (meter estrelas)                                                       
+No menu o historico de manutenções parece disable                                                               DONE
