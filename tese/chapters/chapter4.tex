@@ -151,6 +151,9 @@ Together, these six areas form an integrated database that supports the entire m
 The receptionist's interface is designed to simplify the scheduling and monitoring of maintenance operations. Its main screen (\ref{fig:impReceHome}) presents a bar chart that displays the expected working hours of each mechanic for the selected week. Navigation buttons allow the receptionist to move between weeks, making it easy to identify which mechanics are available to perform vehicle evaluations. This directly supports Use Case 1.1 – Maintenance Schedule.
 
 
+%%%% ADICIONAR FOTO DE EMAIL PARA CRIAR CLIENTE
+
+
 \begin{figure}[h]
   \caption{Rececionist schedule maintenance.}
   \centering
@@ -217,104 +220,66 @@ Additional features include multilingual support (Portuguese and English) and ac
 \subsection{Mechanic view}
 
 
-
-
-The mechanic interface mirrors the structure of the receptionist’s view, but focuses on task execution and vehicle evaluation. On the home page (Figures \ref{fig:figure2}–\ref{fig:figure2}), mechanics can see all tasks assigned to them for the day, including overdue tasks that were started previously but left incomplete. This directly supports Use Case 2.1 – View to-do list and Use Case 2.6 – Continue Task. Each task card provides essential information such as the vehicle registration, task name, and, where applicable, the part required to complete it.
-
-When opening a task, the system guides the mechanic through a series of predefined steps (Figure \ref{fig:figure2}). Each step includes instructions, navigation controls, and access to the vehicle’s technical details, which can be viewed in an expandable panel (Figure \ref{fig:figure2}). The technical sheet contains registration data, mileage since last maintenance, part history, and any client notes. If, during execution, the mechanic determines that a different part is needed, they may trigger a maintenance change request. This pauses the task, records the proposed modification, and initiates Use Case 2.5 – Change Task (Figure \ref{fig:figure2}). Once all steps are completed, the mechanic can leave notes and mark the task as finished, fulfilling Use Case 2.4 – Perform a maintenance task (Figure \ref{fig:figure2}).
-
-The interface also supports vehicle evaluations, where the mechanic identifies and registers new tasks (Figures \ref{fig:figure2}–\ref{fig:figure2}). Starting an evaluation presents a list of potential tasks, each of which can be selected and, if necessary, linked to specific parts. The system checks warehouse stock levels in real time, alerting the mechanic if parts are unavailable so adjustments can be made. Selected tasks are visually highlighted, providing immediate feedback. In the final step of the evaluation (Figure \ref{fig:figure2}), the mechanic reviews the chosen tasks and records the cause of each anomaly before submitting. Completing this workflow corresponds to Use Case 2.2 – Carry out a vehicle analysis or Use Case 2.3 – Register completed tasks, depending on whether the evaluation is performed in a dealership context or for a bikesharing entity.
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
-The mechanic application layout structure is very similar as the rececionist as seen in \ref and in \ref.
-
 \begin{figure}[h]
   \caption{Mechanic home page with simple, late and previous started task.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/HomeContinueLate}
-  \label{fig:figure2}
+  \label{fig:HomeContinueLate}
 \end{figure}
 
 
 
-\begin{figure}[h]
-  \caption{Mechanic home page with evaluation task.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/HomeEvalNotLate}
-  \label{fig:figure2}
-\end{figure}
+% \begin{figure}[h]
+%   \caption{Mechanic home page with evaluation task.}
+%   \centering
+%   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/HomeEvalNotLate}
+%   \label{fig:figure2}
+% \end{figure}
 
-In this page the mechanic can see the tasks assigned to him for the day (Use Case 2.1 – View to-do list).
-In the \ref we can see a task card with a red border and a yellow button with the value "Continue" (Use Case 2.6 – Continue Task).
-This means the task was assigned to him to be done on a previous day and he already started the task but couldn't complete it so he paused it.
-
-On the \ref we can see a evaluation task. A task has the following information:
-- the vehicle registration
-- the name of the task
-- the part needed to completed the task, only appears if the task needs a part to be completed
+The mechanic interface mirrors the structure of the receptionist's view, but focuses on task execution and vehicle evaluation. On the home page (\ref{fig:HomeContinueLate}), mechanics can see all tasks assigned to them for the day, including overdue tasks that were started previously but left incomplete. This directly supports Use Case 2.1 – View to-do list and Use Case 2.6 – Continue Task. Each task card provides essential information such as the vehicle registration, task name, and, where applicable, the part required to complete it.
 
 
 \begin{figure}[h]
   \caption{Mechanic completing simple task first step.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicTaskNormal}
-  \label{fig:figure2}
+  \label{fig:MechanicTaskNormal}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Vehicle details during a task completion.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicTaskVehicleDetails}
-  \label{fig:figure2}
+  \label{fig:MechanicTaskVehicleDetails}
 \end{figure}
-
-When clicking on the button "Continuar", it shows the steps to complete the task as seen in \ref.
-In this page it has the name of the step, the description to complete the step, two buttons to navegate the through the step of the task, and a button to see the vehicle details.
-When clicking on the button "Ficha tecnica do veículo" it shows a button offcanvas with the information of the vehicle as seen in \ref.
-In this offcanvas is seen the following information:
-- vehicle Registration
-- Number of Kilometers since the last maintenance
-- date of the last maintenance
-- necessary part to complete the task
-- the client notes
-- the name of the parts of the vehicle and the date they were added to it
 
 
 \begin{figure}[h]
   \caption{Change task modal.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicTaskChangeTask}
-  \label{fig:figure2}
+  \label{fig:MechanicTaskChangeTask}
 \end{figure}
-
-In this offcanvas there is also a button "Alterar Tarefa" to change the part of the task.
-When clicking in this button it shows a modal with a select with the part the mechanic wants to replace, and by eating the button "Confirmar" the tasks is paused and a maintenance change is generated.
-with this the Use Case 2.5 – Change Task is completed.
 
 
 \begin{figure}[h]
   \caption{Mechanic task last step.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicTaskLastStep}
-  \label{fig:figure2}
+  \label{fig:MechanicTaskLastStep}
 \end{figure}
 
-By following the steps of the task the mechanic will reach the last step where he can leave some notes and complete the task, accomplish the Use Case 2.4 – Do a Vehicle maintenance task. As seen in \ref.
+
+When opening a task, the system guides the mechanic through a series of predefined steps (\ref{fig:MechanicTaskNormal}). Each step includes instructions, navigation controls, and access to the vehicle's technical details, which can be viewed in an expandable panel (\ref{fig:MechanicTaskVehicleDetails}). The technical sheet contains registration data, mileage since last maintenance, part history, and any client notes. If, during execution, the mechanic determines that a different part is needed, they may trigger a maintenance change request. This pauses the task, records the proposed modification, and initiates Use Case 2.5 – Change Task (Figure \ref{fig:MechanicTaskChangeTask}). Once all steps are completed, the mechanic can leave notes and mark the task as finished, fulfilling Use Case 2.4 – Execute Maintenance Task (Figure \ref{fig:MechanicTaskLastStep}).
+
+
 
 
 \begin{figure}[h]
   \caption{Mechanic Evaluation first step.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicEvaluationNormal}
-  \label{fig:figure2}
+  \label{fig:MechanicEvaluationNormal}
 \end{figure}
 
 
@@ -323,117 +288,86 @@ By following the steps of the task the mechanic will reach the last step where h
   \caption{Mechanic select part modal.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicEvaluationSelectTaskWitPart}
-  \label{fig:figure2}
+  \label{fig:MechanicEvaluationSelectTaskWitPart}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Mechanic Evaluation task with part selected.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/TaskSelected}
-  \label{fig:figure2}
+  \label{fig:TaskSelected}
 \end{figure}
 
-when clicking on the "Começar" button on the figure \ref, it appear a toast notification informing the mechanic started the task and a list of tasks the mechanic can add to the maintenance, seen in \ref.
-This page has also the button "Ficha tecnica do vehicle" with the same information as the simple task.
-When a task is selected it turns green, but if the tasks needs a part to be completed it first opens a modal where the mechanic needs to select the part need to complete the task, as seen in figure \ref.
-It shows the number of parts available in the warehouse to inform the mechanic if he would like to change the task since there are few or no parts.
-After that, the part turns green as seen in the figure \ref.
 
 \begin{figure}[h]
   \caption{Mechanic Evaluation last step.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/EvaluationLastStep}
-  \label{fig:figure2}
+  \label{fig:EvaluationLastStep}
 \end{figure}
 
-As the mechanic follows the steps he goes to the last step where he sees the selected tasks and he needs to describe the cause of the anomaly before finishing the task.
-when finishing the task, mechanic is notified by toast notification that the task is completed and with this the Use Case 2.2 – Carry out a vehicle analysis or the Use Case 2.3 – Register tasks completed are completed depending if its a dealership performing a maintenance on the vehicle of the bike sharing entity with efficiency aim maintenance.
-
+The interface also supports vehicle evaluations, where the mechanic identifies and registers new tasks (\ref{fig:MechanicEvaluationSelectTaskWitPart}-\ref{fig:TaskSelected}). Starting an evaluation presents a list of potential tasks, each of which can be selected and, if necessary, linked to specific parts. The system checks warehouse stock levels in real time, alerting the mechanic if parts are unavailable so adjustments can be made. Selected tasks are visually highlighted, providing immediate feedback. In the final step of the evaluation (\ref{fig:EvaluationLastStep}), the mechanic reviews the chosen tasks and records the cause of each anomaly before submitting. Completing this workflow corresponds to Use Case 2.2 – Carry out a vehicle analysis or Use Case 2.3 – Register completed tasks, depending on whether the dealership configuration.
 
 
 \subsection{Warehouse Operator view}
+
 
 \begin{figure}[h]
   \caption{Warehouse home page.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/homepage}
-  \label{fig:figure2}
+  \label{fig:warehouseHomepage}
 \end{figure}
-The warehouse operator view layout strcuture is very similar as the other views as seen in \ref.
-It has the menu on the top of the page and where we can see the list of purchases and the list of suppliers, and has the inventory in the body of the page (Use Case 3.1 – View the different parts that the warehouse possess).
-This inventory is composed of a table of parts in the warehouse including the number of parts available and the location code to locate it.
-If we want to know more about a part we can click on the respective "Detalhes" button and will open a modal, as seen in \ref.
+
+
+
+The warehouse operator interface follows the same overall layout as the other views, with a top menu and a central workspace (\ref{fig:warehouseHomepage}). Its primary purpose is to manage parts inventory, handle purchase requests, and maintain supplier information, covering all operations in Use Case Group 3.
+
 
 \begin{figure}[h]
   \caption{Inventory details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/inventoryDetails}
-  \label{fig:figure2}
+  \label{fig:inventoryDetails}
 \end{figure}
-
-In the modal, we can see the transaction history of the parts; which means the quantity and the date when thes parts were added or removed from the inventory.
-We can also see other information about the part:
-- The name of the part
-- the quantity available
-- the minimum quantity
-- the maximum quantity
-- the location on the warehouse
-- the default quantity to generate a purchase
-- the quantity to use when occurr an automatic purchase generation
-- the code of the part
-- the description of the part
-- the category of the part
-- the quantity per group
-- the price of the part
-
 
 \begin{figure}[h]
   \caption{Inventory editor.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/inventoryEdit}
-  \label{fig:figure2}
+  \label{fig:inventoryEdit}
 \end{figure}
 
-It is possible to edit the inventory clicking on the button "Editar" (Use Case 3.5 – Edit Inventory ) and will show a form as seen in \ref.
-In here we can change:
-- the location of the part in the warehouse
-- the minimum quantity of the part
-- the maximum quantity of the part
-- the quantity to generate a maximum purchase
-- the quantity use on the automatic generated purchase
+
+The inventory section presents a searchable table of all parts stored in the warehouse, including their available quantity and location code (Use Case 3.1 – View warehouse parts). Each entry can be expanded to display detailed information such as stock thresholds, purchase configuration parameters, transaction history, and pricing ( \ref{fig:inventoryDetails}). Operators can also edit inventory settings—such as location, minimum and maximum stock levels, and automatic purchase triggers—fulfilling Use Case 3.5 – Edit inventory (Figure \ref{fig:inventoryEdit}).
+
 
 \begin{figure}[h]
   \caption{Create new purchase modal.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchase}
-  \label{fig:figure2}
+  \label{fig:createPurchase}
 \end{figure}
-
-Returning to the homepage, we can see a search bar on the top of the table that can be use to filter the parts by name, and a button to create a new purchase on the right side of it (Use Case 3.2 – Requesting purchasing service).
-By clicking in this button will show a modal as seen in \ref.
 
 \begin{figure}[h]
   \caption{Create new purchase modal with a part selected.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchaseWithParts}
-  \label{fig:figure2}
+  \label{fig:createPurchaseWithParts}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Create new purchase modal with a part added.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchaseAddedPart}
-  \label{fig:figure2}
+  \label{fig:createPurchaseAddedPart}
 \end{figure}
-In this modal, the warehouse operator can do the Use Case 3.2 – Requesting purchasing service , and , to accomplish that, he needs to fill a motive and choose which parts he wants to add to the purchase.
-To add a part to the purchase he choses a part on the select (\ref), inserts the number of parts groups he wants to purchase, and clicks on the plus button.
-After added a part he can add more, remove the part on the red button, or finish the purchase by clicking on the button "Criar" on the modal footer (\ref) .
 
 \begin{figure}[h]
   \caption{List of purchases.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseList}
-  \label{fig:figure2}
+  \label{fig:PurchaseList}
 \end{figure}
 
 
@@ -441,149 +375,119 @@ After added a part he can add more, remove the part on the red button, or finish
   \caption{Assgined purchase details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseDetails}
-  \label{fig:figure2}
+  \label{fig:PurchaseDetails}
 \end{figure}
 
-Returning to the home page, the warehouse operator may click on the button "Compras" on the menu and will open the list of purchases of the warehouse, as seen in \ref.
-In this offcanvas there is two lists, the finished purchases and the active purchases. 
-Each purchase has two type of information, the creation date and the status.
-When clicking the details of a assigned purchase, it will open a modal like \ref.
-In this modal the user can see the information about the purchase and finalize the purchase by assigning an expected arrival date.
-The information provided is:
-- the state of the purchase
-- the arrival date
-- the total price
-- the motive of the purchase
-- the creation date
-- the parts of the purchase with the quantity being purchased, it quantity in stock, the price and the tasks assigned to the purchase. It is important to show this information to negotiate with the supplier to get the parts before the expected conclusion date of the maintenance.
 
 \begin{figure}[h]
   \caption{Waiting delivery purchase details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseRegisterParts}
-  \label{fig:figure2}
+  \label{fig:PurchaseRegisterParts}
 \end{figure}
 
-If the user clicks on a waiting delivery purchase, the user can see the same information about the task, but also can add a purchase delay by adding a new expected arrival date; accomplising the Use Case 3.6 – Create Purchase Delay; or register the parts by clicking the "Registar peças" on the modal footer; accomplish the Use Case 3.4 – Registration of new parts in the System (\ref). 
-The use case 3.4 can be also accomplished in the purchase list by clicking the button "Registar peças".
 
 \begin{figure}[h]
   \caption{Delivered purchase details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseFinishedDetails}
-  \label{fig:figure2}
+  \label{fig:PurchaseFinishedDetails}
 \end{figure}
-If the user clicks on the details of a delivered purchase, it will show the same kind of information as seen in \ref.
+
+
+
+Purchases are managed directly from the home page. Operators may create new purchase requests by specifying a justification and selecting parts and quantities (\ref{fig:createPurchase}- \ref{fig:createPurchaseAddedPart}), which initiates Use Case 3.2 – Request purchasing service. All purchases are accessible from a dedicated view, where they are organized by status: assigned, awaiting delivery, or completed ( \ref{fig:PurchaseList}). Assigned purchases allow operators to review order details and record expected arrival dates ( \ref{fig:PurchaseDetails}). Waiting delivery purchases support both delaying arrivals (Use Case 3.6 – Create purchase delay) and registering the reception of parts (Use Case 3.4 – Register new parts in the system) ( \ref{fig:PurchaseRegisterParts}). Delivered purchases remain available for reference ( \ref{fig:PurchaseFinishedDetails}).
 
 
 \begin{figure}[h]
   \caption{Supplier list.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/supplierList}
-  \label{fig:figure2}
+  \label{fig:supplierList}
 \end{figure}
 
-Returning to the home page the warehouse operator can also see the warehouse supplier by clicking on the button "Fornecedores" on the menu.
-This will open a offcanvas, like the purchase, that will show a list of the supplier, as seen in \ref
-This supplier has the following info:
-- the name
-- the Phone Number
-- and the email
 
 \begin{figure}[h]
   \caption{Supplier details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/supplierDetails}
-  \label{fig:figure2}
+  \label{fig:supplierDetails}
 \end{figure}
 
-By clicking the details, it will show the same information plus the address of the supplier and the parts the supplier supplies (\ref).
-Each part has the duration of the contract in which the supplier may supply the warehouse and the quantity of that.
+
+
+Finally, the supplier management module enables operators to view and maintain supplier information. A dedicated view lists all suppliers with their contact details ( \ref{fig:supplierList}). Selecting a supplier provides extended information, including address, supplied parts, and contract duration ( \ref{fig:supplierDetails}). This functionality ensures that purchase negotiations and supplier relations remain transparent and up to date.
 
 \subsection{Workshop Manager view}
+
+
+The workshop manager interface serves as the central hub for overseeing dealership operations. Its layout is consistent with the other views, but it integrates features from both the receptionist and warehouse operator roles, reflecting the manager's broader responsibilities.
+
 
 \begin{figure}[h]
   \caption{Workshop manager home page.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/homePage}
-  \label{fig:figure2}
+  \label{fig:workshopmanagerHomePage}
 \end{figure}
-
-The workshop manager view shows the general info of system.
-The home page, as seen in \ref, is very similar to the rececionist where it is seen a graph with the tasks of the mechanics for a week. 
-It differs by the column listing the tasks with no user assigned.
-The manager can assigned a task on a user by clicking on a day in the graph or clicking on the button "Adicionar Task" and navegate to the day he wishes.
-This action will open a modal with the details of the day as seen in \ref.
 
 \begin{figure}[h]
   \caption{Assign task to a mechanic.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/addTask}
-  \label{fig:figure2}
+  \label{fig:workshopmanagerAssignTask}
 \end{figure}
 
-This modal is also very similar as in the rececionist schedule task modal, but on the right is the form to assigned the task to a mechanic. 
-To fill this form the manager must select the mechanic by writting their email, the hour he wants the task to begin (maybe remove this) and the task he wants to assigned to the user.
+
+
+The home page presents a weekly overview of mechanic tasks (Figure \ref{fig:workshopmanagerHomePage}). Unlike the receptionist's schedule, it highlights unassigned tasks, which the manager can allocate to mechanics, fulfilling Use Case 4.1 – Assign tasks. This can be done either directly from the schedule or by opening a task assignment modal (Figure \ref{fig:workshopmanagerAssignTask}).
+
+
 
 \begin{figure}[h]
   \caption{Active maintenance list.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceList}
-  \label{fig:figure2}
+  \label{fig:workshopmanagerMaintenanceList}
 \end{figure}
 
 
-\begin{figure}[h]
-  \caption{Maintenance details information tab.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceDetails}
-  \label{fig:figure2}
-\end{figure}
+% \begin{figure}[h]
+%   \caption{Maintenance details information tab.}
+%   \centering
+%   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceDetails}
+%   \label{fig:workshopmanagerMaintenanceDetails}
+% \end{figure}
 
 \begin{figure}[h]
   \caption{Maintenance details tasks tab.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceDetailsTask}
-  \label{fig:figure2}
+  \label{fig:workshopmanagerMaintenanceDetailsTask}
 \end{figure}
-
-Returning to the home page, the manager to see information about a maintenance may click on the button "Mutações ativas" on the menu.
-This will show a offcanvas with the list of active maintenances, very similar as the rececionist, as wee can see in \ref.
-This maintenance details show the same information as the rececionist, including the tasks tab, but doen't has the tab of the "alterações", as seen in \ref and \ref.
-It has the additional funcionality of adding a task to a maitnenace on the task tab, to this the manager just needs to select the task, the mechanic and the date for the mechanic to do the task. 
-This will provoke a maintenance change that needs to be validated by the client.
 
 \begin{figure}[h]
   \caption{Maintenance history list.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceHistory}
-  \label{fig:figure2}
+  \label{fig:maintenanceHistory}
 \end{figure}
-
-The offcanvas has the additional funcionally of showing the history of maintenance done by the dealership (Use Case 4.3 – View history of maintenance performed), by clicking in the button "Histórico de Manutenções" on the top of offcanvas.
-This will open another offcanvas as seen in \ref.
 
 \begin{figure}[h]
   \caption{Report example.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/report}
-  \label{fig:figure2}
+  \label{fig:report}
 \end{figure}
 
 
-In this offcanvas we can filter the list by client, vehicle registration, and date.
-Each maintenance details will show the same modal as in the active maintenance list, but the maintenances that are concluded, the card has a button beside the "Ver Detalhes" with the icon of a pdf.
-This button will return the report of the maintenance, that is the information of the maintenance in a report format. This report can be see in \ref. 
-Below the list of maintenance there is some statistics about the maintenances (Use Case 4.4 – Develop statistics). 
-First there is a table with the total number of maintenance in each state, and below two graphs:
-- one with the total revenue per month, and the other the number of working hours per month
-
+Maintenance management mirrors the receptionist's view: active maintenances are listed with their details and task breakdowns (\ref{fig:workshopmanagerMaintenanceList}–\ref{fig:workshopmanagerMaintenanceDetailsTask}). The key distinction is that the manager can add new tasks to an ongoing maintenance, which triggers a client validation process. In addition, the manager has access to the maintenance history, supporting Use Case 4.3 – View history of maintenance performed. Past maintenances can be filtered by client, vehicle, or date, and completed cases allow generating PDF reports (\ref{fig:maintenanceHistory} and \ref{fig:report}). Below the history list, statistics such as revenue and working hours are displayed, corresponding to Use Case 4.4 – Develop statistics.
 
 \begin{figure}[h]
   \caption{Purchase request list.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/purchaseList}
-  \label{fig:figure2}
+  \label{fig:workshopmanagerPurchaseList}
 \end{figure}
 
 
@@ -592,50 +496,26 @@ First there is a table with the total number of maintenance in each state, and b
   \caption{Purchase request details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/purchaseDetails}
-  \label{fig:figure2}
+  \label{fig:workshopmanagerPurchaseDetails}
 \end{figure}
 
-Returning to the home page, the menu next option is the purchases.
-By clicking in this button, it will open the list of purchases that need to be authorized by the manager.
-When opening the details of a purchase will show a modal with the information of the purchase on the left side and a form on the right.
-The form allows the workshop manager to add more parts to the purchase and assign the purchase to a operator if it isn't assigned to anyone.
-To authorize or reject the purchase the workshop manager can do that by clicking on the button "Confirmar" or "Reject", respectively, to accomplish this (Use Case 4.2 – Authorize purchase)
-
-% \begin{figure}[h]
-%   \caption{Transaction list.}
-%   \centering
-%   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/transactionList}
-%   \label{fig:figure2}
-% \end{figure}
-
-% Returning to the home page, the next offcanvas of the menu is the "Transações" which are the transaction of the parts in the inventory.
-% By clicking on this button will show the \ref.
+Purchase management also extends the warehouse operator's functionality. Managers review purchase requests submitted by operators and either authorize or reject them (Use Case 4.2 – Authorize purchase). When authorizing, they may also add additional parts and assign the request to a specific operator (\ref{fig:workshopmanagerPurchaseList}–\ref{fig:workshopmanagerPurchaseDetails}).
 
 
 \begin{figure}[h]
   \caption{Worker list.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/workerList}
-  \label{fig:figure2}
+  \label{fig:workerList}
 \end{figure}
 
-Returning to the home page, the next offcanvas of the menu is the "Funcionários" which list the workers on the dealership.
-By clicking on this button will show the \ref.
 
 \begin{figure}[h]
   \caption{Worker details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/workerDetails}
-  \label{fig:figure2}
+  \label{fig:workerDetails}
 \end{figure}
-
-This table shows the workers by email and there role. 
-By cliking the details button, it will open a modal as seen in \ref.
-In this modal, the manager can remove the worker, edit the role (Use Case 4.5 – Assign roles to employees) and also see the following information:
-- the name of the worker
-- the date of birth
-- the phone number
-- sex
 
 
 
@@ -643,123 +523,107 @@ In this modal, the manager can remove the worker, edit the role (Use Case 4.5 �
   \caption{Create worker.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/workerCreate}
-  \label{fig:figure2}
+  \label{fig:workerCreate}
 \end{figure}
 
 
-In the list of the users there is also a button to create workers called "Criar Funcionário", that will open a modal as seen in \ref.
-To create a worker must introduce:
-- Name
-- Email
-- phone number
-- Date of birth
-- sex
-- Role
-- Password
+The worker management module allows the manager to view dealership employees, edit their roles, and register new workers (Use Case 4.5 – Assign roles to employees). Each worker's details include personal information and role, with options to modify or remove them (Figures \ref{fig:workerList}–\ref{fig:workerCreate}).
 
-After the user is created he must confirm his email in his email box.
 
 \begin{figure}[h]
   \caption{Partnership list.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/partnershipList}
-  \label{fig:figure2}
+  \label{fig:partnershipList}
 \end{figure}
 
 
-Returning to the home page, the next menu option is the "Parceiros", that will open a modal like in \ref.
-In this modal it shows two tables, the first one are the request from others bike sharing entities with:
-- the name of the entity
-- the type of vehicles the entity wants the dealership to maintain
-- the date of creation of the request
-- two buttons to confirm or reject the request (Use Case 4.8 – Accept/Reject partnership)
+Partnership requests are handled through a dedicated view. New partnership proposals from external entities list the entity name, vehicle types, and creation date, and can be either accepted or rejected (Use Case 4.8 – Accept/Reject partnership). Confirmed partners are displayed in a separate table ( \ref{fig:partnershipList}).
 
-The next table shows all the partners of the dealership.
 
 \begin{figure}[h]
   \caption{Supplier list.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/supplierList}
-  \label{fig:figure2}
+  \label{fig:workshopmanagerSupplierList}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Supplier Details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/supplierDetails}
-  \label{fig:figure2}
+  \label{fig:workshopmanagerupplierDetails}
 \end{figure}
 
-The last menu option are the "Fornecedores", this offcanvas is the same as the warehouse operator.
-It shows the suppliers and the information of the contracts of parts they supply, as seen in \ref and \ref.
+Finally, supplier management is identical to the warehouse operator view, displaying supplier details, contact information, and contract terms for parts provided ( \ref{fig:workshopmanagerSupplierList}–\ref{fig:workshopmanagerupplierDetails}).
+
 
 
 \subsection{Client view}
+
+
+
+The client interface is designed for mobile use and focuses on tracking the status of a vehicle's maintenance. Its layout differs from the employee views by being streamlined and tailored to end-user needs.
 
 \begin{figure}[h]
   \caption{Client home page with no active maintenance.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceNoState}
-  \label{fig:figure2}
+  \label{fig:MaintenanceNoState}
 \end{figure}
+
+
 
 \begin{figure}[h]
   \caption{Client Home page when he schedules a maintenance with the rececionist.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceState1}
-  \label{fig:figure2}
+  \label{fig:MaintenanceState1}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Client Home page when the vehicle evaluation is complete.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceState2}
-  \label{fig:figure2}
+  \label{fig:MaintenanceState2}
 \end{figure}
-
 
 \begin{figure}[h]
   \caption{Client Home page when the maintenance is approved.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceState3}
-  \label{fig:figure2}
+  \label{fig:MaintenanceState3}
 \end{figure}
+
 
 \begin{figure}[h]
   \caption{Client Home page when the maintenance tasks are completed and the client can go take the vehicle.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceState4}
-  \label{fig:figure2}
+  \label{fig:MaintenanceState4}
 \end{figure}
+
 
 \begin{figure}[h]
   \caption{Client Home page when the vehicle after the vehicle is delivered to the client.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceState5}
-  \label{fig:figure2}
+  \label{fig:MaintenanceState5}
 \end{figure}
-
-
-In this view the layout is used for a phone as seen in \ref.
-After the user contacts a dealership to mark a maintenance to the vehicle, it will show the view in \ref, where the user can see the date for the vehicle evaluation.
-After tge evaluation it will show the view in \ref, where the user can see the tasks shown by the user and, after the maintenance approval, it will show this view \ref, where the user can track which tasks are completed or not.
-Finally after all the task are completed it will show this view \ref and after  the vehicle is delivered this view (\ref), where the user is able to rate the service provided by the dealership.
 
 \begin{figure}[h]
   \caption{List of completed maintenances of the client.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceHistory}
-  \label{fig:figure2}
+  \label{fig:clientMaintenanceHistory}
 \end{figure}
-The client in this app can also see the history of maintenance done to his vehicles (Use Case 5.5 – View maintenance history), as in \ref.
-In this page the client can filter the maintenances by vehicle, dealership and date, as seen in \ref.
-Also the client can download the report of the maintenance that is the same that the workshop manager sees (\ref) and see more information on maintenance details, as seen in \ref and \ref.
+
 
 \begin{figure}[h]
   \caption{Details of a maintenance example the tab of information.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceDetailsInfo}
-  \label{fig:figure2}
+  \label{fig:MaintenanceDetailsInfo}
 \end{figure}
 
 
@@ -767,8 +631,14 @@ Also the client can download the report of the maintenance that is the same that
   \caption{Details of a maintenance example the list of task.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceDetailsTasks}
-  \label{fig:figure2}
+  \label{fig:MaintenanceDetailsTasks}
 \end{figure}
+
+
+When a maintenance is scheduled with a dealership, the home page displays the upcoming evaluation date (\ref{fig:MaintenanceNoState}). Once the evaluation is complete, the client sees the list of proposed tasks, which must be confirmed before the maintenance proceeds ( \ref{fig:MaintenanceState1}). After approval, the client can monitor task progress, following their completion status step by step ( \ref{fig:MaintenanceState2}–\ref{fig:MaintenanceState4}). When all tasks are finished, the application notifies the client that the vehicle is ready for pickup, and once the delivery is completed, the client can rate the service received ( \ref{fig:MaintenanceState5}).
+
+In addition to active maintenances, clients can review their full maintenance history (Use Case 5.5 – View maintenance history). The history view supports filtering by vehicle, dealership, or date ( \ref{fig:clientMaintenanceHistory}). For each entry, clients may download a PDF report—identical to the one generated by the workshop manager—or open a detailed modal with information and task breakdowns ( \ref{fig:MaintenanceDetailsInfo},\ref{fig:MaintenanceDetailsTasks} and \ref{fig:report}).
+
 
 
 \subsection{Administrator view}
@@ -778,7 +648,7 @@ Also the client can download the report of the maintenance that is the same that
   \caption{Parts type list.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsIndex}
-  \label{fig:figure2}
+  \label{fig:partsIndex}
 \end{figure}
 
 
@@ -786,56 +656,49 @@ Also the client can download the report of the maintenance that is the same that
   \caption{Parts type details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsDetails}
-  \label{fig:figure2}
+  \label{fig:partsDetails}
 \end{figure}
-The administrator view is used to set the information of the system, namely the existing parts, the tasks and eval task.
-When the administrator logs in his account he gets a list of the diferentes types of parts that exist as seen in figure \ref.
-In this page the administrator can create, delete, edit or view the existing parts.
-By clicking in the button "Detalhes" of a row show the information about a part, as in \ref.
 
 \begin{figure}[h]
   \caption{Parts type edit.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsEdit}
-  \label{fig:figure2}
+  \label{fig:partsEdit}
 \end{figure}
-
-By clicking in the button "edit" of a row show a form with the information about the part, as in \ref.
 
 \begin{figure}[h]
   \caption{Parts type delete.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsDelete}
-  \label{fig:figure2}
+  \label{fig:partsDelete}
 \end{figure}
-
-
-By clicking in the button "delete" of a row show a form with the information about the part and a button to delete it, as in \ref.
-
 
 
 \begin{figure}[h]
   \caption{Parts type create.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/partsCreate}
-  \label{fig:figure2}
+  \label{fig:partsCreate}
 \end{figure}
 
-By clicking in the button "create" in the top of the table it shows the form of the edit empty, as in \ref.
+
+
+The administrator interface is dedicated to configuring the system's core information, namely the catalog of parts, task types, and evaluation tasks. Upon logging in, the administrator is presented with a list of part types ( \ref{fig:partsIndex}). From this view, parts can be created, edited, deleted, or inspected in detail (Figures \ref{fig:partsDetails}–\ref{fig:partsDelete}). Each operation follows the same interaction pattern: selecting an action in the table opens a form or details modal, ensuring consistency and efficiency.
+
 
 
 \begin{figure}[h]
   \caption{Task type list index.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskIndex}
-  \label{fig:figure2}
+  \label{fig:taskIndex}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Task type edit.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskEdit}
-  \label{fig:figure2}
+  \label{fig:taskEdit}
 \end{figure}
 
 
@@ -843,7 +706,7 @@ By clicking in the button "create" in the top of the table it shows the form of 
   \caption{Task type details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskDetails}
-  \label{fig:figure2}
+  \label{fig:taskDetails}
 \end{figure}
 
  
@@ -851,55 +714,59 @@ By clicking in the button "create" in the top of the table it shows the form of 
   \caption{Task type delete.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskDelete}
-  \label{fig:figure2}
+  \label{fig:taskDelete}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Task type create.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskCreate}
-  \label{fig:figure2}
+  \label{fig:taskCreate}
 \end{figure}
+
 
 
 \begin{figure}[h]
   \caption{Eval task list index.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalIndex}
-  \label{fig:figure2}
+  \label{fig:evalIndex}
 
 \end{figure}
 \begin{figure}[h]
   \caption{Eval task create.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalCreate}
-  \label{fig:figure2}
+  \label{fig:evalCreate}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Eval task delete.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalDelete}
-  \label{fig:figure2}
+  \label{fig:evalDelete}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Eval task details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalDetails}
-  \label{fig:figure2}
+  \label{fig:evalDetails}
 \end{figure}
 
 \begin{figure}[h]
   \caption{Eval task edit.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalEdit}
-  \label{fig:figure2}
+  \label{fig:evalEdit}
 \end{figure}
 
+The same layout is applied to managing task types (Figures \ref{fig:taskIndex}–\ref{fig:taskCreate}) and evaluation tasks (Figures \ref{fig:evalIndex}–\ref{fig:evalEdit}), maintaining uniformity across all system configuration sections. This design allows the administrator to quickly perform updates with minimal effort, ensuring that the dealership's catalog of parts and tasks remains accurate and up to date.
 
-This layout is the same used for the tasks, as seen in \ref, \ref, \ref e \ref, and for eval tasks, as seen in \ref, \ref, \ref e \ref.
-The design of this view is to see the information the more pratical and efficient possible.
+
+\subsection{Summary}
+
+In summary, the implementation of the different application views demonstrates that the overall system requirements were successfully met. Each user role — receptionist, workshop manager, mechanic, warehouse operator, client, and administrator — was provided with a tailored interface designed to support their specific tasks. Although some views share similarities in layout and functionality, they each incorporate the particular features required to fulfill their responsibilities. 
 
 
 

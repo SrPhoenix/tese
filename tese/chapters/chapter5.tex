@@ -1,59 +1,50 @@
-\chapter{User Tests}%
+\chapter{Results}%
 \label{chapter:workPlan}
 
 \begin{introduction}
-This chapter talks about the test made with the users
+This chapter talks about the test made with the users.
 \end{introduction} 
 
 
-\section{User tests}
-
-To test the aplication i decided to create user tests for each application.
-The test consist of a single or multiple tasks that the user needed to perform or a sequence of question the user needed to answer.
-After a user finish the tests of an aplication he answers a questionair to avaliate the aplication.
-Each application has the same questionair seen in \ref and the user tests can be seen in \ref. 
-In this test i search to envolve the requirements and important features of the application.
-
 \section{Results}
 
-\subsection{Rececionist}
 
-The results of the tests can be seen in \ref.
-By observing the users i saw that overall the tasks were easily accomplish without issues, except the task 6 - maintenance approval. 
-The users coudn't find the form to accomplish the task and required my help to localize it. 
+To evaluate the application, I designed a set of user tests tailored to each role-specific interface. These tests consisted of one or more tasks that participants were asked to complete, or sequences of questions they needed to answer. Once a participant finished testing an application, they completed a questionnaire to assess its usability and effectiveness. The same questionnaire, shown in \ref{AplicationQuestionaire}, was used across all applications to ensure consistency in evaluation, while the specific user test tasks are presented in \ref{UserTestsTasks}. The goal of these tests was to cover the main requirements of the system and validate the most relevant features of each application.
 
-From the feedback of the users i discovered some bugs and points where the application was less user friendly and also some limitations.
-The principal issue was the need to close the modals of the maintenance approval and maintenance details change to get information about the dealership occupation.
-Other issue was the task filter on the maintenance schedule modal. 
-It was working by when clicking on a mechanic remove the filter if the filter was on. 
-The users suggest to remove the filter of the other mechanics and only revealing the tasks of the chosen one.
-The last suggestion was to merge the modal of actions with the maintenance details. 
+\subsection{Receptionist}
 
+The test results for the receptionist interface are presented in \ref. Overall, participants were able to complete most tasks without major difficulties, although task 6 (maintenance approval) caused confusion, as users struggled to locate the necessary form and required assistance.
 
-\subsection{workshop Manager}
+The feedback highlighted several usability issues and bugs. The main limitation was that users needed to close the modals for maintenance approval or maintenance detail changes in order to access dealership occupation information, interrupting the workflow. The task filter in the maintenance scheduling modal also behaved unintuitively: clicking on a mechanic removed the filter instead of restricting results to that mechanic. Users suggested changing the behavior so that only the tasks of the selected mechanic are shown.
 
-The results of the tests can be seen in \ref.
+Other comments included the high sensitivity of the time scroll input, with a preference for keyboard entry, the need to improve graph readability by clarifying labels and adding pointers, and adding a confirmation step when canceling a maintenance. Participants also pointed out that the modal actions could be integrated into the maintenance details tab for easier access. Finally, inconsistencies were noted in the display of task prices, and the system lacked error messages when canceling maintenances.
 
-The users were able to finish all tasks without help, but they noted some issues on the filter of the maintenance history statistics that was fixed on a later date.
-They also suggest to clear the forms of employee creation and purchase assign after the operation.
+\subsection{Workshop Manager}
 
+The workshop manager tests (shown in \ref) were completed without external help, but several interface improvements were suggested. Participants found the description text in some modals unclear, and the statistics filter for maintenance history was initially malfunctioning, though this was later corrected.
+
+Additional feedback included removing the redundant “active maintenances” category from the history view, ensuring purchase requests rejected by the manager function as intended, and improving form handling by automatically clearing and closing forms after actions such as employee creation or purchase assignment. Users also suggested displaying hours and minutes in statistics instead of decimals, and allowing keyboard input for dates.
 
 \subsection{Mechanic}
 
-The results of the tests can be seen in \ref.
+For the mechanic interface (\ref), users were able to complete tasks independently. However, they raised concerns about the usability of certain elements. The “Ficha técnica” button was not sufficiently visible, and the step-by-step navigation was considered less intuitive compared to a single-page task overview.
 
-The user in this test did not required any help and could complete the task without any issue.
-They noted that the step by step approach to display the tasks was not recommended and a page displaying all the task would be more apresentable.
-
+Users also suggested moving the “Change Task” button outside the offcanvas panel, ensuring the modal for task changes functions reliably, and adding clearer step names to the task navigation menu.
 
 \subsection{Warehouse Operator}
 
-The results of the tests can be seen in \ref.
+The warehouse operator interface (\ref) allowed participants to complete their tasks with ease, but feedback pointed to improvements in search and data entry. Specifically, when creating a purchase, users wanted to be able to search parts by typing rather than selecting from a static list.
 
-The users were also able to complete the tasks easily but suggest than in the modal to create a purchase to allow the search the parts by writing on the keyboard instead of simple select.
+Other suggestions included requiring a date when registering delays, repositioning the delay registration button to the main modal body, and refining purchase creation with sets so that redundant total values are not shown.
+
 \subsection{Client}
 
-The results of the tests can be seen in \ref.
+Finally, the client interface results (\ref) showed that users could perform tasks without difficulty. However, the evaluation step was found to be unclear, with participants preferring a star-rating system to better express satisfaction.
 
-The users were also able to complete the tasks easily but noted when the tasks ended the empty page could be salvage by showing the contacts of the nearby dealerships.
+In the maintenance history, some users perceived the menu option as disabled, indicating a need for clearer design. Additionally, participants suggested that when no active maintenances are present, the screen should display dealership contact information rather than remaining empty, improving usefulness.
+
+
+\subsection{Conclusion}
+
+Overall, the user tests demonstrated that the main functionalities of each application were usable and allowed participants to complete their assigned tasks. However, the feedback consistently emphasized the importance of improving clarity, visibility, and workflow efficiency across the system. In particular, users identified issues with modal interactions, filter behavior, form handling, and the visibility of certain interface elements. Many of these were relatively small adjustments but had a significant impact on perceived usability. Addressing these points will not only resolve current limitations and bugs but also create a smoother, more intuitive experience for all user roles.
 

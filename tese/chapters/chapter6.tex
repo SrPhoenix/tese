@@ -5,34 +5,33 @@
 The last chapter presents the conclusions of this dissertation.
 \end{introduction} 
 
+The work presented in this dissertation focused on the design and development of a dealership maintenance management platform that integrates the different perspectives of its users: receptionist, workshop manager, mechanic, warehouse operator, client, and administrator. Each role was given a dedicated view, carefully tailored to the requirements identified during the analysis phase, with the objective of ensuring that the entire maintenance workflow could be executed within a single system.
 
-This dissertation focuses on the planning of the development of a vehicle maintenance web application for LightMobie's dealerships. 
-The research on this topic reveals the importance of assuring quality of service in this market, presenting a paper to corroborate this statement.
-The paper describes a study made in South Africa using the model SERVQUAL to measure the quality of service in the vehicle maintenance service.
-This section also presents a web application using Laravel to increase the performance of the work at a dealership in Libya. 
-The results were positive, however, the dealer's workers recommended some improvements to the system.
+The implementation results confirmed that the majority of the functional requirements were successfully achieved. User tests demonstrated that participants were able to complete their assigned tasks across the different applications, thereby validating the correctness of the main workflows. Furthermore, the tests highlighted that the system provides a consistent and coherent experience across roles, enabling a smooth interaction between the dealership’s front office, workshop, and warehouse operations.
 
-The development of the web application was based on the workflow of the research paper with an emphasis on quality service evaluation.
-The application is also planned to integrate a recommendation from the \citet{MAS_MOTORS}, namely the introduction of an SMS service reminder. 
+Nevertheless, the evaluation also uncovered several limitations. Some interfaces presented usability challenges, such as filters that did not behave as expected, forms that were not cleared after submission, or modal dialogs that forced users to navigate back and forth to gather all the necessary information. Additionally, a few bugs were identified that affected clarity and efficiency, including inconsistencies in pricing information, insufficient visibility of interface elements, and interactions that required unnecessary steps. Although these limitations did not prevent the successful completion of tasks, they showed that further refinement is needed to achieve a more intuitive and user-friendly system.
+
+Overall, this project confirms the feasibility of the proposed approach and delivers a functional prototype capable of addressing the key challenges of dealership maintenance management. At the same time, it opens the door for future enhancements that can significantly increase the platform’s usability, scope, and integration with related systems.
+
+\section{Future Work}
+
+Building on the current results, several directions for future improvements have been identified:
+
+\begin{itemize}
+    \item Develop an internal messaging system to enable direct communication between the receptionist and the mechanics.
+    \item Extend the administrator view to support the creation, removal, editing, and visualization of part categories.
+    \item Allow mechanics to execute tasks that are not explicitly assigned to them.
+    \item Simplify the user creation process by removing the password field and enabling employees to configure their credentials upon email confirmation.
+    \item Provide functionality for assigning multiple tasks to a mechanic simultaneously.
+    \item Add statistical tools for the workshop manager, such as average task completion time and service quality indicators.
+    \item Automatically pause a task if a mechanic logs out of the platform while performing it.
+    \item Integrate a billing module, leveraging the one already developed for the Lightmobie bike-sharing platform.
+    \item Enhance the client evaluation form by allowing users to leave written recommendations or final thoughts in addition to ratings.
+    \item Enable managers to modify the list of parts required for a task.
+    \item Allow mechanics to adjust task parts before starting their execution.
+    \item Require managers to specify a reason when rejecting a purchase request.
+\end{itemize}
 
 
-\section{Future work}
 
-- internal messaging system to comunicate between the rececionist and the mechanics
-- adicionar category parts to the administrator
-- allow mechanic to do tasks that aren't assigned to him
-- The form of assigned task and shedule a maintenance add the date to the right (?), since it's in the left and hidden.... may suggest difficulçty to the user
-- remove passsword and allow it to do like the client
-- Assign multiple tasks to a mechanic
-- adicionar mais estatisticas como as horas de pausas e continuação e calcular o tempo que demorou a fazer com isso
-- quando sair da página fazer a pausa da tarefa antes de sair
-- Fazer estatisticas de média de tempo a resolver uma tarefa
-- adicionar faturas com a moloni
-- quando criar compra ver se é do mesmo supplier
-- Add text to client form to let clients leave recommendation or final thougths
-- allow the manager to change the parts needed for a task
-- task change can be done before task init 
-- manager write a reason to deny the purchase
-- operator see invalidated requests
-
-\section{}
+These improvements not only address limitations observed during the evaluation phase but also introduce new capabilities that could expand the system’s applicability in real-world scenarios. Future iterations of the platform should therefore focus on usability refinements, deeper role flexibility, and stronger integration with dealership and client-facing processes.

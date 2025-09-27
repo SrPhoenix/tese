@@ -2,35 +2,20 @@
 \label{chapter:literatureReview}
 
 \begin{introduction}
-  Chapter II covers a review of the literature on vehicle maintenance and service quality at the dealerships. 
-  Additionally, It analyses an existing system and compares it with the software solution of this dissertation.
+The purpose of this chapter is to establish the theoretical and practical foundation for the development of the proposed solution. It begins by examining the vehicle maintenance process, highlighting its relevance to service quality and customer satisfaction. To support this analysis, academic and industrial publications were consulted using research platforms such as Scopus and Google Scholar. From the initial set of results, only a small number of studies were retained, as many focused on unrelated dealership models or narrow applications of machine learning for predictive maintenance. The selected works provide a clearer understanding of the challenges in vehicle maintenance services, the role of software solutions in this sector, and the importance of ensuring high-quality service delivery.
+
+In addition to academic sources, this chapter incorporates real-world insights gathered from EMEL, the company responsible for operating Lisbon's Gira bike-sharing system. Their operational practices illustrate the constraints of current maintenance workflows and provide valuable context for aligning the proposed system with practical needs.
+
+The chapter also introduces the concept of Computerized Maintenance Management Systems (CMMS) as a technological approach to organizing and optimizing maintenance activities. Furthermore, the SERVQUAL model is presented as a method to evaluate service quality in the after-sales industry, emphasizing the gap between customer expectations and perceived service delivery.
+
+Finally, the chapter reviews existing software solutions in the market, such as Fiix and the system developed for MAS Motors LLC, analyzing their strengths, limitations, and relevance to this dissertation. This analysis helps identify the opportunities and requirements that guide the design of the proposed application.
 \end{introduction} 
 
+To gather relevant information for this topic, I conducted a literature search using the Scopus and Google Scholar platforms. In Scopus, I applied the query “\textit{Vehicle AND Maintenance AND Dealerships}”, which initially returned 49 papers. After a preliminary review of titles and abstracts, 24 were identified as potentially relevant. However, a closer analysis revealed that only three were directly applicable to this dissertation. Many of the discarded papers treated dealerships primarily as sales units of larger companies, which lies outside the scope of this work. Others focused on narrow applications of machine learning, such as predictive maintenance. While valuable in their own right, these approaches did not align with the dissertation's emphasis on web applications and maintenance process management.
 
-To acquire information about this topic I search information on the platform Scopus and Google Scholar. 
-In Scopus, I used the query "Vehicle AND Maintenance AND dealerships" and found 49 papers.
-On a primary analysis of the title and abstract, I selected 24 papers that were related to this topic.
-However, on further examination, I chose to write about 3 papers in this dissertation. 
-Most of the papers I discarded were because of the use of the words "Vehicle" and "dealerships". 
-These words made the search return the papers that envisioned the dealerships as a reselling unit of the main company, which is not the focus of this dissertation.
-Another reason was the use of machine learning to solve a specific problem, like predictive maintenance. 
-While being a relevant approach, I decided to focus on Web Applications and vehicle maintenance concepts.
+A complementary search on Google Scholar yielded three additional studies related to the electric vehicle market in China. Although these works provided useful insights into international contexts, they were excluded as the focus of this dissertation is on maintenance operations rather than market-specific trends.
 
-In Google Scholar, I found 3 papers about the electric vehicle in China. 
-They may be important to understand the market in another country, however, I chose to not include them in this dissertation.  
-The three papers I wrote in this dissertation were chosen because two of them were research studies about the process of vehicle maintenance and explained the importance of a quality of service in this industry.
-The other paper described a solution implementation similar to the use case of this dissertation.
-
-With these three papers, I could give a definition of the context and acquire some problems and solutions to focus on in the development phase.  
-
-% \section{Background}
-
-% The LightMobie is a company stablished in Águeda that provides a diverse set of products in the shared mobility sector. 
-% The company also provides a software system to integrate with their bicycles and stations and vehicle maintenance.
-% Currently, the company is in step of renewal of the system to a new solution of the bicycles and stations and is building a platform to interact and manage that system.
-% This platform is able to visualize current and past information of the vehicle, stations and users and there interaction with each other.
-% Additionally, alerts triggered by the equipment are also visible in the dashboard and the user can elaborate statistics on this data.
-
+Ultimately, three papers were selected for detailed analysis. Two of them examined the vehicle maintenance process and highlighted the importance of service quality in ensuring customer satisfaction. The third presented a practical software solution with a use case comparable to the objectives of this dissertation. Together, these studies helped to define the research context and identify key problems and solutions to address during the development phase.
 
 \section{Theoretical Concepts}
 
@@ -76,26 +61,33 @@ The entire flow will be explained in Chapter III.
 
 
 \subsection{EMEL}
-In june  i was able to visit the company \ac{emel}, that is a entity that operates and manage the bike sharing services of the public system of Gira.
-This system operates 2.000 bicycles and 188 stations supporting a total of 12.000 to 14.000 trips per day.
-With this number, the occurrence of equipment failure is much bigger so the efficiency in the process of maintenance is very apreciated.
 
-The flow of a maintenance of a vehicle starts with there arrival at the workshop by a redistributor that discovers a malfunction during theres routine.
-They fill a paper as see in \cite with the parts of the vehicle they find as faulted and do a simple search for vehicle eletric problems, namely if the gps is working and if the battery accepts charge.
-If the vehicle fails this test it is put a side for a special worker to handle this problem, before the maintenance proceeds. Then, the vehicle goes to another waiting list waiting for a free mechanic. 
-When chosen, the mechanic proceeds the mainteance fixing the problems identified in the paper and the others they find along the process.
-After completing the maintenance, the mechanic fill the back of the paper with the parts he used to fix the vehicle, as seen in the figure \cite and the vehicle goes to another worker for its quality validation.
-If the validation discovers a problem in the vehicle it returns to the mechanic that applied the maintenance to fix the problem, and then the vehicle waits for the redistributor to return it to the operacional ground.
 
-The mainteannce provided by this company values more the efficiency than the quality due to the big workload it has. 
-Since the evaluation is simple and superficial, more hidden problems may be overlooked and fail to address.
+In June, I visited the company \ac{EMEL}, an entity responsible for operating and managing the public bike-sharing system Gira in Lisbon. This system comprises approximately 2,000 bicycles and 188 stations, supporting between 12,000 and 14,000 trips per day. Given this high usage volume, equipment failures are frequent, making efficiency in the maintenance process a critical concern.
 
-To manage the inventory at the workshop, the operators use an excel sheet to track the quantities of each part they have in stock. 
-They periodically check the quantity available in stock for each part, so a system that informs the speed to which the parts are being use would be advantageous.
-They have multiple supplier of vehicle parts, each with a determined quantity until a given date. 
-They lack the tools to keep the contracts in check so to know when to realease another public tender for another supplier.
+\begin{figure}[h]
+  \caption{Front page of the paper form used by EMEL during vehicle maintenance. Operators use this section to record identified malfunctions.}
+  \centering
+  \includegraphics[width=0.50\textwidth]{figs/chapter2/emel_front}
+  \label{fig:emel_front}
+\end{figure}
 
-A system that address this issues would help the organization to manage their's inventory.
+\begin{figure}[h]
+  \caption{Back page of the paper form used by EMEL during vehicle maintenance. Mechanics use this section to document the parts replaced during the repair process.}
+  \centering
+  \includegraphics[width=0.50\textwidth]{figs/chapter2/emel_back}
+  \label{fig:emel_back}
+\end{figure}
+
+The maintenance workflow begins when a redistributor identifies a malfunction during routine operations and delivers the vehicle to the workshop. At this stage, the redistributor completes a paper form (Figures \ref{fig:emel_front} and \ref{fig:emel_back}), recording the detected faults and performing a simple diagnostic of electrical components such as the GPS unit and battery. If the vehicle fails these initial tests, it is set aside for a specialist to address before proceeding to standard maintenance. Otherwise, it enters a waiting list until a mechanic becomes available.
+
+Once assigned, the mechanic repairs both the issues reported on the form and any additional problems identified during inspection. Upon completion, the mechanic records the parts used on the reverse side of the form. The vehicle is then forwarded to a quality control worker for validation. If defects are detected at this stage, the bicycle is returned to the same mechanic for correction, after which it waits to be redistributed back into circulation.
+
+Due to the sheer volume of vehicles, EMEL prioritizes efficiency over thoroughness. As a result, inspections tend to be superficial, and hidden or secondary problems may go undetected.
+
+Inventory management is handled through an Excel spreadsheet, where operators manually track stock quantities. Checks are performed periodically to update available parts, but this approach offers little visibility into consumption rates or predictive needs. EMEL works with multiple suppliers, each contracted to deliver parts in specific quantities by set deadlines. However, the absence of adequate tools to monitor contracts makes it difficult to determine when new tenders must be issued.
+
+A digital system that streamlines maintenance records and provides real-time inventory management would significantly improve both efficiency and oversight, helping EMEL to better manage resources and maintain service quality.
 
 
 \subsection{Computerized Maintenance Management System}
@@ -116,8 +108,8 @@ In conclusion, \ac{CMMS} provides a structured, data-driven approach to maintena
 
 
 \subsection{Service Quality}
-SERVQUAL is a service quality concept that provides a multidimensional approach for comparing consumers' perceptions of service quality against their expectations. 
-It emphasizes five core dimensions ~\cite{SERVQUAL_OLD}:
+
+Service quality is a critical factor in the success of vehicle maintenance services. One widely adopted framework for its evaluation is SERVQUAL, which provides a multidimensional approach for comparing consumers’ perceptions of service quality against their expectations. The model emphasizes five dimensions ~\cite{SERVQUAL_OLD}:
 
 
 \begin{itemize}
@@ -136,46 +128,11 @@ It emphasizes five core dimensions ~\cite{SERVQUAL_OLD}:
 \end{figure}
 
 
-To measure the quality of the service one needs to do a questionnaire composed of 22 questions that are divided into the five dimensions of the SERVQUAL model and are answer by the Likert's point scale, where the respondent may rate a question by strongly disagree to strongly agree, as seen in \ref{fig:likert_scale}. ~\cite{Measuring_After_sales_Service_Quality}
-Each question must be divided into two answers, the first one is a score of the expectation of the service provided and the second one is the score of the perception of the service received. ~\cite{Measuring_After_sales_Service_Quality}
-The difference between the two answers is the quality of the service. ~\cite{servqual_blog_da_qualidade} ~\cite{Measuring_After_sales_Service_Quality} ~\cite{SERVQUAL_OLD}
+To assess these dimensions, SERVQUAL relies on a questionnaire consisting of 22 items, divided across the five categories. Each item requires two ratings: one for the expectation of the service and another for the perception of the service received. The responses are given on a 7-point Likert scale, ranging from strongly disagree to strongly agree, as illustrated in Figure~\ref{fig:likert_scale} ~\cite{Measuring_After_sales_Service_Quality}. The quality gap is determined by the difference between the perception and expectation scores ~\cite{servqual_blog_da_qualidade} ~\cite{Measuring_After_sales_Service_Quality} ~\cite{SERVQUAL_OLD}.
 
-% In some cases is recommended to do two interviews with the same client, one before the service to aquire the expectations and another after the service to aquire the perception. ~\cite{servqual_blog_da_qualidade}
-The authors of ~\citet{Measuring_After_sales_Service_Quality} used the SERVQUAL model to measure the quality of the service at a CMV SA dealership in South Africa.
-They collected the data from a semi-structured questionnaire and interviews with customers, managers, and staff.
-The questionnaire can be seen in the figure \ref{fig:SERVQUAL_statements}.
+An illustrative application of the SERVQUAL model can be found in the study by ~\citet{Measuring_After_sales_Service_Quality}, which assessed service quality at a CMV SA dealership in South Africa. The authors collected data through semi-structured questionnaires and interviews with customers, managers, and staff. The results, presented in Figure~\ref{fig:SERVQUAL_results}, revealed negative scores across all five dimensions, with an overall average gap of -0.10. These findings highlight that the services provided by the dealership consistently fell short of customer expectations. Among the main suggestions from customers were the expansion of workshops to reduce travel inconvenience and improving the availability of parts, which were often delayed due to international supply chains. The study underscores the importance of continuous service quality monitoring and recommends that dealerships regularly apply the SERVQUAL framework to identify and address performance gaps.
 
-The results seen in figure \ref{fig:SERVQUAL_results} revealed a negative score in all five dimensions. 
-Even comparing the expectations of the customers with the expectations of the dealers the average score was negative (-0.10).
-This shows that the services provided by the CMV SA dealer are not meeting the expectations of the customers and further improvements are needed. ~\cite{Measuring_After_sales_Service_Quality}
-
-The customer's recommendations included opening more workshops, to reduce travel inconvenience, and availability of parts, due to the long wait for the arrival from China.
-The authors of ~\citet{Measuring_After_sales_Service_Quality} emphasize the importance of service quality to the success of the business and recommend that the dealer should conduct regular SERVQUAL assessments to monitor and address service quality gaps. ~\cite{Measuring_After_sales_Service_Quality}
-
-To address this issue, I will develop in this dissertation another application for the clients. 
-This application will allow the users to evaluate the service done in this dealership, as well as some recommendations, following the model SERVQUAL. 
-
-% \section{Increase Clients Satisfaction in Vehicle Maintenance}
-% In belgrade, serbia, in 2013, a research was conducted to measure the satisfaction of the clients at dealerships. ~\cite{Setting_the_after_sale_process}
-% In the reasearch, they divided the consumers' expectations or demands in three categories:
-% \begin{itemize}
-%   \item quality of repair work, service done within the agreed time schedule, price, friendliness and professionalism, the time waiting for an appointment. 
-%   \item availability of spare parts, advice given for further maintenance, information given about additional work. 
-%   \item adequate documentation about accomplished work, replacing vehicles, to invoices explained, café, Wi-Fi, phone availability. In this paper only the first category has been taken into consideration. 
-% \end{itemize}
-
-
-
-% The GAP model, precedent from the SERVQUAL, also measures service quality by identifying the difference between customer expectations and actual perceptions. 
-% These gaps include discrepancies between customer expectations and management's understanding, management's perceptions and service specifications, service specifications and actual delivery, actual delivery and communicated services, and expected and delivered service. ~\cite{Measuring_After_sales_Service_Quality}
-
-% https://forms.app/en/blog/gap-model-of-service
-
-
-
-
-
-
+Building on this insight, this dissertation proposes the development of a client-facing application that enables users to evaluate the quality of service received, provide feedback, and make recommendations. This approach follows the SERVQUAL model and aims to strengthen customer trust and satisfaction.
 \section{Existing solution}
 
 \subsection{Fiix}
@@ -188,96 +145,43 @@ Also Fiix repordly lacks a built-in interal messaging system for crew communicat
 With this effects in mind, i will aim in this software development to achieve a simple and user friendly solution where the users can intuitively interact with it by focusing on the key functional feature and easy navigation.
 
 \subsection{Service Management for MAS Motors LLC}
-MAS Motors LLC is a Toyota dealership that provides vehicle maintenance services in Libya.
-This company handles the daily work manually using basic applications and paper documents.
-This approach has proven to be ineffective with the expansion of the business and the company needs a more modern method. ~\cite{MAS_MOTORS}
-So the author ~\citet{MAS_MOTORS} developed a web application that facilitates and increases the performance of the work at the dealership.
+MAS Motors LLC is a Toyota dealership in Libya that provides vehicle maintenance services. The company traditionally relied on manual processes, supported only by basic applications and paper-based documentation. While this approach was manageable at smaller scales, the expansion of the business exposed its inefficiencies and highlighted the need for a more modern solution ~\cite{MAS_MOTORS}. To address this challenge, ~\citet{MAS_MOTORS} developed a web application designed to streamline operations and enhance overall performance at the dealership.
 
-The system targets multiple user groups, such as service advisers, technicians, and customers, and offers a centralized platform to manage tasks like job card management, inventory updates, and customer service. ~\cite{MAS_MOTORS}
-The authors' application was developed using Laravel, which is a PHP web application framework, with MariaDB as the database management system, which is a popular open-source relational database.
+The system was built to support multiple user groups—including service advisers, technicians, and customers—through a centralized platform that manages tasks such as job card handling, inventory updates, and customer service. The application was implemented using Laravel, a PHP web framework, together with MariaDB, an open-source relational database management system.
 
-% The authors ~\citet{MAS_MOTORS} applied \ac{RAD} methodology as a software development tool to develop the application, due to its feedback, flexibility, and quickness.
-% \ac{RAD} is an agile software development approach that focuses on rapid prototyping and quick feedback from users over costly planning. ~\cite{rapid_app_development}
-% This approach ideology is an ongoing testing and refinement of the project instead of following a detailed planning and design, such as traditional models.
+Evaluation results of the system were generally positive. A survey conducted with employees and customers assessed the solution using the \ac{FURPS} model, yielding scores of 4.27 for functionality, 4.30 for usability, 4.27 for reliability, 4.46 for performance, and 3.36 for supportability. While supportability received the lowest score—mainly due to limited configuration options ~\cite{MAS_MOTORS}—the system overall demonstrated clear improvements in service efficiency and customer satisfaction. Employees also provided valuable recommendations for future enhancements, including SMS-based service reminders, integration with social media platforms, and broader customer configuration options.
 
-% It is composed of four phases: requirements definition, prototype, feedback, and final product. ~\cite{rapid_app_development}
-% The requirement phase is defined by the definition of an unrestricted set of requirements, that can be changed during any point in the cycle. 
-
-% In the prototype phase, the developers create a prototype of the system to Demonstrate to the client. 
-% This prototype may be rushed since in the finalization stage, the developers will refine the final product. ~\cite{rapid_app_development}
-
-% In the next phase, the feedback, developers present their work to the client and end-users.
-% Depending on the feedback, the client may want to change the requirements or add something new. In this case, the developers will go back to the second stage and repeat the process. ~\cite{rapid_app_development}
-% On positive feedback, the client is satisfied with the prototype and the developers will move to the final product phase.
-
-% In the final phase, the developers will refine the prototype by optimizing their implementation. ~\cite{rapid_app_development}
-
-% For the first phase, the authors write the requirements of the system following the Hewlett-Packard \ac{FURPS} model that categorizes the software requirements into functional and non-functional aspects.
-% The acronym stands for:
-
-% \begin{itemize}
-%    \item Functionality – The core features and business-domain-specific aspects.
-%    \item Usability – User interface considerations like accessibility and aesthetics.
-%    \item Reliability – System availability, accuracy, and failure recovery.
-%    \item Performance – Metrics such as response time and throughput.
-%    \item Supportability – Testability, maintainability, and scalability.
-%   \end{itemize}
-
-The results of the application were positive, the survey response from employees and customers classified the system according to the \ac{FURPS} model with scores of 4.27 for functionality, 4.30 for usability, 4.27 for reliability, 4.46 for performance, and 3.36 for supportability.
-Supportability was the lowest score, due to limited configuration options ~\cite{MAS_MOTORS}, however, the overall system improved the service efficiency and customer satisfaction. ~\cite{MAS_MOTORS}
-The employees also recommended future enhancements, such as SMS notifications for service reminders, integrating social media, and expanding customer configuration options.
-
-% This SMS notifications functionality will be planned in this dissertation Client application to inform the end of the maintenance and the availability for vehicle delivery. 
-As noted by MARS Motors' Employees i will integrate an email notification service into the software, that is used on the lightmobie bike sharing system for alerts and user email validation and notification. 
+Building on these insights, my dissertation incorporates an email notification service, already used in the LightMobie bike-sharing system, to handle alerts, user validation, and service-related notifications. This addition addresses part of the communication gap identified by MAS Motors employees while leveraging existing infrastructure within the LightMobie ecosystem.
 
 \subsection{Architecture Comparison}
 
-% The architecture of the application will have a \ac{MVC} pattern. 
-% The \ac{MVC} pattern separates the application into three main components: Model, View, and Controller.~\cite{mvc_geeksforgeeks} ~\cite{MVC_StartupHouse}
-% The Model is responsable for the storage of data and the logic of the application.  ~\cite{mvc_geeksforgeeks} ~\cite{MVC_StartupHouse}
-% It provides an abstraction layer of the database that allows data operation without the direct contact from the user interface. ~\cite{MVC_StartupHouse}
-% The View represents the \ac{UI} of the application and is used to present the information from the Model component. ~\cite{mvc_geeksforgeeks} ~\cite{MVC_StartupHouse}
-% This component is also responsable for the user's interactions and it does not contain any logic of the application, only limits itself to the communication between the Controller and the user. ~\cite{MVC_StartupHouse}
-% The Controller is responsable to process the data and update the Model and the view, based on the user's actions. ~\cite{mvc_geeksforgeeks} ~\cite{MVC_StartupHouse}
+The application will be developed using the ASP.NET Core MVC framework. This choice is motivated by several advantages over Laravel, the framework adopted in the solution proposed by ~\citet{MAS_MOTORS}. A detailed comparison between the two frameworks is presented in Table \ref{table:architetcture_comparison}.
 
-% This pattern provides a clean separation of concerns, that increases the maintainability, reusability and testability of the code. ~\cite{mvc_geeksforgeeks} ~\cite{MVC_StartupHouse}
-% This requirements are advantageous, since the natural agility of the requirements of the project are not fully stablished and may receive some suggestion from the company along the way. 
-% The scalability is also important since the aim market of this application are the company's dealerships that may be scattered across the country or even Europe.
+One of the key advantages of ASP.NET Core MVC is its seamless integration with Microsoft SQL databases through the Entity Framework package, which greatly simplifies database interactions. While Laravel also supports relational database integration, ASP.NET Core MVC is generally more suitable for Microsoft environments ~\cite{asp_net_vs_laravel}.
 
-The framework the application will be built with is the Asp Net Core MVC. 
-I believe this approach will be better than following the successful application from \citet{MAS_MOTORS} due to a variety of reasons shown in \ref{table:architetcture_comparison}.
+In terms of performance, ASP.NET Core benefits from being based on C\#, a compiled language, whereas Laravel is built on PHP, an interpreted language. This distinction gives ASP.NET Core a performance edge, especially in applications that require scalability and responsiveness.
 
-Firstly, the integration with the Microsoft framework MYSQL database is more simple when using ASP.NET Core due to the package Entity Framework. % [https://learn.microsoft.com/en-us/aspnet/entity-framework]
-Laravel also supports this database interaction, but Asp Net Core MVC is more suitable for this environment. ~\cite{asp_net_vs_laravel}
-
-Additionally, Laravel loses in performance with the compiled language ASP.NET since it is an interpreted language. 
-Finally, in security, Laravel offers some security features like hashing or secure input validation but requires deeper PHP knowledge and proactive vulnerability management. 
-Microsoft offers greater security tools in ASP.NET Core mvc with role-based authentication and login management with Identity framework.
-These functionalities provide a major abstraction to this concept and allow the developer to focus on the application functionalities. ~\cite{asp_net_vs_laravel}
-
+Security is another critical factor. Although Laravel provides features such as hashing and secure input validation, it requires deeper PHP expertise and continuous monitoring for vulnerabilities. ASP.NET Core, on the other hand, integrates more advanced security mechanisms out of the box, including role-based authentication and login management through the Identity Framework. These abstractions reduce the burden on the developer, allowing greater focus on application functionality ~\cite{asp_net_vs_laravel}.
 
 \begin{table}[]
-    \begin{tabular}{| m{5em} | m{15em} | m{15em} |}
-      \hline
-   Parameter & Laravel  & ASP.NET Core MVC   \\
-     \hline
-   Language & PHP & C\#  \\
-     \hline
-   Performance & Lower Performance due to being an interpreted language & Higher performance due to being a Compiled language   \\
-     \hline
-   Security & Offers some Features like hashing and secure input validation & Provides major abstraction with Microsoft tools   \\
-     \hline
-   Integration with SQL & Supports various relational databases & More recommended for Microsoft environments because of integration packages  \\
-     \hline
-  \end{tabular}
-    \caption{Comparison of the Laravel and ASP.NET Core MVC frameworks on a web application development to be integrated into LightMobie Platform.}
-    \label{table:architetcture_comparison}
-    \end{table}
-
-  Another reason to use this framework is to integrate with the Fleet Management System that has the same approach. 
-  This way, despite turning the system more complex, some functionalities like authentication and role assignment are already developed and only need integration. 
-  This integration is not a disadvantage since I was involved in the construction of the system and I am familiar with the functionalities.
-  
+\begin{tabular}{| m{5em} | m{15em} | m{15em} |}
+\hline
+Parameter & Laravel & ASP.NET Core MVC \\
+\hline
+Language & PHP & C\# \\
+\hline
+Performance & Lower performance due to being an interpreted language & Higher performance due to being a compiled language \\
+\hline 
+Security & Provides features such as hashing and input validation, but requires strong PHP knowledge and manual management & Offers advanced built-in security tools, including role-based authentication and Identity Framework support \\
+\hline
+Integration with SQL & Supports various relational databases & Recommended for Microsoft environments due to strong integration packages \\
+\hline
+\end{tabular}
+\caption{Comparison between Laravel and ASP.NET Core MVC frameworks for integration into the LightMobie platform.}
+\label{table:architetcture_comparison}
+\end{table}
+ 
+Another strong motivation for adopting ASP.NET Core MVC is its compatibility with Lightmobie's Fleet Management System, which follows the same architectural approach. This ensures easier integration, particularly for functionalities such as authentication and role assignment, which are already implemented and can be reused. While this choice may introduce some additional complexity, my prior involvement in developing the Fleet Management System provides familiarity with its features, thereby reducing the learning curve and facilitating a smoother integration process.
   
 
 \section{Conclusion}
