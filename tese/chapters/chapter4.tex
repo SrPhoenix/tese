@@ -2,7 +2,7 @@
 \label{chapter:methodology}
 
 \begin{introduction}
-This chapter presents the non-functional requirements and the use cases of the applications. 
+This chapter presents the design and implementation of the system. It begins with the database structure, organized into six core areas to support all workflows described in the previous chapter. Following this, the application views are detailed, illustrating how each user role — receptionist, mechanic, warehouse operator, workshop manager, client, and administrator — interacts with the system through tailored interfaces. The chapter concludes with a summary showing that the implemented views collectively fulfill the defined system requirements.
 \end{introduction} 
 
 
@@ -177,20 +177,6 @@ To schedule a new maintenance, the receptionist can either click the “Adiciona
   \label{fig:impReceMaintHome}
 \end{figure}
 
-\begin{figure}[h]
-  \caption{Active maintenance details task tab.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/maintenance_details_task}
-  \label{fig:impReceMaintTask}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Active maintenance details change tab.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/maintenance_details_change}
-  \label{fig:impReceMaintChange}
-\end{figure}
 
 
 The application also provides quick access to active maintenances through the “Manutenções Ativas” menu option (\ref{fig:impReceListMaint}). This section lists ongoing maintenances, including key details such as vehicle registration, associated entity, expected completion date, and progress percentage. Visual indicators highlight maintenances with pending changes requiring client confirmation. From here, the receptionist can open detailed views (\ref{fig:impReceMaintHome}, \ref{fig:impReceMaintTask} and \ref{fig:impReceMaintChange}), which present information about the maintenance, associated tasks, and any proposed changes. These features enable the receptionist to respond accurately to client inquiries (Use Case 1.3 – Collect maintenance information) and to manage approvals or cancellations of changes (Use Cases 1.4, 1.5, and 1.7).
@@ -229,14 +215,9 @@ Additional features include multilingual support (Portuguese and English) and ac
 
 
 
-% \begin{figure}[h]
-%   \caption{Mechanic home page with evaluation task.}
-%   \centering
-%   \includegraphics[width=\textwidth]{figs/Implementation/mechanic/HomeEvalNotLate}
-%   \label{fig:figure2}
-% \end{figure}
 
-The mechanic interface mirrors the structure of the receptionist's view, but focuses on task execution and vehicle evaluation. On the home page (\ref{fig:HomeContinueLate}), mechanics can see all tasks assigned to them for the day, including overdue tasks that were started previously but left incomplete. This directly supports Use Case 2.1 – View to-do list and Use Case 2.6 – Continue Task. Each task card provides essential information such as the vehicle registration, task name, and, where applicable, the part required to complete it.
+
+The mechanic interface mirrors the structure of the receptionist's view, but focuses on task execution and vehicle evaluation. On the home page (\ref{fig:HomeContinueLate} and \ref{fig:HomeEvalNotLate}), mechanics can see all tasks assigned to them for the day, including overdue tasks that were started previously but left incomplete. This directly supports Use Case 2.1 – View to-do list and Use Case 2.6 – Continue Task. Each task card provides essential information such as the vehicle registration, task name, and, where applicable, the part required to complete it.
 
 
 \begin{figure}[h]
@@ -284,19 +265,6 @@ When opening a task, the system guides the mechanic through a series of predefin
 
 
 
-\begin{figure}[h]
-  \caption{Mechanic select part modal.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/MechanicEvaluationSelectTaskWitPart}
-  \label{fig:MechanicEvaluationSelectTaskWitPart}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Mechanic Evaluation task with part selected.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/mechanic/TaskSelected}
-  \label{fig:TaskSelected}
-\end{figure}
 
 
 \begin{figure}[h]
@@ -331,13 +299,6 @@ The warehouse operator interface follows the same overall layout as the other vi
   \label{fig:inventoryDetails}
 \end{figure}
 
-\begin{figure}[h]
-  \caption{Inventory editor.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/inventoryEdit}
-  \label{fig:inventoryEdit}
-\end{figure}
-
 
 The inventory section presents a searchable table of all parts stored in the warehouse, including their available quantity and location code (Use Case 3.1 – View warehouse parts). Each entry can be expanded to display detailed information such as stock thresholds, purchase configuration parameters, transaction history, and pricing ( \ref{fig:inventoryDetails}). Operators can also edit inventory settings—such as location, minimum and maximum stock levels, and automatic purchase triggers—fulfilling Use Case 3.5 – Edit inventory (Figure \ref{fig:inventoryEdit}).
 
@@ -349,19 +310,6 @@ The inventory section presents a searchable table of all parts stored in the war
   \label{fig:createPurchase}
 \end{figure}
 
-\begin{figure}[h]
-  \caption{Create new purchase modal with a part selected.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchaseWithParts}
-  \label{fig:createPurchaseWithParts}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Create new purchase modal with a part added.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchaseAddedPart}
-  \label{fig:createPurchaseAddedPart}
-\end{figure}
 
 \begin{figure}[h]
   \caption{List of purchases.}
@@ -378,21 +326,6 @@ The inventory section presents a searchable table of all parts stored in the war
   \label{fig:PurchaseDetails}
 \end{figure}
 
-
-\begin{figure}[h]
-  \caption{Waiting delivery purchase details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseRegisterParts}
-  \label{fig:PurchaseRegisterParts}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Delivered purchase details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseFinishedDetails}
-  \label{fig:PurchaseFinishedDetails}
-\end{figure}
 
 
 
@@ -444,20 +377,7 @@ The home page presents a weekly overview of mechanic tasks (Figure \ref{fig:work
 
 
 
-\begin{figure}[h]
-  \caption{Active maintenance list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceList}
-  \label{fig:workshopmanagerMaintenanceList}
-\end{figure}
 
-
-% \begin{figure}[h]
-%   \caption{Maintenance details information tab.}
-%   \centering
-%   \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/maintenanceDetails}
-%   \label{fig:workshopmanagerMaintenanceDetails}
-% \end{figure}
 
 \begin{figure}[h]
   \caption{Maintenance details tasks tab.}
@@ -539,21 +459,6 @@ The worker management module allows the manager to view dealership employees, ed
 
 
 Partnership requests are handled through a dedicated view. New partnership proposals from external entities list the entity name, vehicle types, and creation date, and can be either accepted or rejected (Use Case 4.8 – Accept/Reject partnership). Confirmed partners are displayed in a separate table ( \ref{fig:partnershipList}).
-
-
-\begin{figure}[h]
-  \caption{Supplier list.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/supplierList}
-  \label{fig:workshopmanagerSupplierList}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Supplier Details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/workshopmanager/supplierDetails}
-  \label{fig:workshopmanagerupplierDetails}
-\end{figure}
 
 Finally, supplier management is identical to the warehouse operator view, displaying supplier details, contact information, and contract terms for parts provided ( \ref{fig:workshopmanagerSupplierList}–\ref{fig:workshopmanagerupplierDetails}).
 
@@ -694,36 +599,6 @@ The administrator interface is dedicated to configuring the system's core inform
   \label{fig:taskIndex}
 \end{figure}
 
-\begin{figure}[h]
-  \caption{Task type edit.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskEdit}
-  \label{fig:taskEdit}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Task type details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskDetails}
-  \label{fig:taskDetails}
-\end{figure}
-
- 
-\begin{figure}[h]
-  \caption{Task type delete.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskDelete}
-  \label{fig:taskDelete}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Task type create.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskCreate}
-  \label{fig:taskCreate}
-\end{figure}
-
 
 
 \begin{figure}[h]
@@ -731,28 +606,6 @@ The administrator interface is dedicated to configuring the system's core inform
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalIndex}
   \label{fig:evalIndex}
-
-\end{figure}
-\begin{figure}[h]
-  \caption{Eval task create.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalCreate}
-  \label{fig:evalCreate}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Eval task delete.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalDelete}
-  \label{fig:evalDelete}
-\end{figure}
-
-\begin{figure}[h]
-  \caption{Eval task details.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalDetails}
-  \label{fig:evalDetails}
-\end{figure}
 
 \begin{figure}[h]
   \caption{Eval task edit.}

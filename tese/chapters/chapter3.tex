@@ -1,35 +1,36 @@
-\chapter{Methodology}%
-\label{chapter:methodology}
+\chapter{Requirements}%
+\label{chapter:requirements}
 
 \begin{introduction}
-This chapter presents the non-functional requirements and the use cases of the applications. 
+This chapter defines the specification of the proposed system, combining insights from meetings with LightMobie, EMEL, and the literature. It begins with the requirements, organized by the FURPS model and extended with functional and system constraints. Then, the use cases and workflow are presented to illustrate how each role interacts with the system and how information flows during maintenance. Finally, a set of statuses is introduced to track the progress of each service request, ensuring transparency and consistency throughout the process.
 \end{introduction} 
 
 
 
 
 \section{Application Requirements}
-The requirements for the application were identified using the FURPS model, which divides requirements into functional and non-functional categories.
+The requirements for the application were defined based on insights gathered from multiple sources. These include meetings with stakeholders from LightMobie and EMEL, as well as findings from the literature review. To structure and classify these requirements, the FURPS model was adopted, which organizes them into functional and non-functional categories.
 
 \subsection{Non-Functional Requirements}
-The main non-functional requirements, organized by FURPS, are summarized as follows:
+The non-functional requirements of the system were defined according to the FURPS model and are summarized in Table~\ref{tab:nfr}. These requirements ensure that, beyond providing the necessary functionalities, the system also delivers high levels of quality, performance, and maintainability.
 
 \begin{table}[htbp]
 \centering
 \begin{tabular}{|l|p{10cm}|}
 \hline
 \textbf{Category} & \textbf{Requirement} \\ \hline
-Scalability & The system should be able to support users from Europe. \\ \hline
-Reliability & The system should have an availability of 99\% and must recover from any failure within 4 hours. \\ \hline
-Performance & The system should not take longer than 2 seconds to respond. \\ \hline
-Usability & Training for a new user should not take longer than 8 hours. \\ \hline
-Supportability & The system should be compatible with Chrome, Firefox, Microsoft Edge, and Safari browsers. \\ \hline
+Scalability & The system must be capable of supporting users across Europe. \\ \hline
+Reliability & The system must ensure at least 99\% availability and be able to recover from failures within 4 hours. \ \hline
+Performance & The system's response time must not exceed 2 seconds. \\ \hline
+Usability & Training a new user to effectively use the system should take no longer than 8 hours. \\ \hline
+Supportability & The system must be compatible with the latest versions of Chrome, Firefox, Microsoft Edge, and Safari. \\ \hline
 \end{tabular}
+\label{tab:nfr}
 \caption{Non-Functional Requirements (FURPS Model)}
 \end{table}
 
 \subsection{Functional Requirements}
-The application supports the following user roles: receptionist, mechanic, warehouse manager, and workshop manager. There is also a client application and an administrator view.
+The functional requirements of the system define the operations and features necessary to support the daily activities of its users. The application is designed to accommodate multiple user roles, each with specific responsibilities: receptionist, mechanic, warehouse manager, and workshop manager. In addition, a dedicated client application is provided to support end users, while an administrator view ensures oversight and configuration of the system.
 
 \subsubsection{Administrator}
 \begin{itemize}
@@ -107,19 +108,18 @@ The application supports the following user roles: receptionist, mechanic, wareh
 
 \subsection{System Requirements}
 The system also enforces several logical and structural requirements, detailed as follows:
+
 \begin{itemize}
     \item The system must generate a repair report for each maintenance completed.
     \item Each maintenance task must have a defined sequence to ensure correct order of execution.
     \item Each purchase record may include multiple parts, along with their respective details.
-    \item The system must generate a purchase request when an available quantity of a part is under a determined threshold 
+    \item The system must generate a purchase request when an available quantity of a part is under a determined threshold. 
+    \item Dealerships can only create maintenance tasks for vehicles belonging to their bike-sharing partners; otherwise, they may only accept maintenance from independent clients.
+    \item The workflow must be flexible enough to support both general vehicle maintenance processes and the specific procedures used by EMEL.
 \end{itemize}
 
-A dealership can only create maintenance of vehicle from bike sharing entities that are there partners, otherwise it can only accept maintenance from clients with no entity.
-The system should be flexible and handle general flow of a vehicle maintenance and the workflow of EMEL.  
-
-
 \section{Application Use Cases}
-Use cases were developed for each type of user to systematically describe their interactions within the system. Each sub-section below outlines the main responsibilities of a particular role, followed by the respective use cases.
+To capture how different users interact with the system, a set of use cases was defined. The following subsections present the use cases for each user type, outlining their primary responsibilities and the actions they can perform within the application.
 
 \subsection{Receptionist Use Cases}
 The receptionist is responsible for direct communication with clients, handling vehicle check-in and check-out, as well as managing updates and changes to maintenance requests.
@@ -289,7 +289,7 @@ Clients interact through a dedicated application to monitor status, receive noti
 
 \section{Applications Workflow}
 
-To better understand how users interact with the system and with each other, i designed a flow chart based on the developed use cases. The overall workflow is shown in \ref{fig:appWorkflow}.
+To provide a clear view of how users interact both with the system and with each other, a workflow diagram was created based on the defined use cases. The overall application workflow is presented in Figure~\ref{fig:appWorkflow}.
 
 \begin{figure}[h]
   \caption{Use case flow chart of the Client, Receptionist, Mechanic, Warehouse Operator, and Workshop Manager.}
@@ -308,19 +308,6 @@ During the course of the maintenance, unexpected events may occur. A delivery de
 
 When the maintenance tasks are completed, the system notifies the client that the vehicle is ready. The receptionist delivers the vehicle to the client (Use Case 1.6), after which the client is prompted by the application to rate the service (Use Cases 5.2 and 5.3).
 
-
-% In addition to this main workflow, the system supports several secondary interactions, also represented in \ref{fig:appWorkflow}.
-
-% \begin{itemize}
-%   \item Clients can check the status of their maintenance (Use Case 5.1).
-%   \item Mechanics view their assigned tasks (Use Case 2.1). 
-%   \item Receptionists access client information (Use Case 1.3).
-%   \item Warehouse operators view stock information (Use Case 3.1).
-%   \item Administrators assign roles and permissions to employees (Use Case 4.4). 
-%   \item Administrators review maintenance records and generate statistics (Use Cases 4.2 and 4.3). 
-% \end{itemize}
-
- 
 
 \section{System Statuses} 
 
