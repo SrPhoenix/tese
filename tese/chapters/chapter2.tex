@@ -2,13 +2,13 @@
 \label{chapter:literatureReview}
 
 \begin{introduction}
-The purpose of this chapter is to establish the theoretical and practical foundation for the development of the proposed solution. It begins by examining the vehicle maintenance process, highlighting its relevance to service quality and customer satisfaction. To support this analysis, academic and industrial publications were consulted using research platforms such as Scopus and Google Scholar. From the initial set of results, only a small number of studies were retained, as many focused on unrelated dealership models or narrow applications of machine learning for predictive maintenance. The selected works provide a clearer understanding of the challenges in vehicle maintenance services, the role of software solutions in this sector, and the importance of ensuring high-quality service delivery.
+The purpose of this chapter is to establish the theoretical and practical foundation for the development of the proposed solution. It begins by examining the vehicle maintenance process, highlighting its relevance to service quality and customer satisfaction. 
 
-In addition to academic sources, this chapter incorporates real-world insights gathered from EMEL, the company responsible for operating Lisbon's Gira bike-sharing system. Their operational practices illustrate the constraints of current maintenance workflows and provide valuable context for aligning the proposed system with practical needs.
+Then it incorporates real-world insights gathered from EMEL, the company responsible for operating Lisbon's Gira bike-sharing system. 
 
-The chapter also introduces the concept of Computerized Maintenance Management Systems (CMMS) as a technological approach to organizing and optimizing maintenance activities. Furthermore, the SERVQUAL model is presented as a method to evaluate service quality in the after-sales industry, emphasizing the gap between customer expectations and perceived service delivery.
+Next, it introduces the multiple concepts relevant to the thesis.
 
-Finally, the chapter reviews existing software solutions in the market, such as Fiix and the system developed for MAS Motors LLC, analyzing their strengths, limitations, and relevance to this dissertation. This analysis helps identify the opportunities and requirements that guide the design of the proposed application.
+And finally, the chapter reviews existing software solutions in the market analyzing their strengths, limitations, and relevance to this dissertation.
 \end{introduction} 
 
 To gather relevant information for this topic, I conducted a literature search using the Scopus and Google Scholar platforms. In Scopus, I applied the query “\textit{Vehicle AND Maintenance AND Dealerships}”, which initially returned 49 papers. After a preliminary review of titles and abstracts, 24 were identified as potentially relevant. However, a closer analysis revealed that only three were directly applicable to this dissertation. Many of the discarded papers treated dealerships primarily as sales units of larger companies, which lies outside the scope of this work. Others focused on narrow applications of machine learning, such as predictive maintenance. While valuable in their own right, these approaches did not align with the dissertation's emphasis on web applications and maintenance process management.
@@ -63,11 +63,11 @@ The entire flow will be explained in Chapter III.
 \subsection{EMEL}
 
 
-In June, I visited the company \ac{EMEL}, an entity responsible for operating and managing the public bike-sharing system Gira in Lisbon. This system comprises approximately 2,000 bicycles and 188 stations, supporting between 12,000 and 14,000 trips per day. Given this high usage volume, equipment failures are frequent, making efficiency in the maintenance process a critical concern.
+In June, I visited the company \ac{emel}, an entity responsible for operating and managing the public bike-sharing system Gira in Lisbon. This system comprises approximately 2,000 bicycles and 188 stations, supporting between 12,000 and 14,000 trips per day. Given this high usage volume, equipment failures are frequent, making efficiency in the maintenance process a critical concern.
 
 The maintenance workflow begins when a redistributor identifies a malfunction during routine operations and delivers the vehicle to the workshop. At this stage, the redistributor completes a paper form (Figures \ref{fig:emel_front} and \ref{fig:emel_back}), recording the detected faults and performing a simple diagnostic of electrical components such as the GPS unit and battery. If the vehicle fails these initial tests, it is set aside for a specialist to address before proceeding to standard maintenance. Otherwise, it enters a waiting list until a mechanic becomes available.
 
-Once assigned, the mechanic repairs both the issues reported on the form and any additional problems identified during inspection. Upon completion, the mechanic records the parts used on the reverse side of the form. The vehicle is then forwarded to a quality control worker for validation. If defects are detected at this stage, the bicycle is returned to the same mechanic for correction, after which it waits to be redistributed back into circulation.
+Once free, the mechanic repairs both the issues reported on the form and any additional problems identified during inspection. Upon completion, the mechanic records the parts used on the reverse side of the form. The vehicle is then forwarded to a quality control worker for validation. If defects are detected at this stage, the bicycle is returned to the same mechanic for correction, after which it waits to be redistributed back into circulation.
 
 Due to the sheer volume of vehicles, EMEL prioritizes efficiency over thoroughness. As a result, inspections tend to be superficial, and hidden or secondary problems may go undetected.
 

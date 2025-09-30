@@ -1,0 +1,72 @@
+\changetocdepth {2}
+\babel@toc {portuguese}{}\relax
+\contentsline {chapter}{Conte\'udo}{i}{section*.1}%
+\contentsline {chapter}{Lista de Figuras}{ii}{section*.2}%
+\contentsline {chapter}{Lista de Tabelas}{iii}{section*.3}%
+\contentsline {chapter}{Glossário}{iv}{chapter*.4}%
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objectives and problems}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Structure of the Thesis}{2}{section.1.3}%
+\contentsline {chapter}{\chapternumberline {2}Literature Review}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Theoretical Concepts}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Vehicle Maintenance}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}EMEL}{6}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Computerized Maintenance Management System}{7}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Service Quality}{7}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Existing solution}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Fiix}{8}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Service Management for MAS Motors LLC}{9}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Architecture Comparison}{9}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Conclusion}{10}{section.2.3}%
+\contentsline {chapter}{\chapternumberline {3}Requirements}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Application Requirements}{11}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Non-Functional Requirements}{11}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Functional Requirements}{12}{subsection.3.1.2}%
+\contentsline {subsubsection}{Administrator}{12}{section*.13}%
+\contentsline {subsubsection}{Receptionist}{12}{section*.14}%
+\contentsline {subsubsection}{Mechanic}{12}{section*.15}%
+\contentsline {subsubsection}{Warehouse Manager}{13}{section*.16}%
+\contentsline {subsubsection}{Workshop Manager}{13}{section*.17}%
+\contentsline {subsubsection}{Client}{13}{section*.18}%
+\contentsline {subsection}{\numberline {3.1.3}System Requirements}{14}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Application Use Cases}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Receptionist Use Cases}{14}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Mechanic Use Cases}{15}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Warehouse Operator Use Cases}{16}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Workshop Manager Use Cases}{16}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Client Use Cases}{17}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Applications Workflow}{18}{section.3.3}%
+\contentsline {section}{\numberline {3.4}System Statuses}{21}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Maintenance status}{21}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Maintenance Change Status}{24}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Maintenance Task Status}{24}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Purchase Status}{26}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Owner Partnership Status}{28}{subsection.3.4.5}%
+\contentsline {chapter}{\chapternumberline {4}Implementation}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Database}{29}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Users}{30}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Maintenance and Tasks}{31}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Parts and Inventory}{32}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Purchasing}{34}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Services}{35}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}Vehicles and Owners}{35}{subsection.4.1.6}%
+\contentsline {section}{\numberline {4.2}Implementation}{37}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Rececionist view}{37}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Mechanic view}{40}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Warehouse Operator view}{42}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Workshop Manager view}{46}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Client view}{50}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.6}Administrator view}{51}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.2.7}Summary}{52}{subsection.4.2.7}%
+\contentsline {chapter}{\chapternumberline {5}Results}{53}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Results}{53}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Receptionist}{53}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Workshop Manager}{54}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Mechanic}{54}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Warehouse Operator}{54}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Client}{54}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Conclusion}{55}{subsection.5.1.6}%
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{56}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Future Work}{57}{section.6.1}%
+\contentsline {appendix}{\chapternumberline {A}Additional content}{58}{appendix.A}%

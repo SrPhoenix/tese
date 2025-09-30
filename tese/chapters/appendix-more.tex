@@ -127,20 +127,6 @@
 
 
 \begin{figure}[htbp]
-  \caption{Create new purchase modal with a part selected.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchaseWithParts}
-  \label{fig:createPurchaseWithParts}
-\end{figure}
-
-\begin{figure}[htbp]
-  \caption{Create new purchase modal with a part added.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/warehouse/createPurchaseAddedPart}
-  \label{fig:createPurchaseAddedPart}
-\end{figure}
-
-\begin{figure}[htbp]
   \caption{Assgined purchase details.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/warehouse/PurchaseDetails}
@@ -213,6 +199,8 @@
   \label{fig:report}
 \end{figure}
 
+
+ 
 
 
 \begin{figure}[htbp]
@@ -417,17 +405,20 @@
   \label{fig:evalDetails}
 \end{figure}
 
-
-\begin{figure}[htbp]
-  \caption{User tests tasks}
+\foreach \p in {1,...,8}{%  <-- change 5 to the total number of pages
+\begin{figure}[p]
+  \caption{User tests tasks — page \p}
   \centering
-  \includegraphics[width=0.75\textwidth]{figs/chapter5/UserTestsTasks}
-  \label{fig:UserTestsTasks}
+  \includegraphics[page=\p,width=0.75\textwidth]{figs/chapter5/UserTestsTasks}
+  \label{fig:UserTestsTasks-\p}
 \end{figure}
+}
 
-\begin{figure}[htbp]
-  \caption{Aplication questionaire}
+\foreach \p in {1,...,6}{%  <-- change 5 to the total number of pages
+\begin{figure}[p]
+  \caption{Aplication questionaire— page \p}
   \centering
-  \includegraphics[width=0.75\textwidth]{figs/chapter5/AplicationQuestionaire}
-  \label{fig:AplicationQuestionaire}
+  \includegraphics[page=\p,width=0.75\textwidth]{figs/chapter5/AplicationQuestionaire}
+  \label{fig:AplicationQuestionaire-\p}
 \end{figure}
+}
