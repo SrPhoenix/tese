@@ -255,3 +255,22 @@ No teu caso (aplicação para manutenção em concessionários), ela pode seguir
 
 ---
 
+https://www.timeout.pt/lisboa/pt/noticias/bicicletas-gira-realizam-uma-media-de-7405-viagens-por-dia-091924
+1800 bicicletas
+7405 viagens por dia
+
+
+https://www.jn.pt/economia/artigo/bicicletas-gira-sao-reparadas-ate-ao-osso-num-centro-de-operacoes-onde-ha-uma-cirurgia/15163620?utm_source=chatgpt.com
+
+
+70 manutenções por dia 
+
+manutenção preventiva é de 50 em 50 viagens ou de 14 em 14 dias
+
+
+
+
+
+
+
+
