@@ -4,36 +4,37 @@
 \begin{introduction}
 % This chapter establishes the foundation for the dissertation by presenting the motivation behind the work, the main objectives to be achieved, and the problems that guided the development of the proposed solution. The rapid growth of vehicle-sharing services, combined with the increasing demand for sustainable transport, has intensified the need for efficient maintenance systems. However, many service providers still rely on outdated or manual approaches that can lead to inefficiencies, errors, and ultimately a loss of customer trust.
 
-To address these challenges, this dissertation proposes the design and implementation of a web-based platform to support the daily operations of LightMobi's dealerships. The chapter begins by discussing the market context and the reasons why maintenance management is a critical concern. It then introduces the objectives of the system and highlights the problems that arise in current practices. Finally, it outlines the structure of the thesis.
+To address these challenges, this dissertation proposes the design and implementation of a \textbf{web-based platform} to support the daily operations of LightMobi's dealerships. The chapter begins by discussing the market context and the reasons why maintenance management is a critical concern. It then introduces the objectives of the system and highlights the problems that arise in current practices. Finally, it outlines the structure of the thesis.
 
 \end{introduction} 
 
 
 \section{Motivation}
 
-The vehicle-sharing market has grown significantly since 2021 due to the global interest in sustainability and environmental issues. ~\cite{cohesionOpenData} ~\cite{bike_data_businessresearch}
+The \textbf{vehicle-sharing} market has grown significantly since 2021 due to the global interest in sustainability and environmental issues. ~\cite{cohesionOpenData} ~\cite{bike_data_businessresearch}
 The bike-sharing market, in particular, has gained popularity from governments worldwide, which are investing in cycling infrastructure such as cycling lanes, secure parking facilities, bicycle production and repair industries ~\cite{Clercq2023} ~\cite{Cerro2024} ~\cite{European_declararion_on_cycling} ~\cite{bike_data_businessresearch} ~\cite{cohesionOpenData}.
 This attention to this sector raises the need for vehicle maintenance infrastructure that may be outdated and inefficient. ~\cite{MAS_MOTORS}
 This low quality of service can lead to a significant decrease in the loyalty of the customers, which is the main source of income. ~\cite{Setting_the_after_sale_process}
 
 The company \ac{EMEL}, responsible for the management of urban mobility in Lisbon, operates the public bike-sharing system GIRA. This service currently includes around 1,800 bicycles distributed across 159 stations, supporting an average of 7,405 trips per day ~\cite{Gira_Trips}. To ensure safety and reliability, bicycles undergo preventive maintenance either every 50 trips or every 14 days, depending on which threshold is reached first. On average, \ac{EMEL} performs about 70 maintenance operations per day ~\cite{Gira_Maintenance}. Given the scale of operations and the complexity of coordinating maintenance tasks across vehicles and stations, \ac{EMEL} requires an efficient system to organize and optimize this process, minimizing downtime while maximizing service availability.
 
-This dissertation presents a software solution that facilitates and organizes the work processes at the dealerships of the company LightMobie as well as at \ac{EMEL}. The solution requirements will be gathered through direct communication with employees from both organizations, and its effectiveness will be validated with ordinary users.
+This dissertation presents a software solution that facilitates and organizes the work processes at the dealerships of a bike sharing manufacturer as well as at \ac{EMEL}. 
+
+The solution requirements will be gathered through direct communication with employees from both organizations, and its effectiveness will be validated with ordinary users.
 
 
 \section{Objectives and problems}
 
-The work at a workshop may be organized by manual input with basic applications. ~\cite{MAS_MOTORS} 
+The work at a workshop may be organized by manual input or with rudimentary applications. ~\cite{MAS_MOTORS} 
 This may introduce accidental human errors, which in turn lead to break of promises or unsatisfaction from the customer. ~\cite{MAS_MOTORS} ~\cite{Setting_the_after_sale_process}
-This type of approach may not be very prejudiced in a small business, but the continuous growth of the company requires a more modern method to handle the huge amount of work and achieve continuous success. ~\cite{MAS_MOTORS}
+This type of approach may not be very prejudiced in a small business of 20 bicycles, but the continuous growth of the company requires a more modern method to handle the huge amount of work and achieve continuous success. ~\cite{MAS_MOTORS}
 
-This dissertation will focus on the development of a web application that facilitates and increases the performance of the work at the dealership.
-To accomplish this, the application will allow, simultaneously, the sharing of information, and manage and control of a shared vehicle dealership network.
-% It will also interact with a factory data warehouse to gather information and store data generated from the maintenance process. 
+This dissertation will focus on the development of a web application that aims to facilitate and increase work performance at a dealership. 
 
 This dissertation presents a significant challenge related to the users who work at the dealerships and garages. 
 These users may be already accustomed to their systems or their manual work's labor.  
 The introduction of a new system may be a challenge to the users, so the system must be user-friendly, easy to use, and provide significant value in their work.
+
 Another requirement is the integration with the fleet management platform of LightMobie, a project that has been in development for a few years with a team in \ac{IEETA} at the University of Aveiro.
 It is a platform to manage the vehicle sharing system of an entity like hotels, city hall, etc.  
 
