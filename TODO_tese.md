@@ -269,6 +269,26 @@ manutenção preventiva é de 50 em 50 viagens ou de 14 em 14 dias
 
 
 
+-----------
+
+
+Db
+
+Fiz indices para as tabelas, como um indice é criado automaticamente para as primary keys, criei indices para as foreign keys e  indices paras as principais queries de filtros e de ordenação. Esta queries podem ser vista no anexo `tal`
+
+Para verificar a validade destas queries tenho este query `ssss` para verificar o número de vezes que o inidice é usado. Se não for muito usado removo o indice para não estar a impactar a performace dos outros indices da tabela (Não mostrar o codigo dizer para fazer só)
+
+Eu criei stored procedures para terminar uma tarefa de um mecânico, porque influencia a tabela das tarefas e a tabela da manutenção, caso todas as tarefas estajam completas, a tabela do inventário do concessionário, das transações e das partes dos veículos e este ato deve de ser feito atomicamente de uma só vez. Pela mesma razão, o ato de atribuir uma tarefa, pois a tabela maintenanceTask e mechanic tasks são alteradas e criadas (respetivamnete) e devem ser feito numa unica transação, cancelar uma manutenção pois rejeita todas as tarefas pendentes, alterar o estado da manutenção e refuta todas as alterações de mannutenção pendentes. E por fim registar novas peças, pois altera o estado da compra, muda o inventário, cria transações e altera o estado de tarefas caso haja tarefas relacionadas com a compra.
+
+
+
+---------
+
+Checar se disse na conclusão que falta criar as tarefas e peças realmente precisas para os funcionarios
+
+
+
+
 
 
 
