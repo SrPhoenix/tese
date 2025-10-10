@@ -33,6 +33,17 @@
 
 
 
+\foreach \p in {1,...,4}{%  <-- change 5 to the total number of pages
+\begin{figure}[p]
+  \caption{Database indexes— page \p}
+  \centering
+  \includegraphics[page=\p,width=0.75\textwidth]{figs/dbDiagrams/BD_indexes}
+  \label{fig:BD_indexes-\p}
+\end{figure}
+}
+
+
+
 \begin{figure}[htbp]
   \caption{Active maintenance details Information tab.}
   \centering
@@ -41,6 +52,23 @@
 \end{figure}
 
 
+
+
+\begin{figure}[htbp]
+  \caption{Example of the confirmation email sent to the client. The layout used for dealership employees is similar.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/CreateClient}
+  \label{fig:CreateClient}
+\end{figure}
+
+
+
+\begin{figure}[htbp]
+  \caption{Form where the client fills in the remaining required personal information.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/SetPassword}
+  \label{fig:SetPassword}
+\end{figure}
 
 \begin{figure}[htbp]
   \caption{Active maintenance details task tab.}
@@ -243,6 +271,13 @@
 \end{figure}
 
 
+\begin{figure}[htbp]
+  \caption{Client email notification of the end of the maintenance.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceFinishedNotification}
+  \label{fig:MaintenanceFinishedNotification}
+\end{figure}
+
 
 \begin{figure}[htbp]
   \caption{Client home page with no active maintenance.}
@@ -422,3 +457,4 @@
   \label{fig:AplicationQuestionaire-\p}
 \end{figure}
 }
+

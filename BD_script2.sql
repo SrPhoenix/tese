@@ -209,7 +209,7 @@ ALTER TABLE MechanicTasks ADD FOREIGN KEY (MaintenanceTaskId) REFERENCES Mainten
 
 CREATE TABLE PauseTasks (
   MaintenanceTaskId uniqueidentifier not null,
-  StartDate Datetime,
+  StartDate Datetime not null,
   EndDate Datetime,
   PRIMARY KEY (MaintenanceTaskId, StartDate)
 );
@@ -331,7 +331,6 @@ CREATE TABLE PurchaseDelay  (
   [Id] uniqueidentifier PRIMARY KEY DEFAULT (NEWID()),
   [PurchaseId] uniqueidentifier NOT NULL,
   [CreatedDate] date NOT NULL,
-  [Status] tinyint NOT NULL,
   [ExpectedArrivalDate] date
 );
 ALTER TABLE PurchaseDelay  ADD FOREIGN KEY (PurchaseId) REFERENCES Purchase (Id);
@@ -471,7 +470,7 @@ CREATE TABLE MaintenanceTaskPurchase (
 ALTER TABLE [MaintenanceTaskPurchase] ADD FOREIGN KEY ([MaintenanceTaskId]) REFERENCES [MaintenanceTask] ([Id])
 ALTER TABLE [MaintenanceTaskPurchase] ADD FOREIGN KEY ([PurchaseDetailId]) REFERENCES [PurchaseDetail] ([Id])
 
-CREATE TABLE SERVQUALQuestionarie (
+CREATE TABLE   (
   Id uniqueidentifier PRIMARY KEY DEFAULT NEWID(),
   question01 int Not Null,
   question02 int Not Null,

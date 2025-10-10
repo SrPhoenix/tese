@@ -3,6 +3,7 @@
 <!-- vehicle without owner ABS025 -->
 ## important
 
+- acabar o register new parts no purchase service
 - quando criar compra ver se é do mesmo supplier
 
 - permitir Tarefas/manutenção não serem atribuidas, mas o mecânico pode dar claim

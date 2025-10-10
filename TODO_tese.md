@@ -287,6 +287,17 @@ Eu criei stored procedures para terminar uma tarefa de um mecânico, porque infl
 Checar se disse na conclusão que falta criar as tarefas e peças realmente precisas para os funcionarios
 
 
+-----
+
+## Actually falta fazer
+
+falar sobre o enviar email ao cliente do fim da manutenção                      - DONE
+falar do criar clientes através do rececionista                                 - DONE
+alterar o esquema de base de dados para incluir a tabela dos questionários      - 
+adicionar a info dos index e dos sps                                            - DONE
+Ver mais cenas que o stor pediu
+
+
 
 
 
