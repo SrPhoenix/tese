@@ -293,7 +293,7 @@ Checar se disse na conclusão que falta criar as tarefas e peças realmente prec
 
 falar sobre o enviar email ao cliente do fim da manutenção                      - DONE
 falar do criar clientes através do rececionista                                 - DONE
-alterar o esquema de base de dados para incluir a tabela dos questionários      - 
+alterar o esquema de base de dados para incluir a tabela dos questionários      - DONE
 adicionar a info dos index e dos sps                                            - DONE
 Ver mais cenas que o stor pediu
 
