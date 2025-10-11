@@ -11,28 +11,12 @@ This chapter defines the specification of the proposed system, combining insight
 \section{Application Requirements}
 The requirements for the application were defined based on insights gathered from multiple sources. These include meetings with stakeholders from Lightmobie and EMEL, as well as findings from the literature review. To structure and classify these requirements, the FURPS model was adopted, which organizes them into functional and non-functional categories.
 
-\subsection{Non-Functional Requirements}
-The non-functional requirements of the system were defined according to the FURPS model and are summarized in Table~\ref{tab:nfr}. These requirements ensure that, \textbf{beyond providing the necessary functionalities}, the system also delivers high levels of quality, performance, and maintainability.
-
-\begin{table}[htbp]
-\centering
-\begin{tabular}{|l|p{10cm}|}
-\hline
-\textbf{Category} & \textbf{Requirement} \\ \hline
-Scalability & The system must be capable of supporting users across Europe. \\ \hline
-Reliability & The system must ensure at least 99\% availability and be able to recover from failures within 4 hours. \\ \hline
-Performance & The system's response time must not exceed 2 seconds. \\ \hline
-Usability & Training a new user to effectively use the system should take no longer than 8 hours. \\ \hline
-Supportability & The system must be compatible with the latest versions of Chrome, Firefox, Microsoft Edge, and Safari. \\ \hline
-\end{tabular} 
-\label{tab:nfr}
-\caption{Non-Functional Requirements (FURPS Model)}
-\end{table}
-
-\subsection{Functional Requirements}
-The functional requirements of the system define the operations and features necessary to support the daily activities of its users. The application is designed to accommodate multiple user roles, each with specific responsibilities: receptionist, mechanic, warehouse manager, and workshop manager. In addition, a dedicated client application is provided to support end users, while an administrator view ensures oversight and configuration of the system.
+\subsection{Functional Requirements and Use cases}
+The functional requirements of the system define the operations and features necessary to support the daily activities of its users. The application is designed to accommodate multiple user roles, each with specific responsibilities: receptionist, mechanic, warehouse manager, and workshop manager. In addition, a client view is also supported for end users, and an administrator view ensures oversight and configuration of the system.
 
 \subsubsection{Administrator}
+
+
 \begin{itemize}
     \item Create, edit, view, and remove task types
     \item Manage dealerships (create, edit, view, remove, add/remove vehicle types)
@@ -41,87 +25,7 @@ The functional requirements of the system define the operations and features nec
 \end{itemize}
 
 \subsubsection{Receptionist}
-\begin{itemize}
-    \item Switch interface language between English and Portuguese
-    \item View daily working hours and user-specific hours
-    \item Schedule vehicle reception (registration number, client email, owner name, reception date)
-    \item Create maintenance (expected budget, tasks, expected conclusion date)
-    \item View active maintenances (client name, registration number, entity, creation date, evaluation date, expected conclusion date, budget, planned work hours, tasks)
-    \item Receive notifications on budget or deadline changes in maintenance
-    \item Confirm or reject maintenance changes
-    \item Cancel maintenance
-    \item Conclude maintenance
-    \item Notify when all maintenance tasks are completed
-\end{itemize}
 
-\subsubsection{Mechanic}
-\begin{itemize}
-    \item Switch interface language between English and Portuguese
-    \item View today's tasks
-    \item Pause and continue tasks (e.g., for breaks)
-    \item View maintenance task details (registration number, task type, parts, step descriptions, needed parts, client desired tasks)
-    \item Finalize a task and comment before completion
-    \item View evaluation tasks (maintenance tasks needed, client comment)
-    \item If evaluations are not used, maintenance concludes when a mechanic finishes the evaluation task
-\end{itemize}
-
-\subsubsection{Warehouse Manager}
-\begin{itemize}
-    \item Switch interface language between English and Portuguese
-    \item View dealership inventory (name, code, quantity, warehouse location, description, category, price, quantity per group, min/max values for alarms/purchase requests)
-    \item Edit part type details (location, min/max values, purchase request quantities)
-    \item View quantity changes over time for each part
-    \item See supplier details (name, phone, email, address, contract parts with start/end date)
-    \item Create purchase requests (motive, parts, quantity per part)
-    \item View all purchases (status, arrival date, total price, motive, creation date, parts, stock quantity, price, associated tasks)
-    \item Register expected arrival date or delays for purchases
-    \item Finalize delivery purchase by registering received parts
-\end{itemize}
-
-\subsubsection{Workshop Manager}
-\begin{itemize}
-    \item Switch interface language between English and Portuguese
-    \item View daily and user-specific working hours
-    \item View unassigned tasks
-    \item Assign tasks to mechanics
-    \item View and manage active maintenances (full details including done/planned tasks)
-    \item Add tasks to active maintenances
-    \item View completed tasks with filters (client, vehicle, date), details (client name, vehicle registration, entity, creation date, evaluation date, conclusion date, budget, hours, price), and export as PDF
-    \item View monthly maintenance revenue and total hours worked
-    \item Assign purchases to operators
-    \item View purchase requests (price, motive, creation date, parts info)
-    \item Authorize or reject purchase requests
-    \item Create supplier records (name, phone, email, address, contract parts/details)
-    \item View suppliers and partnerships with bike sharing entities; accept/reject partnerships
-    \item View employee list (email, name, DOB, phone, sex, role); create employee records (all listed data plus password)
-\end{itemize}
-
-
-\subsubsection{Client}
-\begin{itemize}
-    \item View active maintenance information
-    \item View maintenance history
-    \item evaluate the perception of the service quality 
-    \item evaluate the expected service quality 
-\end{itemize}
-
-
-\subsection{System Requirements}
-The system also enforces several logical and structural requirements, detailed as follows:
-
-\begin{itemize}
-    \item The system must generate a repair report for each maintenance completed.
-    \item Each maintenance task must have a defined sequence to ensure correct order of execution.
-    \item Each purchase record may include multiple parts, along with their respective details.
-    \item The system must generate a purchase request when an available quantity of a part is under a determined threshold. 
-    \item Dealerships can only create maintenance tasks for vehicles belonging to their bike-sharing partners; otherwise, they may only accept maintenance from independent clients.
-    \item The workflow must be flexible enough to support both general vehicle maintenance processes and the specific procedures used by EMEL.
-\end{itemize}
-
-\section{Application Use Cases}
-To capture how different users interact with the system, a set of use cases was defined. The following subsections present the use cases for each user type, outlining their primary responsibilities and the actions they can perform within the application.
-
-\subsection{Receptionist Use Cases}
 The receptionist is responsible for direct communication with clients, handling vehicle check-in and check-out, as well as managing updates and changes to maintenance requests.
 
 \begin{itemize}
@@ -159,7 +63,22 @@ The receptionist is responsible for direct communication with clients, handling 
     \textit{System:} Receptionist cancels task in maintenance changes section.
 \end{itemize}
 
-\subsection{Mechanic Use Cases}
+
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View daily working hours and user-specific hours
+    \item Schedule vehicle reception (registration number, client email, owner name, reception date)
+    \item Create maintenance (expected budget, tasks, expected conclusion date)
+    \item View active maintenances (client name, registration number, entity, creation date, evaluation date, expected conclusion date, budget, planned work hours, tasks)
+    \item Receive notifications on budget or deadline changes in maintenance
+    \item Confirm or reject maintenance changes
+    \item Cancel maintenance
+    \item Conclude maintenance
+    \item Notify when all maintenance tasks are completed
+\end{itemize}
+
+\subsubsection{Mechanic}
+
 Mechanics handle maintenance tasks such as vehicle repairs, part replacements, and diagnostics. The following use cases describe their core operations:
 
 \begin{itemize}
@@ -189,7 +108,18 @@ Mechanics handle maintenance tasks such as vehicle repairs, part replacements, a
     \textit{System:} Mechanic selects task to continue from the list.
 \end{itemize}
 
-\subsection{Warehouse Operator Use Cases}
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View today's tasks
+    \item Pause and continue tasks (e.g., for breaks)
+    \item View maintenance task details (registration number, task type, parts, step descriptions, needed parts, client desired tasks)
+    \item Finalize a task and comment before completion
+    \item View evaluation tasks (maintenance tasks needed, client comment)
+    \item If evaluations are not used, maintenance concludes when a mechanic finishes the evaluation task
+\end{itemize}
+
+\subsubsection{Warehouse Manager}
+
 Warehouse operators manage inventory, handle part orders, and update records. Their use cases include:
 
 \begin{itemize}
@@ -219,7 +149,21 @@ Warehouse operators manage inventory, handle part orders, and update records. Th
     \textit{System:} Operator enters revised arrival date.
 \end{itemize}
 
-\subsection{Workshop Manager Use Cases}
+
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View dealership inventory (name, code, quantity, warehouse location, description, category, price, quantity per group, min/max values for alarms/purchase requests)
+    \item Edit part type details (location, min/max values, purchase request quantities)
+    \item View quantity changes over time for each part
+    \item See supplier details (name, phone, email, address, contract parts with start/end date)
+    \item Create purchase requests (motive, parts, quantity per part)
+    \item View all purchases (status, arrival date, total price, motive, creation date, parts, stock quantity, price, associated tasks)
+    \item Register expected arrival date or delays for purchases
+    \item Finalize delivery purchase by registering received parts
+\end{itemize}
+
+\subsubsection{Workshop Manager}
+
 Workshop managers oversee employee assignments, authorize purchases, track history, compile statistics, and manage partnerships.
 
 \begin{itemize}
@@ -257,7 +201,27 @@ Workshop managers oversee employee assignments, authorize purchases, track histo
     \textit{System:} Status of partnership request updated by manager.
 \end{itemize}
 
-\subsection{Client Use Cases}
+
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View daily and user-specific working hours
+    \item View unassigned tasks
+    \item Assign tasks to mechanics
+    \item View and manage active maintenances (full details including done/planned tasks)
+    \item Add tasks to active maintenances
+    \item View completed tasks with filters (client, vehicle, date), details (client name, vehicle registration, entity, creation date, evaluation date, conclusion date, budget, hours, price), and export as PDF
+    \item View monthly maintenance revenue and total hours worked
+    \item Assign purchases to operators
+    \item View purchase requests (price, motive, creation date, parts info)
+    \item Authorize or reject purchase requests
+    \item Create supplier records (name, phone, email, address, contract parts/details)
+    \item View suppliers and partnerships with bike sharing entities; accept/reject partnerships
+    \item View employee list (email, name, DOB, phone, sex, role); create employee records (all listed data plus password)
+\end{itemize}
+
+
+\subsubsection{Client}
+
 Clients interact through a dedicated application to monitor status, receive notifications, and provide ratings.
 
 \begin{itemize}
@@ -283,7 +247,49 @@ Clients interact through a dedicated application to monitor status, receive noti
     \textit{System:} History shown and accessible via app interface.
 \end{itemize}
 
+\begin{itemize}
+    \item View active maintenance information
+    \item View maintenance history
+    \item evaluate the perception of the service quality 
+    \item evaluate the expected service quality 
+\end{itemize}
 
+
+\subsubsection{System Requirements}
+The system also enforces several logical and structural requirements, detailed as follows:
+
+\begin{itemize}
+    \item The system must generate a repair report for each maintenance completed.
+    \item Each maintenance task must have a defined sequence to ensure correct order of execution.
+    \item Each purchase record may include multiple parts, along with their respective details.
+    \item The system must generate a purchase request when an available quantity of a part is under a determined threshold. 
+    \item Dealerships can only create maintenance tasks for vehicles belonging to their bike-sharing partners; otherwise, they may only accept maintenance from independent clients.
+    \item The workflow must be flexible enough to support both general vehicle maintenance processes and the specific procedures used by EMEL.
+\end{itemize}
+
+% \section{Application Use Cases}
+% To capture how different users interact with the system, a set of use cases was defined. The following subsections present the use cases for each user type, outlining their primary responsibilities and the actions they can perform within the application.
+
+
+\subsection{Non-Functional Requirements}
+
+The non-functional requirements of the system were defined following the FURPS model and are summarized in Table~\ref{tab:nfr}. These requirements ensure that, \textbf{beyond providing the necessary functionalities}, the system also delivers \textbf{high standards of quality, performance, usability, and maintainability}.
+
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Category} & \textbf{Requirement} \\ \hline
+Scalability & The system must dynamically allocate resources to handle peak loads without service degradation. \\ \hline
+Reliability & The system must ensure at least 99\% availability and be able to recover from failures within 4 hours. \\ \hline
+Performance & The system should process at least 500 transactions per minute under normal conditions. \\ \hline
+Usability & Training a new user to effectively use the system should take no longer than 8 hours. \\ \hline
+Supportability & The system must be compatible with the latest versions of Chrome, Firefox, Microsoft Edge, and Safari. \\ \hline
+\end{tabular} 
+\label{tab:nfr}
+\caption{Non-Functional Requirements (FURPS Model)}
+\end{table}
 
 
 
@@ -497,5 +503,8 @@ This workflow, shown in \ref{fig:ownerPartnershipFlowChart}, ensures that all pa
 
 
 
+
+
+\section{Summary}
 
 
