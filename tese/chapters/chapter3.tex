@@ -12,9 +12,14 @@ This chapter defines the specification of the proposed system, combining insight
 The requirements for the application were defined based on insights gathered from multiple sources. These include meetings with stakeholders from Lightmobie and EMEL, as well as findings from the literature review. To structure and classify these requirements, the FURPS model was adopted, which organizes them into functional and non-functional categories.
 
 \subsection{Functional Requirements and Use cases}
-The functional requirements of the system define the operations and features necessary to support the daily activities of its users. The application is designed to accommodate multiple user roles, each with specific responsibilities: receptionist, mechanic, warehouse manager, and workshop manager. In addition, a client view is also supported for end users, and an administrator view ensures oversight and configuration of the system.
+The functional requirements define the operations and features that the system must provide to support the daily activities of its users. These requirements were complemented by the creation of a set of \textbf{use cases} that illustrate how users interact with the system to accomplish specific goals. This approach helps capture requirements from the user’s perspective, ensuring that the solution aligns closely with real operational workflows.
+
+The application supports multiple user roles, each responsible for distinct aspects of the maintenance process: administrator, receptionist, mechanic, warehouse manager, workshop manager, and client. In addition, an administrator view provides global oversight and configuration capabilities to ensure the system operates efficiently across all dealerships.
+
 
 \subsubsection{Administrator}
+
+The administrator is responsible for configuring the system and managing essential data that supports dealership operations. This includes maintaining records of dealerships, employees, and vehicle parts, as well as defining the types of maintenance tasks that can be performed. Through these actions, the administrator ensures that the system’s structure remains consistent and up to date.
 
 
 \begin{itemize}
@@ -26,7 +31,23 @@ The functional requirements of the system define the operations and features nec
 
 \subsubsection{Receptionist}
 
-The receptionist is responsible for direct communication with clients, handling vehicle check-in and check-out, as well as managing updates and changes to maintenance requests.
+The receptionist acts as the main point of contact between the client and the workshop. This role involves registering vehicles, creating and updating maintenance requests, and keeping clients informed about the progress of their services. 
+
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View daily working hours and user-specific hours
+    \item Schedule vehicle reception (registration number, client email, owner name, reception date)
+    \item Create maintenance (expected budget, tasks, expected conclusion date)
+    \item View active maintenances (client name, registration number, entity, creation date, evaluation date, expected conclusion date, budget, planned work hours, tasks)
+    \item Receive notifications on budget or deadline changes in maintenance
+    \item Confirm or reject maintenance changes
+    \item Cancel maintenance
+    \item Conclude maintenance
+    \item Notify when all maintenance tasks are completed
+\end{itemize}
+
+To model these interactions, several use cases were defined to describe the receptionist’s typical activities and system interactions.
+
 
 \begin{itemize}
     \item \textbf{Use Case 1.1 – Maintenance Schedule}\\
@@ -64,22 +85,22 @@ The receptionist is responsible for direct communication with clients, handling 
 \end{itemize}
 
 
-\begin{itemize}
-    \item Switch interface language between English and Portuguese
-    \item View daily working hours and user-specific hours
-    \item Schedule vehicle reception (registration number, client email, owner name, reception date)
-    \item Create maintenance (expected budget, tasks, expected conclusion date)
-    \item View active maintenances (client name, registration number, entity, creation date, evaluation date, expected conclusion date, budget, planned work hours, tasks)
-    \item Receive notifications on budget or deadline changes in maintenance
-    \item Confirm or reject maintenance changes
-    \item Cancel maintenance
-    \item Conclude maintenance
-    \item Notify when all maintenance tasks are completed
-\end{itemize}
-
 \subsubsection{Mechanic}
 
-Mechanics handle maintenance tasks such as vehicle repairs, part replacements, and diagnostics. The following use cases describe their core operations:
+Mechanics are responsible for performing the actual maintenance work, including diagnostics, repairs, and part replacements. Their interface provides clear visibility into assigned tasks, progress tracking, and reporting tools to ensure maintenance quality and accountability. Mechanics can pause, resume, and complete tasks while adding comments or observations about the performed work.
+
+
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View today's tasks
+    \item Pause and continue tasks (e.g., for breaks)
+    \item View maintenance task details (registration number, task type, parts, step descriptions, needed parts, client desired tasks)
+    \item Finalize a task and comment before completion
+    \item View evaluation tasks (maintenance tasks needed, client comment)
+    \item If evaluations are not used, maintenance concludes when a mechanic finishes the evaluation task
+\end{itemize}
+
+The following use cases illustrate the main interactions of the mechanic with the system during daily operations:
 
 \begin{itemize}
     \item \textbf{Use Case 2.1 – View To-Do List}\\
@@ -108,19 +129,26 @@ Mechanics handle maintenance tasks such as vehicle repairs, part replacements, a
     \textit{System:} Mechanic selects task to continue from the list.
 \end{itemize}
 
-\begin{itemize}
-    \item Switch interface language between English and Portuguese
-    \item View today's tasks
-    \item Pause and continue tasks (e.g., for breaks)
-    \item View maintenance task details (registration number, task type, parts, step descriptions, needed parts, client desired tasks)
-    \item Finalize a task and comment before completion
-    \item View evaluation tasks (maintenance tasks needed, client comment)
-    \item If evaluations are not used, maintenance concludes when a mechanic finishes the evaluation task
-\end{itemize}
 
 \subsubsection{Warehouse Manager}
 
-Warehouse operators manage inventory, handle part orders, and update records. Their use cases include:
+Warehouse managers oversee all operations related to parts and inventory control. Their responsibilities include managing stock levels, registering purchases, and maintaining supplier information to ensure the workshop has all necessary materials for ongoing maintenance work. The system provides real-time visibility of part availability and supports efficient purchase workflows.
+
+
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View dealership inventory (name, code, quantity, warehouse location, description, category, price, quantity per group, min/max values for alarms/purchase requests)
+    \item Edit part type details (location, min/max values, purchase request quantities)
+    \item View quantity changes over time for each part
+    \item See supplier details (name, phone, email, address, contract parts with start/end date)
+    \item Create purchase requests (motive, parts, quantity per part)
+    \item View all purchases (status, arrival date, total price, motive, creation date, parts, stock quantity, price, associated tasks)
+    \item Register expected arrival date or delays for purchases
+    \item Finalize delivery purchase by registering received parts
+\end{itemize}
+
+The following use cases describe the typical operations of the warehouse manager within the system:
+
 
 \begin{itemize}
     \item \textbf{Use Case 3.1 – View Stock}\\
@@ -150,21 +178,31 @@ Warehouse operators manage inventory, handle part orders, and update records. Th
 \end{itemize}
 
 
-\begin{itemize}
-    \item Switch interface language between English and Portuguese
-    \item View dealership inventory (name, code, quantity, warehouse location, description, category, price, quantity per group, min/max values for alarms/purchase requests)
-    \item Edit part type details (location, min/max values, purchase request quantities)
-    \item View quantity changes over time for each part
-    \item See supplier details (name, phone, email, address, contract parts with start/end date)
-    \item Create purchase requests (motive, parts, quantity per part)
-    \item View all purchases (status, arrival date, total price, motive, creation date, parts, stock quantity, price, associated tasks)
-    \item Register expected arrival date or delays for purchases
-    \item Finalize delivery purchase by registering received parts
-\end{itemize}
+
 
 \subsubsection{Workshop Manager}
 
-Workshop managers oversee employee assignments, authorize purchases, track history, compile statistics, and manage partnerships.
+The workshop manager supervises the overall maintenance process, ensuring efficient task allocation, quality control, and resource management. This role bridges the communication between operational and administrative levels, authorizing purchases, monitoring statistics, and managing both employees and partnerships with external entities.
+
+
+\begin{itemize}
+    \item Switch interface language between English and Portuguese
+    \item View daily and user-specific working hours
+    \item View unassigned tasks
+    \item Assign tasks to mechanics
+    \item View and manage active maintenances (full details including done/planned tasks)
+    \item Add tasks to active maintenances
+    \item View completed tasks with filters (client, vehicle, date), details (client name, vehicle registration, entity, creation date, evaluation date, conclusion date, budget, hours, price), and export as PDF
+    \item View monthly maintenance revenue and total hours worked
+    \item Assign purchases to operators
+    \item View purchase requests (price, motive, creation date, parts info)
+    \item Authorize or reject purchase requests
+    \item Create supplier records (name, phone, email, address, contract parts/details)
+    \item View suppliers and partnerships with bike sharing entities; accept/reject partnerships
+    \item View employee list (email, name, DOB, phone, sex, role); create employee records (all listed data plus password)
+\end{itemize}
+
+The following use cases summarize the key activities of the workshop manager:
 
 \begin{itemize}
     \item \textbf{Use Case 4.1 – Assign Tasks}\\
@@ -202,27 +240,21 @@ Workshop managers oversee employee assignments, authorize purchases, track histo
 \end{itemize}
 
 
-\begin{itemize}
-    \item Switch interface language between English and Portuguese
-    \item View daily and user-specific working hours
-    \item View unassigned tasks
-    \item Assign tasks to mechanics
-    \item View and manage active maintenances (full details including done/planned tasks)
-    \item Add tasks to active maintenances
-    \item View completed tasks with filters (client, vehicle, date), details (client name, vehicle registration, entity, creation date, evaluation date, conclusion date, budget, hours, price), and export as PDF
-    \item View monthly maintenance revenue and total hours worked
-    \item Assign purchases to operators
-    \item View purchase requests (price, motive, creation date, parts info)
-    \item Authorize or reject purchase requests
-    \item Create supplier records (name, phone, email, address, contract parts/details)
-    \item View suppliers and partnerships with bike sharing entities; accept/reject partnerships
-    \item View employee list (email, name, DOB, phone, sex, role); create employee records (all listed data plus password)
-\end{itemize}
 
 
 \subsubsection{Client}
 
-Clients interact through a dedicated application to monitor status, receive notifications, and provide ratings.
+Clients interact with the system through a interface that allows them to stay informed about their vehicle’s maintenance process. They can review progress, receive notifications when maintenance is completed, and provide feedback on service quality. This promotes transparency and strengthens trust between clients and workshops.
+
+
+\begin{itemize}
+    \item View active maintenance information
+    \item View maintenance history
+    \item evaluate the perception of the service quality 
+    \item evaluate the expected service quality 
+\end{itemize}
+
+The following use cases capture typical client interactions within the platform:
 
 \begin{itemize}
     \item \textbf{Use Case 5.1 – View Maintenance Status}\\
@@ -247,16 +279,11 @@ Clients interact through a dedicated application to monitor status, receive noti
     \textit{System:} History shown and accessible via app interface.
 \end{itemize}
 
-\begin{itemize}
-    \item View active maintenance information
-    \item View maintenance history
-    \item evaluate the perception of the service quality 
-    \item evaluate the expected service quality 
-\end{itemize}
 
 
 \subsubsection{System Requirements}
-The system also enforces several logical and structural requirements, detailed as follows:
+
+The system also enforces several logical and structural requirements to ensure consistency, integrity, and operational efficiency, as summarized below:
 
 \begin{itemize}
     \item The system must generate a repair report for each maintenance completed.
@@ -508,3 +535,12 @@ This workflow, shown in \ref{fig:ownerPartnershipFlowChart}, ensures that all pa
 \section{Summary}
 
 
+This chapter outlined the requirements analysis for the proposed maintenance management system, combining insights from stakeholder meetings and relevant literature. The requirements were structured using the FURPS model to address both functional and non-functional aspects of the system.
+
+Functionally, the platform accommodates several user roles — including administrator, receptionist, mechanic, warehouse manager, workshop manager, and client — each responsible for specific tasks within the maintenance workflow. These range from managing data and inventory to scheduling services, executing maintenance operations, and providing client feedback.
+
+The non-functional requirements defined key quality attributes such as scalability, reliability, performance, and usability, ensuring that the system remains robust, efficient, and compatible across major web browsers. The chapter also detailed the application’s workflow, describing how users interact throughout the maintenance process, from service scheduling to vehicle delivery, supported by clear communication and traceability mechanisms.
+
+Finally, several operational status models were introduced to standardize and monitor system states — including maintenance, task, purchase, and partnership statuses — ensuring transparency and control across the maintenance lifecycle.
+
+Altogether, this chapter established a solid foundation for the system’s design and implementation, ensuring that every requirement is well defined and aligned with stakeholder needs.
