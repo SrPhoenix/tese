@@ -34,7 +34,7 @@ To fulfill this requirement to the fullest, one must supervise every stage of th
   \label{fig:Vehicle_maintenace_macro}
 \end{figure}
 
-The general flow of vehicle maintenance is illustrated in the figure \ref{fig:Vehicle_maintenace_macro}. 
+The general flow of vehicle maintenance is illustrated in Figure~\ref{fig:Vehicle_maintenace_macro}. 
 The first step of the process starts with a client interacting with the garage to schedule a vehicle maintenance or repair. 
 After that, the client goes to the garage, where the receptionist receives the client and the vehicle.
 Here, the mechanic will perform the maintenance of the vehicle and, when is done, the vehicle will be delivered to the client.
@@ -65,7 +65,7 @@ The entire flow will be explained in Chapter III.
 
 In June, I visited the company \ac{emel}, an entity responsible for operating and managing the public bike-sharing system Gira in Lisbon. This system comprises approximately 1,800 bicycles and 159 stations, supporting on average 7,405 trips per day, according to 2024 data ~\cite{Gira_Trips}. Each bicycle is scheduled for preventive maintenance either every 50 trips or every 14 days which results in an average of around 70 maintenance operations per day ~\cite{Gira_Maintenance}. This scale of demand requires a well-structured maintenance operation to ensure safety, reliability, and service availability.
 
-To handle this demand, \ac{emel} follows a maintenance workflow that begins when a redistributor identifies a malfunction during routine operations and delivers the vehicle to the workshop. At this stage, the redistributor completes a paper form (Figures \ref{fig:emel_front} and \ref{fig:emel_back}), recording the detected faults and performing a simple diagnostic of electrical components such as the GPS unit and battery. If the vehicle fails these initial tests, it is set aside for a specialist to address before proceeding to standard maintenance. Otherwise, it enters a waiting list until a mechanic becomes available.
+To handle this demand, \ac{emel} follows a maintenance workflow that begins when a redistributor identifies a malfunction during routine operations and delivers the vehicle to the workshop. At this stage, the redistributor completes a paper form (Figures~\ref{fig:emel_front} and ~\ref{fig:emel_back}), recording the detected faults and performing a simple diagnostic of electrical components such as the GPS unit and battery. If the vehicle fails these initial tests, it is set aside for a specialist to address before proceeding to standard maintenance. Otherwise, it enters a waiting list until a mechanic becomes available.
 
 When a mechanic is free, the bicycle undergoes repair for both the reported issues and any additional problems detected during inspection. Upon completion, the mechanic records the parts used on the reverse side of the form. The bicycle is then forwarded to a quality control worker for validation. If defects are detected at this stage, the bicycle is returned to the same mechanic for correction before re-entering circulation. Although this process ensures that urgent faults are addressed, the high daily volume of bicycles forces \ac{emel} to prioritize speed over thoroughness, which can result in superficial inspections and undetected secondary issues.
 
@@ -93,7 +93,7 @@ In conclusion, \ac{CMMS} provides a structured, data-driven approach to maintena
 
 \subsection{Service Quality}
 
-Service quality is a critical factor in the success of vehicle maintenance services. One widely adopted framework for its evaluation is SERVQUAL, which provides a multidimensional approach for comparing consumers’ perceptions of service quality against their expectations. The model emphasizes five dimensions ~\cite{SERVQUAL_OLD}:
+Service quality is a critical factor in the success of vehicle maintenance services. One widely adopted framework for its evaluation is SERVQUAL, which provides a multidimensional approach for comparing consumers' perceptions of service quality against their expectations. The model emphasizes five dimensions ~\cite{SERVQUAL_OLD}:
 
 
 \begin{itemize}
@@ -143,7 +143,7 @@ Building on these insights, my dissertation incorporates an email notification s
 
 \subsection{Architecture Comparison}
   
-The application will be developed using the ASP.NET Core MVC framework. This choice is motivated by several advantages over Laravel, the framework adopted in the solution proposed by ~\citet{MAS_MOTORS}. A detailed comparison between the two frameworks is presented in Table \ref{table:architetcture_comparison}.
+The application will be developed using the ASP.NET Core MVC framework. This choice is motivated by several advantages over Laravel, the framework adopted in the solution proposed by ~\citet{MAS_MOTORS}. A detailed comparison between the two frameworks is presented in Table~\ref{table:architetcture_comparison}.
 
 One of the key advantages of ASP.NET Core MVC is its seamless integration with Microsoft SQL databases through the Entity Framework package, which greatly simplifies database interactions. While Laravel also supports relational database integration, ASP.NET Core MVC is generally more suitable for Microsoft environments ~\cite{asp_net_vs_laravel}.
 

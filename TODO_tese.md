@@ -295,11 +295,11 @@ falar sobre o enviar email ao cliente do fim da manutenção                    
 falar do criar clientes através do rececionista                                 - DONE
 alterar o esquema de base de dados para incluir a tabela dos questionários      - DONE
 adicionar a info dos index e dos sps                                            - DONE
-Ver mais cenas que o stor pediu                                                 
+Ver mais cenas que o stor pediu                                                 - DONE
 Na db de manutenção e tasks dizer                                               - DONE
   - as questões usadas são as baseadas nas questões                             - DONE
   - (maybe, secalhar é melhor dizer na implementação)                           - DONE
-Adicionar "figura" ou "tabela" antes de cada referencia                         
+Adicionar "figura" ou "tabela" antes de cada referencia                         - DONE
 Fazer uma secção de resumo no final do chapter 3                                - DONE
 "Functional Requirements and Use cases" primeiro chapter rever no chat          - DONE
 adicionar numero de utilizadores aos resultados                                 - DONE

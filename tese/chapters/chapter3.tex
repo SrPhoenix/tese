@@ -19,7 +19,7 @@ The application supports multiple user roles, each responsible for distinct aspe
 
 \subsubsection{Administrator}
 
-The administrator is responsible for configuring the system and managing essential data that supports dealership operations. This includes maintaining records of dealerships, employees, and vehicle parts, as well as defining the types of maintenance tasks that can be performed. Through these actions, the administrator ensures that the system’s structure remains consistent and up to date.
+The administrator is responsible for configuring the system and managing essential data that supports dealership operations. This includes maintaining records of dealerships, employees, and vehicle parts, as well as defining the types of maintenance tasks that can be performed. Through these actions, the administrator ensures that the system's structure remains consistent and up to date.
 
 
 \begin{itemize}
@@ -46,7 +46,7 @@ The receptionist acts as the main point of contact between the client and the wo
     \item Notify when all maintenance tasks are completed
 \end{itemize}
 
-To model these interactions, several use cases were defined to describe the receptionist’s typical activities and system interactions.
+To model these interactions, several use cases were defined to describe the receptionist's typical activities and system interactions.
 
 
 \begin{itemize}
@@ -365,7 +365,7 @@ These are the \textit{maintenance status} key stages of this workflow:
   \label{fig:maintenanceFlowChart}
 \end{figure}
 
-The status transitions represented in \ref{maintenanceFlowChart} outline how the workflow evolves over time:
+The status transitions represented in Figure~\ref{fig:maintenanceFlowChart} outline how the workflow evolves over time:
 \begin{itemize}
     \item \textbf{Wait Evaluation} $\rightarrow$ \textbf{Wait Approval}: After the mechanic completes the initial evaluation.
     \item \textbf{Wait Approval} $\rightarrow$ \textbf{During Maintenance}: Once the client approves the proposed tasks and budget.
@@ -375,9 +375,9 @@ The status transitions represented in \ref{maintenanceFlowChart} outline how the
     \item \textbf{Wait Evaluation} $\rightarrow$ \textbf{Maintenance Finished}: If the dealership skips the evaluation step and the mechanic completes all tasks directly.
 \end{itemize}
 
-In the figure \ref{maintenanceUseCaseStatus} and \ref{maintenanceDealershipUseCaseStatus} we can see how these status are divided in the use case flow of the application.
+In Figure~\ref{fig:maintenanceUseCaseStatus} and ~\ref{fig:maintenanceDealershipUseCaseStatus} we can see how these status are divided in the use case flow of the application.
 
-To further clarify how these statuses operate in practice, \ref{maintenanceUseCaseStatus} and \ref{maintenanceDealershipUseCaseStatus} illustrate their use within two different contexts: a dealership providing standard maintenance services and an entity managing maintenance without evaluation.
+To further clarify how these statuses operate in practice, Figure~\ref{fig:maintenanceUseCaseStatus} and ~\ref{fig:maintenanceDealershipUseCaseStatus} illustrate their use within two different contexts: a dealership providing standard maintenance services and an entity managing maintenance without evaluation.
 
 
 \begin{figure}[h]
@@ -417,7 +417,7 @@ During the course of maintenance, situations may arise that require modification
 \end{figure}
 
 
-The transitions between these statuses, as shown in \ref{fig:maintenanceChangeFlowChart}, describe how the process evolves depending on the client's decision.
+The transitions between these statuses, as shown in Figure~\ref{fig:maintenanceChangeFlowChart}, describe how the process evolves depending on the client's decision.
 
 \subsection{Maintenance Task Status} 
 
@@ -442,7 +442,7 @@ The \textit{maintenance task status} includes the following stages:
   \label{fig:maintenanceTaskFlowChart}
 \end{figure}
 
-The task workflow shown in \ref{fig:maintenanceTaskFlowChart} highlights the possible transitions between these statuses:
+The task workflow shown in Figure~\ref{fig:maintenanceTaskFlowChart} highlights the possible transitions between these statuses:
 \begin{itemize}
 \item \textbf{Wait Approval} $\rightarrow$ \textbf{Invalid}: If the client rejects the task.
 \item \textbf{Wait Approval} $\rightarrow$ \textbf{Wait Assignment}: If the client approves and no external parts are required.
@@ -457,7 +457,7 @@ The task workflow shown in \ref{fig:maintenanceTaskFlowChart} highlights the pos
 
 \end{itemize}
 
-In practice, the entry point of this workflow depends on the maintenance context. If the dealership skips the evaluation, tasks may begin directly in the \textbf{Concluded} state. In contrast, at a dealership, tasks typically originate from the workshop manager or during the initial vehicle evaluation, as illustrated in \ref{fig:maintenanceTaskUseCase}. In this case, the workflow starts in \textbf{Wait Approval}, followed by the client's decision and subsequent progression through the task statuses until completion. This structured approach ensures flexibility while maintaining a standardized flow across different maintenance scenarios.
+In practice, the entry point of this workflow depends on the maintenance context. If the dealership skips the evaluation, tasks may begin directly in the \textbf{Concluded} state. In contrast, at a dealership, tasks typically originate from the workshop manager or during the initial vehicle evaluation, as illustrated in Figure~\ref{fig:maintenanceTaskUseCase}. In this case, the workflow starts in \textbf{Wait Approval}, followed by the client's decision and subsequent progression through the task statuses until completion. This structured approach ensures flexibility while maintaining a standardized flow across different maintenance scenarios.
 
 
 
@@ -488,7 +488,7 @@ The \textit{purchase status} is defined by the following stages:
   \label{fig:purchaseFlowChart}
 \end{figure}
 
-The status transitions illustrated in \ref{fig:purchaseFlowChart} highlight the sequence of steps in a purchase workflow:
+The status transitions illustrated in Figure~\ref{fig:purchaseFlowChart} highlight the sequence of steps in a purchase workflow:
 \begin{itemize}
 \item \textbf{Wait Approval} $\rightarrow$ \textbf{Invalid}: If the workshop manager rejects the request.
 \item \textbf{Wait Approval} $\rightarrow$ \textbf{Assigned}: If the request is approved.
@@ -497,7 +497,7 @@ The status transitions illustrated in \ref{fig:purchaseFlowChart} highlight the 
 \end{itemize}
 
 
-As shown in \ref{fig:purchaseUseCase}, the use case flow chart provides further detail by illustrating how purchase requests are initiated, validated, and completed. This structured process ensures that all acquisitions are traceable and properly integrated into the dealership's inventory.
+As shown in Figure~\ref{fig:purchaseUseCase}, the use case flow chart provides further detail by illustrating how purchase requests are initiated, validated, and completed. This structured process ensures that all acquisitions are traceable and properly integrated into the dealership's inventory.
 
 \begin{figure}[h]
   \caption{Use case flow chart of a purchase, with statuses grouped by workflow steps}
@@ -526,7 +526,7 @@ The \textit{owner partnership status} consists of the following stages:
   \label{fig:ownerPartnershipFlowChart}
 \end{figure}
 
-This workflow, shown in \ref{fig:ownerPartnershipFlowChart}, ensures that all partnership requests are explicitly validated, preventing unauthorized access to sensitive vehicle data.
+This workflow, shown in Figure~\ref{fig:ownerPartnershipFlowChart}, ensures that all partnership requests are explicitly validated, preventing unauthorized access to sensitive vehicle data.
 
 
 
