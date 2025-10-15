@@ -6,7 +6,7 @@
 
 % To address these challenges, this dissertation proposes the design and implementation of a \textbf{web-based platform} to support the daily operations of LightMobi's dealerships. The chapter begins by discussing the market context and the reasons why maintenance management is a critical concern. It then introduces the objectives of the system and highlights the problems that arise in current practices. Finally, it outlines the structure of the thesis.
 
-This chapter introduces the context and motivation that led to the development of a \textbf{web-based platform} designed to optimize and organize the daily operations at workshops and dealerships involved in vehicle sharing. It begins by exploring the evolution of the vehicle-sharing market and the growing importance of efficient maintenance management to ensure service quality and customer satisfaction. The chapter then defines the main objectives of the dissertation and discusses the operational problems that the proposed solution aims to address, such as the limitations of manual processes and the need for better coordination of maintenance activities. Finally, it presents the overall structure of the thesis, outlining how each chapter contributes to the development and validation of the proposed system.
+This chapter introduces the context and motivation that led to the development of a \textbf{web-based platform} designed to optimize and organize the daily operations at workshops and dealerships involved in vehicle sharing. It begins by exploring the evolution of the vehicle-sharing market and the growing importance of efficient maintenance management to ensure service quality and customer satisfaction. The chapter then defines the main objectives of the dissertation and discusses the operational problems that the proposed solution aims to address. Finally, it presents the overall structure of the thesis, outlining how each chapter contributes to the development and validation of the proposed system.
 
 \end{introduction} 
 
@@ -15,21 +15,26 @@ This chapter introduces the context and motivation that led to the development o
 
 The \textbf{vehicle-sharing} market has grown significantly since 2021 due to the global interest in sustainability and environmental issues. ~\cite{cohesionOpenData} ~\cite{bike_data_businessresearch}
 The bike-sharing market, in particular, has gained popularity from governments worldwide, which are investing in cycling infrastructure such as cycling lanes, secure parking facilities, bicycle production and repair industries ~\cite{Clercq2023} ~\cite{Cerro2024} ~\cite{European_declararion_on_cycling} ~\cite{bike_data_businessresearch} ~\cite{cohesionOpenData}.
-% This attention to this sector raises the need for vehicle maintenance infrastructure that may be outdated and inefficient. ~\cite{MAS_MOTORS}
-% This low quality of service can lead to a significant decrease in the loyalty of the customers, which is the main source of income. ~\cite{Setting_the_after_sale_process}
+The increased focus on this sector highlights the need to modernize vehicle maintenance infrastructure, as many existing processes remain outdated and inefficient. ~\cite{MAS_MOTORS}
+This low quality of service can lead to a significant decrease in the loyalty of the customers, which is the main source of income. ~\cite{Setting_the_after_sale_process}
 
-The company \ac{EMEL}, responsible for the management of urban mobility in Lisbon, operates the public bike-sharing system GIRA. This service currently includes around 1,800 bicycles distributed across 159 stations, supporting an average of 7,405 trips per day ~\cite{Gira_Trips}. To ensure safety and reliability, bicycles undergo preventive maintenance either every 50 trips or every 14 days, depending on which threshold is reached first. On average, \ac{EMEL} performs about 70 maintenance operations per day ~\cite{Gira_Maintenance}. Given the scale of operations and the complexity of coordinating maintenance tasks across vehicles and stations, \ac{EMEL} requires an efficient system to organize and optimize this process, minimizing downtime while maximizing service availability.
+% The fast progress of technology can prove to be a valuable ally in this matter. 
+% From the use of IoT devices with machine learning algorithms to monitor the vehicle's health ~\cite{Vasavi2021}, 
+% to the use of task management software to manage the maintenance tasks ~\cite{MAS_MOTORS}, 
+% there is a large range of solutions that can be implemented to improve the efficiency of the maintenance process.
 
-This dissertation presents a software solution that facilitates and organizes the work processes at the dealerships of a vehicle sharing manufacturer as well as at \ac{EMEL}. 
+The company \ac{emel}, responsible for the management of urban mobility in Lisbon, operates the public bike-sharing system GIRA. This service currently includes around 1,800 bicycles distributed across 159 stations, supporting an average of 7,405 trips per day ~\cite{Gira_Trips}. To ensure safety and reliability, bicycles undergo preventive maintenance either every 50 trips or every 14 days, depending on which threshold is reached first. On average, \ac{emel} performs about 70 maintenance operations per day ~\cite{Gira_Maintenance}. Given the scale of operations and the complexity of coordinating maintenance tasks across vehicles and stations, \ac{emel} requires an efficient system to organize and optimize this process, minimizing downtime while maximizing service availability.
 
-The solution requirements will be gathered through direct communication with employees from both organizations, and its effectiveness will be validated with ordinary users.
+This dissertation presents a software solution that facilitates and organizes the work processes at the dealerships of a vehicle sharing manufacturer as well as at \ac{emel}. 
 
 
 \section{Objectives and problems}
 
 The work at a workshop may be organized by manual input or with rudimentary applications. ~\cite{MAS_MOTORS} 
 This may introduce accidental human errors, which in turn lead to break of promises or unsatisfaction from the customer. ~\cite{MAS_MOTORS} ~\cite{Setting_the_after_sale_process}
-As a company grows, these limitations become increasingly evident. What might be manageable in a small business with only a few dozen bicycles can quickly turn into a bottleneck in a large-scale operation. This is particularly true for organizations like \ac{EMEL}, where the growing demand for maintenance services calls for a more structured and efficient system to ensure consistency, reliability, and continued success.
+As a company grows, these limitations become increasingly evident. What might be manageable in a small business with only a few dozen bicycles can quickly turn into a bottleneck in a large-scale operation. This is particularly true for organizations like \ac{emel}, where the growing demand for maintenance services calls for a more structured and efficient system to ensure consistency, reliability, and continued success.
+
+The solution requirements will be gathered through direct communication with employees from both organizations, and its effectiveness will be validated with ordinary users.
 
 This dissertation will focus on the development of a web application that aims to facilitate and increase the work performance at a dealership. 
 
@@ -37,8 +42,10 @@ This dissertation presents a significant challenge related to the users who work
 These users may be already accustomed to their systems or their manual work's labor.  
 The introduction of a new system may be a challenge to the users, so the system must be user-friendly, easy to use, and provide significant value in their work.
 
-Another requirement is the integration with the fleet management platform of vehicle sharing, a project that has been in development for a few years with a team in \ac{IEETA} at the University of Aveiro.
+Another requirement is the integration with the fleet management platform of vehicle sharing, a project that has been in development for a few years with a team in \ac{IEETA} at the University of Aveiro with the company Lightmobie.
 It is a platform to manage the vehicle sharing system of an entity like hotels, city hall, etc.  
+
+
 
 \section{Structure of the Thesis}
 
@@ -51,7 +58,7 @@ This dissertation is organized into six chapters, each addressing a specific sta
     \item Chapter 2 – \textbf{Literature Review}: Discusses the theoretical foundations of the research, surveys existing solutions, and examines real-world scenarios relevant to maintenance management.
     \item Chapter 3 – \textbf{Requirements Analysis}: Defines the functional and non-functional requirements of the system, supported by detailed use cases that guide the design and implementation.
     \item Chapter 4 – \textbf{System Design and Implementation}: Describes the developed solution, including the database structure, the application's layout, and the main features implemented for each user role.
-    % \item Chapter 5 – \textbf{Validation and Results}: Presents the evaluation process, including user testing with LightMobi's employee, external users, and the EMEL company, followed by an analysis of the results and identified limitations.
+    % \item Chapter 5 – \textbf{Validation and Results}: Presents the evaluation process, including user testing with LightMobi's employee, external users, and the emel company, followed by an analysis of the results and identified limitations.
     \item Chapter 5 – \textbf{Validation and Results}: Presents the evaluation process, including user testing with external users followed by an analysis of the results.
     \item Chapter 6 – \textbf{Conclusion and Future Work}: Summarizes the main findings and identified limitations, and outlines possible directions for future development.
 \end{itemize}
