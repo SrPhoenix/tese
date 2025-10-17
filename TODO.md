@@ -5,6 +5,8 @@
 
 - acabar o register new parts no purchase service
 - quando criar compra ver se é do mesmo supplier
+- adicionar tarefa texto de retorno esta errado
+- adicionar tarefa permitir n adicionar mecanico quando não temos partes em stock
 
 - permitir Tarefas/manutenção não serem atribuidas, mas o mecânico pode dar claim
 - permitir mecânico adicionar tarefa à manutenção sem validação e sem clientid
