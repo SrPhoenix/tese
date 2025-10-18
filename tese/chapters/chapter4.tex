@@ -191,19 +191,18 @@ To schedule a new maintenance, the receptionist can either click the "Schedule M
 \end{figure}
 
 
-The application also provides quick access to active maintenances through the "Active Maintenance" menu option (Figure~\ref{fig:impReceListMaint}). This section lists ongoing maintenances, including key details such as vehicle registration, associated entity, expected completion date, and progress percentage. Visual indicators highlight maintenances with pending changes requiring client confirmation. From here, the receptionist can open detailed views (Figures~\ref{fig:impReceMaintHome}, ~\ref{fig:impReceMaintTask} and ~\ref{fig:impReceMaintChange}), which present information about the maintenance, associated tasks, and any proposed changes. These features enable the receptionist to respond accurately to client inquiries (Use Case 1.3 – Collect maintenance information) and to manage approvals or cancellations of changes (Use Cases 1.4, 1.5, and 1.7). Additionally, the receptionist can complete the maintenace process by recording the vehicle delivery date (Use Case 1.6 – Deliver vehicle).
+The application also provides quick access to active maintenances through the "Active Maintenance" menu option (Figure~\ref{fig:impReceListMaint}). This section lists ongoing maintenances, including key details such as vehicle registration, associated entity, expected completion date, and progress percentage. Visual indicators highlight maintenances with pending changes requiring client confirmation. From here, the receptionist can open detailed views (Figures~\ref{fig:impReceMaintHome}, ~\ref{fig:impReceMaintTask} and ~\ref{fig:impReceMaintChange}), which present information about the maintenance, associated tasks, and any proposed changes. 
+In addition, the modal includes a dedicated tab for the approval of maintenance tasks following the vehicle evaluation (Figure~\ref{fig:impReceMaintApproval}). In this tab, the receptionist can review the tasks proposed by the mechanic, their associated costs, required parts, and warehouse availability. Once the client's preferences are confirmed, the receptionist finalizes the maintenance plan (Use Case 1.2 – Define maintenance details).
+These features enable the receptionist to respond accurately to client inquiries (Use Case 1.3 – Collect maintenance information) and manage approvals or cancellations of changes (Use Cases 1.4, 1.5, and 1.7). Additionally, the receptionist can complete the maintenace process by recording the vehicle delivery date (Use Case 1.6 – Deliver vehicle).
 
 
-\begin{figure}[h]
-  \caption{List of maintenances that the evaluation is finished and need to comunicate with the client to decide wich task to be done.}
+
+\begin{figure}[htbp]
+  \caption{Active maintenance details approval tab.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/action_list}
-  \label{fig:impReceListAction}
+  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/maintenance_details_approval}
+  \label{fig:impReceMaintApproval}
 \end{figure}
-
-
-
-The final section of the receptionist view is the "Actions" menu (Figures~\ref{fig:impReceListAction}, ~\ref{fig:impReceActionHome}), which lists maintenances that have completed evaluation and are awaiting client decisions. By accessing the details, the receptionist can review tasks proposed by the mechanic, their costs, required parts, and availability in the warehouse. The system dynamically updates the estimated budget and timeline as tasks are selected. Once the client's preferences are confirmed, the receptionist finalizes the maintenance plan (Use Case 1.2 – Define maintenance details).
 
 
 
