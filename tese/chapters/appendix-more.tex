@@ -33,6 +33,7 @@
 
 \begin{table}[ht]
 \centering
+\resizebox{0.90\textwidth}{!}{%
 \begin{tabular}{p{2.5cm} p{6cm} p{6cm} p{1.5cm}}
 \hline
 \textbf{Dimension} & \textbf{Expectation Survey} & \textbf{Perception Survey} & \textbf{Gap} \\
@@ -65,6 +66,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
  & E22. The employees of excellent companies will understand the specific needs of their customers. & P22. Employees of XYZ company understand your specific needs. & \\
 \hline
 \end{tabular}
+}
 \caption{SERVQUAL Questionnaire Template (Expectations vs Perceptions) ~\cite{master_servqual_model}} 
 \label{table:servqual_template}
 \end{table}
@@ -75,7 +77,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[p]
   \caption{Database indexes— page \p}
   \centering
-  \includegraphics[page=\p,width=0.75\textwidth]{figs/dbDiagrams/BD_indexes}
+  \includegraphics[page=\p,width=\textwidth]{figs/dbDiagrams/BD_indexes}
   \label{fig:BD_indexes-\p}
 \end{figure}
 }
@@ -315,7 +317,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[htbp]
   \caption{Client home page with no active maintenance.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceNoState}
+  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/MaintenanceNoState}
   \label{fig:MaintenanceNoState}
 \end{figure}
 
@@ -324,7 +326,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[htbp]
   \caption{Client Home page when he schedules a maintenance with the rececionist.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceState1}
+  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/MaintenanceState1}
   \label{fig:MaintenanceState1}
 \end{figure}
 
@@ -334,7 +336,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[htbp]
   \caption{Client Home page when the maintenance is approved.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceState3}
+  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/MaintenanceState3}
   \label{fig:MaintenanceState3}
 \end{figure}
 
@@ -342,7 +344,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[htbp]
   \caption{Client Home page when the maintenance tasks are completed and the client can go take the vehicle.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceState4}
+  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/MaintenanceState4}
   \label{fig:MaintenanceState4}
 \end{figure}
 
@@ -350,7 +352,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[htbp]
   \caption{Client Expectation Questionaire refering the questions and introduction in ~\cite{master_servqual_model}.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/ExpectationQuestionare}
+  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/ExpectationQuestionare}
   \label{fig:ExpectationQuestionare}
 \end{figure}
 
@@ -358,7 +360,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[htbp]
   \caption{Client Perception Questionaire refering the questions and introduction in ~\cite{master_servqual_model}.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/PerceptionQuestionare}
+  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/PerceptionQuestionare}
   \label{fig:PerceptionQuestionare}
 \end{figure}
 
@@ -366,7 +368,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[htbp]
   \caption{Details of a maintenance example the tab of information.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceDetailsInfo}
+  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/MaintenanceDetailsInfo}
   \label{fig:MaintenanceDetailsInfo}
 \end{figure}
 
@@ -374,7 +376,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[htbp]
   \caption{Details of a maintenance example the list of task.}
   \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/client/MaintenanceDetailsTasks}
+  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/MaintenanceDetailsTasks}
   \label{fig:MaintenanceDetailsTasks}
 \end{figure}
 
@@ -488,11 +490,11 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:evalDetails}
 \end{figure}
 
-\foreach \p in {1,...,8}{%  <-- change 5 to the total number of pages
+\foreach \p in {1,...,11}{%  <-- change 5 to the total number of pages
 \begin{figure}[p]
   \caption{User tests tasks — page \p}
   \centering
-  \includegraphics[page=\p,width=0.75\textwidth]{figs/chapter5/UserTestsTasks}
+  \includegraphics[page=\p,width=\textwidth]{figs/chapter5/UserTestsTasksEnglish}
   \label{fig:UserTestsTasks-\p}
 \end{figure}
 }
@@ -501,9 +503,9 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[p]
   \caption{Aplication questionaire— page \p}
   \centering
-  \includegraphics[page=\p,width=0.75\textwidth]{figs/chapter5/AplicationQuestionaire}
+  \includegraphics[page=\p,width=\textwidth]{figs/chapter5/AplicationQuestionaire}
   \label{fig:AplicationQuestionaire-\p}
-\end{figure}
+\end{figure}  
 }
 
 
