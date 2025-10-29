@@ -92,7 +92,7 @@
 
 %%% Edit author's name
 %% Author's full name
-\Author{Vicente\\Costa}
+\Author{Vicente\\Samuel\\Gonçalves\\Costa}
 
 %%% Edit thesis title in Portuguese
 %% Thesis Mandatory Title in Portuguese
@@ -126,7 +126,7 @@
 %%% | auxiliar convidado        |
 %%% -----------------------------
 %% Supervisor information
-\Supervisor{Joaquim Manuel Henriques de Sousa Pinto}{associado}
+\Supervisor{Joaquim Manuel Henriques de Sousa Pinto}{auxiliar}
 
 %%% OPTIONAL: you can add a second supervisor.
 %%%
@@ -150,7 +150,8 @@
 %%%             for the last enumerated Supervisor; Or
 %%%             nothing {} for all other supervisors 
 %% Optional SecondSupervisor information
-\SupervisorMember{(co-orientador)}{Tiago Oliveira}{do Departamento de Informatica}{da empresa Lightenjin}{}
+% \SupervisorMember{(co-orientador)}{Tiago Oliveira}{do Departamento de Informatica}{da empresa Lightenjin}{}
+% \SupervisorMember{}{Tiago Oliveira}{da empresa Lightenjin}{}
 
 %%% Repeat the above declaration for additional
 %%%  Supervisor members as many times as necessary.
@@ -196,12 +197,12 @@
 
 %%% OPTIONAL: Add an acknowledgement text
 %% Optional Acknowledgement text
-% \Acknowledgements{Agradeço toda a ajuda e apoio da minha família que me apoiou não só neste trabalho, mas ao longo da minha vida. 
-% aos meus colegas de trabalho que me sempre ajudaram quando precisava. 
-% Agradeço também à minha família que me apoiou desde o ínicio a seguir estudos e a tomar decisões. 
-% Agradeço também aos meus amigos de longa data, que tiveram sempre presentes e me ajudaram a crescer. 
-% Agradeço também à empresa pela oportunidade de trabalho, apoio e motivação que deram. 
-% Agradeço também ao meu orientador que me deu esta oportunidade e ajudou a perceber o que é necessário para fazer um bom trabalho.}
+\Acknowledgements{Agradeço toda a ajuda e apoio da minha família que me apoiou não só neste trabalho, mas ao longo da minha vida. 
+aos meus colegas de trabalho que me sempre ajudaram quando precisava. 
+Agradeço também à minha família que me apoiou desde o ínicio a seguir estudos e a tomar decisões. 
+Agradeço também aos meus amigos de longa data, que tiveram sempre presentes e me ajudaram a crescer. 
+Agradeço também à empresa pela oportunidade de trabalho, apoio e motivação que deram. 
+Agradeço também ao meu orientador que me deu esta oportunidade e ajudou a perceber o que é necessário para fazer um bom trabalho.}
 
 %%% Edit the keywords and abstract in Portuguese
 %%% Don't forget to remove the \blindtext[3]
@@ -211,11 +212,8 @@
 \Abstract{palavras-chave}{veículos partilhados, concessionários, veículos elétricos, manutenção, aplicação web.}
          {resumo}{\selectlanguage{portuguese}
         O crescimento acelerado do setor de partilha de veículos, especialmente desde 2021, tem sido impulsionado pelas preocupações globais com a sustentabilidade e o ambiente. Entre os diferentes modelos de mobilidade, o sistema de partilha de bicicletas tem ganho destaque, acompanhado por investimentos públicos em infraestruturas cicláveis e políticas de mobilidade sustentável. No entanto, muitos dos processos de manutenção associados a estes serviços continuam desatualizados, o que conduz a ineficiências e a uma diminuição da qualidade do serviço. Uma gestão ineficaz da manutenção pode comprometer a satisfação dos utilizadores e, consequentemente, a viabilidade económica destes sistemas.
-        Em Lisboa, a empresa EMEL, responsável pela gestão da mobilidade urbana, opera o sistema público de bicicletas GIRA, composto por cerca de 1 800 bicicletas distribuídas por 159 estações e com uma média de 7 405 viagens diárias. Cada bicicleta é sujeita a manutenção preventiva a cada 50 viagens ou de 14 em 14 dias, o que representa aproximadamente 70 operações de manutenção diárias. A coordenação destas atividades constitui um desafio logístico significativo, exigindo ferramentas digitais que permitam otimizar tarefas, reduzir tempos de inatividade e garantir uma elevada disponibilidade do serviço.
-        Esta dissertação apresenta o desenvolvimento de uma plataforma web destinada a melhorar a organização e o desempenho das operações de manutenção no contexto da partilha de veículos, tanto na EMEL como em concessionários associados. Em muitos casos, as oficinas ainda dependem de métodos manuais ou de aplicações rudimentares, que se tornam insuficientes à medida que o volume de trabalho aumenta. A solução proposta oferece um sistema integrado e intuitivo, que apoia diferentes perfis de utilizador — rececionista, gestor de oficina, mecânico, operador de armazém, cliente e administrador — centralizando todo o processo de manutenção num único ambiente digital.
+        A solução proposta oferece um sistema integrado e intuitivo, que apoia diferentes perfis de utilizador centralizando todo o processo de manutenção num único ambiente digital.
         A plataforma foi concebida para se integrar com o sistema de gestão de frotas Lightmobie, desenvolvido pelo grupo de investigação IEETA da Universidade de Aveiro, permitindo uma comunicação eficaz entre a gestão da frota e as operações de manutenção, e assegurando uma visão unificada de todo o serviço.
-        Os testes realizados com utilizadores validaram a eficácia do sistema, demonstrando que as principais tarefas podiam ser concluídas com sucesso e que a aplicação oferecia uma experiência coerente e intuitiva entre os diferentes papéis. O processo de avaliação permitiu ainda recolher sugestões que conduziram a melhorias significativas na interface e nos fluxos de trabalho, aumentando a clareza, a eficiência e a usabilidade do sistema.
-        Em suma, esta dissertação comprova a viabilidade e o valor de uma plataforma centralizada de gestão de manutenção para organizações de partilha de veículos. A solução desenvolvida contribui para uma coordenação mais eficiente, uma redução de ineficiências operacionais e estabelece uma base sólida para futuras evoluções no domínio da mobilidade sustentável.
          }
 
 %%% OPTIONAL: you can write the keywords and
@@ -228,17 +226,14 @@
 \Abstract{keywords}{shared vehicles, dealerships, eletric vehicles, maintenance, web application.}
          {abstract}{\selectlanguage{english}
         The rapid growth of the vehicle-sharing industry, especially since 2021, has been driven by global efforts toward sustainability and environmental awareness. Among these services, bike-sharing has become increasingly popular as governments invest in cycling infrastructure and sustainable mobility initiatives. However, many maintenance processes that support these services remain outdated, leading to inefficiencies and reduced service quality. Since customer satisfaction is essential for the success of shared mobility systems, modernizing maintenance operations has become a crucial priority.
-        In Lisbon, EMEL manages the public bike-sharing system GIRA, which includes about 1,800 bicycles distributed across 159 stations and supports an average of 7,405 daily trips. Each bicycle undergoes preventive maintenance every 50 trips or every 14 days, resulting in approximately 70 maintenance operations per day. Coordinating these tasks efficiently is a significant logistical challenge, requiring digital tools capable of optimizing workflows and minimizing downtime while maintaining high service availability.
-        This dissertation presents the development of a web-based platform designed to improve the organization and performance of maintenance operations in vehicle-sharing contexts, both at EMEL and in associated dealerships. Workshops often rely on manual methods or simple digital tools, which become insufficient as operations scale. The proposed system offers an integrated, user-friendly solution that supports multiple roles—such as receptionists, managers, mechanics, warehouse operators, and administrators—within a single platform, streamlining communication and ensuring consistency throughout the maintenance process.
-        Integration with the Lightmobie fleet management platform, developed at the University of Aveiro’s IEETA, further enhances the solution by connecting maintenance activities with broader fleet management functions, improving data flow and operational coordination.
-        User testing validated the system’s effectiveness, showing that participants could successfully complete their assigned tasks and that the platform provided a coherent and intuitive experience across roles. Feedback from testing guided refinements to the interface and workflow, improving clarity, usability, and overall efficiency.
-        In conclusion, this dissertation demonstrates the feasibility and value of a centralized maintenance management platform for vehicle-sharing organizations. The developed system enhances coordination, reduces operational inefficiencies, and provides a solid foundation for future developments in sustainable mobility management.
-         }
+        The proposed system offers an integrated, user-friendly solution that supports multiple roles within a single platform, streamlining communication and ensuring consistency throughout the maintenance process.
+        The platform was designed to integrate with the Lightmobie fleet management system, developed by the IEETA research group at the University of Aveiro, allowing for effective communication between fleet management and maintenance operations, and ensuring a unified view of the entire service.         
+        }
 
 
 %%% OPTIONAL: Acknowledge the use of AI Tools
-\AIUse{Reconheço a utilização do ChatGPT 3.5 e 4.0 (Open AI, https://chat.openai.com), Perplexity AI (https://www.perplexity.ai/) e You Learn (https://app.youlearn.ai/) resumir as notas iniciais, refazer algumas frases e procurar informação. O rascunho final foi revisto por Grammarly AI (https://app.grammarly.com/) e modificado por mim para manter o toque humano e o meu estilo de escrita. Reconheço a utilização do Google Docs (Google, https://docs.google.com/) e Visual Studio Code (https://code.visualstudio.com/) com Copilot (Microsoft,https://copilot.microsoft.com/) para a escrita do texto.}
-\AIUse{I Recognize the use of ChatGPT 3.5 and 4.0 (Open AI, https://chat.openai.com), Perplexity AI (https://www.perplexity.ai/) and You Learn (https://app.youlearn.ai/) summarize the initial note, to rephrase a few sentences and search for information. The final draft was reviewed by Grammarly AI (https://app.grammarly.com/) and modified by me to maintain human touch and my writing style. I recognize the use of Google Docs (Google, https://docs.google.com/) and Visual Studio Code (https://code.visualstudio.com/) with Copilot (Microsoft,https://copilot.microsoft.com/) for writing the text.}
+\AIUse{Reconheço a utilização do ChatGPT 3.5 e 4.0 (Open AI, https://chat.openai.com), Perplexity AI (https://www.perplexity.ai/) e You Learn (https://app.youlearn.ai/) para resumir as notas iniciais e pesquisar informação. O rascunho final foi revisto pelo Grammarly AI (https://app.grammarly.com/) e pelo ChatGPT, com o objetivo de melhorar a coerência e a gramática das frases.}
+\AIUse{I acknowledge the use of ChatGPT 3.5 and 4.0 (Open AI, https://chat.openai.com), Perplexity AI (https://www.perplexity.ai/), and You Learn (https://app.youlearn.ai/) to summarize the initial notes and source information. The final draft was subsequently reviewed by Grammarly AI (https://app.grammarly.com/) and ChatGPT to enhance sentence coherence and grammar.}
 %Reconheço o uso de [inserir sistema(s) de IA e respetiva hiperligação] para [indicar utilização específica de IA ou outras tarefas]. Reconheço a utilização de [indicar software, código ou plataforma] para [indicar utilização específica de software, código ou platafoma ou para outras tarefas].
 %Exemplo 1: Reconheço a utilização do ChatGPT 3.5 (Open AI, https://chat.openai.com) para resumir as notas iniciais e para rever o rascunho final, a utilização do Office365 (Microsoft, https://www.office.com) para a escrita do texto.
 %Exemplo 2: Não foram utilizados no presente trabalho quaisquer conteúdos gerados por tecnologias de IA.

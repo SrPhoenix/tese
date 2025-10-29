@@ -9,7 +9,7 @@ This chapter defines the specification of the proposed system, combining insight
 
 
 \section{Application Requirements}
-The requirements for the application were defined based on insights gathered from multiple sources. These include meetings with stakeholders from Lightmobie and \ac{emel}, as well as findings from the literature review. To structure and classify these requirements, the FURPS model was adopted, which organizes them into functional and non-functional categories.
+The requirements for the application were defined based on insights gathered from multiple sources. These include meetings with stakeholders from Lightmobie and \ac{emel}, as well as findings from the literature review. To structure and classify these requirements, the FURPS model was adopted, which organizes them into functional and non-functional categories. ~\cite{furps, furps2} 
 
 \subsection{Functional Requirements and Use cases}
 The functional requirements define the operations and features that the system must provide to support the daily activities of its users. These requirements were complemented by the creation of a set of \textbf{use cases} that illustrate how users interact with the system to accomplish specific goals. This approach helps capture requirements from the user’s perspective, ensuring that the solution aligns closely with real operational workflows.
@@ -87,7 +87,7 @@ To model these interactions, several use cases were defined to describe the rece
 
 \subsubsection{Mechanic}
 
-Mechanics are responsible for performing the actual maintenance work, including diagnostics, repairs, and part replacements. Their interface provides clear visibility into assigned tasks, progress tracking, and reporting tools to ensure maintenance quality and accountability. Mechanics can pause, resume, and complete tasks while adding comments or observations about the performed work.
+Mechanics are responsible for performing the actual maintenance work, including diagnostics, repairs, and part replacements. Their \ac{UI} provides clear visibility into assigned tasks, progress tracking, and reporting tools to ensure maintenance quality and accountability. Mechanics can pause, resume, and complete tasks while adding comments or observations about the performed work.
 
 
 \begin{itemize}
@@ -244,7 +244,7 @@ The following use cases summarize the key activities of the workshop manager:
 
 \subsubsection{Client}
 
-Clients interact with the system through a interface that allows them to stay informed about their vehicle’s maintenance process. They can review progress, receive notifications when maintenance is completed, and provide feedback on service quality. This promotes transparency and strengthens trust between clients and workshops.
+Clients interact with the system through a \ac{UI} that allows them to stay informed about their vehicle’s maintenance process. They can review progress, receive notifications when maintenance is completed, and provide feedback on service quality. This promotes transparency and strengthens trust between clients and workshops.
 
 
 \begin{itemize}
@@ -280,7 +280,6 @@ The following use cases capture typical client interactions within the platform:
 \end{itemize}
 
 
-
 \subsubsection{System Requirements}
 
 The system also enforces several logical and structural requirements to ensure consistency, integrity, and operational efficiency, as summarized below:
@@ -290,7 +289,7 @@ The system also enforces several logical and structural requirements to ensure c
     \item Each maintenance task must have a defined sequence to ensure correct order of execution.
     \item Each purchase record may include multiple parts, along with their respective details.
     \item The system must generate a purchase request when an available quantity of a part is under a determined threshold. 
-    \item Dealerships can only create maintenance tasks for vehicles belonging to their bike-sharing partners; otherwise, they may only accept maintenance from independent clients.
+    \item Dealerships can only create maintenance tasks for vehicles belonging to their \acs{PBS} partners; otherwise, they may only accept maintenance from independent clients.
     \item The workflow must be flexible enough to support both general vehicle maintenance processes and the specific procedures used by \ac{emel}.
 \end{itemize}
 

@@ -105,7 +105,7 @@ Figure~\ref{fig:dbPurchasing} illustrates the purchasing tables.
 
 \subsubsection{Services} 
 
-The services section defines the types of services supported by the system, such as dealership maintenance or bike-sharing fleet management. Since not all dealerships operate in the same way, this part of the database allows them to configure how their workflow should behave.
+The services section defines the types of services supported by the system, such as dealership maintenance or \acs{PBS} fleet management. Since not all dealerships operate in the same way, this part of the database allows them to configure how their workflow should behave.
 
 By storing these configuration options, the system adapts to different service models while maintaining a consistent data structure.
 
@@ -122,9 +122,9 @@ Figure~\ref{fig:dbServices} shows the services structure.
 \subsubsection{Vehicles and Owners} 
 
 
-Finally, the system manages dealerships, bike-sharing companies, and vehicles. Vehicles are linked to their type (e.g., electric bike, conventional bike) and to the dealership or entity that owns them.
+Finally, the system manages dealerships, \acs{PBS} companies, and vehicles. Vehicles are linked to their type (e.g., \ac{ev}, conventional bike) and to the dealership or entity that owns them.
 
-Partnerships between bike-sharing companies and dealerships are also modeled, allowing bike-sharing entities to grant specific dealerships access to their fleet information. Each partnership request can be accepted, denied, or remain pending.
+Partnerships between \acs{PBS} companies and dealerships are also modeled, allowing \acs{PBS} entities to grant specific dealerships access to their fleet information. Each partnership request can be accepted, denied, or remain pending.
 
 Figure~\ref{fig:dbVehicles} shows this part of the database.
 
@@ -171,7 +171,7 @@ These stored procedures ensure that the database maintains integrity and consist
   \label{fig:impReceHome}
 \end{figure}
 
-The receptionist's interface is designed to simplify the scheduling and monitoring of maintenance operations. Its main screen (Figure~\ref{fig:impReceHome}) presents a bar chart that displays the expected working hours of each mechanic for the selected week. Navigation buttons allow the receptionist to move between weeks, making it easy to identify which mechanics are available to perform vehicle evaluations. 
+The receptionist's \ac{UI} is designed to simplify the scheduling and monitoring of maintenance operations. Its main screen (Figure~\ref{fig:impReceHome}) presents a bar chart that displays the expected working hours of each mechanic for the selected week. Navigation buttons allow the receptionist to move between weeks, making it easy to identify which mechanics are available to perform vehicle evaluations. 
 
 
 \begin{figure}[h]
@@ -223,7 +223,7 @@ Additional features include multilingual support (Portuguese and English) and ac
 
 
 
-The mechanic interface mirrors the structure of the receptionist's view, but focuses on task execution and vehicle evaluation. On the home page (Figure~\ref{fig:HomeShowTasks}), mechanics can see all tasks assigned to them for the day, including overdue tasks that were started previously but left incomplete. This directly supports Use Case 2.1 – View to-do list and Use Case 2.6 – Continue Task. Each task card provides essential information such as the vehicle registration, task name, and, where applicable, the part required to complete it.
+The mechanic \ac{UI} mirrors the structure of the receptionist's view, but focuses on task execution and vehicle evaluation. On the home page (Figure~\ref{fig:HomeShowTasks}), mechanics can see all tasks assigned to them for the day, including overdue tasks that were started previously but left incomplete. This directly supports Use Case 2.1 – View to-do list and Use Case 2.6 – Continue Task. Each task card provides essential information such as the vehicle registration, task name, and, where applicable, the part required to complete it.
 
 
 
@@ -252,7 +252,7 @@ When opening a task, the system guides the mechanic through a series of predefin
 
 
 
-The interface also supports vehicle evaluations, where the mechanic identifies and registers new tasks (Figures~\ref{fig:MechanicEvaluationSelectTaskWitPart}-~\ref{fig:TaskSelected}). Starting an evaluation presents a list of potential tasks, each of which can be selected and, if necessary, linked to specific parts. The system checks warehouse stock levels in real time, alerting the mechanic if parts are unavailable so adjustments can be made. Selected tasks are visually highlighted, providing immediate feedback. In the final step of the evaluation (Figure~\ref{fig:EvaluationLastStep}), the mechanic reviews the chosen tasks and records the cause of each anomaly before submitting. Completing this workflow corresponds to Use Case 2.2 – Carry out a vehicle analysis or Use Case 2.3 – Register completed tasks, depending on whether the dealership configuration.
+The \ac{UI} also supports vehicle evaluations, where the mechanic identifies and registers new tasks (Figures~\ref{fig:MechanicEvaluationSelectTaskWitPart}-~\ref{fig:TaskSelected}). Starting an evaluation presents a list of potential tasks, each of which can be selected and, if necessary, linked to specific parts. The system checks warehouse stock levels in real time, alerting the mechanic if parts are unavailable so adjustments can be made. Selected tasks are visually highlighted, providing immediate feedback. In the final step of the evaluation (Figure~\ref{fig:EvaluationLastStep}), the mechanic reviews the chosen tasks and records the cause of each anomaly before submitting. Completing this workflow corresponds to Use Case 2.2 – Carry out a vehicle analysis or Use Case 2.3 – Register completed tasks, depending on whether the dealership configuration.
 
 
 \subsection{Warehouse Operator view}
@@ -267,7 +267,7 @@ The interface also supports vehicle evaluations, where the mechanic identifies a
 
 
 
-The warehouse operator interface follows the same overall layout as the other views, with a top menu and a central workspace (Figure~\ref{fig:warehouseHomepage}). Its primary purpose is to manage parts inventory, handle purchase requests, and maintain supplier information, covering all operations in Use Case Group 3.
+The warehouse operator \ac{UI} follows the same overall layout as the other views, with a top menu and a central workspace (Figure~\ref{fig:warehouseHomepage}). Its primary purpose is to manage parts inventory, handle purchase requests, and maintain supplier information, covering all operations in Use Case Group 3.
 
 
 \begin{figure}[h]
@@ -318,7 +318,7 @@ Finally, the supplier management module enables operators to view and maintain s
 \subsection{Workshop Manager view}
 
 
-The workshop manager interface serves as the central hub for overseeing dealership operations. Its layout is consistent with the other views, but it integrates features from both the receptionist and warehouse operator roles, reflecting the manager's broader responsibilities.
+The workshop manager \ac{UI} serves as the central hub for overseeing dealership operations. Its layout is consistent with the other views, but it integrates features from both the receptionist and warehouse operator roles, reflecting the manager's broader responsibilities.
 
 
 \begin{figure}[h]
@@ -397,7 +397,7 @@ Finally, supplier management is identical to the warehouse operator view, displa
 \end{figure}
 
 
-The client interface is designed for mobile use and focuses on tracking the status of a vehicle's maintenance. Its layout differs from the employee views by being streamlined and tailored to end-user needs.
+The client \ac{UI} is designed for mobile use and focuses on tracking the status of a vehicle's maintenance. Its layout differs from the employee views by being streamlined and tailored to end-user needs.
 
 
 
@@ -437,7 +437,7 @@ In addition to active maintenances, clients can review their full maintenance hi
 
 
 
-The administrator interface is dedicated to configuring the system's core information, namely the catalog of parts, task types, and evaluation tasks. Upon logging in, the administrator is presented with a list of part types (Figure~\ref{fig:partsIndex}). From this view, parts can be created, edited, deleted, or inspected in detail (Figures~\ref{fig:partsDetails}-~\ref{fig:partsDelete}). Each operation follows the same interaction pattern: selecting an action in the table opens a form or details modal, ensuring consistency and efficiency.
+The administrator \ac{UI} is dedicated to configuring the system's core information, namely the catalog of parts, task types, and evaluation tasks. Upon logging in, the administrator is presented with a list of part types (Figure~\ref{fig:partsIndex}). From this view, parts can be created, edited, deleted, or inspected in detail (Figures~\ref{fig:partsDetails}-~\ref{fig:partsDelete}). Each operation follows the same interaction pattern: selecting an action in the table opens a form or details modal, ensuring consistency and efficiency.
 
 
 
@@ -447,7 +447,7 @@ The same layout is applied to managing task types (Figures~\ref{fig:taskIndex}-~
 
 \subsection{Summary}
 
-In summary, the implementation of the different application views demonstrates that the overall system requirements were successfully met. Each user role — receptionist, workshop manager, mechanic, warehouse operator, client, and administrator — was provided with a tailored interface designed to support their specific tasks. Although some views share similarities in layout and functionality, they each incorporate the particular features required to fulfill their responsibilities. 
+In summary, the implementation of the different application views demonstrates that the overall system requirements were successfully met. Each user role — receptionist, workshop manager, mechanic, warehouse operator, client, and administrator — was provided with a tailored \ac{UI} designed to support their specific tasks. Although some views share similarities in layout and functionality, they each incorporate the particular features required to fulfill their responsibilities. 
 
 
 

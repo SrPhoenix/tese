@@ -6,7 +6,7 @@
 
 % To address these challenges, this dissertation proposes the design and implementation of a \textbf{web-based platform} to support the daily operations of LightMobi's dealerships. The chapter begins by discussing the market context and the reasons why maintenance management is a critical concern. It then introduces the objectives of the system and highlights the problems that arise in current practices. Finally, it outlines the structure of the thesis.
 
-This chapter introduces the context and motivation that led to the development of a \textbf{web-based platform} designed to optimize and organize the daily operations at workshops and dealerships involved in vehicle sharing. It begins by exploring the evolution of the vehicle-sharing market and the growing importance of efficient maintenance management to ensure service quality and customer satisfaction. The chapter then defines the main objectives of the dissertation and discusses the operational problems that the proposed solution aims to address. Finally, it presents the overall structure of the thesis, outlining how each chapter contributes to the development and validation of the proposed system.
+This chapter introduces the context and motivation that led to the development of a \textbf{web-based platform} designed to optimize and organize the daily operations at workshops and dealerships involved in \acs{PBS}. It begins by exploring the evolution of the \acs{PBS} market and the growing importance of efficient maintenance management to ensure \acs{qa} and \acs{csat}. The chapter then defines the main objectives of the dissertation and discusses the operational problems that the proposed solution aims to address. Finally, it presents the overall structure of the thesis, outlining how each chapter contributes to the development and validation of the proposed system.
 
 \end{introduction} 
 
@@ -14,7 +14,7 @@ This chapter introduces the context and motivation that led to the development o
 \section{Motivation}
 
 The \textbf{vehicle-sharing} market has grown significantly since 2021 due to the global interest in sustainability and environmental issues. ~\cite{cohesionOpenData} ~\cite{bike_data_businessresearch}
-The bike-sharing market, in particular, has gained popularity from governments worldwide, which are investing in cycling infrastructure such as cycling lanes, secure parking facilities, bicycle production and repair industries ~\cite{Clercq2023} ~\cite{Cerro2024} ~\cite{European_declararion_on_cycling} ~\cite{bike_data_businessresearch} ~\cite{cohesionOpenData}.
+The \acs{PBS} market, in particular, has gained popularity from governments worldwide, which are investing in cycling infrastructure such as cycling lanes, secure parking facilities, bicycle production and repair industries ~\cite{Clercq2023} ~\cite{Cerro2024} ~\cite{European_declararion_on_cycling} ~\cite{bike_data_businessresearch} ~\cite{cohesionOpenData}.
 The increased focus on this sector highlights the need to modernize vehicle maintenance infrastructure, as many existing processes remain outdated and inefficient. ~\cite{MAS_MOTORS}
 This low quality of service can lead to a significant decrease in the loyalty of the customers, which is the main source of income. ~\cite{Setting_the_after_sale_process}
 
@@ -23,7 +23,7 @@ This low quality of service can lead to a significant decrease in the loyalty of
 % to the use of task management software to manage the maintenance tasks ~\cite{MAS_MOTORS}, 
 % there is a large range of solutions that can be implemented to improve the efficiency of the maintenance process.
 
-The company \ac{emel}, responsible for the management of urban mobility in Lisbon, operates the public bike-sharing system GIRA. This service currently includes around 1,800 bicycles distributed across 159 stations, supporting an average of 7,405 trips per day ~\cite{Gira_Trips}. To ensure safety and reliability, bicycles undergo preventive maintenance either every 50 trips or every 14 days, depending on which threshold is reached first. On average, \ac{emel} performs about 70 maintenance operations per day ~\cite{Gira_Maintenance}. Given the scale of operations and the complexity of coordinating maintenance tasks across vehicles and stations, \ac{emel} requires an efficient system to organize and optimize this process, minimizing downtime while maximizing service availability.
+The company \ac{emel}, responsible for the management of urban mobility in Lisbon, operates the \acs{PBS} system GIRA. This service currently includes around 1,800 bicycles distributed across 159 stations, supporting an average of 7,405 trips per day ~\cite{Gira_Trips}. To ensure safety and reliability, bicycles undergo \acs{pm} either every 50 trips or every 14 days, depending on which threshold is reached first. On average, \ac{emel} performs about 70 maintenance operations per day ~\cite{Gira_Maintenance}. Given the scale of operations and the complexity of coordinating maintenance tasks across vehicles and stations, \ac{emel} requires an efficient system to organize and optimize this process, minimizing downtime while maximizing service availability.
 
 This dissertation presents a software solution that facilitates and organizes the work processes at the dealerships of a vehicle sharing manufacturer as well as at \ac{emel}. 
 
@@ -34,16 +34,57 @@ The work at a workshop may be organized by manual input or with rudimentary appl
 This may introduce accidental human errors, which in turn lead to break of promises or unsatisfaction from the customer. ~\cite{MAS_MOTORS} ~\cite{Setting_the_after_sale_process}
 As a company grows, these limitations become increasingly evident. What might be manageable in a small business with only a few dozen bicycles can quickly turn into a bottleneck in a large-scale operation. This is particularly true for organizations like \ac{emel}, where the growing demand for maintenance services calls for a more structured and efficient system to ensure consistency, reliability, and continued success.
 
-The solution requirements will be gathered through direct communication with employees from both organizations, and its effectiveness will be validated with ordinary users.
+% The solution requirements will be gathered through direct communication with employees from both organizations, and its effectiveness will be validated with ordinary users.
 
-This dissertation will focus on the development of a web application that aims to facilitate and increase the work performance at a dealership. 
+This dissertation focus on the development of a web application that aims to facilitate and increase the \acs{kpi} of a dealership. 
 
 This dissertation presents a significant challenge related to the users who work at the dealerships and garages. 
-These users may be already accustomed to their systems or their manual work's labor.  
-The introduction of a new system may be a challenge to the users, so the system must be user-friendly, easy to use, and provide significant value in their work.
+These users may be already accustomed to their systems or their manual work's labor.   
+The introduction of a new system may be a challenge to the users, so the system must be user-friendly, easy to use, and provide significant value in their work ~\cite{ALI201635, Cieslak_2025}.
 
 Another requirement is the integration with the fleet management platform of vehicle sharing, a project that has been in development for a few years with a team in \ac{IEETA} at the University of Aveiro with the company Lightmobie.
-It is a platform to manage the vehicle sharing system of an entity like hotels, city hall, etc.  
+It is a platform to manage the \acs{PBS} system of an entity like hotels, city hall, etc.  
+
+\section{Research Methodology}
+\label{sec:methodology}
+
+This dissertation adopts an applied and exploratory approach, aiming to design and implement a digital application to manage the maintenance of shared vehicles, replacing existing paper-based procedures. According to ~\citet{Gil_2008}, applied research seeks to generate knowledge directed toward solving practical problems, while exploratory research is appropriate when the topic under investigation is still insufficiently studied or lacks consolidated references.
+
+To gain an in-depth understanding of current maintenance practices and their limitations, a literature review was conducted on vehicle maintenance management, Service Quality and in \ac{CMMS}. This review provided a theoretical foundation and helped identify technological trends and best practices in digital transformation within the industry ~\cite{Yin_2018, Saunders_2019}.
+
+Empirical data collection was also carried out through exploratory semi-structured interviews with professionals from a reference company in the \acs{PBS} maintenance sector. These interviews aimed to document the actual procedures used in the workshop, identify challenges related to paper-based record keeping, and understand user expectations regarding digital tools. The flexibility of the semi-structured interview format enabled the collection of rich qualitative data on current workflows and user needs~\cite{Quivy_2008}.
+
+The collected data were analyzed qualitatively, focusing on identifying recurring patterns, common difficulties, and improvement opportunities. These insights directly informed the requirements definition, system design, and functional implementation of the developed application. Additionally, the research included iterative development and usability testing phases to evaluate the system's effectiveness in streamlining maintenance processes and improving record accuracy.
+
+In summary, the adopted methodology combines literature review, qualitative empirical research, and applied system development, resulting in a qualitative-descriptive study with a strong emphasis on practical problem-solving in software engineering.
+
+\subsection{System Development Approach}
+\label{subsec:agile}
+
+The system was developed following an \acs{agile} methodology, specifically inspired by the \acs{scrum} framework, due to its flexibility and focus on iterative progress and user feedback \cite{Agile_2008}. \acs{agile} development is particularly suitable for research-oriented projects, where system requirements evolve as new insights emerge from empirical investigation ~\cite{Beck_2001, Pressman_2020}.
+
+The development process was divided into incremental sprints, each lasting approximately two weeks. Each sprint included stages of requirement refinement, interface prototyping, implementation, and validation. Regular feedback loops with domain experts and potential users ensured continuous alignment between system functionalities and operational needs.
+
+Following the completion of the development phase, user testing was conducted to evaluate the system’s usability and overall user satisfaction. The assessment employed the \acs{SUS} model, a standardized and widely adopted tool for measuring perceived usability in interactive systems\cite{sus_ori, sus_proves, Bangor_Kortum_Miller_2008}.
+
+
+\subsection{Prototyping and User Involvement}
+\label{subsec:prototyping}
+
+To facilitate communication with stakeholders and validate the proposed solution early in the process, low- and high-fidelity prototypes were created \cite{Dam_Siang_2025, GeeksforGeeks_2025}. Initial wireframes were produced to illustrate workflow logic and screen layouts, followed by interactive prototypes that simulated system functionality. User feedback from \acs{emel} guided the refinement of the interface and system functionalities, in accordance with \acs{hcd} principles ~\cite{ISO_9241_210_2019}.
+
+\subsection{System Architecture}
+\label{subsec:architecture}
+ 
+The system architecture follows a three-tier model \cite{Ibm_2025, Chiaramonte_2025}, composed of:
+
+\begin{itemize}
+    \item \textbf{Presentation Layer} – a responsive web interface designed for ease of use in workshop environments.
+    \item \textbf{Application Layer} – a set of \acs{rest}ful \acs{api} responsible for handling business logic, data validation, and user authentication.
+    \item \textbf{Data Layer} – a relational database designed to securely store vehicle maintenance records, user data, and historical service information.
+\end{itemize}
+
+This modular architecture enhances scalability, maintainability, and potential integration with other fleet management systems \cite{Academia_2017, Ibm_2025}.  Security and data integrity were also key considerations, with mechanisms for controlled access and data backup implemented to ensure reliability and compliance with data protection standards.
 
 
 
