@@ -6,14 +6,14 @@
 
 % To address these challenges, this dissertation proposes the design and implementation of a \textbf{web-based platform} to support the daily operations of LightMobi's dealerships. The chapter begins by discussing the market context and the reasons why maintenance management is a critical concern. It then introduces the objectives of the system and highlights the problems that arise in current practices. Finally, it outlines the structure of the thesis.
 
-This chapter introduces the context and motivation that led to the development of a \textbf{web-based platform} designed to optimize and organize the daily operations at workshops and dealerships involved in \acs{PBS}. It begins by exploring the evolution of the \acs{PBS} market and the growing importance of efficient maintenance management to ensure \acs{qa} and \acs{csat}. The chapter then defines the main objectives of the dissertation and discusses the operational problems that the proposed solution aims to address. Finally, it presents the overall structure of the thesis, outlining how each chapter contributes to the development and validation of the proposed system.
+This chapter introduces the context and motivation that led to the development of a web-based platform designed to optimize and organize the daily operations at workshops and dealerships involved in \acs{PBS}. It begins by exploring the evolution of the \acs{PBS} market and the growing importance of efficient maintenance management to ensure \acs{qa} and \acs{csat}. The chapter then defines the main objectives of the dissertation and discusses the operational problems that the proposed solution aims to address. Subsequently, it outlines the research methodology adopted to achieve these objectives, detailing the approach used to design, develop, and evaluate the proposed system. Finally, it presents the overall structure of the thesis, outlining how each chapter contributes to the development and validation of the proposed system.
 
 \end{introduction} 
 
 
 \section{Motivation}
 
-The \textbf{vehicle-sharing} market has grown significantly since 2021 due to the global interest in sustainability and environmental issues. ~\cite{cohesionOpenData} ~\cite{bike_data_businessresearch}
+The vehicle-sharing market has grown significantly since 2021 due to the global interest in sustainability and environmental issues. ~\cite{cohesionOpenData} ~\cite{bike_data_businessresearch}
 The \acs{PBS} market, in particular, has gained popularity from governments worldwide, which are investing in cycling infrastructure such as cycling lanes, secure parking facilities, bicycle production and repair industries ~\cite{Clercq2023} ~\cite{Cerro2024} ~\cite{European_declararion_on_cycling} ~\cite{bike_data_businessresearch} ~\cite{cohesionOpenData}.
 The increased focus on this sector highlights the need to modernize vehicle maintenance infrastructure, as many existing processes remain outdated and inefficient. ~\cite{MAS_MOTORS}
 This low quality of service can lead to a significant decrease in the loyalty of the customers, which is the main source of income. ~\cite{Setting_the_after_sale_process}
@@ -23,16 +23,16 @@ This low quality of service can lead to a significant decrease in the loyalty of
 % to the use of task management software to manage the maintenance tasks ~\cite{MAS_MOTORS}, 
 % there is a large range of solutions that can be implemented to improve the efficiency of the maintenance process.
 
-The company \ac{emel}, responsible for the management of urban mobility in Lisbon, operates the \acs{PBS} system GIRA. This service currently includes around 1,800 bicycles distributed across 159 stations, supporting an average of 7,405 trips per day ~\cite{Gira_Trips}. To ensure safety and reliability, bicycles undergo \acs{pm} either every 50 trips or every 14 days, depending on which threshold is reached first. On average, \ac{emel} performs about 70 maintenance operations per day ~\cite{Gira_Maintenance}. Given the scale of operations and the complexity of coordinating maintenance tasks across vehicles and stations, \ac{emel} requires an efficient system to organize and optimize this process, minimizing downtime while maximizing service availability.
+The company \acs{emel}, responsible for the management of urban mobility in Lisbon, operates the \acs{PBS} system GIRA. This service currently includes around 1,800 bicycles distributed across 159 stations, supporting an average of 7,405 trips per day ~\cite{Gira_Trips}. To ensure safety and reliability, bicycles undergo \acs{pm} either every 50 trips or every 14 days, depending on which threshold is reached first. On average, \acs{emel} performs about 70 maintenance operations per day ~\cite{Gira_Maintenance}. Given the scale of operations and the complexity of coordinating maintenance tasks across vehicles and stations, \acs{emel} requires an efficient system to organize and optimize this process, minimizing downtime while maximizing service availability.
 
-This dissertation presents a software solution that facilitates and organizes the work processes at the dealerships of a vehicle sharing manufacturer as well as at \ac{emel}. 
+This dissertation presents a software solution that facilitates and organizes the work processes at the dealerships of a vehicle sharing manufacturer as well as at \acs{emel}. 
 
 
 \section{Objectives and problems}
 
 The work at a workshop may be organized by manual input or with rudimentary applications. ~\cite{MAS_MOTORS} 
 This may introduce accidental human errors, which in turn lead to break of promises or unsatisfaction from the customer. ~\cite{MAS_MOTORS} ~\cite{Setting_the_after_sale_process}
-As a company grows, these limitations become increasingly evident. What might be manageable in a small business with only a few dozen bicycles can quickly turn into a bottleneck in a large-scale operation. This is particularly true for organizations like \ac{emel}, where the growing demand for maintenance services calls for a more structured and efficient system to ensure consistency, reliability, and continued success.
+As a company grows, these limitations become increasingly evident. What might be manageable in a small business with only a few dozen bicycles can quickly turn into a bottleneck in a large-scale operation. This is particularly true for organizations like \acs{emel}, where the growing demand for maintenance services calls for a more structured and efficient system to ensure consistency, reliability, and continued success.
 
 % The solution requirements will be gathered through direct communication with employees from both organizations, and its effectiveness will be validated with ordinary users.
 
@@ -63,7 +63,7 @@ In summary, the adopted methodology combines literature review, qualitative empi
 
 The system was developed following an \acs{agile} methodology, specifically inspired by the \acs{scrum} framework, due to its flexibility and focus on iterative progress and user feedback \cite{Agile_2008}. \acs{agile} development is particularly suitable for research-oriented projects, where system requirements evolve as new insights emerge from empirical investigation ~\cite{Beck_2001, Pressman_2020}.
 
-The development process was divided into incremental sprints, each lasting approximately two weeks. Each sprint included stages of requirement refinement, interface prototyping, implementation, and validation. Regular feedback loops with domain experts and potential users ensured continuous alignment between system functionalities and operational needs.
+The development process was divided into incremental sprints, each lasting approximately two weeks. Each sprint included stages of requirement refinement, interface prototyping, implementation, and validation. Regular feedback loops with domain experts ensured continuous alignment between system functionalities and operational needs.
 
 Following the completion of the development phase, user testing was conducted to evaluate the system’s usability and overall user satisfaction. The assessment employed the \acs{SUS} model, a standardized and widely adopted tool for measuring perceived usability in interactive systems\cite{sus_ori, sus_proves, Bangor_Kortum_Miller_2008}.
 
