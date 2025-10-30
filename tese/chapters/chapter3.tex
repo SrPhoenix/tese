@@ -14,7 +14,7 @@ The requirements for the application were defined based on insights gathered fro
 \subsection{Functional Requirements and Use cases}
 The functional requirements define the operations and features that the system must provide to support the daily activities of its users. These requirements were complemented by the creation of a set of \textbf{use cases} that illustrate how users interact with the system to accomplish specific goals. This approach helps capture requirements from the user’s perspective, ensuring that the solution aligns closely with real operational workflows.
 
-The application supports multiple user roles, each responsible for distinct aspects of the maintenance process: administrator, receptionist, mechanic, warehouse manager, workshop manager, and client. In addition, an administrator view provides global oversight and configuration capabilities to ensure the system operates efficiently across all dealerships.
+The application supports multiple user roles, each responsible for distinct aspects of the maintenance process: administrator, receptionist, mechanic, warehouse manager, workshop manager, and client. In addition, an administrator view provides configuration capabilities to ensure the system operates correctly.
 
 
 \subsubsection{Administrator}
@@ -31,7 +31,7 @@ The administrator is responsible for configuring the system and managing essenti
 
 \subsubsection{Receptionist}
 
-The receptionist acts as the main point of contact between the client and the workshop. This role involves registering vehicles, creating and updating maintenance requests, and keeping clients informed about the progress of their services. 
+The receptionist acts as the main point of contact between the client and the workshop. This role involves creating and updating maintenance requests, and keeping clients informed about the progress of their services. 
 
 \begin{itemize}
     \item Switch interface language between English and Portuguese
@@ -53,11 +53,11 @@ To model these interactions, several use cases were defined to describe the rece
     \item \textbf{Use Case 1.1 – Maintenance Schedule}\\
     \textit{Scenario:} Client arrives with a vehicle for repair.\\
     \textit{Objective:} Create a new maintenance request.\\
-    \textit{System:} Receptionist enters vehicle and client details, evaluation date, entity, client notes, and requested tasks.
+    \textit{System:} Receptionist registers vehicle and client details, evaluation date, entity, client notes, and requested tasks.
     \item \textbf{Use Case 1.2 – Maintenance Approval}\\
     \textit{Scenario:} Vehicle evaluation concludes.\\
     \textit{Objective:} Set budget, completion date, and tasks.\\
-    \textit{System:} Receptionist receives evaluation notification, consults customer, system calculates price, completion date set.
+    \textit{System:} Receptionist receives evaluation notification and consults the customer; the system calculates price and the rececionist set a completion date.
     \item \textbf{Use Case 1.3 – Collect Maintenance Information}\\
     \textit{Scenario:} Client contacts dealership for maintenance status.\\
     \textit{Objective:} View details of a maintenance request.\\
@@ -97,7 +97,7 @@ Mechanics are responsible for performing the actual maintenance work, including 
     \item View maintenance task details (registration number, task type, parts, step descriptions, needed parts, client desired tasks)
     \item Finalize a task and comment before completion
     \item View evaluation tasks (maintenance tasks needed, client comment)
-    \item If evaluations are not used, maintenance concludes when a mechanic finishes the evaluation task
+    \item If evaluations are not done in the dealership, maintenance concludes when a mechanic finishes the evaluation task
 \end{itemize}
 
 The following use cases illustrate the main interactions of the mechanic with the system during daily operations:
@@ -264,7 +264,7 @@ The following use cases capture typical client interactions within the platform:
     \item \textbf{Use Case 5.2 – Receive End Notification}\\
     \textit{Scenario:} Maintenance completed.\\
     \textit{Objective:} Notify client.\\
-    \textit{System:} email sent.
+    \textit{System:} Send email.
     \item \textbf{Use Case 5.3 – Rate Completed Service}\\
     \textit{Scenario:} Maintenance concludes and client retrieves vehicle.\\
     \textit{Objective:} Obtain service feedback.\\
@@ -283,7 +283,7 @@ The following use cases capture typical client interactions within the platform:
 \subsubsection{System Requirements}
 
 The system also enforces several logical and structural requirements to ensure consistency, integrity, and operational efficiency, as summarized below:
-
+ 
 \begin{itemize}
     \item The system must generate a repair report for each maintenance completed.
     \item Each maintenance task must have a defined sequence to ensure correct order of execution.
@@ -379,20 +379,6 @@ In Figure~\ref{fig:maintenanceUseCaseStatus} and ~\ref{fig:maintenanceDealership
 To further clarify how these statuses operate in practice, Figure~\ref{fig:maintenanceUseCaseStatus} and ~\ref{fig:maintenanceDealershipUseCaseStatus} illustrate their use within two different contexts: a dealership providing standard maintenance services and an entity managing maintenance without evaluation.
 
 
-\begin{figure}[h]
-  \caption{Use case flow chart of dealership maintenance, with statuses grouped by use cases}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Status/Maintenance/UseCaseStatus}
-  \label{fig:maintenanceUseCaseStatus}
-\end{figure}
-
-
-\begin{figure}[h]
-  \caption{Use case flow chart of an entity managing maintenance without evaluation, with statuses grouped by use cases}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Status/Maintenance/EntityDiagram}
-  \label{fig:maintenanceDealershipUseCaseStatus}
-\end{figure}
 
 
 \subsection{Maintenance Change Status} 

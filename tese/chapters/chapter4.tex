@@ -63,7 +63,7 @@ Figure~\ref{fig:dbMaintenance} illustrates this structure.
 \begin{figure}[h]
   \caption{Database diagram for Maintenance and Tasks.}
   \centering
-  \includegraphics[width=0.75\textwidth]{figs/dbDiagrams/Maintenance_and_Tasks}
+  \includegraphics[width=\textwidth]{figs/dbDiagrams/Maintenance_and_Tasks}
   \label{fig:dbMaintenance}
 \end{figure}
 
@@ -114,7 +114,7 @@ Figure~\ref{fig:dbServices} shows the services structure.
 \begin{figure}[h]
   \caption{Database diagram for Services.}
   \centering
-  \includegraphics[width=0.75\textwidth]{figs/dbDiagrams/Services}
+  \includegraphics[width=0.95\textwidth]{figs/dbDiagrams/Services}
   \label{fig:dbServices}
 \end{figure}
 
@@ -124,7 +124,7 @@ Figure~\ref{fig:dbServices} shows the services structure.
 
 Finally, the system manages dealerships, \acs{PBS} companies, and vehicles. Vehicles are linked to their type (e.g., \ac{ev}, conventional bike) and to the dealership or entity that owns them.
 
-Partnerships between \acs{PBS} companies and dealerships are also modeled, allowing \acs{PBS} entities to grant specific dealerships access to their fleet information. Each partnership request can be accepted, denied, or remain pending.
+Partnerships between \acs{PBS} companies and dealerships are also modeled, allowing \acs{PBS} entities to grant specific dealerships access to their fleet information. 
 
 Figure~\ref{fig:dbVehicles} shows this part of the database.
 
@@ -181,7 +181,7 @@ The receptionist's \ac{UI} is designed to simplify the scheduling and monitoring
   \label{fig:impReceAddTask}
 \end{figure}
 
-To schedule a new maintenance, the receptionist can either click the "Schedule Maintenance" button or select a specific date on the chart. Both options open a modal (Figure~\ref{fig:impReceAddTask}), where the date can be adjusted, existing tasks for that day are displayed, and a scheduling form is available. The form includes fields for the client's information, vehicle registration, arrival time, optional pre-selected tasks, and notes for the mechanic. Once completed, the receptionist confirms the schedule, creating a new maintenance record in the system (Use Case 1.1 – Maintenance Schedule). If the email entered for the maintenance isn't linked to any existing client, the system automatically creates a new client record with just an ID and the email address. Then, an email is sent to the client with a link to a form where they can confirm their email, set a password, and fill in the rest of their information (Figures~\ref{fig:CreateClient} and ~\ref{fig:SetPassword}).
+To schedule a new maintenance, the receptionist can either click the “Schedule Maintenance” button or select a specific date on the chart. Both options open a modal (Figure~\ref{fig:impReceAddTask}), where the date can be adjusted, existing tasks for that day are displayed, and a scheduling form is available. The form includes fields for the client's information, vehicle registration, arrival time, optional pre-selected tasks, and notes for the mechanic. Once completed, the receptionist confirms the schedule, creating a new maintenance record in the system (Use Case 1.1 – Maintenance Schedule). If the email entered for the maintenance isn't linked to any existing client, the system automatically creates a new client record with just an ID and the email address. Then, an email is sent to the client with a link to a form where they can confirm their email, set a password, and fill in the rest of their information (Figures~\ref{fig:CreateClient} and ~\ref{fig:SetPassword}).
 
 \begin{figure}[h]
   \caption{List of active maintenances.}
@@ -191,7 +191,7 @@ To schedule a new maintenance, the receptionist can either click the "Schedule M
 \end{figure}
 
 
-The application also provides quick access to active maintenances through the "Active Maintenance" menu option (Figure~\ref{fig:impReceListMaint}). This section lists ongoing maintenances, including key details such as vehicle registration, associated entity, expected completion date, and progress percentage. Visual indicators highlight maintenances with pending changes requiring client confirmation. From here, the receptionist can open detailed views (Figures~\ref{fig:impReceMaintHome}, ~\ref{fig:impReceMaintTask} and ~\ref{fig:impReceMaintChange}), which present information about the maintenance, associated tasks, and any proposed changes. 
+The application also provides quick access to active maintenances through the “Active Maintenance” menu option (Figure~\ref{fig:impReceListMaint}). This section lists ongoing maintenances, including key details such as vehicle registration, associated entity, expected completion date, and progress percentage. Visual indicators highlight maintenances with pending changes requiring client confirmation. From here, the receptionist can open detailed views (Figures~\ref{fig:impReceMaintHome}, ~\ref{fig:impReceMaintTask} and ~\ref{fig:impReceMaintChange}), which present information about the maintenance, associated tasks, and any proposed changes. 
 In addition, the modal includes a dedicated tab for the approval of maintenance tasks following the vehicle evaluation (Figure~\ref{fig:impReceMaintApproval}). In this tab, the receptionist can review the tasks proposed by the mechanic, their associated costs, required parts, and warehouse availability. Once the client's preferences are confirmed, the receptionist finalizes the maintenance plan (Use Case 1.2 – Define maintenance details).
 These features enable the receptionist to respond accurately to client inquiries (Use Case 1.3 – Collect maintenance information) and manage approvals or cancellations of changes (Use Cases 1.4, 1.5, and 1.7). Additionally, the receptionist can complete the maintenace process by recording the vehicle delivery date (Use Case 1.6 – Deliver vehicle).
 
