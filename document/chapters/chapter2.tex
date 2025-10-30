@@ -76,7 +76,7 @@ Another user will be inserted into this flow, the warehouse operator, to manage 
 The entire flow will be explained in Chapter III. 
 
 \subsection{Service Quality}
-SERVQUAL is a service quality concept that provides a multidimensional approach for comparing consumers' perceptions of service quality against their expectations. 
+\ac{servqual} is a service quality concept that provides a multidimensional approach for comparing consumers' perceptions of service quality against their expectations. 
 It emphasizes five core dimensions ~\cite{SERVQUAL_OLD}:
 
 
@@ -130,7 +130,7 @@ This application will allow the users to evaluate the service done in this deale
 MAS Motors LLC is a Toyota dealership that provides vehicle maintenance services in Libya.
 This company handles the daily work manually using basic applications and paper documents.
 This approach has proven to be ineffective with the expansion of the business and the company needs a more modern method. ~\cite{MAS_MOTORS}
-So the author ~\citet{MAS_MOTORS} developed a web application that facilitates and increases the performance of the work at the dealership.
+So the author ~\citet{MAS_MOTORS} developed a web application that facilitates and increases the \acs{kpi} of a dealership.
 
 The system targets multiple user groups, such as service advisers, technicians, and customers, and offers a centralized platform to manage tasks like job card management, inventory updates, and customer service. ~\cite{MAS_MOTORS}
 The authors' application was developed using Laravel, which is a PHP web application framework, with MariaDB as the database management system, which is a popular open-source relational database.
@@ -156,7 +156,7 @@ The acronym stands for:
 
 \begin{itemize}
    \item Functionality – The core features and business-domain-specific aspects.
-   \item Usability – User interface considerations like accessibility and aesthetics.
+   \item Usability – \ac{UI} considerations like accessibility and aesthetics.
    \item Reliability – System availability, accuracy, and failure recovery.
    \item Performance – Metrics such as response time and throughput.
    \item Supportability – Testability, maintainability, and scalability.
@@ -186,19 +186,19 @@ This SMS notifications functionality will be planned in this dissertation Client
 The framework the application will be built with is the Asp Net Core MVC. 
 I believe this approach will be better than following the successful application from \citet{MAS_MOTORS} due to a variety of reasons shown in \ref{table:architetcture_comparison}.
 
-Firstly, the integration with the Microsoft framework MYSQL database is more simple when using ASP.NET Core due to the package Entity Framework. % [https://learn.microsoft.com/en-us/aspnet/entity-framework]
+Firstly, the integration with the Microsoft framework MYSQL database is more simple when using \ac{ASP.NET} Core due to the package Entity Framework. % [https://learn.microsoft.com/en-us/aspnet/entity-framework]
 Laravel also supports this database interaction, but Asp Net Core MVC is more suitable for this environment. ~\cite{asp_net_vs_laravel}
 
-Additionally, Laravel loses in performance with the compiled language ASP.NET since it is an interpreted language. 
+Additionally, Laravel loses in performance with the compiled language \ac{ASP.NET} since it is an interpreted language. 
 Finally, in security, Laravel offers some security features like hashing or secure input validation but requires deeper PHP knowledge and proactive vulnerability management. 
-Microsoft offers greater security tools in ASP.NET Core mvc with role-based authentication and login management with Identity framework.
+Microsoft offers greater security tools in \ac{ASP.NET} Core mvc with role-based authentication and login management with Identity framework.
 These functionalities provide a major abstraction to this concept and allow the developer to focus on the application functionalities. ~\cite{asp_net_vs_laravel}
 
 
 \begin{table}[]
     \begin{tabular}{| m{5em} | m{15em} | m{15em} |}
       \hline
-   Parameter & Laravel  & ASP.NET Core MVC   \\
+   Parameter & Laravel  & \ac{ASP.NET} Core MVC   \\
      \hline
    Language & PHP & C\#  \\
      \hline
@@ -209,7 +209,7 @@ These functionalities provide a major abstraction to this concept and allow the 
    Integration with SQL & Supports various relational databases & More recommended for Microsoft environments because of integration packages  \\
      \hline
   \end{tabular}
-    \caption{Comparison of the Laravel and ASP.NET Core MVC frameworks on a web application development to be integrated into LightMobie Platform.}
+    \caption{Comparison of the Laravel and \ac{ASP.NET} Core MVC frameworks on a web application development to be integrated into LightMobie Platform.}
     \label{table:architetcture_comparison}
     \end{table}
 

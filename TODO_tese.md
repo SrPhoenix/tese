@@ -297,6 +297,22 @@ checar abstract em pt e ingles      - DONE
 ler tese toda
 
 
+AI
+- resumo pt
+- resumo en
+- chapter 1
+- chapter 2
+- chapter 3
+
+## Actuallly actually fazer
+
+Meter mais coisas no glossário
+meter mais referencias principalmente na parte tecnologia (?)
+adicionar secção de como foi o metodo para desenvolver a aplicação
+
+
+
+
 
 
 
