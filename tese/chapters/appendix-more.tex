@@ -1,6 +1,7 @@
 \chapter{Additional content}
 
-
+\clearpage
+\section{\acs{emel} paper forms}
 \begin{figure}[htbp]
   \caption{Front page of the paper form used by \acs{emel} during vehicle maintenance. Operators use this section to record identified malfunctions.}
   \centering
@@ -15,6 +16,9 @@
   \label{fig:emel_back}
 \end{figure}
 
+\clearpage
+\section{\ac{servqual}}
+\subsection{\ac{servqual} in CMV SA dealership}
 
 \begin{figure}[htbp]
   \caption{\ac{servqual} statements used by the authors in the study to measure the quality of the service at a CMV SA dealership in South Africa (~\cite{Measuring_After_sales_Service_Quality}).}
@@ -31,9 +35,12 @@
   \label{fig:SERVQUAL_results}
 \end{figure}
 
+\clearpage
+\subsection{\ac{servqual} questionaire}
+
 \begin{table}[ht]
 \centering
-\resizebox{0.90\textwidth}{!}{%
+\resizebox{0.75\textwidth}{!}{%
 \begin{tabular}{p{2.5cm} p{6cm} p{6cm} p{1.5cm}}
 \hline
 \textbf{Dimension} & \textbf{Expectation Survey} & \textbf{Perception Survey} & \textbf{Gap} \\
@@ -71,11 +78,14 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \label{table:servqual_template}
 \end{table}
 
+\clearpage
+\section{Maintenance flow chart}
+
 
 \begin{figure}[h]
   \caption{Use case flow chart of dealership maintenance, with statuses grouped by use cases}
   \centering
-  \includegraphics[width=\textwidth]{figs/Status/Maintenance/UseCaseStatus}
+  \includegraphics[width=0.90\textwidth]{figs/Status/Maintenance/UseCaseStatus}
   \label{fig:maintenanceUseCaseStatus}
 \end{figure}
 
@@ -87,6 +97,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:maintenanceDealershipUseCaseStatus}
 \end{figure}
 
+\section{Database indexes}
 
 
 \foreach \p in {1,...,4}{%  <-- change 5 to the total number of pages
@@ -98,32 +109,38 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \end{figure}
 }
 
+\clearpage
+\section{Application implementation images}
 
+\subsection{Rececionist}
+
+
+\subsubsection{Create Client}
+
+
+\begin{figure}[htbp]
+  \caption{Example of the confirmation email sent to the client. The layout used for dealership employees is similar.}
+  \centering
+  \includegraphics[width=0.80\textwidth]{figs/Implementation/rececionist/CreateClient}
+  \label{fig:CreateClient}
+\end{figure}
+
+
+\begin{figure}[htbp]
+  \caption{Form where the client fills in the remaining required personal information.}
+  \centering
+  \includegraphics[width=0.80\textwidth]{figs/Implementation/rececionist/SetPassword}
+  \label{fig:SetPassword}
+\end{figure}
+
+\clearpage
+\subsubsection{Active Maintenance}
 
 \begin{figure}[htbp]
   \caption{Active maintenance details Information tab.}
   \centering
   \includegraphics[width=\textwidth]{figs/Implementation/rececionist/maintenance_details}
   \label{fig:impReceMaintHome}
-\end{figure}
-
-
-
-
-\begin{figure}[htbp]
-  \caption{Example of the confirmation email sent to the client. The layout used for dealership employees is similar.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/CreateClient}
-  \label{fig:CreateClient}
-\end{figure}
-
-
-
-\begin{figure}[htbp]
-  \caption{Form where the client fills in the remaining required personal information.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/rececionist/SetPassword}
-  \label{fig:SetPassword}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -142,6 +159,10 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 
 
 
+\clearpage
+\subsection{Mechanic}
+
+\subsubsection{Maintenance Normal Task}
 
 \begin{figure}[htbp]
   \caption{Mechanic completing simple task first step.}
@@ -168,6 +189,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \end{figure}
 
 
+\subsubsection{Vehicle Evaluation}
 
 
 \begin{figure}[htbp]
@@ -194,7 +216,10 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \end{figure}
 
 
+\clearpage
+\subsection{Warehouse Manager}
 
+\subsubsection{Inventory}
 
 \begin{figure}[htbp]
   \caption{Inventory editor.}
@@ -203,6 +228,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:inventoryEdit}
 \end{figure}
 
+\subsubsection{Purchases}
 
 
 \begin{figure}[htbp]
@@ -228,6 +254,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:PurchaseFinishedDetails}
 \end{figure}
 
+\subsubsection{Supplier}
 
 
 \begin{figure}[htbp]
@@ -238,7 +265,10 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \end{figure}
 
 
+\clearpage
+\subsection{Workshop Manager}
 
+\subsubsection{Assign Task}
 
 \begin{figure}[htbp]
   \caption{Assign task to a mechanic.}
@@ -247,6 +277,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:workshopmanagerAssignTask}
 \end{figure}
 
+\subsubsection{Maintenance}
 
 \begin{figure}[htbp]
   \caption{Active maintenance list.}
@@ -278,9 +309,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:report}
 \end{figure}
 
-
- 
-
+\subsubsection{Purchase}
 
 \begin{figure}[htbp]
   \caption{Purchase request details.}
@@ -289,6 +318,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:workshopmanagerPurchaseDetails}
 \end{figure}
 
+\subsubsection{Supplier}
 
 \begin{figure}[htbp]
   \caption{Supplier list.}
@@ -304,6 +334,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:workshopmanagerupplierDetails}
 \end{figure}
 
+\subsubsection{Workers}
 
 \begin{figure}[htbp]
   \caption{Worker details.}
@@ -321,6 +352,11 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:workerCreate}
 \end{figure}
 
+\clearpage
+\subsection{Client}
+
+\subsubsection{Email Notification}
+
 
 \begin{figure}[htbp]
   \caption{Client email notification of the end of the maintenance.}
@@ -329,6 +365,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:MaintenanceFinishedNotification}
 \end{figure}
 
+\subsubsection{Application layout}
 
 \begin{figure}[htbp]
   \caption{Client home page with no active maintenance.}
@@ -364,6 +401,7 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:MaintenanceState4}
 \end{figure}
 
+\subsubsection{Client Questionaires}
 
 \begin{figure}[htbp]
   \caption{Client Expectation Questionaire refering the questions and introduction in ~\cite{master_servqual_model}.}
@@ -380,11 +418,12 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:PerceptionQuestionare}
 \end{figure}
 
+\subsubsection{Maintenance History}
 
 \begin{figure}[htbp]
   \caption{Details of a maintenance example the tab of information.}
   \centering
-  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/MaintenanceDetailsInfo}
+  \includegraphics[width=0.25\textwidth]{figs/Implementation/client/MaintenanceDetailsInfo}
   \label{fig:MaintenanceDetailsInfo}
 \end{figure}
 
@@ -392,12 +431,15 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \begin{figure}[htbp]
   \caption{Details of a maintenance example the list of task.}
   \centering
-  \includegraphics[width=0.30\textwidth]{figs/Implementation/client/MaintenanceDetailsTasks}
+  \includegraphics[width=0.25\textwidth]{figs/Implementation/client/MaintenanceDetailsTasks}
   \label{fig:MaintenanceDetailsTasks}
 \end{figure}
 
+\clearpage
+\subsection{Dealership Admin}
 
 
+\subsubsection{Manage Parts}
 
 \begin{figure}[htbp]
   \caption{Parts type details.}
@@ -429,6 +471,8 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \end{figure}
 
 
+\clearpage
+\subsubsection{Manage Normal Tasks}
 
 \begin{figure}[htbp]
   \caption{Task type list index.}
@@ -436,23 +480,6 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/taskIndex}
   \label{fig:taskIndex}
 \end{figure}
-
-\clearpage
-
-\begin{figure}[htbp]
-  \caption{Eval task list index.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalIndex}
-  \label{fig:evalIndex}
-\end{figure}
- 
-\begin{figure}[htbp] 
-  \caption{Eval task edit.}
-  \centering
-  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalEdit}
-  \label{fig:evalEdit} 
-\end{figure}
-
 
 \begin{figure}[htbp]
   \caption{Task type edit.}
@@ -485,6 +512,26 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
 \end{figure}
 
 
+\subsubsection{Manage Evaluation Tasks}
+
+
+\begin{figure}[htbp]
+  \caption{Eval task list index.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalIndex}
+  \label{fig:evalIndex}
+\end{figure}
+ 
+\begin{figure}[htbp] 
+  \caption{Eval task edit.}
+  \centering
+  \includegraphics[width=\textwidth]{figs/Implementation/dealershipAdmin/evalEdit}
+  \label{fig:evalEdit} 
+\end{figure}
+
+
+
+
 \begin{figure}[htbp]
   \caption{Eval task create.}
   \centering
@@ -506,6 +553,8 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:evalDetails}
 \end{figure}
 
+\section{Usability test tasks}
+
 \foreach \p in {1,...,11}{%  <-- change 5 to the total number of pages
 \begin{figure}[p]
   \caption{User tests tasks — page \p}
@@ -514,6 +563,8 @@ Empathy & E18. Excellent companies will give customers individual attention. & P
   \label{fig:UserTestsTasks-\p}
 \end{figure}
 }
+
+\section{Usability test questionaire}
 
 \foreach \p in {1,...,6}{%  <-- change 5 to the total number of pages
 \begin{figure}[p]
